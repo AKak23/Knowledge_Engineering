@@ -1,0 +1,3996 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "电信·telecom_T1_acquisition",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=telecom_T1_acquisition，graph=telecom_T1_acquisition_seed46）：15 个对象类型 / 21 个关系 / 13 个动作 / 45 个实例 / 15 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "运营商客户主体",
+      "objectCode": "Customer",
+      "description": "运营商客户主体",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "信用等级",
+          "attributeCode": "Customer.credit_level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "客户类型",
+          "attributeCode": "Customer.customer_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "个人",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "客户实名认证证件",
+      "objectCode": "IdentityDocument",
+      "description": "客户实名认证证件",
+      "attributes": [
+        {
+          "attributeId": 6,
+          "attributeName": "文档ID",
+          "attributeCode": "IdentityDocument.doc_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "11010119900307285X",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "文档类型",
+          "attributeCode": "IdentityDocument.doc_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "id_card",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "已验证",
+          "attributeCode": "IdentityDocument.verified",
+          "dataType": "boolean",
+          "description": "",
+          "sampleValue": true,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "客户的计费账户",
+      "objectCode": "Account",
+      "description": "客户的计费账户",
+      "attributes": [
+        {
+          "attributeId": 9,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ACC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "postpaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "入网受理订单",
+      "objectCode": "Order",
+      "description": "入网受理订单",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "渠道",
+          "attributeCode": "Order.channel",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "online",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "创建时间",
+          "attributeCode": "Order.created_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15T10:22:34Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ORD20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "fulfilled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "总金额",
+          "attributeCode": "Order.total_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 199.9,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "可售产品父类型",
+      "objectCode": "Product",
+      "description": "可售产品父类型",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "类别",
+          "attributeCode": "Product.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "mobile",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "畅享5G套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001234567",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "移动套餐",
+      "objectCode": "MobilePlan",
+      "description": "移动套餐",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "类别",
+          "attributeCode": "MobilePlan.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "mobile",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "流量配额(GB)",
+          "attributeCode": "MobilePlan.data_quota_gb",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 30.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "月费",
+          "attributeCode": "MobilePlan.monthly_fee",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 88.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "MobilePlan.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "畅享流量王套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "产品ID",
+          "attributeCode": "MobilePlan.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "语音时长(分钟)",
+          "attributeCode": "MobilePlan.voice_minutes",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 500,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "宽带套餐",
+      "objectCode": "BroadbandPlan",
+      "description": "宽带套餐",
+      "attributes": [
+        {
+          "attributeId": 27,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "BroadbandPlan.bandwidth_mbps",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 1000,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "类别",
+          "attributeCode": "BroadbandPlan.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "broadband",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "月费",
+          "attributeCode": "BroadbandPlan.monthly_fee",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 129.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "BroadbandPlan.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "千兆极速宽带套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "产品ID",
+          "attributeCode": "BroadbandPlan.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BBP2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "客户对产品的订阅记录",
+      "objectCode": "Subscription",
+      "description": "客户对产品的订阅记录",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "开始日期",
+          "attributeCode": "Subscription.start_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-05-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "Subscription.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "订阅ID",
+          "attributeCode": "Subscription.subscription_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SUB2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "期限(月)",
+          "attributeCode": "Subscription.term_months",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 12,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "面向用户的网络服务",
+      "objectCode": "Service",
+      "description": "面向用户的网络服务",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-05-12T09:15:30Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SVC-78901",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "服务类型",
+          "attributeCode": "Service.service_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "voice",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "为服务分配的网络资源",
+      "objectCode": "Resource",
+      "description": "为服务分配的网络资源",
+      "attributes": [
+        {
+          "attributeId": 40,
+          "attributeName": "资源ID",
+          "attributeCode": "Resource.resource_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MSISDN-8613912345678",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "资源类型",
+          "attributeCode": "Resource.resource_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "msisdn",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "状态",
+          "attributeCode": "Resource.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "allocated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "实体或 eSIM 卡资源",
+      "objectCode": "SIMCard",
+      "description": "实体或 eSIM 卡资源",
+      "attributes": [
+        {
+          "attributeId": 43,
+          "attributeName": "ICCID",
+          "attributeCode": "SIMCard.iccid",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "8986002100000000001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "资源ID",
+          "attributeCode": "SIMCard.resource_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RES-MSISDN-7890123456",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "资源类型",
+          "attributeCode": "SIMCard.resource_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "msisdn",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "状态",
+          "attributeCode": "SIMCard.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "allocated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "承载服务的网元",
+      "objectCode": "NetworkElement",
+      "description": "承载服务的网元",
+      "attributes": [
+        {
+          "attributeId": 47,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "NE-BTS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "bts",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "区域",
+          "attributeCode": "NetworkElement.region",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东区",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "受理及审批人员",
+      "objectCode": "Employee",
+      "description": "受理及审批人员",
+      "attributes": [
+        {
+          "attributeId": 50,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "agent",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "客户入网合同",
+      "objectCode": "Contract",
+      "description": "客户入网合同",
+      "attributes": [
+        {
+          "attributeId": 53,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CT2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "签署日期",
+          "attributeCode": "Contract.signed_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "signed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "服务安装/账单地址",
+      "objectCode": "Address",
+      "description": "服务安装/账单地址",
+      "attributes": [
+        {
+          "attributeId": 56,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "深圳市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 58,
+          "attributeName": "明细",
+          "attributeCode": "Address.detail",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "南山区科技园科发路8号讯美科技广场1栋1201室",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "省份",
+          "attributeCode": "Address.province",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "广东省",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "运营商客户主体",
+      "targetObjectId": 2,
+      "targetObjectName": "客户实名认证证件",
+      "linkInfo": "客户实名认证证件",
+      "linkType": "1:N",
+      "description": "verified_by_doc",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 1,
+      "sourceObjectName": "运营商客户主体",
+      "targetObjectId": 3,
+      "targetObjectName": "客户的计费账户",
+      "linkInfo": "客户拥有账户",
+      "linkType": "1:N",
+      "description": "owns_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 1,
+      "sourceObjectName": "运营商客户主体",
+      "targetObjectId": 4,
+      "targetObjectName": "入网受理订单",
+      "linkInfo": "客户下达订单",
+      "linkType": "1:N",
+      "description": "places_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 4,
+      "sourceObjectName": "入网受理订单",
+      "targetObjectId": 3,
+      "targetObjectName": "客户的计费账户",
+      "linkInfo": "订单挂靠账户",
+      "linkType": "N:1",
+      "description": "order_for_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 4,
+      "sourceObjectName": "入网受理订单",
+      "targetObjectId": 14,
+      "targetObjectName": "客户入网合同",
+      "linkInfo": "订单签订合同",
+      "linkType": "1:1",
+      "description": "order_signs_contract",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 4,
+      "sourceObjectName": "入网受理订单",
+      "targetObjectId": 8,
+      "targetObjectName": "客户对产品的订阅记录",
+      "linkInfo": "订单生成订阅",
+      "linkType": "1:N",
+      "description": "order_creates_subscription",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 8,
+      "sourceObjectName": "客户对产品的订阅记录",
+      "targetObjectId": 5,
+      "targetObjectName": "可售产品父类型",
+      "linkInfo": "订阅指向产品",
+      "linkType": "N:1",
+      "description": "subscription_of_product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 8,
+      "sourceObjectName": "客户对产品的订阅记录",
+      "targetObjectId": 9,
+      "targetObjectName": "面向用户的网络服务",
+      "linkInfo": "订阅开通服务",
+      "linkType": "1:N",
+      "description": "subscription_provisions_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 9,
+      "sourceObjectName": "面向用户的网络服务",
+      "targetObjectId": 10,
+      "targetObjectName": "为服务分配的网络资源",
+      "linkInfo": "服务占用资源",
+      "linkType": "1:N",
+      "description": "service_uses_resource",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 10,
+      "sourceObjectName": "为服务分配的网络资源",
+      "targetObjectId": 12,
+      "targetObjectName": "承载服务的网元",
+      "linkInfo": "资源承载在网元上",
+      "linkType": "N:1",
+      "description": "resource_on_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 9,
+      "sourceObjectName": "面向用户的网络服务",
+      "targetObjectId": 12,
+      "targetObjectName": "承载服务的网元",
+      "linkInfo": "服务部署在网元",
+      "linkType": "N:1",
+      "description": "service_on_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 4,
+      "sourceObjectName": "入网受理订单",
+      "targetObjectId": 13,
+      "targetObjectName": "受理及审批人员",
+      "linkInfo": "订单受理员工",
+      "linkType": "N:1",
+      "description": "order_handled_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 4,
+      "sourceObjectName": "入网受理订单",
+      "targetObjectId": 13,
+      "targetObjectName": "受理及审批人员",
+      "linkInfo": "订单审批员工",
+      "linkType": "N:1",
+      "description": "order_approved_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 9,
+      "sourceObjectName": "面向用户的网络服务",
+      "targetObjectId": 15,
+      "targetObjectName": "服务安装/账单地址",
+      "linkInfo": "服务安装地址",
+      "linkType": "N:1",
+      "description": "service_installed_at",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 1,
+      "sourceObjectName": "运营商客户主体",
+      "targetObjectId": 15,
+      "targetObjectName": "服务安装/账单地址",
+      "linkInfo": "客户登记地址",
+      "linkType": "N:M",
+      "description": "customer_at_address",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 14,
+      "sourceObjectName": "客户入网合同",
+      "targetObjectId": 1,
+      "targetObjectName": "运营商客户主体",
+      "linkInfo": "合同归属客户",
+      "linkType": "N:1",
+      "description": "contract_for_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 8,
+      "sourceObjectName": "客户对产品的订阅记录",
+      "targetObjectId": 3,
+      "targetObjectName": "客户的计费账户",
+      "linkInfo": "订阅挂靠账户",
+      "linkType": "N:1",
+      "description": "subscription_under_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 13,
+      "sourceObjectName": "受理及审批人员",
+      "targetObjectId": 9,
+      "targetObjectName": "面向用户的网络服务",
+      "linkInfo": "工程师开通服务",
+      "linkType": "1:N",
+      "description": "engineer_provisions_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 6,
+      "sourceObjectName": "移动套餐",
+      "targetObjectId": 5,
+      "targetObjectName": "可售产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "MobilePlan is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 7,
+      "sourceObjectName": "宽带套餐",
+      "targetObjectId": 5,
+      "targetObjectName": "可售产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "BroadbandPlan is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 11,
+      "sourceObjectName": "实体或 eSIM 卡资源",
+      "targetObjectId": 10,
+      "targetObjectName": "为服务分配的网络资源",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "SIMCard is-a Resource",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "核验身份",
+      "actionCode": "verify_identity",
+      "description": "执行者：受理及审批人员；对象：客户实名认证证件",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "客户实名认证证件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "提交订单",
+      "actionCode": "submit_order",
+      "description": "执行者：运营商客户主体；对象：入网受理订单",
+      "inputObjects": [
+        "运营商客户主体"
+      ],
+      "outputObjects": [
+        "入网受理订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "审批订单",
+      "actionCode": "approve_order",
+      "description": "执行者：受理及审批人员；对象：入网受理订单",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "入网受理订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "拒绝订单",
+      "actionCode": "reject_order",
+      "description": "执行者：受理及审批人员；对象：入网受理订单",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "入网受理订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "履行订单",
+      "actionCode": "fulfill_order",
+      "description": "执行者：受理及审批人员；对象：入网受理订单",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "入网受理订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "取消订单",
+      "actionCode": "cancel_order",
+      "description": "执行者：运营商客户主体；对象：入网受理订单",
+      "inputObjects": [
+        "运营商客户主体"
+      ],
+      "outputObjects": [
+        "入网受理订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "激活账户",
+      "actionCode": "activate_account",
+      "description": "执行者：受理及审批人员；对象：客户的计费账户",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "客户的计费账户"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "激活订阅",
+      "actionCode": "activate_subscription",
+      "description": "执行者：受理及审批人员；对象：客户对产品的订阅记录",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "客户对产品的订阅记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "分配资源",
+      "actionCode": "allocate_resource",
+      "description": "执行者：受理及审批人员；对象：为服务分配的网络资源",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "为服务分配的网络资源"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "预留资源",
+      "actionCode": "reserve_resource",
+      "description": "执行者：受理及审批人员；对象：为服务分配的网络资源",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "为服务分配的网络资源"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "开通服务",
+      "actionCode": "provision_service",
+      "description": "执行者：受理及审批人员；对象：面向用户的网络服务",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "面向用户的网络服务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "签署合同",
+      "actionCode": "sign_contract",
+      "description": "执行者：运营商客户主体；对象：客户入网合同",
+      "inputObjects": [
+        "运营商客户主体"
+      ],
+      "outputObjects": [
+        "客户入网合同"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "激活客户",
+      "actionCode": "activate_customer",
+      "description": "执行者：受理及审批人员；对象：运营商客户主体",
+      "inputObjects": [
+        "受理及审批人员"
+      ],
+      "outputObjects": [
+        "运营商客户主体"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Customer_001",
+      "instanceName": "运营商客户主体_001",
+      "objectId": 1,
+      "objectName": "运营商客户主体",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "信用等级",
+          "attributeCode": "Customer.credit_level",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "客户类型",
+          "attributeCode": "Customer.customer_type",
+          "dataType": "string",
+          "value": "个人",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户实名认证证件",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户实名认证证件_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户实名认证证件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 12,
+          "targetInstanceName": "客户的计费账户_002",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Customer_002",
+      "instanceName": "运营商客户主体_002",
+      "objectId": 1,
+      "objectName": "运营商客户主体",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "信用等级",
+          "attributeCode": "Customer.credit_level",
+          "dataType": "string",
+          "value": "B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "客户类型",
+          "attributeCode": "Customer.customer_type",
+          "dataType": "string",
+          "value": "家庭",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "李明家庭",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户实名认证证件",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户实名认证证件_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户实名认证证件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户实名认证证件",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户实名认证证件_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户实名认证证件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下达订单",
+          "targetInstanceId": 14,
+          "targetInstanceName": "入网受理订单_001",
+          "targetObjectId": 4,
+          "targetObjectName": "入网受理订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "客户登记地址",
+          "targetInstanceId": 44,
+          "targetInstanceName": "服务安装/账单地址_002",
+          "targetObjectId": 15,
+          "targetObjectName": "服务安装/账单地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Customer_003",
+      "instanceName": "运营商客户主体_003",
+      "objectId": 1,
+      "objectName": "运营商客户主体",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "信用等级",
+          "attributeCode": "Customer.credit_level",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "客户类型",
+          "attributeCode": "Customer.customer_type",
+          "dataType": "string",
+          "value": "政企",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "北京市朝阳区人民政府",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户实名认证证件",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户实名认证证件_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户实名认证证件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户实名认证证件",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户实名认证证件_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户实名认证证件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 11,
+          "targetInstanceName": "客户的计费账户_001",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户的计费账户_003",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下达订单",
+          "targetInstanceId": 16,
+          "targetInstanceName": "入网受理订单_003",
+          "targetObjectId": 4,
+          "targetObjectName": "入网受理订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下达订单",
+          "targetInstanceId": 17,
+          "targetInstanceName": "入网受理订单_004",
+          "targetObjectId": 4,
+          "targetObjectName": "入网受理订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "客户登记地址",
+          "targetInstanceId": 44,
+          "targetInstanceName": "服务安装/账单地址_002",
+          "targetObjectId": 15,
+          "targetObjectName": "服务安装/账单地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Customer_004",
+      "instanceName": "运营商客户主体_004",
+      "objectId": 1,
+      "objectName": "运营商客户主体",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "信用等级",
+          "attributeCode": "Customer.credit_level",
+          "dataType": "string",
+          "value": "C",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "客户类型",
+          "attributeCode": "Customer.customer_type",
+          "dataType": "string",
+          "value": "个人",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "王芳",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户实名认证证件",
+          "targetInstanceId": 5,
+          "targetInstanceName": "客户实名认证证件_001",
+          "targetObjectId": 2,
+          "targetObjectName": "客户实名认证证件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户实名认证证件",
+          "targetInstanceId": 8,
+          "targetInstanceName": "客户实名认证证件_004",
+          "targetObjectId": 2,
+          "targetObjectName": "客户实名认证证件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 12,
+          "targetInstanceName": "客户的计费账户_002",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下达订单",
+          "targetInstanceId": 15,
+          "targetInstanceName": "入网受理订单_002",
+          "targetObjectId": 4,
+          "targetObjectName": "入网受理订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "IdentityDocument_001",
+      "instanceName": "客户实名认证证件_001",
+      "objectId": 2,
+      "objectName": "客户实名认证证件",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "文档ID",
+          "attributeCode": "IdentityDocument.doc_id",
+          "dataType": "string",
+          "value": "11010119900307285X",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "文档类型",
+          "attributeCode": "IdentityDocument.doc_type",
+          "dataType": "string",
+          "value": "id_card",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "已验证",
+          "attributeCode": "IdentityDocument.verified",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "IdentityDocument_002",
+      "instanceName": "客户实名认证证件_002",
+      "objectId": 2,
+      "objectName": "客户实名认证证件",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "文档ID",
+          "attributeCode": "IdentityDocument.doc_id",
+          "dataType": "string",
+          "value": "E12345678",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "文档类型",
+          "attributeCode": "IdentityDocument.doc_type",
+          "dataType": "string",
+          "value": "passport",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "已验证",
+          "attributeCode": "IdentityDocument.verified",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "IdentityDocument_003",
+      "instanceName": "客户实名认证证件_003",
+      "objectId": 2,
+      "objectName": "客户实名认证证件",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "文档ID",
+          "attributeCode": "IdentityDocument.doc_id",
+          "dataType": "string",
+          "value": "92440300MA5FPX1234",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "文档类型",
+          "attributeCode": "IdentityDocument.doc_type",
+          "dataType": "string",
+          "value": "business_license",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "已验证",
+          "attributeCode": "IdentityDocument.verified",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "IdentityDocument_004",
+      "instanceName": "客户实名认证证件_004",
+      "objectId": 2,
+      "objectName": "客户实名认证证件",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "文档ID",
+          "attributeCode": "IdentityDocument.doc_id",
+          "dataType": "string",
+          "value": "320102198512120021",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "文档类型",
+          "attributeCode": "IdentityDocument.doc_type",
+          "dataType": "string",
+          "value": "id_card",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "已验证",
+          "attributeCode": "IdentityDocument.verified",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "IdentityDocument_005",
+      "instanceName": "客户实名认证证件_005",
+      "objectId": 2,
+      "objectName": "客户实名认证证件",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "文档ID",
+          "attributeCode": "IdentityDocument.doc_id",
+          "dataType": "string",
+          "value": "P98765432",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "文档类型",
+          "attributeCode": "IdentityDocument.doc_type",
+          "dataType": "string",
+          "value": "passport",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "已验证",
+          "attributeCode": "IdentityDocument.verified",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "IdentityDocument_006",
+      "instanceName": "客户实名认证证件_006",
+      "objectId": 2,
+      "objectName": "客户实名认证证件",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "文档ID",
+          "attributeCode": "IdentityDocument.doc_id",
+          "dataType": "string",
+          "value": "92510100MA6CQY9876",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "文档类型",
+          "attributeCode": "IdentityDocument.doc_type",
+          "dataType": "string",
+          "value": "business_license",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "已验证",
+          "attributeCode": "IdentityDocument.verified",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Account_001",
+      "instanceName": "客户的计费账户_001",
+      "objectId": 3,
+      "objectName": "客户的计费账户",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "value": "postpaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "value": 125.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Account_002",
+      "instanceName": "客户的计费账户_002",
+      "objectId": 3,
+      "objectName": "客户的计费账户",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "value": "prepaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "value": 89.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Account_003",
+      "instanceName": "客户的计费账户_003",
+      "objectId": 3,
+      "objectName": "客户的计费账户",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "value": "postpaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "value": -15.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "value": "suspended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Order_001",
+      "instanceName": "入网受理订单_001",
+      "objectId": 4,
+      "objectName": "入网受理订单",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "渠道",
+          "attributeCode": "Order.channel",
+          "dataType": "string",
+          "value": "online",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "创建时间",
+          "attributeCode": "Order.created_at",
+          "dataType": "string",
+          "value": "2024-03-15T10:22:34Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "总金额",
+          "attributeCode": "Order.total_amount",
+          "dataType": "number",
+          "value": 199.9,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "订单挂靠账户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户的计费账户_003",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "订单签订合同",
+          "targetInstanceId": 39,
+          "targetInstanceName": "客户入网合同_002",
+          "targetObjectId": 14,
+          "targetObjectName": "客户入网合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "订单生成订阅",
+          "targetInstanceId": 23,
+          "targetInstanceName": "客户对产品的订阅记录_002",
+          "targetObjectId": 8,
+          "targetObjectName": "客户对产品的订阅记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "订单受理员工",
+          "targetInstanceId": 35,
+          "targetInstanceName": "受理及审批人员_001",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "订单审批员工",
+          "targetInstanceId": 37,
+          "targetInstanceName": "受理及审批人员_003",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Order_002",
+      "instanceName": "入网受理订单_002",
+      "objectId": 4,
+      "objectName": "入网受理订单",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "渠道",
+          "attributeCode": "Order.channel",
+          "dataType": "string",
+          "value": "store",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "创建时间",
+          "attributeCode": "Order.created_at",
+          "dataType": "string",
+          "value": "2024-03-16T09:15:21Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD20240002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "总金额",
+          "attributeCode": "Order.total_amount",
+          "dataType": "number",
+          "value": 299.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "订单挂靠账户",
+          "targetInstanceId": 11,
+          "targetInstanceName": "客户的计费账户_001",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "订单签订合同",
+          "targetInstanceId": 41,
+          "targetInstanceName": "客户入网合同_004",
+          "targetObjectId": 14,
+          "targetObjectName": "客户入网合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "订单生成订阅",
+          "targetInstanceId": 22,
+          "targetInstanceName": "客户对产品的订阅记录_001",
+          "targetObjectId": 8,
+          "targetObjectName": "客户对产品的订阅记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "订单受理员工",
+          "targetInstanceId": 36,
+          "targetInstanceName": "受理及审批人员_002",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "订单审批员工",
+          "targetInstanceId": 37,
+          "targetInstanceName": "受理及审批人员_003",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Order_003",
+      "instanceName": "入网受理订单_003",
+      "objectId": 4,
+      "objectName": "入网受理订单",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "渠道",
+          "attributeCode": "Order.channel",
+          "dataType": "string",
+          "value": "agent",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "创建时间",
+          "attributeCode": "Order.created_at",
+          "dataType": "string",
+          "value": "2024-03-17T14:40:07Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD20240003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "总金额",
+          "attributeCode": "Order.total_amount",
+          "dataType": "number",
+          "value": 89.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "订单挂靠账户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户的计费账户_003",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "订单签订合同",
+          "targetInstanceId": 40,
+          "targetInstanceName": "客户入网合同_003",
+          "targetObjectId": 14,
+          "targetObjectName": "客户入网合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "订单受理员工",
+          "targetInstanceId": 37,
+          "targetInstanceName": "受理及审批人员_003",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "订单审批员工",
+          "targetInstanceId": 36,
+          "targetInstanceName": "受理及审批人员_002",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Order_004",
+      "instanceName": "入网受理订单_004",
+      "objectId": 4,
+      "objectName": "入网受理订单",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "渠道",
+          "attributeCode": "Order.channel",
+          "dataType": "string",
+          "value": "telesales",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "创建时间",
+          "attributeCode": "Order.created_at",
+          "dataType": "string",
+          "value": "2024-03-18T11:03:55Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD20240004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "总金额",
+          "attributeCode": "Order.total_amount",
+          "dataType": "number",
+          "value": 129.99,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "订单挂靠账户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户的计费账户_003",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "订单签订合同",
+          "targetInstanceId": 38,
+          "targetInstanceName": "客户入网合同_001",
+          "targetObjectId": 14,
+          "targetObjectName": "客户入网合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "订单生成订阅",
+          "targetInstanceId": 22,
+          "targetInstanceName": "客户对产品的订阅记录_001",
+          "targetObjectId": 8,
+          "targetObjectName": "客户对产品的订阅记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "订单受理员工",
+          "targetInstanceId": 36,
+          "targetInstanceName": "受理及审批人员_002",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "订单审批员工",
+          "targetInstanceId": 36,
+          "targetInstanceName": "受理及审批人员_002",
+          "targetObjectId": 13,
+          "targetObjectName": "受理及审批人员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Product_001",
+      "instanceName": "可售产品父类型_001",
+      "objectId": 5,
+      "objectName": "可售产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "类别",
+          "attributeCode": "Product.category",
+          "dataType": "string",
+          "value": "mobile",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "畅享5G套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P001234567",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "MobilePlan_001",
+      "instanceName": "移动套餐_001",
+      "objectId": 6,
+      "objectName": "移动套餐",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "类别",
+          "attributeCode": "MobilePlan.category",
+          "dataType": "string",
+          "value": "mobile",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "流量配额(GB)",
+          "attributeCode": "MobilePlan.data_quota_gb",
+          "dataType": "number",
+          "value": 30.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "月费",
+          "attributeCode": "MobilePlan.monthly_fee",
+          "dataType": "number",
+          "value": 88.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "MobilePlan.name",
+          "dataType": "string",
+          "value": "畅享流量王套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "产品ID",
+          "attributeCode": "MobilePlan.product_id",
+          "dataType": "string",
+          "value": "MP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "语音时长(分钟)",
+          "attributeCode": "MobilePlan.voice_minutes",
+          "dataType": "integer",
+          "value": 500,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "MobilePlan_002",
+      "instanceName": "移动套餐_002",
+      "objectId": 6,
+      "objectName": "移动套餐",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "类别",
+          "attributeCode": "MobilePlan.category",
+          "dataType": "string",
+          "value": "mobile",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "流量配额(GB)",
+          "attributeCode": "MobilePlan.data_quota_gb",
+          "dataType": "number",
+          "value": 100.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "月费",
+          "attributeCode": "MobilePlan.monthly_fee",
+          "dataType": "number",
+          "value": 128.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "MobilePlan.name",
+          "dataType": "string",
+          "value": "5G尊享融合套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "产品ID",
+          "attributeCode": "MobilePlan.product_id",
+          "dataType": "string",
+          "value": "MP2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "语音时长(分钟)",
+          "attributeCode": "MobilePlan.voice_minutes",
+          "dataType": "integer",
+          "value": 1000,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "BroadbandPlan_001",
+      "instanceName": "宽带套餐_001",
+      "objectId": 7,
+      "objectName": "宽带套餐",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "BroadbandPlan.bandwidth_mbps",
+          "dataType": "integer",
+          "value": 1000,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "类别",
+          "attributeCode": "BroadbandPlan.category",
+          "dataType": "string",
+          "value": "broadband",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "月费",
+          "attributeCode": "BroadbandPlan.monthly_fee",
+          "dataType": "number",
+          "value": 129.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "BroadbandPlan.name",
+          "dataType": "string",
+          "value": "千兆极速宽带套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "产品ID",
+          "attributeCode": "BroadbandPlan.product_id",
+          "dataType": "string",
+          "value": "BBP2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Subscription_001",
+      "instanceName": "客户对产品的订阅记录_001",
+      "objectId": 8,
+      "objectName": "客户对产品的订阅记录",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "开始日期",
+          "attributeCode": "Subscription.start_date",
+          "dataType": "string",
+          "value": "2023-05-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "Subscription.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "订阅ID",
+          "attributeCode": "Subscription.subscription_id",
+          "dataType": "string",
+          "value": "SUB2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "期限(月)",
+          "attributeCode": "Subscription.term_months",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "订阅指向产品",
+          "targetInstanceId": 20,
+          "targetInstanceName": "移动套餐_002",
+          "targetObjectId": 6,
+          "targetObjectName": "移动套餐",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "订阅开通服务",
+          "targetInstanceId": 24,
+          "targetInstanceName": "面向用户的网络服务_001",
+          "targetObjectId": 9,
+          "targetObjectName": "面向用户的网络服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "订阅开通服务",
+          "targetInstanceId": 25,
+          "targetInstanceName": "面向用户的网络服务_002",
+          "targetObjectId": 9,
+          "targetObjectName": "面向用户的网络服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "订阅挂靠账户",
+          "targetInstanceId": 12,
+          "targetInstanceName": "客户的计费账户_002",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Subscription_002",
+      "instanceName": "客户对产品的订阅记录_002",
+      "objectId": 8,
+      "objectName": "客户对产品的订阅记录",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "开始日期",
+          "attributeCode": "Subscription.start_date",
+          "dataType": "string",
+          "value": "2023-06-22",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "Subscription.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "订阅ID",
+          "attributeCode": "Subscription.subscription_id",
+          "dataType": "string",
+          "value": "SUB2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "期限(月)",
+          "attributeCode": "Subscription.term_months",
+          "dataType": "integer",
+          "value": 24,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "订阅指向产品",
+          "targetInstanceId": 19,
+          "targetInstanceName": "移动套餐_001",
+          "targetObjectId": 6,
+          "targetObjectName": "移动套餐",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "订阅开通服务",
+          "targetInstanceId": 26,
+          "targetInstanceName": "面向用户的网络服务_003",
+          "targetObjectId": 9,
+          "targetObjectName": "面向用户的网络服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "订阅挂靠账户",
+          "targetInstanceId": 12,
+          "targetInstanceName": "客户的计费账户_002",
+          "targetObjectId": 3,
+          "targetObjectName": "客户的计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Service_001",
+      "instanceName": "面向用户的网络服务_001",
+      "objectId": 9,
+      "objectName": "面向用户的网络服务",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2023-05-12T09:15:30Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-78901",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "服务类型",
+          "attributeCode": "Service.service_type",
+          "dataType": "string",
+          "value": "voice",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "服务占用资源",
+          "targetInstanceId": 28,
+          "targetInstanceName": "为服务分配的网络资源_002",
+          "targetObjectId": 10,
+          "targetObjectName": "为服务分配的网络资源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "服务部署在网元",
+          "targetInstanceId": 33,
+          "targetInstanceName": "承载服务的网元_002",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "服务安装地址",
+          "targetInstanceId": 45,
+          "targetInstanceName": "服务安装/账单地址_003",
+          "targetObjectId": 15,
+          "targetObjectName": "服务安装/账单地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Service_002",
+      "instanceName": "面向用户的网络服务_002",
+      "objectId": 9,
+      "objectName": "面向用户的网络服务",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2023-06-20T14:22:45Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-78902",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "服务类型",
+          "attributeCode": "Service.service_type",
+          "dataType": "string",
+          "value": "broadband",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "服务部署在网元",
+          "targetInstanceId": 34,
+          "targetInstanceName": "承载服务的网元_003",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "服务安装地址",
+          "targetInstanceId": 43,
+          "targetInstanceName": "服务安装/账单地址_001",
+          "targetObjectId": 15,
+          "targetObjectName": "服务安装/账单地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Service_003",
+      "instanceName": "面向用户的网络服务_003",
+      "objectId": 9,
+      "objectName": "面向用户的网络服务",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2023-04-05T11:08:12Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-78903",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "服务类型",
+          "attributeCode": "Service.service_type",
+          "dataType": "string",
+          "value": "iptv",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "suspended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "服务占用资源",
+          "targetInstanceId": 27,
+          "targetInstanceName": "为服务分配的网络资源_001",
+          "targetObjectId": 10,
+          "targetObjectName": "为服务分配的网络资源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "服务占用资源",
+          "targetInstanceId": 29,
+          "targetInstanceName": "实体或 eSIM 卡资源_001",
+          "targetObjectId": 11,
+          "targetObjectName": "实体或 eSIM 卡资源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "服务占用资源",
+          "targetInstanceId": 30,
+          "targetInstanceName": "实体或 eSIM 卡资源_002",
+          "targetObjectId": 11,
+          "targetObjectName": "实体或 eSIM 卡资源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "服务占用资源",
+          "targetInstanceId": 31,
+          "targetInstanceName": "实体或 eSIM 卡资源_003",
+          "targetObjectId": 11,
+          "targetObjectName": "实体或 eSIM 卡资源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "服务部署在网元",
+          "targetInstanceId": 32,
+          "targetInstanceName": "承载服务的网元_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "服务安装地址",
+          "targetInstanceId": 44,
+          "targetInstanceName": "服务安装/账单地址_002",
+          "targetObjectId": 15,
+          "targetObjectName": "服务安装/账单地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Resource_001",
+      "instanceName": "为服务分配的网络资源_001",
+      "objectId": 10,
+      "objectName": "为服务分配的网络资源",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "资源ID",
+          "attributeCode": "Resource.resource_id",
+          "dataType": "string",
+          "value": "MSISDN-8613912345678",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "资源类型",
+          "attributeCode": "Resource.resource_type",
+          "dataType": "string",
+          "value": "msisdn",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "状态",
+          "attributeCode": "Resource.status",
+          "dataType": "string",
+          "value": "allocated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "资源承载在网元上",
+          "targetInstanceId": 32,
+          "targetInstanceName": "承载服务的网元_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Resource_002",
+      "instanceName": "为服务分配的网络资源_002",
+      "objectId": 10,
+      "objectName": "为服务分配的网络资源",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "资源ID",
+          "attributeCode": "Resource.resource_id",
+          "dataType": "string",
+          "value": "IP-192.168.10.45",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "资源类型",
+          "attributeCode": "Resource.resource_type",
+          "dataType": "string",
+          "value": "ip",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "状态",
+          "attributeCode": "Resource.status",
+          "dataType": "string",
+          "value": "allocated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "资源承载在网元上",
+          "targetInstanceId": 33,
+          "targetInstanceName": "承载服务的网元_002",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "SIMCard_001",
+      "instanceName": "实体或 eSIM 卡资源_001",
+      "objectId": 11,
+      "objectName": "实体或 eSIM 卡资源",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "ICCID",
+          "attributeCode": "SIMCard.iccid",
+          "dataType": "string",
+          "value": "8986002100000000001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "资源ID",
+          "attributeCode": "SIMCard.resource_id",
+          "dataType": "string",
+          "value": "RES-MSISDN-7890123456",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "资源类型",
+          "attributeCode": "SIMCard.resource_type",
+          "dataType": "string",
+          "value": "msisdn",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "状态",
+          "attributeCode": "SIMCard.status",
+          "dataType": "string",
+          "value": "allocated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "资源承载在网元上",
+          "targetInstanceId": 32,
+          "targetInstanceName": "承载服务的网元_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "SIMCard_002",
+      "instanceName": "实体或 eSIM 卡资源_002",
+      "objectId": 11,
+      "objectName": "实体或 eSIM 卡资源",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "ICCID",
+          "attributeCode": "SIMCard.iccid",
+          "dataType": "string",
+          "value": "8986002100000000002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "资源ID",
+          "attributeCode": "SIMCard.resource_id",
+          "dataType": "string",
+          "value": "RES-IMSI-460011234567890",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "资源类型",
+          "attributeCode": "SIMCard.resource_type",
+          "dataType": "string",
+          "value": "imsi",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "状态",
+          "attributeCode": "SIMCard.status",
+          "dataType": "string",
+          "value": "allocated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "资源承载在网元上",
+          "targetInstanceId": 32,
+          "targetInstanceName": "承载服务的网元_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "SIMCard_003",
+      "instanceName": "实体或 eSIM 卡资源_003",
+      "objectId": 11,
+      "objectName": "实体或 eSIM 卡资源",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "ICCID",
+          "attributeCode": "SIMCard.iccid",
+          "dataType": "string",
+          "value": "8986002100000000003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "资源ID",
+          "attributeCode": "SIMCard.resource_id",
+          "dataType": "string",
+          "value": "RES-IP-10.123.45.67",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "资源类型",
+          "attributeCode": "SIMCard.resource_type",
+          "dataType": "string",
+          "value": "ip",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "状态",
+          "attributeCode": "SIMCard.status",
+          "dataType": "string",
+          "value": "allocated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "资源承载在网元上",
+          "targetInstanceId": 33,
+          "targetInstanceName": "承载服务的网元_002",
+          "targetObjectId": 12,
+          "targetObjectName": "承载服务的网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "NetworkElement_001",
+      "instanceName": "承载服务的网元_001",
+      "objectId": 12,
+      "objectName": "承载服务的网元",
+      "attributeValues": [
+        {
+          "attributeId": 47,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-BTS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "bts",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "区域",
+          "attributeCode": "NetworkElement.region",
+          "dataType": "string",
+          "value": "华东区",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "NetworkElement_002",
+      "instanceName": "承载服务的网元_002",
+      "objectId": 12,
+      "objectName": "承载服务的网元",
+      "attributeValues": [
+        {
+          "attributeId": 47,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-OLT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "olt",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "区域",
+          "attributeCode": "NetworkElement.region",
+          "dataType": "string",
+          "value": "华南区",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "NetworkElement_003",
+      "instanceName": "承载服务的网元_003",
+      "objectId": 12,
+      "objectName": "承载服务的网元",
+      "attributeValues": [
+        {
+          "attributeId": 47,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-BRAS-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "bras",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "区域",
+          "attributeCode": "NetworkElement.region",
+          "dataType": "string",
+          "value": "华北区",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Employee_001",
+      "instanceName": "受理及审批人员_001",
+      "objectId": 13,
+      "objectName": "受理及审批人员",
+      "attributeValues": [
+        {
+          "attributeId": 50,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "value": "agent",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Employee_002",
+      "instanceName": "受理及审批人员_002",
+      "objectId": 13,
+      "objectName": "受理及审批人员",
+      "attributeValues": [
+        {
+          "attributeId": 50,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "value": "approver",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "工程师开通服务",
+          "targetInstanceId": 24,
+          "targetInstanceName": "面向用户的网络服务_001",
+          "targetObjectId": 9,
+          "targetObjectName": "面向用户的网络服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Employee_003",
+      "instanceName": "受理及审批人员_003",
+      "objectId": 13,
+      "objectName": "受理及审批人员",
+      "attributeValues": [
+        {
+          "attributeId": 50,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "value": "manager",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "工程师开通服务",
+          "targetInstanceId": 25,
+          "targetInstanceName": "面向用户的网络服务_002",
+          "targetObjectId": 9,
+          "targetObjectName": "面向用户的网络服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "工程师开通服务",
+          "targetInstanceId": 26,
+          "targetInstanceName": "面向用户的网络服务_003",
+          "targetObjectId": 9,
+          "targetObjectName": "面向用户的网络服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Contract_001",
+      "instanceName": "客户入网合同_001",
+      "objectId": 14,
+      "objectName": "客户入网合同",
+      "attributeValues": [
+        {
+          "attributeId": 53,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "CT2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "签署日期",
+          "attributeCode": "Contract.signed_date",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "signed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "合同归属客户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "运营商客户主体_001",
+          "targetObjectId": 1,
+          "targetObjectName": "运营商客户主体",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Contract_002",
+      "instanceName": "客户入网合同_002",
+      "objectId": 14,
+      "objectName": "客户入网合同",
+      "attributeValues": [
+        {
+          "attributeId": 53,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "CT2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "签署日期",
+          "attributeCode": "Contract.signed_date",
+          "dataType": "string",
+          "value": "2024-04-02",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "signed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "合同归属客户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "运营商客户主体_001",
+          "targetObjectId": 1,
+          "targetObjectName": "运营商客户主体",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Contract_003",
+      "instanceName": "客户入网合同_003",
+      "objectId": 14,
+      "objectName": "客户入网合同",
+      "attributeValues": [
+        {
+          "attributeId": 53,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "CT2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "签署日期",
+          "attributeCode": "Contract.signed_date",
+          "dataType": "string",
+          "value": "2023-11-20",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "合同归属客户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "运营商客户主体_001",
+          "targetObjectId": 1,
+          "targetObjectName": "运营商客户主体",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "Contract_004",
+      "instanceName": "客户入网合同_004",
+      "objectId": 14,
+      "objectName": "客户入网合同",
+      "attributeValues": [
+        {
+          "attributeId": 53,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "CT2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "签署日期",
+          "attributeCode": "Contract.signed_date",
+          "dataType": "string",
+          "value": "2024-01-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "合同归属客户",
+          "targetInstanceId": 2,
+          "targetInstanceName": "运营商客户主体_002",
+          "targetObjectId": 1,
+          "targetObjectName": "运营商客户主体",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "Contract_005",
+      "instanceName": "客户入网合同_005",
+      "objectId": 14,
+      "objectName": "客户入网合同",
+      "attributeValues": [
+        {
+          "attributeId": 53,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "CT2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "签署日期",
+          "attributeCode": "Contract.signed_date",
+          "dataType": "string",
+          "value": "2024-05-18",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "signed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "合同归属客户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "运营商客户主体_001",
+          "targetObjectId": 1,
+          "targetObjectName": "运营商客户主体",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "Address_001",
+      "instanceName": "服务安装/账单地址_001",
+      "objectId": 15,
+      "objectName": "服务安装/账单地址",
+      "attributeValues": [
+        {
+          "attributeId": 56,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "value": "A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "value": "深圳市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 58,
+          "attributeName": "明细",
+          "attributeCode": "Address.detail",
+          "dataType": "string",
+          "value": "南山区科技园科发路8号讯美科技广场1栋1201室",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "省份",
+          "attributeCode": "Address.province",
+          "dataType": "string",
+          "value": "广东省",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "Address_002",
+      "instanceName": "服务安装/账单地址_002",
+      "objectId": 15,
+      "objectName": "服务安装/账单地址",
+      "attributeValues": [
+        {
+          "attributeId": 56,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "value": "A002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "value": "北京市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 58,
+          "attributeName": "明细",
+          "attributeCode": "Address.detail",
+          "dataType": "string",
+          "value": "海淀区中关村大街27号中关村大厦B座8层808号",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "省份",
+          "attributeCode": "Address.province",
+          "dataType": "string",
+          "value": "北京市",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "Address_003",
+      "instanceName": "服务安装/账单地址_003",
+      "objectId": 15,
+      "objectName": "服务安装/账单地址",
+      "attributeValues": [
+        {
+          "attributeId": 56,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "value": "A003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "value": "杭州市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 58,
+          "attributeName": "明细",
+          "attributeCode": "Address.detail",
+          "dataType": "string",
+          "value": "西湖区文三路398号东方通信大厦C区5楼512室",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "省份",
+          "attributeCode": "Address.province",
+          "dataType": "string",
+          "value": "浙江省",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 1,
+      "actionName": "核验身份",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_002"
+      ],
+      "outputInstanceNames": [
+        "客户实名认证证件_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 10,
+      "actionName": "预留资源",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        31
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_001"
+      ],
+      "outputInstanceNames": [
+        "实体或 eSIM 卡资源_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 9,
+      "actionName": "分配资源",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        31
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_001"
+      ],
+      "outputInstanceNames": [
+        "实体或 eSIM 卡资源_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 1,
+      "actionName": "核验身份",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_001"
+      ],
+      "outputInstanceNames": [
+        "客户实名认证证件_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 8,
+      "actionName": "激活订阅",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_003"
+      ],
+      "outputInstanceNames": [
+        "客户对产品的订阅记录_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 3,
+      "actionName": "审批订单",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_001"
+      ],
+      "outputInstanceNames": [
+        "入网受理订单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 10,
+      "actionName": "预留资源",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_003"
+      ],
+      "outputInstanceNames": [
+        "为服务分配的网络资源_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 5,
+      "actionName": "履行订单",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_002"
+      ],
+      "outputInstanceNames": [
+        "入网受理订单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 9,
+      "actionName": "分配资源",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_002"
+      ],
+      "outputInstanceNames": [
+        "实体或 eSIM 卡资源_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 11,
+      "actionName": "开通服务",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_001"
+      ],
+      "outputInstanceNames": [
+        "面向用户的网络服务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 13,
+      "actionName": "激活客户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_003"
+      ],
+      "outputInstanceNames": [
+        "运营商客户主体_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 12,
+      "actionName": "签署合同",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "运营商客户主体_002"
+      ],
+      "outputInstanceNames": [
+        "客户入网合同_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 7,
+      "actionName": "激活账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_003"
+      ],
+      "outputInstanceNames": [
+        "客户的计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 5,
+      "actionName": "履行订单",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_001"
+      ],
+      "outputInstanceNames": [
+        "入网受理订单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 9,
+      "actionName": "分配资源",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "受理及审批人员_001"
+      ],
+      "outputInstanceNames": [
+        "为服务分配的网络资源_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

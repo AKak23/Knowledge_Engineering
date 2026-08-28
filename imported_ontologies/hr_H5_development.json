@@ -1,0 +1,4102 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "人力资源(HR)·hr_H5_development",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=hr_H5_development，graph=hr_H5_development_seed45）：18 个对象类型 / 27 个关系 / 15 个动作 / 54 个实例 / 20 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "学员",
+      "objectCode": "Learner",
+      "description": "学员",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "学员ID",
+          "attributeCode": "Learner.learner_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Learner_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Learner.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Learner.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "导师（也是学员的子类型，形成循环）",
+      "objectCode": "Mentor",
+      "description": "导师（也是学员的子类型，形成循环）",
+      "attributes": [
+        {
+          "attributeId": 4,
+          "attributeName": "专长领域",
+          "attributeCode": "Mentor.expertise_area",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "人工智能",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "学员ID",
+          "attributeCode": "Mentor.learner_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "LNR_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Mentor.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "评分",
+          "attributeCode": "Mentor.rating",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 4.8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "状态",
+          "attributeCode": "Mentor.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "教练",
+      "objectCode": "Coach",
+      "description": "教练",
+      "attributes": [
+        {
+          "attributeId": 9,
+          "attributeName": "辅导风格",
+          "attributeCode": "Coach.coaching_style",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "facilitative",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "学员ID",
+          "attributeCode": "Coach.learner_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "LNR2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Coach.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Coach.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "课程",
+      "objectCode": "Course",
+      "description": "课程",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "课程ID",
+          "attributeCode": "Course.course_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "级别",
+          "attributeCode": "Course.level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "beginner",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Course.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Python编程入门",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Course.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "retired",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "课程模块",
+      "objectCode": "Module",
+      "description": "课程模块",
+      "attributes": [
+        {
+          "attributeId": 17,
+          "attributeName": "时长(分钟)",
+          "attributeCode": "Module.duration_min",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 45,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "模块ID",
+          "attributeCode": "Module.module_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Module_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "职称",
+          "attributeCode": "Module.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "领导力基础",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "课程注册",
+      "objectCode": "Enrollment",
+      "description": "课程注册",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "报名ID",
+          "attributeCode": "Enrollment.enrollment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ENR2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "Enrollment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "dropped",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "课程评估",
+      "objectCode": "Assessment",
+      "description": "课程评估",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "测评ID",
+          "attributeCode": "Assessment.assessment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Assessment.score",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 87.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Assessment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "graded",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "认证证书",
+      "objectCode": "Certification",
+      "description": "认证证书",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "证书ID",
+          "attributeCode": "Certification.cert_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CERT-CN-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "签发时间",
+          "attributeCode": "Certification.issued_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-05-15T10:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Certification.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "revoked",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "技能项",
+      "objectCode": "Skill",
+      "description": "技能项",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "名称",
+          "attributeCode": "Skill.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Python编程",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "技能ID",
+          "attributeCode": "Skill.skill_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SKL-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "职业路径",
+      "objectCode": "CareerPath",
+      "description": "职业路径",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "路径ID",
+          "attributeCode": "CareerPath.path_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "职称",
+          "attributeCode": "CareerPath.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "软件工程师职业发展路径",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "导师计划",
+      "objectCode": "MentorshipProgram",
+      "description": "导师计划",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "培养项目ID",
+          "attributeCode": "MentorshipProgram.program_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "MentorshipProgram.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "concluded",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "导师-学员配对",
+      "objectCode": "MentorshipEngagement",
+      "description": "导师-学员配对",
+      "attributes": [
+        {
+          "attributeId": 34,
+          "attributeName": "互动ID",
+          "attributeCode": "MentorshipEngagement.engagement_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ME2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "MentorshipEngagement.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "学习路径（多课程组合）",
+      "objectCode": "LearningPath",
+      "description": "学习路径（多课程组合）",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "路径ID",
+          "attributeCode": "LearningPath.path_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "LP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "职称",
+          "attributeCode": "LearningPath.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "人工智能工程师进阶路径",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "工作坊",
+      "objectCode": "Workshop",
+      "description": "工作坊",
+      "attributes": [
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Workshop.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "planned",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "主题",
+          "attributeCode": "Workshop.topic",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "敏捷开发实践",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Workshop_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "学员反馈",
+      "objectCode": "FeedbackEntry",
+      "description": "学员反馈",
+      "attributes": [
+        {
+          "attributeId": 41,
+          "attributeName": "反馈ID",
+          "attributeCode": "FeedbackEntry.feedback_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FE2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "评分",
+          "attributeCode": "FeedbackEntry.rating",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 4,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 43,
+          "attributeName": "状态",
+          "attributeCode": "FeedbackEntry.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "submitted",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 16,
+      "objectName": "学习目标",
+      "objectCode": "Goal",
+      "description": "学习目标",
+      "attributes": [
+        {
+          "attributeId": 44,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "GOAL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "achieved",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 17,
+      "objectName": "学习资源",
+      "objectCode": "Resource",
+      "description": "学习资源",
+      "attributes": [
+        {
+          "attributeId": 46,
+          "attributeName": "类型",
+          "attributeCode": "Resource.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "video",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "资源ID",
+          "attributeCode": "Resource.resource_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RES-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 18,
+      "objectName": "学习徽章",
+      "objectCode": "Badge",
+      "description": "学习徽章",
+      "attributes": [
+        {
+          "attributeId": 48,
+          "attributeName": "工牌ID",
+          "attributeCode": "Badge.badge_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "B001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "Badge.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "初级项目管理徽章",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 4,
+      "sourceObjectName": "课程",
+      "targetObjectId": 5,
+      "targetObjectName": "课程模块",
+      "linkInfo": "课程包含模块",
+      "linkType": "1:N",
+      "description": "course_has_module",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 4,
+      "sourceObjectName": "课程",
+      "targetObjectId": 9,
+      "targetObjectName": "技能项",
+      "linkInfo": "课程教授技能",
+      "linkType": "N:M",
+      "description": "course_teaches_skill",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 4,
+      "sourceObjectName": "课程",
+      "targetObjectId": 4,
+      "targetObjectName": "课程",
+      "linkInfo": "课程先修关系（自循环）",
+      "linkType": "N:M",
+      "description": "course_prerequisite",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 5,
+      "sourceObjectName": "课程模块",
+      "targetObjectId": 17,
+      "targetObjectName": "学习资源",
+      "linkInfo": "模块使用资源",
+      "linkType": "N:M",
+      "description": "module_uses_resource",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 6,
+      "sourceObjectName": "课程注册",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "选课归属学员",
+      "linkType": "N:1",
+      "description": "enrollment_by_learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 6,
+      "sourceObjectName": "课程注册",
+      "targetObjectId": 4,
+      "targetObjectName": "课程",
+      "linkInfo": "选课对应课程",
+      "linkType": "N:1",
+      "description": "enrollment_for_course",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 7,
+      "sourceObjectName": "课程评估",
+      "targetObjectId": 6,
+      "targetObjectName": "课程注册",
+      "linkInfo": "评估对应选课",
+      "linkType": "N:1",
+      "description": "assessment_for_enrollment",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 8,
+      "sourceObjectName": "认证证书",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "认证归属学员",
+      "linkType": "N:1",
+      "description": "cert_for_learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 8,
+      "sourceObjectName": "认证证书",
+      "targetObjectId": 4,
+      "targetObjectName": "课程",
+      "linkInfo": "认证对应课程",
+      "linkType": "N:1",
+      "description": "cert_for_course",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 8,
+      "sourceObjectName": "认证证书",
+      "targetObjectId": 9,
+      "targetObjectName": "技能项",
+      "linkInfo": "认证验证技能",
+      "linkType": "N:M",
+      "description": "cert_validates_skill",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 13,
+      "sourceObjectName": "学习路径（多课程组合）",
+      "targetObjectId": 4,
+      "targetObjectName": "课程",
+      "linkInfo": "学习路径包含课程",
+      "linkType": "N:M",
+      "description": "path_includes_course",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 13,
+      "sourceObjectName": "学习路径（多课程组合）",
+      "targetObjectId": 10,
+      "targetObjectName": "职业路径",
+      "linkInfo": "学习路径服务职业路径",
+      "linkType": "N:1",
+      "description": "path_for_career",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 12,
+      "sourceObjectName": "导师-学员配对",
+      "targetObjectId": 11,
+      "targetObjectName": "导师计划",
+      "linkInfo": "配对属于计划",
+      "linkType": "N:1",
+      "description": "mentorship_in_program",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 12,
+      "sourceObjectName": "导师-学员配对",
+      "targetObjectId": 2,
+      "targetObjectName": "导师（也是学员的子类型，形成循环）",
+      "linkInfo": "配对的导师",
+      "linkType": "N:1",
+      "description": "mentorship_mentor",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 12,
+      "sourceObjectName": "导师-学员配对",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "配对的学员",
+      "linkType": "N:1",
+      "description": "mentorship_mentee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 2,
+      "sourceObjectName": "导师（也是学员的子类型，形成循环）",
+      "targetObjectId": 4,
+      "targetObjectName": "课程",
+      "linkInfo": "导师推荐课程",
+      "linkType": "N:M",
+      "description": "mentor_recommends_course",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 3,
+      "sourceObjectName": "教练",
+      "targetObjectId": 13,
+      "targetObjectName": "学习路径（多课程组合）",
+      "linkInfo": "教练督导学习路径",
+      "linkType": "N:M",
+      "description": "coach_oversees_path",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 14,
+      "sourceObjectName": "工作坊",
+      "targetObjectId": 9,
+      "targetObjectName": "技能项",
+      "linkInfo": "工作坊涉及技能",
+      "linkType": "N:M",
+      "description": "workshop_covers_skill",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 14,
+      "sourceObjectName": "工作坊",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "学员参加工作坊",
+      "linkType": "N:M",
+      "description": "workshop_attended_by_learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 15,
+      "sourceObjectName": "学员反馈",
+      "targetObjectId": 4,
+      "targetObjectName": "课程",
+      "linkInfo": "反馈针对课程",
+      "linkType": "N:1",
+      "description": "feedback_on_course",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 15,
+      "sourceObjectName": "学员反馈",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "反馈来自学员",
+      "linkType": "N:1",
+      "description": "feedback_by_learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 22,
+      "sourceObjectId": 16,
+      "sourceObjectName": "学习目标",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "目标归属学员",
+      "linkType": "N:1",
+      "description": "goal_for_learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 23,
+      "sourceObjectId": 16,
+      "sourceObjectName": "学习目标",
+      "targetObjectId": 9,
+      "targetObjectName": "技能项",
+      "linkInfo": "目标针对技能",
+      "linkType": "N:M",
+      "description": "goal_targets_skill",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 24,
+      "sourceObjectId": 18,
+      "sourceObjectName": "学习徽章",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "徽章授予学员",
+      "linkType": "N:M",
+      "description": "badge_awarded_to_learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 25,
+      "sourceObjectId": 9,
+      "sourceObjectName": "技能项",
+      "targetObjectId": 9,
+      "targetObjectName": "技能项",
+      "linkInfo": "技能依赖关系（自循环）",
+      "linkType": "N:M",
+      "description": "skill_supports_skill",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 26,
+      "sourceObjectId": 2,
+      "sourceObjectName": "导师（也是学员的子类型，形成循环）",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Mentor is-a Learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 27,
+      "sourceObjectId": 3,
+      "sourceObjectName": "教练",
+      "targetObjectId": 1,
+      "targetObjectName": "学员",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Coach is-a Learner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "发布课程",
+      "actionCode": "publish_course",
+      "description": "执行者：导师（也是学员的子类型，形成循环）；对象：课程",
+      "inputObjects": [
+        "导师（也是学员的子类型，形成循环）"
+      ],
+      "outputObjects": [
+        "课程"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "下线课程",
+      "actionCode": "retire_course",
+      "description": "执行者：导师（也是学员的子类型，形成循环）；对象：课程",
+      "inputObjects": [
+        "导师（也是学员的子类型，形成循环）"
+      ],
+      "outputObjects": [
+        "课程"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "开始报名",
+      "actionCode": "start_enrollment",
+      "description": "执行者：学员；对象：课程注册",
+      "inputObjects": [
+        "学员"
+      ],
+      "outputObjects": [
+        "课程注册"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "完成报名",
+      "actionCode": "complete_enrollment",
+      "description": "执行者：学员；对象：课程注册",
+      "inputObjects": [
+        "学员"
+      ],
+      "outputObjects": [
+        "课程注册"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "退出报名",
+      "actionCode": "drop_enrollment",
+      "description": "执行者：学员；对象：课程注册",
+      "inputObjects": [
+        "学员"
+      ],
+      "outputObjects": [
+        "课程注册"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "提交测评",
+      "actionCode": "submit_assessment",
+      "description": "执行者：学员；对象：课程评估",
+      "inputObjects": [
+        "学员"
+      ],
+      "outputObjects": [
+        "课程评估"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "评分测评",
+      "actionCode": "grade_assessment",
+      "description": "执行者：导师（也是学员的子类型，形成循环）；对象：课程评估",
+      "inputObjects": [
+        "导师（也是学员的子类型，形成循环）"
+      ],
+      "outputObjects": [
+        "课程评估"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "签发认证",
+      "actionCode": "issue_certification",
+      "description": "执行者：导师（也是学员的子类型，形成循环）；对象：认证证书",
+      "inputObjects": [
+        "导师（也是学员的子类型，形成循环）"
+      ],
+      "outputObjects": [
+        "认证证书"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "吊销认证",
+      "actionCode": "revoke_certification",
+      "description": "执行者：导师（也是学员的子类型，形成循环）；对象：认证证书",
+      "inputObjects": [
+        "导师（也是学员的子类型，形成循环）"
+      ],
+      "outputObjects": [
+        "认证证书"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "匹配导师辅导",
+      "actionCode": "match_mentorship",
+      "description": "执行者：教练；对象：导师计划",
+      "inputObjects": [
+        "教练"
+      ],
+      "outputObjects": [
+        "导师计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "激活导师辅导",
+      "actionCode": "activate_mentorship",
+      "description": "执行者：教练；对象：导师计划",
+      "inputObjects": [
+        "教练"
+      ],
+      "outputObjects": [
+        "导师计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "结束导师辅导",
+      "actionCode": "conclude_mentorship",
+      "description": "执行者：教练；对象：导师计划",
+      "inputObjects": [
+        "教练"
+      ],
+      "outputObjects": [
+        "导师计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "达成目标",
+      "actionCode": "achieve_goal",
+      "description": "执行者：学员；对象：学习目标",
+      "inputObjects": [
+        "学员"
+      ],
+      "outputObjects": [
+        "学习目标"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "放弃目标",
+      "actionCode": "abandon_goal",
+      "description": "执行者：学员；对象：学习目标",
+      "inputObjects": [
+        "学员"
+      ],
+      "outputObjects": [
+        "学习目标"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 15,
+      "actionName": "提交反馈",
+      "actionCode": "submit_feedback",
+      "description": "执行者：学员；对象：学员反馈",
+      "inputObjects": [
+        "学员"
+      ],
+      "outputObjects": [
+        "学员反馈"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Learner_001",
+      "instanceName": "学员_001",
+      "objectId": 1,
+      "objectName": "学员",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "学员ID",
+          "attributeCode": "Learner.learner_id",
+          "dataType": "string",
+          "value": "Learner_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Learner.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Learner.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Learner_002",
+      "instanceName": "学员_002",
+      "objectId": 1,
+      "objectName": "学员",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "学员ID",
+          "attributeCode": "Learner.learner_id",
+          "dataType": "string",
+          "value": "Learner_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Learner.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Learner.status",
+          "dataType": "string",
+          "value": "paused",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Learner_003",
+      "instanceName": "学员_003",
+      "objectId": 1,
+      "objectName": "学员",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "学员ID",
+          "attributeCode": "Learner.learner_id",
+          "dataType": "string",
+          "value": "Learner_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Learner.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Learner.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Learner_004",
+      "instanceName": "学员_004",
+      "objectId": 1,
+      "objectName": "学员",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "学员ID",
+          "attributeCode": "Learner.learner_id",
+          "dataType": "string",
+          "value": "Learner_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Learner.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Learner.status",
+          "dataType": "string",
+          "value": "graduated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Learner_005",
+      "instanceName": "学员_005",
+      "objectId": 1,
+      "objectName": "学员",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "学员ID",
+          "attributeCode": "Learner.learner_id",
+          "dataType": "string",
+          "value": "Learner_005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Learner.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Learner.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Mentor_001",
+      "instanceName": "导师（也是学员的子类型，形成循环）_001",
+      "objectId": 2,
+      "objectName": "导师（也是学员的子类型，形成循环）",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "专长领域",
+          "attributeCode": "Mentor.expertise_area",
+          "dataType": "string",
+          "value": "人工智能",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "学员ID",
+          "attributeCode": "Mentor.learner_id",
+          "dataType": "string",
+          "value": "LNR_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Mentor.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "评分",
+          "attributeCode": "Mentor.rating",
+          "dataType": "number",
+          "value": 4.8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "状态",
+          "attributeCode": "Mentor.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "导师推荐课程",
+          "targetInstanceId": 15,
+          "targetInstanceName": "课程_002",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "导师推荐课程",
+          "targetInstanceId": 14,
+          "targetInstanceName": "课程_001",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Mentor_002",
+      "instanceName": "导师（也是学员的子类型，形成循环）_002",
+      "objectId": 2,
+      "objectName": "导师（也是学员的子类型，形成循环）",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "专长领域",
+          "attributeCode": "Mentor.expertise_area",
+          "dataType": "string",
+          "value": "项目管理",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "学员ID",
+          "attributeCode": "Mentor.learner_id",
+          "dataType": "string",
+          "value": "LNR_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Mentor.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "评分",
+          "attributeCode": "Mentor.rating",
+          "dataType": "number",
+          "value": 4.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "状态",
+          "attributeCode": "Mentor.status",
+          "dataType": "string",
+          "value": "paused",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Mentor_003",
+      "instanceName": "导师（也是学员的子类型，形成循环）_003",
+      "objectId": 2,
+      "objectName": "导师（也是学员的子类型，形成循环）",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "专长领域",
+          "attributeCode": "Mentor.expertise_area",
+          "dataType": "string",
+          "value": "数据分析",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "学员ID",
+          "attributeCode": "Mentor.learner_id",
+          "dataType": "string",
+          "value": "LNR_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Mentor.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "评分",
+          "attributeCode": "Mentor.rating",
+          "dataType": "number",
+          "value": 4.9,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "状态",
+          "attributeCode": "Mentor.status",
+          "dataType": "string",
+          "value": "graduated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "导师推荐课程",
+          "targetInstanceId": 17,
+          "targetInstanceName": "课程_004",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Mentor_004",
+      "instanceName": "导师（也是学员的子类型，形成循环）_004",
+      "objectId": 2,
+      "objectName": "导师（也是学员的子类型，形成循环）",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "专长领域",
+          "attributeCode": "Mentor.expertise_area",
+          "dataType": "string",
+          "value": "用户体验设计",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "学员ID",
+          "attributeCode": "Mentor.learner_id",
+          "dataType": "string",
+          "value": "LNR_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Mentor.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "评分",
+          "attributeCode": "Mentor.rating",
+          "dataType": "number",
+          "value": 4.6,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "状态",
+          "attributeCode": "Mentor.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Mentor_005",
+      "instanceName": "导师（也是学员的子类型，形成循环）_005",
+      "objectId": 2,
+      "objectName": "导师（也是学员的子类型，形成循环）",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "专长领域",
+          "attributeCode": "Mentor.expertise_area",
+          "dataType": "string",
+          "value": "云计算",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "学员ID",
+          "attributeCode": "Mentor.learner_id",
+          "dataType": "string",
+          "value": "LNR_005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Mentor.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "评分",
+          "attributeCode": "Mentor.rating",
+          "dataType": "number",
+          "value": 4.7,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "状态",
+          "attributeCode": "Mentor.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "导师推荐课程",
+          "targetInstanceId": 15,
+          "targetInstanceName": "课程_002",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Coach_001",
+      "instanceName": "教练_001",
+      "objectId": 3,
+      "objectName": "教练",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "辅导风格",
+          "attributeCode": "Coach.coaching_style",
+          "dataType": "string",
+          "value": "facilitative",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "学员ID",
+          "attributeCode": "Coach.learner_id",
+          "dataType": "string",
+          "value": "LNR2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Coach.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Coach.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Coach_002",
+      "instanceName": "教练_002",
+      "objectId": 3,
+      "objectName": "教练",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "辅导风格",
+          "attributeCode": "Coach.coaching_style",
+          "dataType": "string",
+          "value": "directive",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "学员ID",
+          "attributeCode": "Coach.learner_id",
+          "dataType": "string",
+          "value": "LNR2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Coach.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Coach.status",
+          "dataType": "string",
+          "value": "paused",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "教练督导学习路径",
+          "targetInstanceId": 45,
+          "targetInstanceName": "学习路径（多课程组合）_003",
+          "targetObjectId": 13,
+          "targetObjectName": "学习路径（多课程组合）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Coach_003",
+      "instanceName": "教练_003",
+      "objectId": 3,
+      "objectName": "教练",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "辅导风格",
+          "attributeCode": "Coach.coaching_style",
+          "dataType": "string",
+          "value": "transformational",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "学员ID",
+          "attributeCode": "Coach.learner_id",
+          "dataType": "string",
+          "value": "LNR2023003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Coach.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Coach.status",
+          "dataType": "string",
+          "value": "graduated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Course_001",
+      "instanceName": "课程_001",
+      "objectId": 4,
+      "objectName": "课程",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "课程ID",
+          "attributeCode": "Course.course_id",
+          "dataType": "string",
+          "value": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "级别",
+          "attributeCode": "Course.level",
+          "dataType": "string",
+          "value": "beginner",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Course.name",
+          "dataType": "string",
+          "value": "Python编程入门",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Course.status",
+          "dataType": "string",
+          "value": "retired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "课程包含模块",
+          "targetInstanceId": 19,
+          "targetInstanceName": "课程模块_001",
+          "targetObjectId": 5,
+          "targetObjectName": "课程模块",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "课程先修关系（自循环）",
+          "targetInstanceId": 18,
+          "targetInstanceName": "课程_005",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "课程先修关系（自循环）",
+          "targetInstanceId": 16,
+          "targetInstanceName": "课程_003",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Course_002",
+      "instanceName": "课程_002",
+      "objectId": 4,
+      "objectName": "课程",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "课程ID",
+          "attributeCode": "Course.course_id",
+          "dataType": "string",
+          "value": "C002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "级别",
+          "attributeCode": "Course.level",
+          "dataType": "string",
+          "value": "intermediate",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Course.name",
+          "dataType": "string",
+          "value": "数据结构与算法",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Course.status",
+          "dataType": "string",
+          "value": "retired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "课程先修关系（自循环）",
+          "targetInstanceId": 16,
+          "targetInstanceName": "课程_003",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "课程先修关系（自循环）",
+          "targetInstanceId": 14,
+          "targetInstanceName": "课程_001",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "课程先修关系（自循环）",
+          "targetInstanceId": 17,
+          "targetInstanceName": "课程_004",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Course_003",
+      "instanceName": "课程_003",
+      "objectId": 4,
+      "objectName": "课程",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "课程ID",
+          "attributeCode": "Course.course_id",
+          "dataType": "string",
+          "value": "C003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "级别",
+          "attributeCode": "Course.level",
+          "dataType": "string",
+          "value": "advanced",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Course.name",
+          "dataType": "string",
+          "value": "机器学习实战",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Course.status",
+          "dataType": "string",
+          "value": "retired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "课程教授技能",
+          "targetInstanceId": 34,
+          "targetInstanceName": "技能项_003",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "课程先修关系（自循环）",
+          "targetInstanceId": 15,
+          "targetInstanceName": "课程_002",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Course_004",
+      "instanceName": "课程_004",
+      "objectId": 4,
+      "objectName": "课程",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "课程ID",
+          "attributeCode": "Course.course_id",
+          "dataType": "string",
+          "value": "C004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "级别",
+          "attributeCode": "Course.level",
+          "dataType": "string",
+          "value": "beginner",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Course.name",
+          "dataType": "string",
+          "value": "人力资源管理概论",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Course.status",
+          "dataType": "string",
+          "value": "retired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "课程包含模块",
+          "targetInstanceId": 20,
+          "targetInstanceName": "课程模块_002",
+          "targetObjectId": 5,
+          "targetObjectName": "课程模块",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "课程教授技能",
+          "targetInstanceId": 34,
+          "targetInstanceName": "技能项_003",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Course_005",
+      "instanceName": "课程_005",
+      "objectId": 4,
+      "objectName": "课程",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "课程ID",
+          "attributeCode": "Course.course_id",
+          "dataType": "string",
+          "value": "C005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "级别",
+          "attributeCode": "Course.level",
+          "dataType": "string",
+          "value": "advanced",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Course.name",
+          "dataType": "string",
+          "value": "高级Web开发",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "状态",
+          "attributeCode": "Course.status",
+          "dataType": "string",
+          "value": "retired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "课程教授技能",
+          "targetInstanceId": 32,
+          "targetInstanceName": "技能项_001",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "课程先修关系（自循环）",
+          "targetInstanceId": 17,
+          "targetInstanceName": "课程_004",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Module_001",
+      "instanceName": "课程模块_001",
+      "objectId": 5,
+      "objectName": "课程模块",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "时长(分钟)",
+          "attributeCode": "Module.duration_min",
+          "dataType": "integer",
+          "value": 45,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "模块ID",
+          "attributeCode": "Module.module_id",
+          "dataType": "string",
+          "value": "Module_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "职称",
+          "attributeCode": "Module.title",
+          "dataType": "string",
+          "value": "领导力基础",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Module_002",
+      "instanceName": "课程模块_002",
+      "objectId": 5,
+      "objectName": "课程模块",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "时长(分钟)",
+          "attributeCode": "Module.duration_min",
+          "dataType": "integer",
+          "value": 60,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "模块ID",
+          "attributeCode": "Module.module_id",
+          "dataType": "string",
+          "value": "Module_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "职称",
+          "attributeCode": "Module.title",
+          "dataType": "string",
+          "value": "高效沟通技巧",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "模块使用资源",
+          "targetInstanceId": 52,
+          "targetInstanceName": "学习资源_002",
+          "targetObjectId": 17,
+          "targetObjectName": "学习资源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Enrollment_001",
+      "instanceName": "课程注册_001",
+      "objectId": 6,
+      "objectName": "课程注册",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "报名ID",
+          "attributeCode": "Enrollment.enrollment_id",
+          "dataType": "string",
+          "value": "ENR2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "Enrollment.status",
+          "dataType": "string",
+          "value": "dropped",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "选课归属学员",
+          "targetInstanceId": 7,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_002",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "选课对应课程",
+          "targetInstanceId": 18,
+          "targetInstanceName": "课程_005",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Enrollment_002",
+      "instanceName": "课程注册_002",
+      "objectId": 6,
+      "objectName": "课程注册",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "报名ID",
+          "attributeCode": "Enrollment.enrollment_id",
+          "dataType": "string",
+          "value": "ENR2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "Enrollment.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "选课归属学员",
+          "targetInstanceId": 3,
+          "targetInstanceName": "学员_003",
+          "targetObjectId": 1,
+          "targetObjectName": "学员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "选课对应课程",
+          "targetInstanceId": 17,
+          "targetInstanceName": "课程_004",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Assessment_001",
+      "instanceName": "课程评估_001",
+      "objectId": 7,
+      "objectName": "课程评估",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "测评ID",
+          "attributeCode": "Assessment.assessment_id",
+          "dataType": "string",
+          "value": "A2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Assessment.score",
+          "dataType": "number",
+          "value": 87.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Assessment.status",
+          "dataType": "string",
+          "value": "graded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "评估对应选课",
+          "targetInstanceId": 21,
+          "targetInstanceName": "课程注册_001",
+          "targetObjectId": 6,
+          "targetObjectName": "课程注册",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Assessment_002",
+      "instanceName": "课程评估_002",
+      "objectId": 7,
+      "objectName": "课程评估",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "测评ID",
+          "attributeCode": "Assessment.assessment_id",
+          "dataType": "string",
+          "value": "A2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Assessment.score",
+          "dataType": "number",
+          "value": 92.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Assessment.status",
+          "dataType": "string",
+          "value": "graded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "评估对应选课",
+          "targetInstanceId": 22,
+          "targetInstanceName": "课程注册_002",
+          "targetObjectId": 6,
+          "targetObjectName": "课程注册",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Assessment_003",
+      "instanceName": "课程评估_003",
+      "objectId": 7,
+      "objectName": "课程评估",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "测评ID",
+          "attributeCode": "Assessment.assessment_id",
+          "dataType": "string",
+          "value": "A2023003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Assessment.score",
+          "dataType": "number",
+          "value": 76.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Assessment.status",
+          "dataType": "string",
+          "value": "graded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "评估对应选课",
+          "targetInstanceId": 21,
+          "targetInstanceName": "课程注册_001",
+          "targetObjectId": 6,
+          "targetObjectName": "课程注册",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Assessment_004",
+      "instanceName": "课程评估_004",
+      "objectId": 7,
+      "objectName": "课程评估",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "测评ID",
+          "attributeCode": "Assessment.assessment_id",
+          "dataType": "string",
+          "value": "A2023004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Assessment.score",
+          "dataType": "number",
+          "value": 89.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Assessment.status",
+          "dataType": "string",
+          "value": "appealed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "评估对应选课",
+          "targetInstanceId": 21,
+          "targetInstanceName": "课程注册_001",
+          "targetObjectId": 6,
+          "targetObjectName": "课程注册",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Assessment_005",
+      "instanceName": "课程评估_005",
+      "objectId": 7,
+      "objectName": "课程评估",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "测评ID",
+          "attributeCode": "Assessment.assessment_id",
+          "dataType": "string",
+          "value": "A2023005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Assessment.score",
+          "dataType": "number",
+          "value": 95.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Assessment.status",
+          "dataType": "string",
+          "value": "graded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "评估对应选课",
+          "targetInstanceId": 22,
+          "targetInstanceName": "课程注册_002",
+          "targetObjectId": 6,
+          "targetObjectName": "课程注册",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Certification_001",
+      "instanceName": "认证证书_001",
+      "objectId": 8,
+      "objectName": "认证证书",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "证书ID",
+          "attributeCode": "Certification.cert_id",
+          "dataType": "string",
+          "value": "CERT-CN-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "签发时间",
+          "attributeCode": "Certification.issued_at",
+          "dataType": "string",
+          "value": "2023-05-15T10:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Certification.status",
+          "dataType": "string",
+          "value": "revoked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "认证归属学员",
+          "targetInstanceId": 6,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_001",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "认证对应课程",
+          "targetInstanceId": 14,
+          "targetInstanceName": "课程_001",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "认证验证技能",
+          "targetInstanceId": 34,
+          "targetInstanceName": "技能项_003",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Certification_002",
+      "instanceName": "认证证书_002",
+      "objectId": 8,
+      "objectName": "认证证书",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "证书ID",
+          "attributeCode": "Certification.cert_id",
+          "dataType": "string",
+          "value": "CERT-CN-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "签发时间",
+          "attributeCode": "Certification.issued_at",
+          "dataType": "string",
+          "value": "2023-07-22T14:45:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Certification.status",
+          "dataType": "string",
+          "value": "revoked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "认证归属学员",
+          "targetInstanceId": 5,
+          "targetInstanceName": "学员_005",
+          "targetObjectId": 1,
+          "targetObjectName": "学员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "认证对应课程",
+          "targetInstanceId": 18,
+          "targetInstanceName": "课程_005",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Certification_003",
+      "instanceName": "认证证书_003",
+      "objectId": 8,
+      "objectName": "认证证书",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "证书ID",
+          "attributeCode": "Certification.cert_id",
+          "dataType": "string",
+          "value": "CERT-CN-2023-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "签发时间",
+          "attributeCode": "Certification.issued_at",
+          "dataType": "string",
+          "value": "2022-11-03T09:15:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Certification.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "认证归属学员",
+          "targetInstanceId": 3,
+          "targetInstanceName": "学员_003",
+          "targetObjectId": 1,
+          "targetObjectName": "学员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "认证对应课程",
+          "targetInstanceId": 16,
+          "targetInstanceName": "课程_003",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "认证验证技能",
+          "targetInstanceId": 35,
+          "targetInstanceName": "技能项_004",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Certification_004",
+      "instanceName": "认证证书_004",
+      "objectId": 8,
+      "objectName": "认证证书",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "证书ID",
+          "attributeCode": "Certification.cert_id",
+          "dataType": "string",
+          "value": "CERT-CN-2023-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "签发时间",
+          "attributeCode": "Certification.issued_at",
+          "dataType": "string",
+          "value": "2023-09-10T16:20:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Certification.status",
+          "dataType": "string",
+          "value": "revoked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "认证归属学员",
+          "targetInstanceId": 3,
+          "targetInstanceName": "学员_003",
+          "targetObjectId": 1,
+          "targetObjectName": "学员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "认证对应课程",
+          "targetInstanceId": 14,
+          "targetInstanceName": "课程_001",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "认证验证技能",
+          "targetInstanceId": 32,
+          "targetInstanceName": "技能项_001",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Skill_001",
+      "instanceName": "技能项_001",
+      "objectId": 9,
+      "objectName": "技能项",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "名称",
+          "attributeCode": "Skill.name",
+          "dataType": "string",
+          "value": "Python编程",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "技能ID",
+          "attributeCode": "Skill.skill_id",
+          "dataType": "string",
+          "value": "SKL-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 25,
+          "linkInfo": "技能依赖关系（自循环）",
+          "targetInstanceId": 35,
+          "targetInstanceName": "技能项_004",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 25,
+          "linkInfo": "技能依赖关系（自循环）",
+          "targetInstanceId": 33,
+          "targetInstanceName": "技能项_002",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Skill_002",
+      "instanceName": "技能项_002",
+      "objectId": 9,
+      "objectName": "技能项",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "名称",
+          "attributeCode": "Skill.name",
+          "dataType": "string",
+          "value": "项目管理",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "技能ID",
+          "attributeCode": "Skill.skill_id",
+          "dataType": "string",
+          "value": "SKL-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 25,
+          "linkInfo": "技能依赖关系（自循环）",
+          "targetInstanceId": 33,
+          "targetInstanceName": "技能项_002",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Skill_003",
+      "instanceName": "技能项_003",
+      "objectId": 9,
+      "objectName": "技能项",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "名称",
+          "attributeCode": "Skill.name",
+          "dataType": "string",
+          "value": "数据分析",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "技能ID",
+          "attributeCode": "Skill.skill_id",
+          "dataType": "string",
+          "value": "SKL-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 25,
+          "linkInfo": "技能依赖关系（自循环）",
+          "targetInstanceId": 33,
+          "targetInstanceName": "技能项_002",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Skill_004",
+      "instanceName": "技能项_004",
+      "objectId": 9,
+      "objectName": "技能项",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "名称",
+          "attributeCode": "Skill.name",
+          "dataType": "string",
+          "value": "沟通协调",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "技能ID",
+          "attributeCode": "Skill.skill_id",
+          "dataType": "string",
+          "value": "SKL-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 25,
+          "linkInfo": "技能依赖关系（自循环）",
+          "targetInstanceId": 34,
+          "targetInstanceName": "技能项_003",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "CareerPath_001",
+      "instanceName": "职业路径_001",
+      "objectId": 10,
+      "objectName": "职业路径",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "路径ID",
+          "attributeCode": "CareerPath.path_id",
+          "dataType": "string",
+          "value": "CP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "职称",
+          "attributeCode": "CareerPath.title",
+          "dataType": "string",
+          "value": "软件工程师职业发展路径",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "CareerPath_002",
+      "instanceName": "职业路径_002",
+      "objectId": 10,
+      "objectName": "职业路径",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "路径ID",
+          "attributeCode": "CareerPath.path_id",
+          "dataType": "string",
+          "value": "CP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "职称",
+          "attributeCode": "CareerPath.title",
+          "dataType": "string",
+          "value": "人力资源专员晋升路径",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "MentorshipProgram_001",
+      "instanceName": "导师计划_001",
+      "objectId": 11,
+      "objectName": "导师计划",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "培养项目ID",
+          "attributeCode": "MentorshipProgram.program_id",
+          "dataType": "string",
+          "value": "MP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "MentorshipProgram.status",
+          "dataType": "string",
+          "value": "concluded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "MentorshipProgram_002",
+      "instanceName": "导师计划_002",
+      "objectId": 11,
+      "objectName": "导师计划",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "培养项目ID",
+          "attributeCode": "MentorshipProgram.program_id",
+          "dataType": "string",
+          "value": "MP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "MentorshipProgram.status",
+          "dataType": "string",
+          "value": "concluded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "MentorshipProgram_003",
+      "instanceName": "导师计划_003",
+      "objectId": 11,
+      "objectName": "导师计划",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "培养项目ID",
+          "attributeCode": "MentorshipProgram.program_id",
+          "dataType": "string",
+          "value": "MP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "MentorshipProgram.status",
+          "dataType": "string",
+          "value": "concluded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "MentorshipProgram_004",
+      "instanceName": "导师计划_004",
+      "objectId": 11,
+      "objectName": "导师计划",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "培养项目ID",
+          "attributeCode": "MentorshipProgram.program_id",
+          "dataType": "string",
+          "value": "MP-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "MentorshipProgram.status",
+          "dataType": "string",
+          "value": "concluded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "MentorshipEngagement_001",
+      "instanceName": "导师-学员配对_001",
+      "objectId": 12,
+      "objectName": "导师-学员配对",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "互动ID",
+          "attributeCode": "MentorshipEngagement.engagement_id",
+          "dataType": "string",
+          "value": "ME2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "MentorshipEngagement.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "配对属于计划",
+          "targetInstanceId": 39,
+          "targetInstanceName": "导师计划_002",
+          "targetObjectId": 11,
+          "targetObjectName": "导师计划",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "配对的导师",
+          "targetInstanceId": 6,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_001",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "配对的学员",
+          "targetInstanceId": 10,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_005",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "LearningPath_001",
+      "instanceName": "学习路径（多课程组合）_001",
+      "objectId": 13,
+      "objectName": "学习路径（多课程组合）",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "路径ID",
+          "attributeCode": "LearningPath.path_id",
+          "dataType": "string",
+          "value": "LP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "职称",
+          "attributeCode": "LearningPath.title",
+          "dataType": "string",
+          "value": "人工智能工程师进阶路径",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "学习路径包含课程",
+          "targetInstanceId": 18,
+          "targetInstanceName": "课程_005",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "学习路径服务职业路径",
+          "targetInstanceId": 36,
+          "targetInstanceName": "职业路径_001",
+          "targetObjectId": 10,
+          "targetObjectName": "职业路径",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "LearningPath_002",
+      "instanceName": "学习路径（多课程组合）_002",
+      "objectId": 13,
+      "objectName": "学习路径（多课程组合）",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "路径ID",
+          "attributeCode": "LearningPath.path_id",
+          "dataType": "string",
+          "value": "LP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "职称",
+          "attributeCode": "LearningPath.title",
+          "dataType": "string",
+          "value": "人力资源管理师认证路径",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "学习路径包含课程",
+          "targetInstanceId": 15,
+          "targetInstanceName": "课程_002",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "学习路径包含课程",
+          "targetInstanceId": 16,
+          "targetInstanceName": "课程_003",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "学习路径服务职业路径",
+          "targetInstanceId": 37,
+          "targetInstanceName": "职业路径_002",
+          "targetObjectId": 10,
+          "targetObjectName": "职业路径",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "LearningPath_003",
+      "instanceName": "学习路径（多课程组合）_003",
+      "objectId": 13,
+      "objectName": "学习路径（多课程组合）",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "路径ID",
+          "attributeCode": "LearningPath.path_id",
+          "dataType": "string",
+          "value": "LP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "职称",
+          "attributeCode": "LearningPath.title",
+          "dataType": "string",
+          "value": "全栈开发实战学习路径",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "学习路径服务职业路径",
+          "targetInstanceId": 36,
+          "targetInstanceName": "职业路径_001",
+          "targetObjectId": 10,
+          "targetObjectName": "职业路径",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 46,
+      "instanceCode": "Workshop_001",
+      "instanceName": "工作坊_001",
+      "objectId": 14,
+      "objectName": "工作坊",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Workshop.status",
+          "dataType": "string",
+          "value": "planned",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "主题",
+          "attributeCode": "Workshop.topic",
+          "dataType": "string",
+          "value": "敏捷开发实践",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "value": "Workshop_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "工作坊涉及技能",
+          "targetInstanceId": 32,
+          "targetInstanceName": "技能项_001",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "学员参加工作坊",
+          "targetInstanceId": 7,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_002",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 47,
+      "instanceCode": "FeedbackEntry_001",
+      "instanceName": "学员反馈_001",
+      "objectId": 15,
+      "objectName": "学员反馈",
+      "attributeValues": [
+        {
+          "attributeId": 41,
+          "attributeName": "反馈ID",
+          "attributeCode": "FeedbackEntry.feedback_id",
+          "dataType": "string",
+          "value": "FE2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "评分",
+          "attributeCode": "FeedbackEntry.rating",
+          "dataType": "integer",
+          "value": 4,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 43,
+          "attributeName": "状态",
+          "attributeCode": "FeedbackEntry.status",
+          "dataType": "string",
+          "value": "submitted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "反馈针对课程",
+          "targetInstanceId": 17,
+          "targetInstanceName": "课程_004",
+          "targetObjectId": 4,
+          "targetObjectName": "课程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "反馈来自学员",
+          "targetInstanceId": 7,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_002",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 48,
+      "instanceCode": "Goal_001",
+      "instanceName": "学习目标_001",
+      "objectId": 16,
+      "objectName": "学习目标",
+      "attributeValues": [
+        {
+          "attributeId": 44,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "achieved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 22,
+          "linkInfo": "目标归属学员",
+          "targetInstanceId": 3,
+          "targetInstanceName": "学员_003",
+          "targetObjectId": 1,
+          "targetObjectName": "学员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 23,
+          "linkInfo": "目标针对技能",
+          "targetInstanceId": 32,
+          "targetInstanceName": "技能项_001",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 49,
+      "instanceCode": "Goal_002",
+      "instanceName": "学习目标_002",
+      "objectId": 16,
+      "objectName": "学习目标",
+      "attributeValues": [
+        {
+          "attributeId": 44,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "draft",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 22,
+          "linkInfo": "目标归属学员",
+          "targetInstanceId": 12,
+          "targetInstanceName": "教练_002",
+          "targetObjectId": 3,
+          "targetObjectName": "教练",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 23,
+          "linkInfo": "目标针对技能",
+          "targetInstanceId": 35,
+          "targetInstanceName": "技能项_004",
+          "targetObjectId": 9,
+          "targetObjectName": "技能项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 50,
+      "instanceCode": "Goal_003",
+      "instanceName": "学习目标_003",
+      "objectId": 16,
+      "objectName": "学习目标",
+      "attributeValues": [
+        {
+          "attributeId": 44,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "achieved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 22,
+          "linkInfo": "目标归属学员",
+          "targetInstanceId": 9,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_004",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 51,
+      "instanceCode": "Resource_001",
+      "instanceName": "学习资源_001",
+      "objectId": 17,
+      "objectName": "学习资源",
+      "attributeValues": [
+        {
+          "attributeId": 46,
+          "attributeName": "类型",
+          "attributeCode": "Resource.kind",
+          "dataType": "string",
+          "value": "video",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "资源ID",
+          "attributeCode": "Resource.resource_id",
+          "dataType": "string",
+          "value": "RES-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 52,
+      "instanceCode": "Resource_002",
+      "instanceName": "学习资源_002",
+      "objectId": 17,
+      "objectName": "学习资源",
+      "attributeValues": [
+        {
+          "attributeId": 46,
+          "attributeName": "类型",
+          "attributeCode": "Resource.kind",
+          "dataType": "string",
+          "value": "article",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "资源ID",
+          "attributeCode": "Resource.resource_id",
+          "dataType": "string",
+          "value": "RES-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 53,
+      "instanceCode": "Badge_001",
+      "instanceName": "学习徽章_001",
+      "objectId": 18,
+      "objectName": "学习徽章",
+      "attributeValues": [
+        {
+          "attributeId": 48,
+          "attributeName": "工牌ID",
+          "attributeCode": "Badge.badge_id",
+          "dataType": "string",
+          "value": "B001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "Badge.name",
+          "dataType": "string",
+          "value": "初级项目管理徽章",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 24,
+          "linkInfo": "徽章授予学员",
+          "targetInstanceId": 6,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_001",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 24,
+          "linkInfo": "徽章授予学员",
+          "targetInstanceId": 7,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_002",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 24,
+          "linkInfo": "徽章授予学员",
+          "targetInstanceId": 11,
+          "targetInstanceName": "教练_001",
+          "targetObjectId": 3,
+          "targetObjectName": "教练",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 54,
+      "instanceCode": "Badge_002",
+      "instanceName": "学习徽章_002",
+      "objectId": 18,
+      "objectName": "学习徽章",
+      "attributeValues": [
+        {
+          "attributeId": 48,
+          "attributeName": "工牌ID",
+          "attributeCode": "Badge.badge_id",
+          "dataType": "string",
+          "value": "B002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "Badge.name",
+          "dataType": "string",
+          "value": "数据可视化专家徽章",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 24,
+          "linkInfo": "徽章授予学员",
+          "targetInstanceId": 8,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_003",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 24,
+          "linkInfo": "徽章授予学员",
+          "targetInstanceId": 10,
+          "targetInstanceName": "导师（也是学员的子类型，形成循环）_005",
+          "targetObjectId": 2,
+          "targetObjectName": "导师（也是学员的子类型，形成循环）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 6,
+      "actionName": "提交测评",
+      "inputInstances": [
+        7
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_002"
+      ],
+      "outputInstanceNames": [
+        "课程评估_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 7,
+      "actionName": "评分测评",
+      "inputInstances": [
+        6
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_001"
+      ],
+      "outputInstanceNames": [
+        "课程评估_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 2,
+      "actionName": "下线课程",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_004"
+      ],
+      "outputInstanceNames": [
+        "课程_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 4,
+      "actionName": "完成报名",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "教练_003"
+      ],
+      "outputInstanceNames": [
+        "课程注册_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 5,
+      "actionName": "退出报名",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "教练_002"
+      ],
+      "outputInstanceNames": [
+        "课程注册_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 13,
+      "actionName": "达成目标",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        48
+      ],
+      "inputInstanceNames": [
+        "学员_002"
+      ],
+      "outputInstanceNames": [
+        "学习目标_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 8,
+      "actionName": "签发认证",
+      "inputInstances": [
+        7
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_002"
+      ],
+      "outputInstanceNames": [
+        "认证证书_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 10,
+      "actionName": "匹配导师辅导",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "教练_001"
+      ],
+      "outputInstanceNames": [
+        "导师计划_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 11,
+      "actionName": "激活导师辅导",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "教练_001"
+      ],
+      "outputInstanceNames": [
+        "导师计划_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 1,
+      "actionName": "发布课程",
+      "inputInstances": [
+        6
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_001"
+      ],
+      "outputInstanceNames": [
+        "课程_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 9,
+      "actionName": "吊销认证",
+      "inputInstances": [
+        8
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_003"
+      ],
+      "outputInstanceNames": [
+        "认证证书_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 11,
+      "actionName": "激活导师辅导",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "教练_001"
+      ],
+      "outputInstanceNames": [
+        "导师计划_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 2,
+      "actionName": "下线课程",
+      "inputInstances": [
+        6
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_001"
+      ],
+      "outputInstanceNames": [
+        "课程_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 7,
+      "actionName": "评分测评",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_004"
+      ],
+      "outputInstanceNames": [
+        "课程评估_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 12,
+      "actionName": "结束导师辅导",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        40
+      ],
+      "inputInstanceNames": [
+        "教练_003"
+      ],
+      "outputInstanceNames": [
+        "导师计划_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 12,
+      "actionName": "结束导师辅导",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "教练_003"
+      ],
+      "outputInstanceNames": [
+        "导师计划_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 9,
+      "actionName": "吊销认证",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_005"
+      ],
+      "outputInstanceNames": [
+        "认证证书_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 2,
+      "actionName": "下线课程",
+      "inputInstances": [
+        8
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_003"
+      ],
+      "outputInstanceNames": [
+        "课程_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 2,
+      "actionName": "下线课程",
+      "inputInstances": [
+        6
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "导师（也是学员的子类型，形成循环）_001"
+      ],
+      "outputInstanceNames": [
+        "课程_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 12,
+      "actionName": "结束导师辅导",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "教练_002"
+      ],
+      "outputInstanceNames": [
+        "导师计划_001"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

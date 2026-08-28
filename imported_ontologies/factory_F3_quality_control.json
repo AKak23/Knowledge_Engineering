@@ -1,0 +1,3685 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "智能工厂·factory_F3_quality_control",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=factory_F3_quality_control，graph=factory_F3_quality_control_seed42）：14 个对象类型 / 21 个关系 / 14 个动作 / 42 个实例 / 26 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "产品批次",
+      "objectCode": "ProductBatch",
+      "description": "产品批次",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "批次ID",
+          "attributeCode": "ProductBatch.batch_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PB2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生产时间",
+          "attributeCode": "ProductBatch.produced_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15T08:22:10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "规模",
+          "attributeCode": "ProductBatch.size",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 1250,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "ProductBatch.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "rejected",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "抽检样品",
+      "objectCode": "Sample",
+      "description": "抽检样品",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "样本ID",
+          "attributeCode": "Sample.sample_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Sample_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Sample.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "pending",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "检验任务",
+      "objectCode": "Inspection",
+      "description": "检验任务",
+      "attributes": [
+        {
+          "attributeId": 7,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "JY2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "方法",
+          "attributeCode": "Inspection.method",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "visual",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "缺陷",
+      "objectCode": "Defect",
+      "description": "缺陷",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "类别",
+          "attributeCode": "Defect.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "surface",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "缺陷ID",
+          "attributeCode": "Defect.defect_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DFT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "严重程度",
+          "attributeCode": "Defect.severity",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Defect.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "缺陷根因",
+      "objectCode": "RootCause",
+      "description": "缺陷根因",
+      "attributes": [
+        {
+          "attributeId": 14,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "material",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RC-2024-MAT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "原材料批次存在微观裂纹，导致成品焊接强度不足",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "纠正/预防措施",
+      "objectCode": "CorrectiveAction",
+      "description": "纠正/预防措施",
+      "attributes": [
+        {
+          "attributeId": 17,
+          "attributeName": "操作ID",
+          "attributeCode": "CorrectiveAction.action_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "截止日期",
+          "attributeCode": "CorrectiveAction.due_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-06-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "CorrectiveAction.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "verified",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "质量标准父类型",
+      "objectCode": "QualityStandard",
+      "description": "质量标准父类型",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "QualityStandard.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "质量管理体系要求",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "标准ID",
+          "attributeCode": "QualityStandard.standard_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "GB/T 19001-2016",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "尺寸标准",
+      "objectCode": "DimensionalStandard",
+      "description": "尺寸标准",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "DimensionalStandard.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "一般公差 未注公差的线性和角度尺寸的公差",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "标准ID",
+          "attributeCode": "DimensionalStandard.standard_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "GB/T 1804-2000",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "公差(毫米)",
+          "attributeCode": "DimensionalStandard.tolerance_mm",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.2,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "化学标准",
+      "objectCode": "ChemicalStandard",
+      "description": "化学标准",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "最大浓度(ppm)",
+          "attributeCode": "ChemicalStandard.max_concentration_ppm",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 50.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "ChemicalStandard.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "工业用乙醇纯度标准",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "标准ID",
+          "attributeCode": "ChemicalStandard.standard_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "GB/T 12345-2020",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "质检员",
+      "objectCode": "Inspector",
+      "description": "质检员",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "检验员ID",
+          "attributeCode": "Inspector.inspector_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "Inspector.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "李伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "生产设备",
+      "objectCode": "Machine",
+      "description": "生产设备",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MCH-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "原材料",
+      "objectCode": "Material",
+      "description": "原材料",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "批号编号",
+          "attributeCode": "Material.lot_number",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "LOT-2023-A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MAT-2023-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "不合格记录",
+      "objectCode": "NonConformance",
+      "description": "不合格记录",
+      "attributes": [
+        {
+          "attributeId": 34,
+          "attributeName": "不合格ID",
+          "attributeCode": "NonConformance.nc_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "NC2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "NonConformance.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "open",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "质量分析报告",
+      "objectCode": "QualityReport",
+      "description": "质量分析报告",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "报告ID",
+          "attributeCode": "QualityReport.report_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "QR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "QualityReport.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "published",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 2,
+      "sourceObjectName": "抽检样品",
+      "targetObjectId": 1,
+      "targetObjectName": "产品批次",
+      "linkInfo": "样品来自批次",
+      "linkType": "N:1",
+      "description": "sample_from_batch",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 3,
+      "sourceObjectName": "检验任务",
+      "targetObjectId": 2,
+      "targetObjectName": "抽检样品",
+      "linkInfo": "检验对样品",
+      "linkType": "N:M",
+      "description": "inspection_on_sample",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "检验任务",
+      "targetObjectId": 1,
+      "targetObjectName": "产品批次",
+      "linkInfo": "检验关联批次",
+      "linkType": "N:M",
+      "description": "inspection_on_batch",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 3,
+      "sourceObjectName": "检验任务",
+      "targetObjectId": 4,
+      "targetObjectName": "缺陷",
+      "linkInfo": "检验发现缺陷",
+      "linkType": "1:N",
+      "description": "inspection_finds_defect",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 4,
+      "sourceObjectName": "缺陷",
+      "targetObjectId": 1,
+      "targetObjectName": "产品批次",
+      "linkInfo": "缺陷出现在批次",
+      "linkType": "N:M",
+      "description": "defect_in_batch",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 4,
+      "sourceObjectName": "缺陷",
+      "targetObjectId": 5,
+      "targetObjectName": "缺陷根因",
+      "linkInfo": "缺陷根因",
+      "linkType": "N:M",
+      "description": "defect_root_cause",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 5,
+      "sourceObjectName": "缺陷根因",
+      "targetObjectId": 6,
+      "targetObjectName": "纠正/预防措施",
+      "linkInfo": "根因触发纠正措施",
+      "linkType": "N:M",
+      "description": "cause_triggers_action",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 6,
+      "sourceObjectName": "纠正/预防措施",
+      "targetObjectId": 4,
+      "targetObjectName": "缺陷",
+      "linkInfo": "措施针对缺陷",
+      "linkType": "N:M",
+      "description": "action_addresses_defect",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 3,
+      "sourceObjectName": "检验任务",
+      "targetObjectId": 7,
+      "targetObjectName": "质量标准父类型",
+      "linkInfo": "检验依据标准",
+      "linkType": "N:M",
+      "description": "inspection_against_standard",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 10,
+      "sourceObjectName": "质检员",
+      "targetObjectId": 3,
+      "targetObjectName": "检验任务",
+      "linkInfo": "质检员执行检验",
+      "linkType": "1:N",
+      "description": "inspector_runs_inspection",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 1,
+      "sourceObjectName": "产品批次",
+      "targetObjectId": 11,
+      "targetObjectName": "生产设备",
+      "linkInfo": "批次由设备生产",
+      "linkType": "N:M",
+      "description": "batch_from_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 1,
+      "sourceObjectName": "产品批次",
+      "targetObjectId": 12,
+      "targetObjectName": "原材料",
+      "linkInfo": "批次使用物料",
+      "linkType": "N:M",
+      "description": "batch_uses_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 13,
+      "sourceObjectName": "不合格记录",
+      "targetObjectId": 1,
+      "targetObjectName": "产品批次",
+      "linkInfo": "不合格记录关联批次",
+      "linkType": "N:1",
+      "description": "nc_on_batch",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 13,
+      "sourceObjectName": "不合格记录",
+      "targetObjectId": 4,
+      "targetObjectName": "缺陷",
+      "linkInfo": "不合格记录包含缺陷",
+      "linkType": "1:N",
+      "description": "nc_includes_defect",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 6,
+      "sourceObjectName": "纠正/预防措施",
+      "targetObjectId": 10,
+      "targetObjectName": "质检员",
+      "linkInfo": "措施负责人",
+      "linkType": "N:1",
+      "description": "action_owner_inspector",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 14,
+      "sourceObjectName": "质量分析报告",
+      "targetObjectId": 3,
+      "targetObjectName": "检验任务",
+      "linkInfo": "报告汇总检验",
+      "linkType": "N:M",
+      "description": "report_summarizes_inspection",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 14,
+      "sourceObjectName": "质量分析报告",
+      "targetObjectId": 4,
+      "targetObjectName": "缺陷",
+      "linkInfo": "报告汇总缺陷",
+      "linkType": "N:M",
+      "description": "report_summarizes_defect",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 5,
+      "sourceObjectName": "缺陷根因",
+      "targetObjectId": 11,
+      "targetObjectName": "生产设备",
+      "linkInfo": "根因涉及设备",
+      "linkType": "N:M",
+      "description": "cause_on_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 5,
+      "sourceObjectName": "缺陷根因",
+      "targetObjectId": 12,
+      "targetObjectName": "原材料",
+      "linkInfo": "根因涉及物料",
+      "linkType": "N:M",
+      "description": "cause_on_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 8,
+      "sourceObjectName": "尺寸标准",
+      "targetObjectId": 7,
+      "targetObjectName": "质量标准父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "DimensionalStandard is-a QualityStandard",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 9,
+      "sourceObjectName": "化学标准",
+      "targetObjectId": 7,
+      "targetObjectName": "质量标准父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "ChemicalStandard is-a QualityStandard",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "下达批次",
+      "actionCode": "release_batch",
+      "description": "执行者：质检员；对象：产品批次",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "产品批次"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "暂扣批次",
+      "actionCode": "hold_batch",
+      "description": "执行者：质检员；对象：产品批次",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "产品批次"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "拒绝批次",
+      "actionCode": "reject_batch",
+      "description": "执行者：质检员；对象：产品批次",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "产品批次"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "开始检验",
+      "actionCode": "start_inspection",
+      "description": "执行者：质检员；对象：检验任务",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "检验任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "通过检验",
+      "actionCode": "pass_inspection",
+      "description": "执行者：质检员；对象：检验任务",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "检验任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "判定失败检验",
+      "actionCode": "fail_inspection",
+      "description": "执行者：质检员；对象：检验任务",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "检验任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "分析缺陷",
+      "actionCode": "analyze_defect",
+      "description": "执行者：质检员；对象：缺陷",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "缺陷"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "关闭缺陷",
+      "actionCode": "close_defect",
+      "description": "执行者：质检员；对象：缺陷",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "缺陷"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "审批操作",
+      "actionCode": "approve_action",
+      "description": "执行者：质检员；对象：纠正/预防措施",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "纠正/预防措施"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "执行操作",
+      "actionCode": "execute_action",
+      "description": "执行者：质检员；对象：纠正/预防措施",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "纠正/预防措施"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "完成操作",
+      "actionCode": "complete_action",
+      "description": "执行者：质检员；对象：纠正/预防措施",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "纠正/预防措施"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "核验操作",
+      "actionCode": "verify_action",
+      "description": "执行者：质检员；对象：纠正/预防措施",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "纠正/预防措施"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "发布报告",
+      "actionCode": "publish_report",
+      "description": "执行者：质检员；对象：质量分析报告",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "质量分析报告"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "关闭不合格",
+      "actionCode": "close_nc",
+      "description": "执行者：质检员；对象：不合格记录",
+      "inputObjects": [
+        "质检员"
+      ],
+      "outputObjects": [
+        "不合格记录"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "ProductBatch_001",
+      "instanceName": "产品批次_001",
+      "objectId": 1,
+      "objectName": "产品批次",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "批次ID",
+          "attributeCode": "ProductBatch.batch_id",
+          "dataType": "string",
+          "value": "PB2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生产时间",
+          "attributeCode": "ProductBatch.produced_at",
+          "dataType": "string",
+          "value": "2024-03-15T08:22:10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "规模",
+          "attributeCode": "ProductBatch.size",
+          "dataType": "integer",
+          "value": 1250,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "ProductBatch.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 34,
+          "targetInstanceName": "生产设备_003",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "ProductBatch_002",
+      "instanceName": "产品批次_002",
+      "objectId": 1,
+      "objectName": "产品批次",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "批次ID",
+          "attributeCode": "ProductBatch.batch_id",
+          "dataType": "string",
+          "value": "PB2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生产时间",
+          "attributeCode": "ProductBatch.produced_at",
+          "dataType": "string",
+          "value": "2024-03-16T14:05:33",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "规模",
+          "attributeCode": "ProductBatch.size",
+          "dataType": "integer",
+          "value": 980,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "ProductBatch.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "批次使用物料",
+          "targetInstanceId": 37,
+          "targetInstanceName": "原材料_002",
+          "targetObjectId": 12,
+          "targetObjectName": "原材料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "批次使用物料",
+          "targetInstanceId": 36,
+          "targetInstanceName": "原材料_001",
+          "targetObjectId": 12,
+          "targetObjectName": "原材料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "ProductBatch_003",
+      "instanceName": "产品批次_003",
+      "objectId": 1,
+      "objectName": "产品批次",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "批次ID",
+          "attributeCode": "ProductBatch.batch_id",
+          "dataType": "string",
+          "value": "PB2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生产时间",
+          "attributeCode": "ProductBatch.produced_at",
+          "dataType": "string",
+          "value": "2024-03-17T10:17:45",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "规模",
+          "attributeCode": "ProductBatch.size",
+          "dataType": "integer",
+          "value": 2100,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "ProductBatch.status",
+          "dataType": "string",
+          "value": "released",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 34,
+          "targetInstanceName": "生产设备_003",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "ProductBatch_004",
+      "instanceName": "产品批次_004",
+      "objectId": 1,
+      "objectName": "产品批次",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "批次ID",
+          "attributeCode": "ProductBatch.batch_id",
+          "dataType": "string",
+          "value": "PB2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生产时间",
+          "attributeCode": "ProductBatch.produced_at",
+          "dataType": "string",
+          "value": "2024-03-18T09:30:22",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "规模",
+          "attributeCode": "ProductBatch.size",
+          "dataType": "integer",
+          "value": 760,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "ProductBatch.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 33,
+          "targetInstanceName": "生产设备_002",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 32,
+          "targetInstanceName": "生产设备_001",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "批次使用物料",
+          "targetInstanceId": 36,
+          "targetInstanceName": "原材料_001",
+          "targetObjectId": 12,
+          "targetObjectName": "原材料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "ProductBatch_005",
+      "instanceName": "产品批次_005",
+      "objectId": 1,
+      "objectName": "产品批次",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "批次ID",
+          "attributeCode": "ProductBatch.batch_id",
+          "dataType": "string",
+          "value": "PB2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生产时间",
+          "attributeCode": "ProductBatch.produced_at",
+          "dataType": "string",
+          "value": "2024-03-19T16:44:08",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "规模",
+          "attributeCode": "ProductBatch.size",
+          "dataType": "integer",
+          "value": 1540,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "ProductBatch.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 33,
+          "targetInstanceName": "生产设备_002",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 32,
+          "targetInstanceName": "生产设备_001",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "批次使用物料",
+          "targetInstanceId": 37,
+          "targetInstanceName": "原材料_002",
+          "targetObjectId": 12,
+          "targetObjectName": "原材料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "ProductBatch_006",
+      "instanceName": "产品批次_006",
+      "objectId": 1,
+      "objectName": "产品批次",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "批次ID",
+          "attributeCode": "ProductBatch.batch_id",
+          "dataType": "string",
+          "value": "PB2024006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生产时间",
+          "attributeCode": "ProductBatch.produced_at",
+          "dataType": "string",
+          "value": "2024-03-20T07:55:19",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "规模",
+          "attributeCode": "ProductBatch.size",
+          "dataType": "integer",
+          "value": 1320,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "ProductBatch.status",
+          "dataType": "string",
+          "value": "released",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 34,
+          "targetInstanceName": "生产设备_003",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "批次由设备生产",
+          "targetInstanceId": 33,
+          "targetInstanceName": "生产设备_002",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Sample_001",
+      "instanceName": "抽检样品_001",
+      "objectId": 2,
+      "objectName": "抽检样品",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "样本ID",
+          "attributeCode": "Sample.sample_id",
+          "dataType": "string",
+          "value": "Sample_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Sample.status",
+          "dataType": "string",
+          "value": "pending",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "样品来自批次",
+          "targetInstanceId": 2,
+          "targetInstanceName": "产品批次_002",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Inspection_001",
+      "instanceName": "检验任务_001",
+      "objectId": 3,
+      "objectName": "检验任务",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "value": "JY2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "方法",
+          "attributeCode": "Inspection.method",
+          "dataType": "string",
+          "value": "visual",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "value": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "检验对样品",
+          "targetInstanceId": 7,
+          "targetInstanceName": "抽检样品_001",
+          "targetObjectId": 2,
+          "targetObjectName": "抽检样品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 6,
+          "targetInstanceName": "产品批次_006",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 4,
+          "targetInstanceName": "产品批次_004",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 5,
+          "targetInstanceName": "产品批次_005",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 1,
+          "targetInstanceName": "产品批次_001",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "检验发现缺陷",
+          "targetInstanceId": 13,
+          "targetInstanceName": "缺陷_001",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "检验发现缺陷",
+          "targetInstanceId": 14,
+          "targetInstanceName": "缺陷_002",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 26,
+          "targetInstanceName": "尺寸标准_002",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 23,
+          "targetInstanceName": "质量标准父类型_001",
+          "targetObjectId": 7,
+          "targetObjectName": "质量标准父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 25,
+          "targetInstanceName": "尺寸标准_001",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Inspection_002",
+      "instanceName": "检验任务_002",
+      "objectId": 3,
+      "objectName": "检验任务",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "value": "JY2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "方法",
+          "attributeCode": "Inspection.method",
+          "dataType": "string",
+          "value": "dimensional",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "value": "passed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "检验对样品",
+          "targetInstanceId": 7,
+          "targetInstanceName": "抽检样品_001",
+          "targetObjectId": 2,
+          "targetObjectName": "抽检样品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 3,
+          "targetInstanceName": "产品批次_003",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "检验发现缺陷",
+          "targetInstanceId": 14,
+          "targetInstanceName": "缺陷_002",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 30,
+          "targetInstanceName": "化学标准_002",
+          "targetObjectId": 9,
+          "targetObjectName": "化学标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 27,
+          "targetInstanceName": "尺寸标准_003",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 26,
+          "targetInstanceName": "尺寸标准_002",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 29,
+          "targetInstanceName": "化学标准_001",
+          "targetObjectId": 9,
+          "targetObjectName": "化学标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Inspection_003",
+      "instanceName": "检验任务_003",
+      "objectId": 3,
+      "objectName": "检验任务",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "value": "JY2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "方法",
+          "attributeCode": "Inspection.method",
+          "dataType": "string",
+          "value": "chemical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "value": "passed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 3,
+          "targetInstanceName": "产品批次_003",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 6,
+          "targetInstanceName": "产品批次_006",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 26,
+          "targetInstanceName": "尺寸标准_002",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Inspection_004",
+      "instanceName": "检验任务_004",
+      "objectId": 3,
+      "objectName": "检验任务",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "value": "JY2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "方法",
+          "attributeCode": "Inspection.method",
+          "dataType": "string",
+          "value": "functional",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "value": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 1,
+          "targetInstanceName": "产品批次_001",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 5,
+          "targetInstanceName": "产品批次_005",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 27,
+          "targetInstanceName": "尺寸标准_003",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 30,
+          "targetInstanceName": "化学标准_002",
+          "targetObjectId": 9,
+          "targetObjectName": "化学标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Inspection_005",
+      "instanceName": "检验任务_005",
+      "objectId": 3,
+      "objectName": "检验任务",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "value": "JY2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "方法",
+          "attributeCode": "Inspection.method",
+          "dataType": "string",
+          "value": "visual",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "value": "passed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 3,
+          "targetInstanceName": "产品批次_003",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "检验关联批次",
+          "targetInstanceId": 2,
+          "targetInstanceName": "产品批次_002",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 28,
+          "targetInstanceName": "尺寸标准_004",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 27,
+          "targetInstanceName": "尺寸标准_003",
+          "targetObjectId": 8,
+          "targetObjectName": "尺寸标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 29,
+          "targetInstanceName": "化学标准_001",
+          "targetObjectId": 9,
+          "targetObjectName": "化学标准",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "检验依据标准",
+          "targetInstanceId": 24,
+          "targetInstanceName": "质量标准父类型_002",
+          "targetObjectId": 7,
+          "targetObjectName": "质量标准父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Defect_001",
+      "instanceName": "缺陷_001",
+      "objectId": 4,
+      "objectName": "缺陷",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "类别",
+          "attributeCode": "Defect.category",
+          "dataType": "string",
+          "value": "surface",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "缺陷ID",
+          "attributeCode": "Defect.defect_id",
+          "dataType": "string",
+          "value": "DFT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "严重程度",
+          "attributeCode": "Defect.severity",
+          "dataType": "string",
+          "value": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Defect.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "缺陷出现在批次",
+          "targetInstanceId": 6,
+          "targetInstanceName": "产品批次_006",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Defect_002",
+      "instanceName": "缺陷_002",
+      "objectId": 4,
+      "objectName": "缺陷",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "类别",
+          "attributeCode": "Defect.category",
+          "dataType": "string",
+          "value": "function",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "缺陷ID",
+          "attributeCode": "Defect.defect_id",
+          "dataType": "string",
+          "value": "DFT-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "严重程度",
+          "attributeCode": "Defect.severity",
+          "dataType": "string",
+          "value": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Defect.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "缺陷出现在批次",
+          "targetInstanceId": 4,
+          "targetInstanceName": "产品批次_004",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "缺陷出现在批次",
+          "targetInstanceId": 2,
+          "targetInstanceName": "产品批次_002",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "缺陷出现在批次",
+          "targetInstanceId": 3,
+          "targetInstanceName": "产品批次_003",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "缺陷根因",
+          "targetInstanceId": 15,
+          "targetInstanceName": "缺陷根因_001",
+          "targetObjectId": 5,
+          "targetObjectName": "缺陷根因",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "RootCause_001",
+      "instanceName": "缺陷根因_001",
+      "objectId": 5,
+      "objectName": "缺陷根因",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "value": "material",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "value": "RC-2024-MAT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "value": "原材料批次存在微观裂纹，导致成品焊接强度不足",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "根因触发纠正措施",
+          "targetInstanceId": 21,
+          "targetInstanceName": "纠正/预防措施_005",
+          "targetObjectId": 6,
+          "targetObjectName": "纠正/预防措施",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "根因触发纠正措施",
+          "targetInstanceId": 18,
+          "targetInstanceName": "纠正/预防措施_002",
+          "targetObjectId": 6,
+          "targetObjectName": "纠正/预防措施",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "根因涉及设备",
+          "targetInstanceId": 33,
+          "targetInstanceName": "生产设备_002",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "根因涉及设备",
+          "targetInstanceId": 32,
+          "targetInstanceName": "生产设备_001",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "RootCause_002",
+      "instanceName": "缺陷根因_002",
+      "objectId": 5,
+      "objectName": "缺陷根因",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "value": "human",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "value": "RC-2024-HUM-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "value": "操作员未按SOP执行首件检验，漏检关键尺寸偏差",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "根因触发纠正措施",
+          "targetInstanceId": 20,
+          "targetInstanceName": "纠正/预防措施_004",
+          "targetObjectId": 6,
+          "targetObjectName": "纠正/预防措施",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "根因触发纠正措施",
+          "targetInstanceId": 22,
+          "targetInstanceName": "纠正/预防措施_006",
+          "targetObjectId": 6,
+          "targetObjectName": "纠正/预防措施",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "根因涉及设备",
+          "targetInstanceId": 35,
+          "targetInstanceName": "生产设备_004",
+          "targetObjectId": 11,
+          "targetObjectName": "生产设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "根因涉及物料",
+          "targetInstanceId": 36,
+          "targetInstanceName": "原材料_001",
+          "targetObjectId": 12,
+          "targetObjectName": "原材料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "CorrectiveAction_001",
+      "instanceName": "纠正/预防措施_001",
+      "objectId": 6,
+      "objectName": "纠正/预防措施",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "操作ID",
+          "attributeCode": "CorrectiveAction.action_id",
+          "dataType": "string",
+          "value": "CA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "截止日期",
+          "attributeCode": "CorrectiveAction.due_date",
+          "dataType": "string",
+          "value": "2024-06-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "CorrectiveAction.status",
+          "dataType": "string",
+          "value": "verified",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "措施针对缺陷",
+          "targetInstanceId": 13,
+          "targetInstanceName": "缺陷_001",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "措施针对缺陷",
+          "targetInstanceId": 14,
+          "targetInstanceName": "缺陷_002",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "措施负责人",
+          "targetInstanceId": 31,
+          "targetInstanceName": "质检员_001",
+          "targetObjectId": 10,
+          "targetObjectName": "质检员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "CorrectiveAction_002",
+      "instanceName": "纠正/预防措施_002",
+      "objectId": 6,
+      "objectName": "纠正/预防措施",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "操作ID",
+          "attributeCode": "CorrectiveAction.action_id",
+          "dataType": "string",
+          "value": "CA-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "截止日期",
+          "attributeCode": "CorrectiveAction.due_date",
+          "dataType": "string",
+          "value": "2024-06-20",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "CorrectiveAction.status",
+          "dataType": "string",
+          "value": "verified",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "措施负责人",
+          "targetInstanceId": 31,
+          "targetInstanceName": "质检员_001",
+          "targetObjectId": 10,
+          "targetObjectName": "质检员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "CorrectiveAction_003",
+      "instanceName": "纠正/预防措施_003",
+      "objectId": 6,
+      "objectName": "纠正/预防措施",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "操作ID",
+          "attributeCode": "CorrectiveAction.action_id",
+          "dataType": "string",
+          "value": "CA-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "截止日期",
+          "attributeCode": "CorrectiveAction.due_date",
+          "dataType": "string",
+          "value": "2024-06-25",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "CorrectiveAction.status",
+          "dataType": "string",
+          "value": "verified",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "措施负责人",
+          "targetInstanceId": 31,
+          "targetInstanceName": "质检员_001",
+          "targetObjectId": 10,
+          "targetObjectName": "质检员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "CorrectiveAction_004",
+      "instanceName": "纠正/预防措施_004",
+      "objectId": 6,
+      "objectName": "纠正/预防措施",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "操作ID",
+          "attributeCode": "CorrectiveAction.action_id",
+          "dataType": "string",
+          "value": "CA-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "截止日期",
+          "attributeCode": "CorrectiveAction.due_date",
+          "dataType": "string",
+          "value": "2024-06-30",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "CorrectiveAction.status",
+          "dataType": "string",
+          "value": "verified",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "措施负责人",
+          "targetInstanceId": 31,
+          "targetInstanceName": "质检员_001",
+          "targetObjectId": 10,
+          "targetObjectName": "质检员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "CorrectiveAction_005",
+      "instanceName": "纠正/预防措施_005",
+      "objectId": 6,
+      "objectName": "纠正/预防措施",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "操作ID",
+          "attributeCode": "CorrectiveAction.action_id",
+          "dataType": "string",
+          "value": "CA-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "截止日期",
+          "attributeCode": "CorrectiveAction.due_date",
+          "dataType": "string",
+          "value": "2024-07-05",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "CorrectiveAction.status",
+          "dataType": "string",
+          "value": "verified",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "措施负责人",
+          "targetInstanceId": 31,
+          "targetInstanceName": "质检员_001",
+          "targetObjectId": 10,
+          "targetObjectName": "质检员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "CorrectiveAction_006",
+      "instanceName": "纠正/预防措施_006",
+      "objectId": 6,
+      "objectName": "纠正/预防措施",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "操作ID",
+          "attributeCode": "CorrectiveAction.action_id",
+          "dataType": "string",
+          "value": "CA-2024-006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "截止日期",
+          "attributeCode": "CorrectiveAction.due_date",
+          "dataType": "string",
+          "value": "2024-07-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "CorrectiveAction.status",
+          "dataType": "string",
+          "value": "verified",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "措施针对缺陷",
+          "targetInstanceId": 13,
+          "targetInstanceName": "缺陷_001",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "措施针对缺陷",
+          "targetInstanceId": 14,
+          "targetInstanceName": "缺陷_002",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "措施负责人",
+          "targetInstanceId": 31,
+          "targetInstanceName": "质检员_001",
+          "targetObjectId": 10,
+          "targetObjectName": "质检员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "QualityStandard_001",
+      "instanceName": "质量标准父类型_001",
+      "objectId": 7,
+      "objectName": "质量标准父类型",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "QualityStandard.name",
+          "dataType": "string",
+          "value": "质量管理体系要求",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "标准ID",
+          "attributeCode": "QualityStandard.standard_id",
+          "dataType": "string",
+          "value": "GB/T 19001-2016",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "QualityStandard_002",
+      "instanceName": "质量标准父类型_002",
+      "objectId": 7,
+      "objectName": "质量标准父类型",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "QualityStandard.name",
+          "dataType": "string",
+          "value": "质量管理体系—基础和术语",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "标准ID",
+          "attributeCode": "QualityStandard.standard_id",
+          "dataType": "string",
+          "value": "ISO 9001:2015",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "DimensionalStandard_001",
+      "instanceName": "尺寸标准_001",
+      "objectId": 8,
+      "objectName": "尺寸标准",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "DimensionalStandard.name",
+          "dataType": "string",
+          "value": "一般公差 未注公差的线性和角度尺寸的公差",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "标准ID",
+          "attributeCode": "DimensionalStandard.standard_id",
+          "dataType": "string",
+          "value": "GB/T 1804-2000",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "公差(毫米)",
+          "attributeCode": "DimensionalStandard.tolerance_mm",
+          "dataType": "number",
+          "value": 0.2,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "DimensionalStandard_002",
+      "instanceName": "尺寸标准_002",
+      "objectId": 8,
+      "objectName": "尺寸标准",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "DimensionalStandard.name",
+          "dataType": "string",
+          "value": "一般公差 第1部分：未注公差的线性和角度尺寸",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "标准ID",
+          "attributeCode": "DimensionalStandard.standard_id",
+          "dataType": "string",
+          "value": "ISO 2768-1:2013",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "公差(毫米)",
+          "attributeCode": "DimensionalStandard.tolerance_mm",
+          "dataType": "number",
+          "value": 0.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "DimensionalStandard_003",
+      "instanceName": "尺寸标准_003",
+      "objectId": 8,
+      "objectName": "尺寸标准",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "DimensionalStandard.name",
+          "dataType": "string",
+          "value": "液压元件用冷拔无缝钢管尺寸公差",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "标准ID",
+          "attributeCode": "DimensionalStandard.standard_id",
+          "dataType": "string",
+          "value": "JB/T 9184-1999",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "公差(毫米)",
+          "attributeCode": "DimensionalStandard.tolerance_mm",
+          "dataType": "number",
+          "value": 0.15,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "DimensionalStandard_004",
+      "instanceName": "尺寸标准_004",
+      "objectId": 8,
+      "objectName": "尺寸标准",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "DimensionalStandard.name",
+          "dataType": "string",
+          "value": "机械制造中未注公差的线性尺寸",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "标准ID",
+          "attributeCode": "DimensionalStandard.standard_id",
+          "dataType": "string",
+          "value": "DIN 7167-1982",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "公差(毫米)",
+          "attributeCode": "DimensionalStandard.tolerance_mm",
+          "dataType": "number",
+          "value": 0.3,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "ChemicalStandard_001",
+      "instanceName": "化学标准_001",
+      "objectId": 9,
+      "objectName": "化学标准",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "最大浓度(ppm)",
+          "attributeCode": "ChemicalStandard.max_concentration_ppm",
+          "dataType": "number",
+          "value": 50.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "ChemicalStandard.name",
+          "dataType": "string",
+          "value": "工业用乙醇纯度标准",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "标准ID",
+          "attributeCode": "ChemicalStandard.standard_id",
+          "dataType": "string",
+          "value": "GB/T 12345-2020",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "ChemicalStandard_002",
+      "instanceName": "化学标准_002",
+      "objectId": 9,
+      "objectName": "化学标准",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "最大浓度(ppm)",
+          "attributeCode": "ChemicalStandard.max_concentration_ppm",
+          "dataType": "number",
+          "value": 15.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "ChemicalStandard.name",
+          "dataType": "string",
+          "value": "食品接触材料中甲醛迁移量限值",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "标准ID",
+          "attributeCode": "ChemicalStandard.standard_id",
+          "dataType": "string",
+          "value": "HG/T 5678-2021",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Inspector_001",
+      "instanceName": "质检员_001",
+      "objectId": 10,
+      "objectName": "质检员",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "检验员ID",
+          "attributeCode": "Inspector.inspector_id",
+          "dataType": "string",
+          "value": "INS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "Inspector.name",
+          "dataType": "string",
+          "value": "李伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "质检员执行检验",
+          "targetInstanceId": 8,
+          "targetInstanceName": "检验任务_001",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "质检员执行检验",
+          "targetInstanceId": 9,
+          "targetInstanceName": "检验任务_002",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "质检员执行检验",
+          "targetInstanceId": 10,
+          "targetInstanceName": "检验任务_003",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "质检员执行检验",
+          "targetInstanceId": 11,
+          "targetInstanceName": "检验任务_004",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "质检员执行检验",
+          "targetInstanceId": 12,
+          "targetInstanceName": "检验任务_005",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Machine_001",
+      "instanceName": "生产设备_001",
+      "objectId": 11,
+      "objectName": "生产设备",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "value": "MCH-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Machine_002",
+      "instanceName": "生产设备_002",
+      "objectId": 11,
+      "objectName": "生产设备",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "value": "MCH-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "calibrating",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Machine_003",
+      "instanceName": "生产设备_003",
+      "objectId": 11,
+      "objectName": "生产设备",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "value": "MCH-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "fault",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Machine_004",
+      "instanceName": "生产设备_004",
+      "objectId": 11,
+      "objectName": "生产设备",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "value": "MCH-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Material_001",
+      "instanceName": "原材料_001",
+      "objectId": 12,
+      "objectName": "原材料",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "批号编号",
+          "attributeCode": "Material.lot_number",
+          "dataType": "string",
+          "value": "LOT-2023-A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2023-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Material_002",
+      "instanceName": "原材料_002",
+      "objectId": 12,
+      "objectName": "原材料",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "批号编号",
+          "attributeCode": "Material.lot_number",
+          "dataType": "string",
+          "value": "LOT-2023-A002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2023-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "NonConformance_001",
+      "instanceName": "不合格记录_001",
+      "objectId": 13,
+      "objectName": "不合格记录",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "不合格ID",
+          "attributeCode": "NonConformance.nc_id",
+          "dataType": "string",
+          "value": "NC2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "NonConformance.status",
+          "dataType": "string",
+          "value": "open",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "不合格记录关联批次",
+          "targetInstanceId": 1,
+          "targetInstanceName": "产品批次_001",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "不合格记录包含缺陷",
+          "targetInstanceId": 14,
+          "targetInstanceName": "缺陷_002",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "不合格记录包含缺陷",
+          "targetInstanceId": 13,
+          "targetInstanceName": "缺陷_001",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "NonConformance_002",
+      "instanceName": "不合格记录_002",
+      "objectId": 13,
+      "objectName": "不合格记录",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "不合格ID",
+          "attributeCode": "NonConformance.nc_id",
+          "dataType": "string",
+          "value": "NC2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "NonConformance.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "不合格记录关联批次",
+          "targetInstanceId": 3,
+          "targetInstanceName": "产品批次_003",
+          "targetObjectId": 1,
+          "targetObjectName": "产品批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "不合格记录包含缺陷",
+          "targetInstanceId": 13,
+          "targetInstanceName": "缺陷_001",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "QualityReport_001",
+      "instanceName": "质量分析报告_001",
+      "objectId": 14,
+      "objectName": "质量分析报告",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "报告ID",
+          "attributeCode": "QualityReport.report_id",
+          "dataType": "string",
+          "value": "QR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "QualityReport.status",
+          "dataType": "string",
+          "value": "published",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "报告汇总检验",
+          "targetInstanceId": 12,
+          "targetInstanceName": "检验任务_005",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "QualityReport_002",
+      "instanceName": "质量分析报告_002",
+      "objectId": 14,
+      "objectName": "质量分析报告",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "报告ID",
+          "attributeCode": "QualityReport.report_id",
+          "dataType": "string",
+          "value": "QR-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "QualityReport.status",
+          "dataType": "string",
+          "value": "published",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "报告汇总检验",
+          "targetInstanceId": 12,
+          "targetInstanceName": "检验任务_005",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "报告汇总缺陷",
+          "targetInstanceId": 14,
+          "targetInstanceName": "缺陷_002",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "QualityReport_003",
+      "instanceName": "质量分析报告_003",
+      "objectId": 14,
+      "objectName": "质量分析报告",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "报告ID",
+          "attributeCode": "QualityReport.report_id",
+          "dataType": "string",
+          "value": "QR-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "QualityReport.status",
+          "dataType": "string",
+          "value": "archived",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "报告汇总检验",
+          "targetInstanceId": 11,
+          "targetInstanceName": "检验任务_004",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "报告汇总检验",
+          "targetInstanceId": 9,
+          "targetInstanceName": "检验任务_002",
+          "targetObjectId": 3,
+          "targetObjectName": "检验任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "报告汇总缺陷",
+          "targetInstanceId": 14,
+          "targetInstanceName": "缺陷_002",
+          "targetObjectId": 4,
+          "targetObjectName": "缺陷",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 3,
+      "actionName": "拒绝批次",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "产品批次_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 5,
+      "actionName": "通过检验",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "检验任务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 14,
+      "actionName": "关闭不合格",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "不合格记录_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 11,
+      "actionName": "完成操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 9,
+      "actionName": "审批操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 3,
+      "actionName": "拒绝批次",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "产品批次_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 13,
+      "actionName": "发布报告",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        40
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "质量分析报告_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 8,
+      "actionName": "关闭缺陷",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "缺陷_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 12,
+      "actionName": "核验操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 12,
+      "actionName": "核验操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 4,
+      "actionName": "开始检验",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "检验任务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 6,
+      "actionName": "判定失败检验",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "检验任务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 9,
+      "actionName": "审批操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 10,
+      "actionName": "执行操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 10,
+      "actionName": "执行操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 2,
+      "actionName": "暂扣批次",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "产品批次_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 11,
+      "actionName": "完成操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 10,
+      "actionName": "执行操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 7,
+      "actionName": "分析缺陷",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "缺陷_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 8,
+      "actionName": "关闭缺陷",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "缺陷_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 11,
+      "actionName": "完成操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 12,
+      "actionName": "核验操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 11,
+      "actionName": "完成操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 12,
+      "actionName": "核验操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 12,
+      "actionName": "核验操作",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "纠正/预防措施_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 3,
+      "actionName": "拒绝批次",
+      "inputInstances": [
+        31
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "质检员_001"
+      ],
+      "outputInstanceNames": [
+        "产品批次_001"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

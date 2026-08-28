@@ -1,0 +1,4259 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "人力资源(HR)·hr_H1_recruitment_onboarding",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=hr_H1_recruitment_onboarding，graph=hr_H1_recruitment_onboarding_seed49）：16 个对象类型 / 20 个关系 / 13 个动作 / 48 个实例 / 12 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "用人部门",
+      "objectCode": "Department",
+      "description": "用人部门",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门ID",
+          "attributeCode": "Department.department_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DEPT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "编制名额",
+          "attributeCode": "Department.headcount_quota",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Department.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "人力资源部",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "岗位招聘需求",
+      "objectCode": "JobRequisition",
+      "description": "岗位招聘需求",
+      "attributes": [
+        {
+          "attributeId": 4,
+          "attributeName": "编制",
+          "attributeCode": "JobRequisition.headcount",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "JobRequisition.level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P5",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "需求ID",
+          "attributeCode": "JobRequisition.req_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "REQ-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "JobRequisition.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "open",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "职称",
+          "attributeCode": "JobRequisition.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "高级软件工程师",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "招聘职位发布",
+      "objectCode": "JobPosting",
+      "description": "招聘职位发布",
+      "attributes": [
+        {
+          "attributeId": 9,
+          "attributeName": "渠道",
+          "attributeCode": "JobPosting.channel",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "官网",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "招聘启事ID",
+          "attributeCode": "JobPosting.posting_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "JP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发布日期",
+          "attributeCode": "JobPosting.publish_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "JobPosting.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "published",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "应聘候选人",
+      "objectCode": "Candidate",
+      "description": "应聘候选人",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "候选人ID",
+          "attributeCode": "Candidate.candidate_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CAND-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Candidate.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "电话",
+          "attributeCode": "Candidate.phone",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "13800138000",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "来源",
+          "attributeCode": "Candidate.source",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "招聘网站",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Candidate.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "interviewing",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "候选人简历",
+      "objectCode": "Resume",
+      "description": "候选人简历",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "学历",
+          "attributeCode": "Resume.education",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "本科",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "简历ID",
+          "attributeCode": "Resume.resume_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Resume_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "上传时间",
+          "attributeCode": "Resume.uploaded_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15T09:22:34Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "工作年限",
+          "attributeCode": "Resume.years_experience",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "简历筛选记录",
+      "objectCode": "ScreeningRecord",
+      "description": "简历筛选记录",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "备注",
+          "attributeCode": "ScreeningRecord.comment",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "候选人学历背景优秀，具备三年相关岗位经验，技术能力匹配度高。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "结果",
+          "attributeCode": "ScreeningRecord.result",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "pass",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "初筛ID",
+          "attributeCode": "ScreeningRecord.screening_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SCRN2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ScreeningRecord.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "候选人面试",
+      "objectCode": "Interview",
+      "description": "候选人面试",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "面试ID",
+          "attributeCode": "Interview.interview_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "轮次",
+          "attributeCode": "Interview.round",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "一面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "排期时间",
+          "attributeCode": "Interview.scheduled_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-06-10T14:00:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Interview.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "技术面",
+      "objectCode": "TechnicalInterview",
+      "description": "技术面",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "编程评分",
+          "attributeCode": "TechnicalInterview.coding_score",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 85.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "面试ID",
+          "attributeCode": "TechnicalInterview.interview_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "TI2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "轮次",
+          "attributeCode": "TechnicalInterview.round",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "一面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "排期时间",
+          "attributeCode": "TechnicalInterview.scheduled_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-06-10T14:00:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "TechnicalInterview.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "HR 面",
+      "objectCode": "HRInterview",
+      "description": "HR 面",
+      "attributes": [
+        {
+          "attributeId": 35,
+          "attributeName": "文化匹配评分",
+          "attributeCode": "HRInterview.culture_fit_score",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 4.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "面试ID",
+          "attributeCode": "HRInterview.interview_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INT-HR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "轮次",
+          "attributeCode": "HRInterview.round",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "HR面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "排期时间",
+          "attributeCode": "HRInterview.scheduled_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-06-15T14:00:00+08:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "HRInterview.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "面试评价",
+      "objectCode": "InterviewFeedback",
+      "description": "面试评价",
+      "attributes": [
+        {
+          "attributeId": 40,
+          "attributeName": "反馈ID",
+          "attributeCode": "InterviewFeedback.feedback_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FB2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "建议",
+          "attributeCode": "InterviewFeedback.recommendation",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "强烈推荐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "评分",
+          "attributeCode": "InterviewFeedback.score",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 4.7,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "面试官",
+      "objectCode": "Interviewer",
+      "description": "面试官",
+      "attributes": [
+        {
+          "attributeId": 43,
+          "attributeName": "面试官ID",
+          "attributeCode": "Interviewer.interviewer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INTV_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Interviewer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "角色",
+          "attributeCode": "Interviewer.role",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "技术面试官",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "录用通知书",
+      "objectCode": "Offer",
+      "description": "录用通知书",
+      "attributes": [
+        {
+          "attributeId": 46,
+          "attributeName": "签发日期",
+          "attributeCode": "Offer.issue_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-04-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "权益ID",
+          "attributeCode": "Offer.offer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OFF-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "薪资",
+          "attributeCode": "Offer.salary",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 15000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "状态",
+          "attributeCode": "Offer.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "accepted",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "入职前背景调查",
+      "objectCode": "BackgroundCheck",
+      "description": "入职前背景调查",
+      "attributes": [
+        {
+          "attributeId": 50,
+          "attributeName": "检查ID",
+          "attributeCode": "BackgroundCheck.check_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "结果",
+          "attributeCode": "BackgroundCheck.result",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "pass",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "状态",
+          "attributeCode": "BackgroundCheck.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "供应商",
+          "attributeCode": "BackgroundCheck.vendor",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "中智背景调查有限公司",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "入职任务（合同签署、设备领取等）",
+      "objectCode": "OnboardingTask",
+      "description": "入职任务（合同签署、设备领取等）",
+      "attributes": [
+        {
+          "attributeId": 54,
+          "attributeName": "截止日期",
+          "attributeCode": "OnboardingTask.due_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-06-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "OnboardingTask.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "pending",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 56,
+          "attributeName": "任务ID",
+          "attributeCode": "OnboardingTask.task_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "TASK-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "任务名称",
+          "attributeCode": "OnboardingTask.task_name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "签署劳动合同",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "正式员工",
+      "objectCode": "Employee",
+      "description": "正式员工",
+      "attributes": [
+        {
+          "attributeId": 58,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "入职日期",
+          "attributeCode": "Employee.hire_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 60,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 61,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 16,
+      "objectName": "招聘专员",
+      "objectCode": "Recruiter",
+      "description": "招聘专员",
+      "attributes": [
+        {
+          "attributeId": 62,
+          "attributeName": "名称",
+          "attributeCode": "Recruiter.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 63,
+          "attributeName": "招聘官ID",
+          "attributeCode": "Recruiter.recruiter_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Recruiter_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "用人部门",
+      "targetObjectId": 2,
+      "targetObjectName": "岗位招聘需求",
+      "linkInfo": "部门发起招聘需求",
+      "linkType": "1:N",
+      "description": "dept_raises_req",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "岗位招聘需求",
+      "targetObjectId": 3,
+      "targetObjectName": "招聘职位发布",
+      "linkInfo": "需求发布为职位",
+      "linkType": "1:N",
+      "description": "req_published_as",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "招聘职位发布",
+      "targetObjectId": 4,
+      "targetObjectName": "应聘候选人",
+      "linkInfo": "职位吸引候选人",
+      "linkType": "1:N",
+      "description": "posting_attracts",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 4,
+      "sourceObjectName": "应聘候选人",
+      "targetObjectId": 5,
+      "targetObjectName": "候选人简历",
+      "linkInfo": "候选人提交简历",
+      "linkType": "1:N",
+      "description": "candidate_submits_resume",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 5,
+      "sourceObjectName": "候选人简历",
+      "targetObjectId": 6,
+      "targetObjectName": "简历筛选记录",
+      "linkInfo": "简历被筛选",
+      "linkType": "1:N",
+      "description": "resume_screened_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 4,
+      "sourceObjectName": "应聘候选人",
+      "targetObjectId": 7,
+      "targetObjectName": "候选人面试",
+      "linkInfo": "候选人参加面试",
+      "linkType": "1:N",
+      "description": "candidate_interviewed_in",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 7,
+      "sourceObjectName": "候选人面试",
+      "targetObjectId": 2,
+      "targetObjectName": "岗位招聘需求",
+      "linkInfo": "面试针对招聘需求",
+      "linkType": "N:1",
+      "description": "interview_for_req",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 7,
+      "sourceObjectName": "候选人面试",
+      "targetObjectId": 10,
+      "targetObjectName": "面试评价",
+      "linkInfo": "面试产生评价",
+      "linkType": "1:N",
+      "description": "interview_has_feedback",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 11,
+      "sourceObjectName": "面试官",
+      "targetObjectId": 7,
+      "targetObjectName": "候选人面试",
+      "linkInfo": "面试官进行面试",
+      "linkType": "1:N",
+      "description": "interviewer_conducts",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 10,
+      "sourceObjectName": "面试评价",
+      "targetObjectId": 11,
+      "targetObjectName": "面试官",
+      "linkInfo": "评价由面试官给出",
+      "linkType": "N:1",
+      "description": "feedback_by_interviewer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 4,
+      "sourceObjectName": "应聘候选人",
+      "targetObjectId": 12,
+      "targetObjectName": "录用通知书",
+      "linkInfo": "候选人接收 录用通知书",
+      "linkType": "1:1",
+      "description": "candidate_receives_offer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 12,
+      "sourceObjectName": "录用通知书",
+      "targetObjectId": 2,
+      "targetObjectName": "岗位招聘需求",
+      "linkInfo": "录用通知书 对应招聘需求",
+      "linkType": "N:1",
+      "description": "offer_for_req",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 4,
+      "sourceObjectName": "应聘候选人",
+      "targetObjectId": 13,
+      "targetObjectName": "入职前背景调查",
+      "linkInfo": "候选人接受背调",
+      "linkType": "1:1",
+      "description": "candidate_background_checked",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 12,
+      "sourceObjectName": "录用通知书",
+      "targetObjectId": 15,
+      "targetObjectName": "正式员工",
+      "linkInfo": "录用通知书 入职后形成员工",
+      "linkType": "1:1",
+      "description": "offer_becomes_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 15,
+      "sourceObjectName": "正式员工",
+      "targetObjectId": 14,
+      "targetObjectName": "入职任务（合同签署、设备领取等）",
+      "linkInfo": "员工的入职任务",
+      "linkType": "1:N",
+      "description": "employee_has_onboarding_task",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 15,
+      "sourceObjectName": "正式员工",
+      "targetObjectId": 1,
+      "targetObjectName": "用人部门",
+      "linkInfo": "员工所属部门",
+      "linkType": "N:1",
+      "description": "employee_belongs_to_dept",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 16,
+      "sourceObjectName": "招聘专员",
+      "targetObjectId": 2,
+      "targetObjectName": "岗位招聘需求",
+      "linkInfo": "招聘专员负责需求",
+      "linkType": "1:N",
+      "description": "recruiter_owns_req",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 16,
+      "sourceObjectName": "招聘专员",
+      "targetObjectId": 4,
+      "targetObjectName": "应聘候选人",
+      "linkInfo": "招聘专员对接候选人",
+      "linkType": "N:M",
+      "description": "recruiter_engages_candidate",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 8,
+      "sourceObjectName": "技术面",
+      "targetObjectId": 7,
+      "targetObjectName": "候选人面试",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "TechnicalInterview is-a Interview",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 9,
+      "sourceObjectName": "HR 面",
+      "targetObjectId": 7,
+      "targetObjectName": "候选人面试",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "HRInterview is-a Interview",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "审批招聘需求",
+      "actionCode": "approve_requisition",
+      "description": "执行者：招聘专员；对象：岗位招聘需求",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "岗位招聘需求"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "开启招聘需求",
+      "actionCode": "open_requisition",
+      "description": "执行者：招聘专员；对象：岗位招聘需求",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "岗位招聘需求"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "发布招聘启事",
+      "actionCode": "publish_posting",
+      "description": "执行者：招聘专员；对象：招聘职位发布",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "招聘职位发布"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "筛选候选人",
+      "actionCode": "screen_candidate",
+      "description": "执行者：招聘专员；对象：应聘候选人",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "应聘候选人"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "排期面试",
+      "actionCode": "schedule_interview",
+      "description": "执行者：招聘专员；对象：候选人面试",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "候选人面试"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "推进至面试",
+      "actionCode": "advance_to_interview",
+      "description": "执行者：招聘专员；对象：应聘候选人",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "应聘候选人"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "发放权益",
+      "actionCode": "issue_offer",
+      "description": "执行者：招聘专员；对象：录用通知书",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "录用通知书"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "接受录用",
+      "actionCode": "accept_offer",
+      "description": "执行者：应聘候选人；对象：录用通知书",
+      "inputObjects": [
+        "应聘候选人"
+      ],
+      "outputObjects": [
+        "录用通知书"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "拒绝录用",
+      "actionCode": "decline_offer",
+      "description": "执行者：应聘候选人；对象：录用通知书",
+      "inputObjects": [
+        "应聘候选人"
+      ],
+      "outputObjects": [
+        "录用通知书"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "完成背景调查",
+      "actionCode": "complete_background_check",
+      "description": "执行者：招聘专员；对象：入职前背景调查",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "入职前背景调查"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "入职员工",
+      "actionCode": "onboard_employee",
+      "description": "执行者：招聘专员；对象：正式员工",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "正式员工"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "完成入职任务",
+      "actionCode": "complete_onboarding_task",
+      "description": "执行者：正式员工；对象：入职任务（合同签署、设备领取等）",
+      "inputObjects": [
+        "正式员工"
+      ],
+      "outputObjects": [
+        "入职任务（合同签署、设备领取等）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "关闭招聘需求",
+      "actionCode": "close_requisition",
+      "description": "执行者：招聘专员；对象：岗位招聘需求",
+      "inputObjects": [
+        "招聘专员"
+      ],
+      "outputObjects": [
+        "岗位招聘需求"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Department_001",
+      "instanceName": "用人部门_001",
+      "objectId": 1,
+      "objectName": "用人部门",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门ID",
+          "attributeCode": "Department.department_id",
+          "dataType": "string",
+          "value": "DEPT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "编制名额",
+          "attributeCode": "Department.headcount_quota",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Department.name",
+          "dataType": "string",
+          "value": "人力资源部",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "部门发起招聘需求",
+          "targetInstanceId": 3,
+          "targetInstanceName": "岗位招聘需求_001",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "部门发起招聘需求",
+          "targetInstanceId": 5,
+          "targetInstanceName": "岗位招聘需求_003",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "部门发起招聘需求",
+          "targetInstanceId": 6,
+          "targetInstanceName": "岗位招聘需求_004",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Department_002",
+      "instanceName": "用人部门_002",
+      "objectId": 1,
+      "objectName": "用人部门",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门ID",
+          "attributeCode": "Department.department_id",
+          "dataType": "string",
+          "value": "DEPT-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "编制名额",
+          "attributeCode": "Department.headcount_quota",
+          "dataType": "integer",
+          "value": 25,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Department.name",
+          "dataType": "string",
+          "value": "技术研发部",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "部门发起招聘需求",
+          "targetInstanceId": 4,
+          "targetInstanceName": "岗位招聘需求_002",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "部门发起招聘需求",
+          "targetInstanceId": 7,
+          "targetInstanceName": "岗位招聘需求_005",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "JobRequisition_001",
+      "instanceName": "岗位招聘需求_001",
+      "objectId": 2,
+      "objectName": "岗位招聘需求",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "编制",
+          "attributeCode": "JobRequisition.headcount",
+          "dataType": "integer",
+          "value": 2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "JobRequisition.level",
+          "dataType": "string",
+          "value": "P5",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "需求ID",
+          "attributeCode": "JobRequisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "JobRequisition.status",
+          "dataType": "string",
+          "value": "open",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "职称",
+          "attributeCode": "JobRequisition.title",
+          "dataType": "string",
+          "value": "高级软件工程师",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "JobRequisition_002",
+      "instanceName": "岗位招聘需求_002",
+      "objectId": 2,
+      "objectName": "岗位招聘需求",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "编制",
+          "attributeCode": "JobRequisition.headcount",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "JobRequisition.level",
+          "dataType": "string",
+          "value": "P3",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "需求ID",
+          "attributeCode": "JobRequisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "JobRequisition.status",
+          "dataType": "string",
+          "value": "open",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "职称",
+          "attributeCode": "JobRequisition.title",
+          "dataType": "string",
+          "value": "人力资源专员",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "需求发布为职位",
+          "targetInstanceId": 9,
+          "targetInstanceName": "招聘职位发布_002",
+          "targetObjectId": 3,
+          "targetObjectName": "招聘职位发布",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "JobRequisition_003",
+      "instanceName": "岗位招聘需求_003",
+      "objectId": 2,
+      "objectName": "岗位招聘需求",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "编制",
+          "attributeCode": "JobRequisition.headcount",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "JobRequisition.level",
+          "dataType": "string",
+          "value": "P6",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "需求ID",
+          "attributeCode": "JobRequisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "JobRequisition.status",
+          "dataType": "string",
+          "value": "open",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "职称",
+          "attributeCode": "JobRequisition.title",
+          "dataType": "string",
+          "value": "产品经理",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "需求发布为职位",
+          "targetInstanceId": 10,
+          "targetInstanceName": "招聘职位发布_003",
+          "targetObjectId": 3,
+          "targetObjectName": "招聘职位发布",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "JobRequisition_004",
+      "instanceName": "岗位招聘需求_004",
+      "objectId": 2,
+      "objectName": "岗位招聘需求",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "编制",
+          "attributeCode": "JobRequisition.headcount",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "JobRequisition.level",
+          "dataType": "string",
+          "value": "P5",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "需求ID",
+          "attributeCode": "JobRequisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "JobRequisition.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "职称",
+          "attributeCode": "JobRequisition.title",
+          "dataType": "string",
+          "value": "数据科学家",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "需求发布为职位",
+          "targetInstanceId": 8,
+          "targetInstanceName": "招聘职位发布_001",
+          "targetObjectId": 3,
+          "targetObjectName": "招聘职位发布",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "JobRequisition_005",
+      "instanceName": "岗位招聘需求_005",
+      "objectId": 2,
+      "objectName": "岗位招聘需求",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "编制",
+          "attributeCode": "JobRequisition.headcount",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "JobRequisition.level",
+          "dataType": "string",
+          "value": "P4",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "需求ID",
+          "attributeCode": "JobRequisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "JobRequisition.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "职称",
+          "attributeCode": "JobRequisition.title",
+          "dataType": "string",
+          "value": "UI设计师",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "JobPosting_001",
+      "instanceName": "招聘职位发布_001",
+      "objectId": 3,
+      "objectName": "招聘职位发布",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "渠道",
+          "attributeCode": "JobPosting.channel",
+          "dataType": "string",
+          "value": "官网",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "招聘启事ID",
+          "attributeCode": "JobPosting.posting_id",
+          "dataType": "string",
+          "value": "JP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发布日期",
+          "attributeCode": "JobPosting.publish_date",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "JobPosting.status",
+          "dataType": "string",
+          "value": "published",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "JobPosting_002",
+      "instanceName": "招聘职位发布_002",
+      "objectId": 3,
+      "objectName": "招聘职位发布",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "渠道",
+          "attributeCode": "JobPosting.channel",
+          "dataType": "string",
+          "value": "招聘网站",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "招聘启事ID",
+          "attributeCode": "JobPosting.posting_id",
+          "dataType": "string",
+          "value": "JP2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发布日期",
+          "attributeCode": "JobPosting.publish_date",
+          "dataType": "string",
+          "value": "2024-03-18",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "JobPosting.status",
+          "dataType": "string",
+          "value": "published",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "职位吸引候选人",
+          "targetInstanceId": 11,
+          "targetInstanceName": "应聘候选人_001",
+          "targetObjectId": 4,
+          "targetObjectName": "应聘候选人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "职位吸引候选人",
+          "targetInstanceId": 13,
+          "targetInstanceName": "应聘候选人_003",
+          "targetObjectId": 4,
+          "targetObjectName": "应聘候选人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "JobPosting_003",
+      "instanceName": "招聘职位发布_003",
+      "objectId": 3,
+      "objectName": "招聘职位发布",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "渠道",
+          "attributeCode": "JobPosting.channel",
+          "dataType": "string",
+          "value": "内推",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "招聘启事ID",
+          "attributeCode": "JobPosting.posting_id",
+          "dataType": "string",
+          "value": "JP2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发布日期",
+          "attributeCode": "JobPosting.publish_date",
+          "dataType": "string",
+          "value": "2024-03-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "JobPosting.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "职位吸引候选人",
+          "targetInstanceId": 12,
+          "targetInstanceName": "应聘候选人_002",
+          "targetObjectId": 4,
+          "targetObjectName": "应聘候选人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "职位吸引候选人",
+          "targetInstanceId": 13,
+          "targetInstanceName": "应聘候选人_003",
+          "targetObjectId": 4,
+          "targetObjectName": "应聘候选人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Candidate_001",
+      "instanceName": "应聘候选人_001",
+      "objectId": 4,
+      "objectName": "应聘候选人",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "候选人ID",
+          "attributeCode": "Candidate.candidate_id",
+          "dataType": "string",
+          "value": "CAND-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Candidate.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "电话",
+          "attributeCode": "Candidate.phone",
+          "dataType": "string",
+          "value": "13800138000",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "来源",
+          "attributeCode": "Candidate.source",
+          "dataType": "string",
+          "value": "招聘网站",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Candidate.status",
+          "dataType": "string",
+          "value": "interviewing",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 17,
+          "targetInstanceName": "候选人面试_001",
+          "targetObjectId": 7,
+          "targetObjectName": "候选人面试",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 19,
+          "targetInstanceName": "候选人面试_003",
+          "targetObjectId": 7,
+          "targetObjectName": "候选人面试",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 20,
+          "targetInstanceName": "技术面_001",
+          "targetObjectId": 8,
+          "targetObjectName": "技术面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 26,
+          "targetInstanceName": "HR 面_004",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "候选人接受背调",
+          "targetInstanceId": 38,
+          "targetInstanceName": "入职前背景调查_001",
+          "targetObjectId": 13,
+          "targetObjectName": "入职前背景调查",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Candidate_002",
+      "instanceName": "应聘候选人_002",
+      "objectId": 4,
+      "objectName": "应聘候选人",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "候选人ID",
+          "attributeCode": "Candidate.candidate_id",
+          "dataType": "string",
+          "value": "CAND-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Candidate.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "电话",
+          "attributeCode": "Candidate.phone",
+          "dataType": "string",
+          "value": "13900139000",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "来源",
+          "attributeCode": "Candidate.source",
+          "dataType": "string",
+          "value": "内推",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Candidate.status",
+          "dataType": "string",
+          "value": "offered",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "候选人提交简历",
+          "targetInstanceId": 14,
+          "targetInstanceName": "候选人简历_001",
+          "targetObjectId": 5,
+          "targetObjectName": "候选人简历",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 18,
+          "targetInstanceName": "候选人面试_002",
+          "targetObjectId": 7,
+          "targetObjectName": "候选人面试",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 23,
+          "targetInstanceName": "HR 面_001",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 22,
+          "targetInstanceName": "技术面_003",
+          "targetObjectId": 8,
+          "targetObjectName": "技术面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "候选人接收 Offer",
+          "targetInstanceId": 37,
+          "targetInstanceName": "录用通知书_002",
+          "targetObjectId": 12,
+          "targetObjectName": "录用通知书",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Candidate_003",
+      "instanceName": "应聘候选人_003",
+      "objectId": 4,
+      "objectName": "应聘候选人",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "候选人ID",
+          "attributeCode": "Candidate.candidate_id",
+          "dataType": "string",
+          "value": "CAND-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Candidate.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "电话",
+          "attributeCode": "Candidate.phone",
+          "dataType": "string",
+          "value": "13700137000",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "来源",
+          "attributeCode": "Candidate.source",
+          "dataType": "string",
+          "value": "猎头",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Candidate.status",
+          "dataType": "string",
+          "value": "interviewing",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 21,
+          "targetInstanceName": "技术面_002",
+          "targetObjectId": 8,
+          "targetObjectName": "技术面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 22,
+          "targetInstanceName": "技术面_003",
+          "targetObjectId": 8,
+          "targetObjectName": "技术面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 24,
+          "targetInstanceName": "HR 面_002",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "候选人参加面试",
+          "targetInstanceId": 25,
+          "targetInstanceName": "HR 面_003",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "候选人接收 Offer",
+          "targetInstanceId": 36,
+          "targetInstanceName": "录用通知书_001",
+          "targetObjectId": 12,
+          "targetObjectName": "录用通知书",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "候选人接受背调",
+          "targetInstanceId": 39,
+          "targetInstanceName": "入职前背景调查_002",
+          "targetObjectId": 13,
+          "targetObjectName": "入职前背景调查",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Resume_001",
+      "instanceName": "候选人简历_001",
+      "objectId": 5,
+      "objectName": "候选人简历",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "学历",
+          "attributeCode": "Resume.education",
+          "dataType": "string",
+          "value": "本科",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "简历ID",
+          "attributeCode": "Resume.resume_id",
+          "dataType": "string",
+          "value": "Resume_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "上传时间",
+          "attributeCode": "Resume.uploaded_at",
+          "dataType": "string",
+          "value": "2024-03-15T09:22:34Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "工作年限",
+          "attributeCode": "Resume.years_experience",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "简历被筛选",
+          "targetInstanceId": 15,
+          "targetInstanceName": "简历筛选记录_001",
+          "targetObjectId": 6,
+          "targetObjectName": "简历筛选记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "简历被筛选",
+          "targetInstanceId": 16,
+          "targetInstanceName": "简历筛选记录_002",
+          "targetObjectId": 6,
+          "targetObjectName": "简历筛选记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "ScreeningRecord_001",
+      "instanceName": "简历筛选记录_001",
+      "objectId": 6,
+      "objectName": "简历筛选记录",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "备注",
+          "attributeCode": "ScreeningRecord.comment",
+          "dataType": "string",
+          "value": "候选人学历背景优秀，具备三年相关岗位经验，技术能力匹配度高。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "结果",
+          "attributeCode": "ScreeningRecord.result",
+          "dataType": "string",
+          "value": "pass",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "初筛ID",
+          "attributeCode": "ScreeningRecord.screening_id",
+          "dataType": "string",
+          "value": "SCRN2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ScreeningRecord.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "ScreeningRecord_002",
+      "instanceName": "简历筛选记录_002",
+      "objectId": 6,
+      "objectName": "简历筛选记录",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "备注",
+          "attributeCode": "ScreeningRecord.comment",
+          "dataType": "string",
+          "value": "待进一步核实项目经历真实性，需联系推荐人确认。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "结果",
+          "attributeCode": "ScreeningRecord.result",
+          "dataType": "string",
+          "value": "pending",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "初筛ID",
+          "attributeCode": "ScreeningRecord.screening_id",
+          "dataType": "string",
+          "value": "SCRN2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ScreeningRecord.status",
+          "dataType": "string",
+          "value": "pending",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Interview_001",
+      "instanceName": "候选人面试_001",
+      "objectId": 7,
+      "objectName": "候选人面试",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "面试ID",
+          "attributeCode": "Interview.interview_id",
+          "dataType": "string",
+          "value": "INT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "轮次",
+          "attributeCode": "Interview.round",
+          "dataType": "string",
+          "value": "一面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "排期时间",
+          "attributeCode": "Interview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-10T14:00:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Interview.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 3,
+          "targetInstanceName": "岗位招聘需求_001",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Interview_002",
+      "instanceName": "候选人面试_002",
+      "objectId": 7,
+      "objectName": "候选人面试",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "面试ID",
+          "attributeCode": "Interview.interview_id",
+          "dataType": "string",
+          "value": "INT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "轮次",
+          "attributeCode": "Interview.round",
+          "dataType": "string",
+          "value": "二面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "排期时间",
+          "attributeCode": "Interview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-12T10:30:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Interview.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 6,
+          "targetInstanceName": "岗位招聘需求_004",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "面试产生评价",
+          "targetInstanceId": 27,
+          "targetInstanceName": "面试评价_001",
+          "targetObjectId": 10,
+          "targetObjectName": "面试评价",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "面试产生评价",
+          "targetInstanceId": 28,
+          "targetInstanceName": "面试评价_002",
+          "targetObjectId": 10,
+          "targetObjectName": "面试评价",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Interview_003",
+      "instanceName": "候选人面试_003",
+      "objectId": 7,
+      "objectName": "候选人面试",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "面试ID",
+          "attributeCode": "Interview.interview_id",
+          "dataType": "string",
+          "value": "INT-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "轮次",
+          "attributeCode": "Interview.round",
+          "dataType": "string",
+          "value": "HR面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "排期时间",
+          "attributeCode": "Interview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-15T16:00:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Interview.status",
+          "dataType": "string",
+          "value": "canceled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 4,
+          "targetInstanceName": "岗位招聘需求_002",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "TechnicalInterview_001",
+      "instanceName": "技术面_001",
+      "objectId": 8,
+      "objectName": "技术面",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "编程评分",
+          "attributeCode": "TechnicalInterview.coding_score",
+          "dataType": "number",
+          "value": 85.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "面试ID",
+          "attributeCode": "TechnicalInterview.interview_id",
+          "dataType": "string",
+          "value": "TI2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "轮次",
+          "attributeCode": "TechnicalInterview.round",
+          "dataType": "string",
+          "value": "一面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "排期时间",
+          "attributeCode": "TechnicalInterview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-10T14:00:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "TechnicalInterview.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 6,
+          "targetInstanceName": "岗位招聘需求_004",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "TechnicalInterview_002",
+      "instanceName": "技术面_002",
+      "objectId": 8,
+      "objectName": "技术面",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "编程评分",
+          "attributeCode": "TechnicalInterview.coding_score",
+          "dataType": "number",
+          "value": 92.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "面试ID",
+          "attributeCode": "TechnicalInterview.interview_id",
+          "dataType": "string",
+          "value": "TI2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "轮次",
+          "attributeCode": "TechnicalInterview.round",
+          "dataType": "string",
+          "value": "二面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "排期时间",
+          "attributeCode": "TechnicalInterview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-12T10:30:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "TechnicalInterview.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 5,
+          "targetInstanceName": "岗位招聘需求_003",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "TechnicalInterview_003",
+      "instanceName": "技术面_003",
+      "objectId": 8,
+      "objectName": "技术面",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "编程评分",
+          "attributeCode": "TechnicalInterview.coding_score",
+          "dataType": "number",
+          "value": 78.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "面试ID",
+          "attributeCode": "TechnicalInterview.interview_id",
+          "dataType": "string",
+          "value": "TI2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "轮次",
+          "attributeCode": "TechnicalInterview.round",
+          "dataType": "string",
+          "value": "终面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "排期时间",
+          "attributeCode": "TechnicalInterview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-15T16:00:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "TechnicalInterview.status",
+          "dataType": "string",
+          "value": "canceled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 6,
+          "targetInstanceName": "岗位招聘需求_004",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "HRInterview_001",
+      "instanceName": "HR 面_001",
+      "objectId": 9,
+      "objectName": "HR 面",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "文化匹配评分",
+          "attributeCode": "HRInterview.culture_fit_score",
+          "dataType": "number",
+          "value": 4.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "面试ID",
+          "attributeCode": "HRInterview.interview_id",
+          "dataType": "string",
+          "value": "INT-HR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "轮次",
+          "attributeCode": "HRInterview.round",
+          "dataType": "string",
+          "value": "HR面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "排期时间",
+          "attributeCode": "HRInterview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-15T14:00:00+08:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "HRInterview.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 4,
+          "targetInstanceName": "岗位招聘需求_002",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "面试产生评价",
+          "targetInstanceId": 29,
+          "targetInstanceName": "面试评价_003",
+          "targetObjectId": 10,
+          "targetObjectName": "面试评价",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "HRInterview_002",
+      "instanceName": "HR 面_002",
+      "objectId": 9,
+      "objectName": "HR 面",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "文化匹配评分",
+          "attributeCode": "HRInterview.culture_fit_score",
+          "dataType": "number",
+          "value": 3.8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "面试ID",
+          "attributeCode": "HRInterview.interview_id",
+          "dataType": "string",
+          "value": "INT-HR-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "轮次",
+          "attributeCode": "HRInterview.round",
+          "dataType": "string",
+          "value": "一面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "排期时间",
+          "attributeCode": "HRInterview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-18T10:30:00+08:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "HRInterview.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 5,
+          "targetInstanceName": "岗位招聘需求_003",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "面试产生评价",
+          "targetInstanceId": 30,
+          "targetInstanceName": "面试评价_004",
+          "targetObjectId": 10,
+          "targetObjectName": "面试评价",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "面试产生评价",
+          "targetInstanceId": 27,
+          "targetInstanceName": "面试评价_001",
+          "targetObjectId": 10,
+          "targetObjectName": "面试评价",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "HRInterview_003",
+      "instanceName": "HR 面_003",
+      "objectId": 9,
+      "objectName": "HR 面",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "文化匹配评分",
+          "attributeCode": "HRInterview.culture_fit_score",
+          "dataType": "number",
+          "value": 4.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "面试ID",
+          "attributeCode": "HRInterview.interview_id",
+          "dataType": "string",
+          "value": "INT-HR-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "轮次",
+          "attributeCode": "HRInterview.round",
+          "dataType": "string",
+          "value": "终面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "排期时间",
+          "attributeCode": "HRInterview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-20T16:00:00+08:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "HRInterview.status",
+          "dataType": "string",
+          "value": "canceled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 6,
+          "targetInstanceName": "岗位招聘需求_004",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "HRInterview_004",
+      "instanceName": "HR 面_004",
+      "objectId": 9,
+      "objectName": "HR 面",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "文化匹配评分",
+          "attributeCode": "HRInterview.culture_fit_score",
+          "dataType": "number",
+          "value": 2.9,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "面试ID",
+          "attributeCode": "HRInterview.interview_id",
+          "dataType": "string",
+          "value": "INT-HR-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "轮次",
+          "attributeCode": "HRInterview.round",
+          "dataType": "string",
+          "value": "二面",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "排期时间",
+          "attributeCode": "HRInterview.scheduled_at",
+          "dataType": "string",
+          "value": "2024-06-22T09:15:00+08:00",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "HRInterview.status",
+          "dataType": "string",
+          "value": "no_show",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "面试针对招聘需求",
+          "targetInstanceId": 5,
+          "targetInstanceName": "岗位招聘需求_003",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "面试产生评价",
+          "targetInstanceId": 27,
+          "targetInstanceName": "面试评价_001",
+          "targetObjectId": 10,
+          "targetObjectName": "面试评价",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "InterviewFeedback_001",
+      "instanceName": "面试评价_001",
+      "objectId": 10,
+      "objectName": "面试评价",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "反馈ID",
+          "attributeCode": "InterviewFeedback.feedback_id",
+          "dataType": "string",
+          "value": "FB2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "建议",
+          "attributeCode": "InterviewFeedback.recommendation",
+          "dataType": "string",
+          "value": "强烈推荐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "评分",
+          "attributeCode": "InterviewFeedback.score",
+          "dataType": "number",
+          "value": 4.7,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "评价由面试官给出",
+          "targetInstanceId": 31,
+          "targetInstanceName": "面试官_001",
+          "targetObjectId": 11,
+          "targetObjectName": "面试官",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "InterviewFeedback_002",
+      "instanceName": "面试评价_002",
+      "objectId": 10,
+      "objectName": "面试评价",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "反馈ID",
+          "attributeCode": "InterviewFeedback.feedback_id",
+          "dataType": "string",
+          "value": "FB2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "建议",
+          "attributeCode": "InterviewFeedback.recommendation",
+          "dataType": "string",
+          "value": "中立",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "评分",
+          "attributeCode": "InterviewFeedback.score",
+          "dataType": "number",
+          "value": 3.2,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "评价由面试官给出",
+          "targetInstanceId": 32,
+          "targetInstanceName": "面试官_002",
+          "targetObjectId": 11,
+          "targetObjectName": "面试官",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "InterviewFeedback_003",
+      "instanceName": "面试评价_003",
+      "objectId": 10,
+      "objectName": "面试评价",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "反馈ID",
+          "attributeCode": "InterviewFeedback.feedback_id",
+          "dataType": "string",
+          "value": "FB2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "建议",
+          "attributeCode": "InterviewFeedback.recommendation",
+          "dataType": "string",
+          "value": "推荐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "评分",
+          "attributeCode": "InterviewFeedback.score",
+          "dataType": "number",
+          "value": 4.1,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "评价由面试官给出",
+          "targetInstanceId": 35,
+          "targetInstanceName": "面试官_005",
+          "targetObjectId": 11,
+          "targetObjectName": "面试官",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "InterviewFeedback_004",
+      "instanceName": "面试评价_004",
+      "objectId": 10,
+      "objectName": "面试评价",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "反馈ID",
+          "attributeCode": "InterviewFeedback.feedback_id",
+          "dataType": "string",
+          "value": "FB2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "建议",
+          "attributeCode": "InterviewFeedback.recommendation",
+          "dataType": "string",
+          "value": "不推荐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "评分",
+          "attributeCode": "InterviewFeedback.score",
+          "dataType": "number",
+          "value": 2.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "评价由面试官给出",
+          "targetInstanceId": 33,
+          "targetInstanceName": "面试官_003",
+          "targetObjectId": 11,
+          "targetObjectName": "面试官",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Interviewer_001",
+      "instanceName": "面试官_001",
+      "objectId": 11,
+      "objectName": "面试官",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "面试官ID",
+          "attributeCode": "Interviewer.interviewer_id",
+          "dataType": "string",
+          "value": "INTV_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Interviewer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "角色",
+          "attributeCode": "Interviewer.role",
+          "dataType": "string",
+          "value": "技术面试官",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 23,
+          "targetInstanceName": "HR 面_001",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 26,
+          "targetInstanceName": "HR 面_004",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Interviewer_002",
+      "instanceName": "面试官_002",
+      "objectId": 11,
+      "objectName": "面试官",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "面试官ID",
+          "attributeCode": "Interviewer.interviewer_id",
+          "dataType": "string",
+          "value": "INTV_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Interviewer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "角色",
+          "attributeCode": "Interviewer.role",
+          "dataType": "string",
+          "value": "HR",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 17,
+          "targetInstanceName": "候选人面试_001",
+          "targetObjectId": 7,
+          "targetObjectName": "候选人面试",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 18,
+          "targetInstanceName": "候选人面试_002",
+          "targetObjectId": 7,
+          "targetObjectName": "候选人面试",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 24,
+          "targetInstanceName": "HR 面_002",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Interviewer_003",
+      "instanceName": "面试官_003",
+      "objectId": 11,
+      "objectName": "面试官",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "面试官ID",
+          "attributeCode": "Interviewer.interviewer_id",
+          "dataType": "string",
+          "value": "INTV_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Interviewer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "角色",
+          "attributeCode": "Interviewer.role",
+          "dataType": "string",
+          "value": "用人经理",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 20,
+          "targetInstanceName": "技术面_001",
+          "targetObjectId": 8,
+          "targetObjectName": "技术面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 25,
+          "targetInstanceName": "HR 面_003",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 26,
+          "targetInstanceName": "HR 面_004",
+          "targetObjectId": 9,
+          "targetObjectName": "HR 面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Interviewer_004",
+      "instanceName": "面试官_004",
+      "objectId": 11,
+      "objectName": "面试官",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "面试官ID",
+          "attributeCode": "Interviewer.interviewer_id",
+          "dataType": "string",
+          "value": "INTV_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Interviewer.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "角色",
+          "attributeCode": "Interviewer.role",
+          "dataType": "string",
+          "value": "技术面试官",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 19,
+          "targetInstanceName": "候选人面试_003",
+          "targetObjectId": 7,
+          "targetObjectName": "候选人面试",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Interviewer_005",
+      "instanceName": "面试官_005",
+      "objectId": 11,
+      "objectName": "面试官",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "面试官ID",
+          "attributeCode": "Interviewer.interviewer_id",
+          "dataType": "string",
+          "value": "INTV_005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Interviewer.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "角色",
+          "attributeCode": "Interviewer.role",
+          "dataType": "string",
+          "value": "HR",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 21,
+          "targetInstanceName": "技术面_002",
+          "targetObjectId": 8,
+          "targetObjectName": "技术面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "面试官进行面试",
+          "targetInstanceId": 22,
+          "targetInstanceName": "技术面_003",
+          "targetObjectId": 8,
+          "targetObjectName": "技术面",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Offer_001",
+      "instanceName": "录用通知书_001",
+      "objectId": 12,
+      "objectName": "录用通知书",
+      "attributeValues": [
+        {
+          "attributeId": 46,
+          "attributeName": "签发日期",
+          "attributeCode": "Offer.issue_date",
+          "dataType": "string",
+          "value": "2024-04-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "权益ID",
+          "attributeCode": "Offer.offer_id",
+          "dataType": "string",
+          "value": "OFF-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "薪资",
+          "attributeCode": "Offer.salary",
+          "dataType": "number",
+          "value": 15000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "状态",
+          "attributeCode": "Offer.status",
+          "dataType": "string",
+          "value": "accepted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "Offer 对应招聘需求",
+          "targetInstanceId": 5,
+          "targetInstanceName": "岗位招聘需求_003",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "Offer 入职后形成员工",
+          "targetInstanceId": 44,
+          "targetInstanceName": "正式员工_002",
+          "targetObjectId": 15,
+          "targetObjectName": "正式员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Offer_002",
+      "instanceName": "录用通知书_002",
+      "objectId": 12,
+      "objectName": "录用通知书",
+      "attributeValues": [
+        {
+          "attributeId": 46,
+          "attributeName": "签发日期",
+          "attributeCode": "Offer.issue_date",
+          "dataType": "string",
+          "value": "2024-04-12",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "权益ID",
+          "attributeCode": "Offer.offer_id",
+          "dataType": "string",
+          "value": "OFF-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "薪资",
+          "attributeCode": "Offer.salary",
+          "dataType": "number",
+          "value": 18500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "状态",
+          "attributeCode": "Offer.status",
+          "dataType": "string",
+          "value": "accepted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "Offer 对应招聘需求",
+          "targetInstanceId": 7,
+          "targetInstanceName": "岗位招聘需求_005",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "Offer 入职后形成员工",
+          "targetInstanceId": 45,
+          "targetInstanceName": "正式员工_003",
+          "targetObjectId": 15,
+          "targetObjectName": "正式员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "BackgroundCheck_001",
+      "instanceName": "入职前背景调查_001",
+      "objectId": 13,
+      "objectName": "入职前背景调查",
+      "attributeValues": [
+        {
+          "attributeId": 50,
+          "attributeName": "检查ID",
+          "attributeCode": "BackgroundCheck.check_id",
+          "dataType": "string",
+          "value": "BC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "结果",
+          "attributeCode": "BackgroundCheck.result",
+          "dataType": "string",
+          "value": "pass",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "状态",
+          "attributeCode": "BackgroundCheck.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "供应商",
+          "attributeCode": "BackgroundCheck.vendor",
+          "dataType": "string",
+          "value": "中智背景调查有限公司",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "BackgroundCheck_002",
+      "instanceName": "入职前背景调查_002",
+      "objectId": 13,
+      "objectName": "入职前背景调查",
+      "attributeValues": [
+        {
+          "attributeId": 50,
+          "attributeName": "检查ID",
+          "attributeCode": "BackgroundCheck.check_id",
+          "dataType": "string",
+          "value": "BC2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "结果",
+          "attributeCode": "BackgroundCheck.result",
+          "dataType": "string",
+          "value": "warning",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "状态",
+          "attributeCode": "BackgroundCheck.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "供应商",
+          "attributeCode": "BackgroundCheck.vendor",
+          "dataType": "string",
+          "value": "前程无忧背景调查服务",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "OnboardingTask_001",
+      "instanceName": "入职任务（合同签署、设备领取等）_001",
+      "objectId": 14,
+      "objectName": "入职任务（合同签署、设备领取等）",
+      "attributeValues": [
+        {
+          "attributeId": 54,
+          "attributeName": "截止日期",
+          "attributeCode": "OnboardingTask.due_date",
+          "dataType": "string",
+          "value": "2024-06-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "OnboardingTask.status",
+          "dataType": "string",
+          "value": "pending",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 56,
+          "attributeName": "任务ID",
+          "attributeCode": "OnboardingTask.task_id",
+          "dataType": "string",
+          "value": "TASK-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "任务名称",
+          "attributeCode": "OnboardingTask.task_name",
+          "dataType": "string",
+          "value": "签署劳动合同",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "OnboardingTask_002",
+      "instanceName": "入职任务（合同签署、设备领取等）_002",
+      "objectId": 14,
+      "objectName": "入职任务（合同签署、设备领取等）",
+      "attributeValues": [
+        {
+          "attributeId": 54,
+          "attributeName": "截止日期",
+          "attributeCode": "OnboardingTask.due_date",
+          "dataType": "string",
+          "value": "2024-06-18",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "OnboardingTask.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 56,
+          "attributeName": "任务ID",
+          "attributeCode": "OnboardingTask.task_id",
+          "dataType": "string",
+          "value": "TASK-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "任务名称",
+          "attributeCode": "OnboardingTask.task_name",
+          "dataType": "string",
+          "value": "领取办公设备",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "OnboardingTask_003",
+      "instanceName": "入职任务（合同签署、设备领取等）_003",
+      "objectId": 14,
+      "objectName": "入职任务（合同签署、设备领取等）",
+      "attributeValues": [
+        {
+          "attributeId": 54,
+          "attributeName": "截止日期",
+          "attributeCode": "OnboardingTask.due_date",
+          "dataType": "string",
+          "value": "2024-06-22",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 55,
+          "attributeName": "状态",
+          "attributeCode": "OnboardingTask.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 56,
+          "attributeName": "任务ID",
+          "attributeCode": "OnboardingTask.task_id",
+          "dataType": "string",
+          "value": "TASK-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "任务名称",
+          "attributeCode": "OnboardingTask.task_name",
+          "dataType": "string",
+          "value": "完成入职培训",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "Employee_001",
+      "instanceName": "正式员工_001",
+      "objectId": 15,
+      "objectName": "正式员工",
+      "attributeValues": [
+        {
+          "attributeId": 58,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "入职日期",
+          "attributeCode": "Employee.hire_date",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 60,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 61,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "员工的入职任务",
+          "targetInstanceId": 41,
+          "targetInstanceName": "入职任务（合同签署、设备领取等）_002",
+          "targetObjectId": 14,
+          "targetObjectName": "入职任务（合同签署、设备领取等）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "员工所属部门",
+          "targetInstanceId": 2,
+          "targetInstanceName": "用人部门_002",
+          "targetObjectId": 1,
+          "targetObjectName": "用人部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "Employee_002",
+      "instanceName": "正式员工_002",
+      "objectId": 15,
+      "objectName": "正式员工",
+      "attributeValues": [
+        {
+          "attributeId": 58,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "入职日期",
+          "attributeCode": "Employee.hire_date",
+          "dataType": "string",
+          "value": "2024-04-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 60,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 61,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "probation",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "员工的入职任务",
+          "targetInstanceId": 42,
+          "targetInstanceName": "入职任务（合同签署、设备领取等）_003",
+          "targetObjectId": 14,
+          "targetObjectName": "入职任务（合同签署、设备领取等）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "员工所属部门",
+          "targetInstanceId": 2,
+          "targetInstanceName": "用人部门_002",
+          "targetObjectId": 1,
+          "targetObjectName": "用人部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "Employee_003",
+      "instanceName": "正式员工_003",
+      "objectId": 15,
+      "objectName": "正式员工",
+      "attributeValues": [
+        {
+          "attributeId": 58,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 59,
+          "attributeName": "入职日期",
+          "attributeCode": "Employee.hire_date",
+          "dataType": "string",
+          "value": "2024-02-20",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 60,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 61,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "regular",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "员工的入职任务",
+          "targetInstanceId": 40,
+          "targetInstanceName": "入职任务（合同签署、设备领取等）_001",
+          "targetObjectId": 14,
+          "targetObjectName": "入职任务（合同签署、设备领取等）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "员工所属部门",
+          "targetInstanceId": 2,
+          "targetInstanceName": "用人部门_002",
+          "targetObjectId": 1,
+          "targetObjectName": "用人部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 46,
+      "instanceCode": "Recruiter_001",
+      "instanceName": "招聘专员_001",
+      "objectId": 16,
+      "objectName": "招聘专员",
+      "attributeValues": [
+        {
+          "attributeId": 62,
+          "attributeName": "名称",
+          "attributeCode": "Recruiter.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 63,
+          "attributeName": "招聘官ID",
+          "attributeCode": "Recruiter.recruiter_id",
+          "dataType": "string",
+          "value": "Recruiter_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "招聘专员对接候选人",
+          "targetInstanceId": 11,
+          "targetInstanceName": "应聘候选人_001",
+          "targetObjectId": 4,
+          "targetObjectName": "应聘候选人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 47,
+      "instanceCode": "Recruiter_002",
+      "instanceName": "招聘专员_002",
+      "objectId": 16,
+      "objectName": "招聘专员",
+      "attributeValues": [
+        {
+          "attributeId": 62,
+          "attributeName": "名称",
+          "attributeCode": "Recruiter.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 63,
+          "attributeName": "招聘官ID",
+          "attributeCode": "Recruiter.recruiter_id",
+          "dataType": "string",
+          "value": "Recruiter_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 48,
+      "instanceCode": "Recruiter_003",
+      "instanceName": "招聘专员_003",
+      "objectId": 16,
+      "objectName": "招聘专员",
+      "attributeValues": [
+        {
+          "attributeId": 62,
+          "attributeName": "名称",
+          "attributeCode": "Recruiter.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 63,
+          "attributeName": "招聘官ID",
+          "attributeCode": "Recruiter.recruiter_id",
+          "dataType": "string",
+          "value": "Recruiter_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "招聘专员负责需求",
+          "targetInstanceId": 3,
+          "targetInstanceName": "岗位招聘需求_001",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "招聘专员负责需求",
+          "targetInstanceId": 4,
+          "targetInstanceName": "岗位招聘需求_002",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "招聘专员负责需求",
+          "targetInstanceId": 5,
+          "targetInstanceName": "岗位招聘需求_003",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "招聘专员负责需求",
+          "targetInstanceId": 6,
+          "targetInstanceName": "岗位招聘需求_004",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "招聘专员负责需求",
+          "targetInstanceId": 7,
+          "targetInstanceName": "岗位招聘需求_005",
+          "targetObjectId": 2,
+          "targetObjectName": "岗位招聘需求",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 2,
+      "actionName": "开启招聘需求",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "招聘专员_002"
+      ],
+      "outputInstanceNames": [
+        "岗位招聘需求_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 3,
+      "actionName": "发布招聘启事",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "招聘专员_002"
+      ],
+      "outputInstanceNames": [
+        "招聘职位发布_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 1,
+      "actionName": "审批招聘需求",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "招聘专员_003"
+      ],
+      "outputInstanceNames": [
+        "岗位招聘需求_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 10,
+      "actionName": "完成背景调查",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "招聘专员_003"
+      ],
+      "outputInstanceNames": [
+        "入职前背景调查_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 13,
+      "actionName": "关闭招聘需求",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "招聘专员_003"
+      ],
+      "outputInstanceNames": [
+        "岗位招聘需求_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 6,
+      "actionName": "推进至面试",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "招聘专员_003"
+      ],
+      "outputInstanceNames": [
+        "应聘候选人_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 5,
+      "actionName": "排期面试",
+      "inputInstances": [
+        46
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "招聘专员_001"
+      ],
+      "outputInstanceNames": [
+        "HR 面_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 12,
+      "actionName": "完成入职任务",
+      "inputInstances": [
+        43
+      ],
+      "outputInstances": [
+        41
+      ],
+      "inputInstanceNames": [
+        "正式员工_001"
+      ],
+      "outputInstanceNames": [
+        "入职任务（合同签署、设备领取等）_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 8,
+      "actionName": "接受录用",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "应聘候选人_003"
+      ],
+      "outputInstanceNames": [
+        "录用通知书_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 5,
+      "actionName": "排期面试",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "招聘专员_002"
+      ],
+      "outputInstanceNames": [
+        "候选人面试_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 5,
+      "actionName": "排期面试",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "招聘专员_003"
+      ],
+      "outputInstanceNames": [
+        "技术面_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 2,
+      "actionName": "开启招聘需求",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "招聘专员_003"
+      ],
+      "outputInstanceNames": [
+        "岗位招聘需求_003"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

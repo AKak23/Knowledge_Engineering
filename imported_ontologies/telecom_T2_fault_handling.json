@@ -1,0 +1,4688 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "电信·telecom_T2_fault_handling",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=telecom_T2_fault_handling，graph=telecom_T2_fault_handling_seed48）：13 个对象类型 / 17 个关系 / 13 个动作 / 40 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "故障工单（中心节点）",
+      "objectCode": "Ticket",
+      "description": "故障工单（中心节点）",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "创建时间",
+          "attributeCode": "Ticket.created_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-06-15T08:23:41Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "严重程度",
+          "attributeCode": "Ticket.severity",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "TK-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Ticket.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "核心路由器BGP会话中断",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "报障客户",
+      "objectCode": "Customer",
+      "description": "报障客户",
+      "attributes": [
+        {
+          "attributeId": 6,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "VIP等级",
+          "attributeCode": "Customer.vip_level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "gold",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "网络监控告警",
+      "objectCode": "Alarm",
+      "description": "网络监控告警",
+      "attributes": [
+        {
+          "attributeId": 9,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ALM-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "告警类型",
+          "attributeCode": "Alarm.alarm_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "光模块收光异常",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "提出时间",
+          "attributeCode": "Alarm.raised_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-10-05T08:22:14Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "处理工单的员工",
+      "objectCode": "Employee",
+      "description": "处理工单的员工",
+      "attributes": [
+        {
+          "attributeId": 14,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "dispatcher",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "技能等级",
+          "attributeCode": "Employee.skill_level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "L1",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "网络设备",
+      "objectCode": "NetworkElement",
+      "description": "网络设备",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "NetworkElement.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "北京朝阳区BTS-1",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "NE-2024-BTS-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BTS",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "站点",
+      "objectCode": "Site",
+      "description": "站点",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "位置",
+          "attributeCode": "Site.location",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "北京市朝阳区建国路8号",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SIT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "受影响业务",
+      "objectCode": "Service",
+      "description": "受影响业务",
+      "attributes": [
+        {
+          "attributeId": 24,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SVC-78901",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "服务类型",
+          "attributeCode": "Service.service_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "broadband",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "objectCode": "WorkLog",
+      "description": "工单处理日志",
+      "attributes": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "初步诊断为光模块故障，已更换备用模块。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "WL20240501001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-01T09:12:34Z",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "工单解决方案",
+      "objectCode": "Resolution",
+      "description": "工单解决方案",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "类别",
+          "attributeCode": "Resolution.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "config_change",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "解决ID",
+          "attributeCode": "Resolution.resolution_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RES-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "摘要",
+          "attributeCode": "Resolution.summary",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "调整核心网元路由配置，修复信令链路中断问题",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "工单 工单 SLA 约束 约束",
+      "objectCode": "SLA",
+      "description": "工单 SLA 约束",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SLA_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "breached",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "目标解决时长(分钟)",
+          "attributeCode": "SLA.target_resolution_minutes",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 30,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "根因分析",
+      "objectCode": "RootCause",
+      "description": "根因分析",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "hardware",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CAU-2024-HW-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "核心路由器电源模块故障导致设备离线",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "人员抽象父类",
+      "objectCode": "Person",
+      "description": "人员抽象父类",
+      "attributes": [
+        {
+          "attributeId": 39,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P2023001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "工程师（人员抽象父类 子类型）",
+      "objectCode": "Engineer",
+      "description": "工程师（Person 子类型）",
+      "attributes": [
+        {
+          "attributeId": 40,
+          "attributeName": "人员ID",
+          "attributeCode": "Engineer.person_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "专业",
+          "attributeCode": "Engineer.specialty",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "无线通信",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 2,
+      "targetObjectName": "报障客户",
+      "linkInfo": "工单由客户报告",
+      "linkType": "N:1",
+      "description": "reported_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 3,
+      "targetObjectName": "网络监控告警",
+      "linkInfo": "工单由告警触发",
+      "linkType": "N:M",
+      "description": "triggered_by_alarm",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 4,
+      "targetObjectName": "处理工单的员工",
+      "linkInfo": "工单指派给员工",
+      "linkType": "N:1",
+      "description": "assigned_to",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 5,
+      "targetObjectName": "网络设备",
+      "linkInfo": "工单涉及的网元",
+      "linkType": "N:M",
+      "description": "affects_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 7,
+      "targetObjectName": "受影响业务",
+      "linkInfo": "工单影响的业务",
+      "linkType": "N:M",
+      "description": "affects_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 8,
+      "targetObjectName": "工单处理日志",
+      "linkInfo": "工单包含日志",
+      "linkType": "1:N",
+      "description": "has_log",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 9,
+      "targetObjectName": "工单解决方案",
+      "linkInfo": "工单的解决方案",
+      "linkType": "1:1",
+      "description": "has_resolution",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 10,
+      "targetObjectName": "工单 工单 SLA 约束 约束",
+      "linkInfo": "工单受 工单 SLA 约束 约束",
+      "linkType": "N:1",
+      "description": "constrained_by_sla",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 1,
+      "sourceObjectName": "故障工单（中心节点）",
+      "targetObjectId": 11,
+      "targetObjectName": "根因分析",
+      "linkInfo": "工单根因",
+      "linkType": "1:1",
+      "description": "has_root_cause",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 3,
+      "sourceObjectName": "网络监控告警",
+      "targetObjectId": 5,
+      "targetObjectName": "网络设备",
+      "linkInfo": "告警源自网元",
+      "linkType": "N:1",
+      "description": "alarm_on_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 5,
+      "sourceObjectName": "网络设备",
+      "targetObjectId": 6,
+      "targetObjectName": "站点",
+      "linkInfo": "网元位于站点",
+      "linkType": "N:1",
+      "description": "ne_at_site",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 7,
+      "sourceObjectName": "受影响业务",
+      "targetObjectId": 5,
+      "targetObjectName": "网络设备",
+      "linkInfo": "业务依赖网元",
+      "linkType": "N:M",
+      "description": "service_runs_on_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 2,
+      "sourceObjectName": "报障客户",
+      "targetObjectId": 7,
+      "targetObjectName": "受影响业务",
+      "linkInfo": "客户使用业务",
+      "linkType": "N:M",
+      "description": "customer_uses_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 8,
+      "sourceObjectName": "工单处理日志",
+      "targetObjectId": 4,
+      "targetObjectName": "处理工单的员工",
+      "linkInfo": "日志由员工记录",
+      "linkType": "N:1",
+      "description": "log_authored_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 13,
+      "sourceObjectName": "工程师（人员抽象父类 子类型）",
+      "targetObjectId": 5,
+      "targetObjectName": "网络设备",
+      "linkInfo": "工程师擅长的网元类型",
+      "linkType": "N:M",
+      "description": "engineer_specializes_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 12,
+      "sourceObjectName": "人员抽象父类",
+      "targetObjectId": 4,
+      "targetObjectName": "处理工单的员工",
+      "linkInfo": "人员抽象父类 关联 处理工单的员工",
+      "linkType": "1:1",
+      "description": "person_links_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 13,
+      "sourceObjectName": "工程师（人员抽象父类 子类型）",
+      "targetObjectId": 12,
+      "targetObjectName": "人员抽象父类",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Engineer is-a Person",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "创建工单",
+      "actionCode": "create_ticket",
+      "description": "执行者：报障客户；对象：故障工单（中心节点）",
+      "inputObjects": [
+        "报障客户"
+      ],
+      "outputObjects": [
+        "故障工单（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "分派工单",
+      "actionCode": "assign_ticket",
+      "description": "执行者：处理工单的员工；对象：故障工单（中心节点）",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "故障工单（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "开始处理",
+      "actionCode": "start_handling",
+      "description": "执行者：处理工单的员工；对象：故障工单（中心节点）",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "故障工单（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "解决工单",
+      "actionCode": "resolve_ticket",
+      "description": "执行者：处理工单的员工；对象：故障工单（中心节点）",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "故障工单（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "关闭工单",
+      "actionCode": "close_ticket",
+      "description": "执行者：报障客户；对象：故障工单（中心节点）",
+      "inputObjects": [
+        "报障客户"
+      ],
+      "outputObjects": [
+        "故障工单（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "取消工单",
+      "actionCode": "cancel_ticket",
+      "description": "执行者：报障客户；对象：故障工单（中心节点）",
+      "inputObjects": [
+        "报障客户"
+      ],
+      "outputObjects": [
+        "故障工单（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "受理告警",
+      "actionCode": "acknowledge_alarm",
+      "description": "执行者：处理工单的员工；对象：网络监控告警",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "网络监控告警"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "清除告警",
+      "actionCode": "clear_alarm",
+      "description": "执行者：处理工单的员工；对象：网络监控告警",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "网络监控告警"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "actionCode": "set_ne_maintenance",
+      "description": "执行者：处理工单的员工；对象：网络设备",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "网络设备"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "actionCode": "restore_ne",
+      "description": "执行者：处理工单的员工；对象：网络设备",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "网络设备"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "中断服务",
+      "actionCode": "interrupt_service",
+      "description": "执行者：网络设备；对象：受影响业务",
+      "inputObjects": [
+        "网络设备"
+      ],
+      "outputObjects": [
+        "受影响业务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "actionCode": "restore_service",
+      "description": "执行者：处理工单的员工；对象：受影响业务",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "受影响业务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "actionCode": "breach_sla",
+      "description": "执行者：处理工单的员工；对象：工单 工单 SLA 约束 约束",
+      "inputObjects": [
+        "处理工单的员工"
+      ],
+      "outputObjects": [
+        "工单 工单 SLA 约束 约束"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Ticket_001",
+      "instanceName": "故障工单（中心节点）_001",
+      "objectId": 1,
+      "objectName": "故障工单（中心节点）",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "创建时间",
+          "attributeCode": "Ticket.created_at",
+          "dataType": "string",
+          "value": "2024-06-15T08:23:41Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "严重程度",
+          "attributeCode": "Ticket.severity",
+          "dataType": "string",
+          "value": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "value": "TK-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Ticket.title",
+          "dataType": "string",
+          "value": "核心路由器BGP会话中断",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "工单由客户报告",
+          "targetInstanceId": 3,
+          "targetInstanceName": "报障客户_001",
+          "targetObjectId": 2,
+          "targetObjectName": "报障客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "工单由告警触发",
+          "targetInstanceId": 4,
+          "targetInstanceName": "网络监控告警_001",
+          "targetObjectId": 3,
+          "targetObjectName": "网络监控告警",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "工单由告警触发",
+          "targetInstanceId": 7,
+          "targetInstanceName": "网络监控告警_004",
+          "targetObjectId": 3,
+          "targetObjectName": "网络监控告警",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "工单由告警触发",
+          "targetInstanceId": 5,
+          "targetInstanceName": "网络监控告警_002",
+          "targetObjectId": 3,
+          "targetObjectName": "网络监控告警",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "工单指派给员工",
+          "targetInstanceId": 10,
+          "targetInstanceName": "处理工单的员工_002",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "工单影响的业务",
+          "targetInstanceId": 18,
+          "targetInstanceName": "受影响业务_002",
+          "targetObjectId": 7,
+          "targetObjectName": "受影响业务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单包含日志",
+          "targetInstanceId": 20,
+          "targetInstanceName": "工单处理日志_002",
+          "targetObjectId": 8,
+          "targetObjectName": "工单处理日志",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单包含日志",
+          "targetInstanceId": 22,
+          "targetInstanceName": "工单处理日志_004",
+          "targetObjectId": 8,
+          "targetObjectName": "工单处理日志",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单包含日志",
+          "targetInstanceId": 25,
+          "targetInstanceName": "工单处理日志_007",
+          "targetObjectId": 8,
+          "targetObjectName": "工单处理日志",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "工单受 SLA 约束",
+          "targetInstanceId": 29,
+          "targetInstanceName": "工单 工单 SLA 约束 约束_003",
+          "targetObjectId": 10,
+          "targetObjectName": "工单 工单 SLA 约束 约束",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "工单根因",
+          "targetInstanceId": 34,
+          "targetInstanceName": "根因分析_003",
+          "targetObjectId": 11,
+          "targetObjectName": "根因分析",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Ticket_002",
+      "instanceName": "故障工单（中心节点）_002",
+      "objectId": 1,
+      "objectName": "故障工单（中心节点）",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "创建时间",
+          "attributeCode": "Ticket.created_at",
+          "dataType": "string",
+          "value": "2024-06-15T09:17:05Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "严重程度",
+          "attributeCode": "Ticket.severity",
+          "dataType": "string",
+          "value": "high",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "value": "TK-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Ticket.title",
+          "dataType": "string",
+          "value": "用户投诉宽带频繁掉线",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "工单由客户报告",
+          "targetInstanceId": 3,
+          "targetInstanceName": "报障客户_001",
+          "targetObjectId": 2,
+          "targetObjectName": "报障客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "工单由告警触发",
+          "targetInstanceId": 5,
+          "targetInstanceName": "网络监控告警_002",
+          "targetObjectId": 3,
+          "targetObjectName": "网络监控告警",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "工单指派给员工",
+          "targetInstanceId": 9,
+          "targetInstanceName": "处理工单的员工_001",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "工单涉及的网元",
+          "targetInstanceId": 14,
+          "targetInstanceName": "网络设备_002",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "工单涉及的网元",
+          "targetInstanceId": 13,
+          "targetInstanceName": "网络设备_001",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单包含日志",
+          "targetInstanceId": 19,
+          "targetInstanceName": "工单处理日志_001",
+          "targetObjectId": 8,
+          "targetObjectName": "工单处理日志",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单包含日志",
+          "targetInstanceId": 21,
+          "targetInstanceName": "工单处理日志_003",
+          "targetObjectId": 8,
+          "targetObjectName": "工单处理日志",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单包含日志",
+          "targetInstanceId": 23,
+          "targetInstanceName": "工单处理日志_005",
+          "targetObjectId": 8,
+          "targetObjectName": "工单处理日志",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单包含日志",
+          "targetInstanceId": 24,
+          "targetInstanceName": "工单处理日志_006",
+          "targetObjectId": 8,
+          "targetObjectName": "工单处理日志",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "工单的解决方案",
+          "targetInstanceId": 26,
+          "targetInstanceName": "工单解决方案_001",
+          "targetObjectId": 9,
+          "targetObjectName": "工单解决方案",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "工单受 SLA 约束",
+          "targetInstanceId": 27,
+          "targetInstanceName": "工单 工单 SLA 约束 约束_001",
+          "targetObjectId": 10,
+          "targetObjectName": "工单 工单 SLA 约束 约束",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "工单根因",
+          "targetInstanceId": 35,
+          "targetInstanceName": "根因分析_004",
+          "targetObjectId": 11,
+          "targetObjectName": "根因分析",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Customer_001",
+      "instanceName": "报障客户_001",
+      "objectId": 2,
+      "objectName": "报障客户",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "VIP等级",
+          "attributeCode": "Customer.vip_level",
+          "dataType": "string",
+          "value": "gold",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "客户使用业务",
+          "targetInstanceId": 18,
+          "targetInstanceName": "受影响业务_002",
+          "targetObjectId": 7,
+          "targetObjectName": "受影响业务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Alarm_001",
+      "instanceName": "网络监控告警_001",
+      "objectId": 3,
+      "objectName": "网络监控告警",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "value": "ALM-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "告警类型",
+          "attributeCode": "Alarm.alarm_type",
+          "dataType": "string",
+          "value": "光模块收光异常",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "value": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "提出时间",
+          "attributeCode": "Alarm.raised_at",
+          "dataType": "string",
+          "value": "2023-10-05T08:22:14Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "value": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "告警源自网元",
+          "targetInstanceId": 13,
+          "targetInstanceName": "网络设备_001",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Alarm_002",
+      "instanceName": "网络监控告警_002",
+      "objectId": 3,
+      "objectName": "网络监控告警",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "value": "ALM-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "告警类型",
+          "attributeCode": "Alarm.alarm_type",
+          "dataType": "string",
+          "value": "基站断链",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "value": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "提出时间",
+          "attributeCode": "Alarm.raised_at",
+          "dataType": "string",
+          "value": "2023-10-05T09:15:33Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "value": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "告警源自网元",
+          "targetInstanceId": 13,
+          "targetInstanceName": "网络设备_001",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Alarm_003",
+      "instanceName": "网络监控告警_003",
+      "objectId": 3,
+      "objectName": "网络监控告警",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "value": "ALM-2023-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "告警类型",
+          "attributeCode": "Alarm.alarm_type",
+          "dataType": "string",
+          "value": "电源电压过低",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "value": "warning",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "提出时间",
+          "attributeCode": "Alarm.raised_at",
+          "dataType": "string",
+          "value": "2023-10-05T10:04:51Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "value": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "告警源自网元",
+          "targetInstanceId": 13,
+          "targetInstanceName": "网络设备_001",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Alarm_004",
+      "instanceName": "网络监控告警_004",
+      "objectId": 3,
+      "objectName": "网络监控告警",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "value": "ALM-2023-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "告警类型",
+          "attributeCode": "Alarm.alarm_type",
+          "dataType": "string",
+          "value": "小区退服",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "value": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "提出时间",
+          "attributeCode": "Alarm.raised_at",
+          "dataType": "string",
+          "value": "2023-10-05T11:30:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "value": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "告警源自网元",
+          "targetInstanceId": 13,
+          "targetInstanceName": "网络设备_001",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Alarm_005",
+      "instanceName": "网络监控告警_005",
+      "objectId": 3,
+      "objectName": "网络监控告警",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "value": "ALM-2023-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "告警类型",
+          "attributeCode": "Alarm.alarm_type",
+          "dataType": "string",
+          "value": "信令链路中断",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "value": "minor",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "提出时间",
+          "attributeCode": "Alarm.raised_at",
+          "dataType": "string",
+          "value": "2023-10-05T12:17:48Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "value": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "告警源自网元",
+          "targetInstanceId": 14,
+          "targetInstanceName": "网络设备_002",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Employee_001",
+      "instanceName": "处理工单的员工_001",
+      "objectId": 4,
+      "objectName": "处理工单的员工",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "value": "dispatcher",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "技能等级",
+          "attributeCode": "Employee.skill_level",
+          "dataType": "string",
+          "value": "L1",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Employee_002",
+      "instanceName": "处理工单的员工_002",
+      "objectId": 4,
+      "objectName": "处理工单的员工",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "value": "engineer",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "技能等级",
+          "attributeCode": "Employee.skill_level",
+          "dataType": "string",
+          "value": "L2",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Employee_003",
+      "instanceName": "处理工单的员工_003",
+      "objectId": 4,
+      "objectName": "处理工单的员工",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "value": "supervisor",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "技能等级",
+          "attributeCode": "Employee.skill_level",
+          "dataType": "string",
+          "value": "L3",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Employee_004",
+      "instanceName": "处理工单的员工_004",
+      "objectId": 4,
+      "objectName": "处理工单的员工",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "角色",
+          "attributeCode": "Employee.role",
+          "dataType": "string",
+          "value": "engineer",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "技能等级",
+          "attributeCode": "Employee.skill_level",
+          "dataType": "string",
+          "value": "L2",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "NetworkElement_001",
+      "instanceName": "网络设备_001",
+      "objectId": 5,
+      "objectName": "网络设备",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "NetworkElement.name",
+          "dataType": "string",
+          "value": "北京朝阳区BTS-1",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-2024-BTS-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "BTS",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 16,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 6,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "NetworkElement_002",
+      "instanceName": "网络设备_002",
+      "objectId": 5,
+      "objectName": "网络设备",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "NetworkElement.name",
+          "dataType": "string",
+          "value": "上海浦东RNC-2",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-2024-RNC-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "RNC",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 16,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 6,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "NetworkElement_003",
+      "instanceName": "网络设备_003",
+      "objectId": 5,
+      "objectName": "网络设备",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "NetworkElement.name",
+          "dataType": "string",
+          "value": "广州天河核心交换机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-2024-Switch-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "Switch",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 16,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 6,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Site_001",
+      "instanceName": "站点_001",
+      "objectId": 6,
+      "objectName": "站点",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "位置",
+          "attributeCode": "Site.location",
+          "dataType": "string",
+          "value": "北京市朝阳区建国路8号",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "value": "SIT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Service_001",
+      "instanceName": "受影响业务_001",
+      "objectId": 7,
+      "objectName": "受影响业务",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-78901",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "服务类型",
+          "attributeCode": "Service.service_type",
+          "dataType": "string",
+          "value": "broadband",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "业务依赖网元",
+          "targetInstanceId": 13,
+          "targetInstanceName": "网络设备_001",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Service_002",
+      "instanceName": "受影响业务_002",
+      "objectId": 7,
+      "objectName": "受影响业务",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-78902",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "服务类型",
+          "attributeCode": "Service.service_type",
+          "dataType": "string",
+          "value": "voice",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "WorkLog_001",
+      "instanceName": "工单处理日志_001",
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "value": "初步诊断为光模块故障，已更换备用模块。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "value": "WL20240501001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "value": "2024-05-01T09:12:34Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "日志由员工记录",
+          "targetInstanceId": 12,
+          "targetInstanceName": "处理工单的员工_004",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "WorkLog_002",
+      "instanceName": "工单处理日志_002",
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "value": "现场复位OLT端口，链路恢复，持续观察2小时无丢包。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "value": "WL20240501002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "value": "2024-05-01T14:27:11Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "日志由员工记录",
+          "targetInstanceId": 11,
+          "targetInstanceName": "处理工单的员工_003",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "WorkLog_003",
+      "instanceName": "工单处理日志_003",
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "value": "用户侧ONU断电重启后上线，MAC地址重新学习成功。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "value": "WL20240502001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "value": "2024-05-02T08:55:43Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "日志由员工记录",
+          "targetInstanceId": 9,
+          "targetInstanceName": "处理工单的员工_001",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "WorkLog_004",
+      "instanceName": "工单处理日志_004",
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "value": "排查发现分光器端口松动，紧固后光功率恢复正常范围。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "value": "WL20240502002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "value": "2024-05-02T16:03:20Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "日志由员工记录",
+          "targetInstanceId": 12,
+          "targetInstanceName": "处理工单的员工_004",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "WorkLog_005",
+      "instanceName": "工单处理日志_005",
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "value": "后台配置下发失败，手动同步VLAN参数并验证业务连通性。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "value": "WL20240503001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "value": "2024-05-03T10:18:07Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "日志由员工记录",
+          "targetInstanceId": 12,
+          "targetInstanceName": "处理工单的员工_004",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "WorkLog_006",
+      "instanceName": "工单处理日志_006",
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "value": "联系传输专业协同定位，确认SDH链路存在误码，已提交专线修复单。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "value": "WL20240503002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "value": "2024-05-03T15:44:52Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "日志由员工记录",
+          "targetInstanceId": 12,
+          "targetInstanceName": "处理工单的员工_004",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "WorkLog_007",
+      "instanceName": "工单处理日志_007",
+      "objectId": 8,
+      "objectName": "工单处理日志",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "内容",
+          "attributeCode": "WorkLog.content",
+          "dataType": "string",
+          "value": "完成全量日志分析，确认为软件版本兼容性问题，计划下周升级补丁。",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "日志ID",
+          "attributeCode": "WorkLog.log_id",
+          "dataType": "string",
+          "value": "WL20240504001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "记录时间",
+          "attributeCode": "WorkLog.logged_at",
+          "dataType": "string",
+          "value": "2024-05-04T11:30:19Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "日志由员工记录",
+          "targetInstanceId": 11,
+          "targetInstanceName": "处理工单的员工_003",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Resolution_001",
+      "instanceName": "工单解决方案_001",
+      "objectId": 9,
+      "objectName": "工单解决方案",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "类别",
+          "attributeCode": "Resolution.category",
+          "dataType": "string",
+          "value": "config_change",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "解决ID",
+          "attributeCode": "Resolution.resolution_id",
+          "dataType": "string",
+          "value": "RES-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "摘要",
+          "attributeCode": "Resolution.summary",
+          "dataType": "string",
+          "value": "调整核心网元路由配置，修复信令链路中断问题",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "SLA_001",
+      "instanceName": "工单 工单 SLA 约束 约束_001",
+      "objectId": 10,
+      "objectName": "工单 工单 SLA 约束 约束",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "目标解决时长(分钟)",
+          "attributeCode": "SLA.target_resolution_minutes",
+          "dataType": "integer",
+          "value": 30,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "SLA_002",
+      "instanceName": "工单 工单 SLA 约束 约束_002",
+      "objectId": 10,
+      "objectName": "工单 工单 SLA 约束 约束",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "目标解决时长(分钟)",
+          "attributeCode": "SLA.target_resolution_minutes",
+          "dataType": "integer",
+          "value": 60,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "SLA_003",
+      "instanceName": "工单 工单 SLA 约束 约束_003",
+      "objectId": 10,
+      "objectName": "工单 工单 SLA 约束 约束",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "目标解决时长(分钟)",
+          "attributeCode": "SLA.target_resolution_minutes",
+          "dataType": "integer",
+          "value": 120,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "SLA_004",
+      "instanceName": "工单 工单 SLA 约束 约束_004",
+      "objectId": 10,
+      "objectName": "工单 工单 SLA 约束 约束",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "目标解决时长(分钟)",
+          "attributeCode": "SLA.target_resolution_minutes",
+          "dataType": "integer",
+          "value": 45,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "SLA_005",
+      "instanceName": "工单 工单 SLA 约束 约束_005",
+      "objectId": 10,
+      "objectName": "工单 工单 SLA 约束 约束",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "目标解决时长(分钟)",
+          "attributeCode": "SLA.target_resolution_minutes",
+          "dataType": "integer",
+          "value": 90,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "RootCause_001",
+      "instanceName": "根因分析_001",
+      "objectId": 11,
+      "objectName": "根因分析",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "value": "hardware",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "value": "CAU-2024-HW-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "value": "核心路由器电源模块故障导致设备离线",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "RootCause_002",
+      "instanceName": "根因分析_002",
+      "objectId": 11,
+      "objectName": "根因分析",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "value": "software",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "value": "CAU-2024-SW-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "value": "5G基站控制器固件存在内存泄漏，持续运行72小时后服务崩溃",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "RootCause_003",
+      "instanceName": "根因分析_003",
+      "objectId": 11,
+      "objectName": "根因分析",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "value": "configuration",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "value": "CAU-2024-CONF-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "value": "传输网元SNMP trap端口配置错误，未启用告警上报功能",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "RootCause_004",
+      "instanceName": "根因分析_004",
+      "objectId": 11,
+      "objectName": "根因分析",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "RootCause.category",
+          "dataType": "string",
+          "value": "human",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "原因ID",
+          "attributeCode": "RootCause.cause_id",
+          "dataType": "string",
+          "value": "CAU-2024-HUMAN-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "描述文本",
+          "attributeCode": "RootCause.description_text",
+          "dataType": "string",
+          "value": "运维人员误删核心交换机VLAN映射表，引发跨域业务中断",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Person_001",
+      "instanceName": "人员抽象父类_001",
+      "objectId": 12,
+      "objectName": "人员抽象父类",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "value": "P2023001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "Person 关联 Employee",
+          "targetInstanceId": 12,
+          "targetInstanceName": "处理工单的员工_004",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Person_002",
+      "instanceName": "人员抽象父类_002",
+      "objectId": 12,
+      "objectName": "人员抽象父类",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "value": "P2023002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "Person 关联 Employee",
+          "targetInstanceId": 10,
+          "targetInstanceName": "处理工单的员工_002",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Person_003",
+      "instanceName": "人员抽象父类_003",
+      "objectId": 12,
+      "objectName": "人员抽象父类",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "value": "P2023003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "Person 关联 Employee",
+          "targetInstanceId": 11,
+          "targetInstanceName": "处理工单的员工_003",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Engineer_001",
+      "instanceName": "工程师（人员抽象父类 子类型）_001",
+      "objectId": 13,
+      "objectName": "工程师（人员抽象父类 子类型）",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "人员ID",
+          "attributeCode": "Engineer.person_id",
+          "dataType": "string",
+          "value": "P2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "专业",
+          "attributeCode": "Engineer.specialty",
+          "dataType": "string",
+          "value": "无线通信",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "工程师擅长的网元类型",
+          "targetInstanceId": 14,
+          "targetInstanceName": "网络设备_002",
+          "targetObjectId": 5,
+          "targetObjectName": "网络设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "Person 关联 Employee",
+          "targetInstanceId": 9,
+          "targetInstanceName": "处理工单的员工_001",
+          "targetObjectId": 4,
+          "targetObjectName": "处理工单的员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Engineer_002",
+      "instanceName": "工程师（人员抽象父类 子类型）_002",
+      "objectId": 13,
+      "objectName": "工程师（人员抽象父类 子类型）",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "人员ID",
+          "attributeCode": "Engineer.person_id",
+          "dataType": "string",
+          "value": "P2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "专业",
+          "attributeCode": "Engineer.specialty",
+          "dataType": "string",
+          "value": "核心网",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        31
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "工单 工单 SLA 约束 约束_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "工单 工单 SLA 约束 约束_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "工单 工单 SLA 约束 约束_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 7,
+      "actionName": "受理告警",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络监控告警_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 3,
+      "actionName": "开始处理",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "故障工单（中心节点）_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 4,
+      "actionName": "解决工单",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "故障工单（中心节点）_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 7,
+      "actionName": "受理告警",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络监控告警_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 8,
+      "actionName": "清除告警",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络监控告警_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 8,
+      "actionName": "清除告警",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络监控告警_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "工单 工单 SLA 约束 约束_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 5,
+      "actionName": "关闭工单",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "报障客户_001"
+      ],
+      "outputInstanceNames": [
+        "故障工单（中心节点）_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 4,
+      "actionName": "解决工单",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "故障工单（中心节点）_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 8,
+      "actionName": "清除告警",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络监控告警_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 5,
+      "actionName": "关闭工单",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "报障客户_001"
+      ],
+      "outputInstanceNames": [
+        "故障工单（中心节点）_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 8,
+      "actionName": "清除告警",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络监控告警_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_001"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_001"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_001"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "网络设备_003"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 11,
+      "actionName": "中断服务",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "网络设备_001"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 9,
+      "actionName": "置网元为维护态",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        9
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_001"
+      ],
+      "outputInstanceNames": [
+        "网络设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_004"
+      ],
+      "outputInstanceNames": [
+        "网络设备_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 12,
+      "actionName": "恢复服务",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_002"
+      ],
+      "outputInstanceNames": [
+        "受影响业务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 10,
+      "actionName": "恢复网元",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "处理工单的员工_003"
+      ],
+      "outputInstanceNames": [
+        "网络设备_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

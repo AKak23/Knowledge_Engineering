@@ -1,0 +1,3982 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "客户关系管理(CRM)·crm_C1_sales_pipeline",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=crm_C1_sales_pipeline，graph=crm_C1_sales_pipeline_seed44）：15 个对象类型 / 21 个关系 / 14 个动作 / 45 个实例 / 14 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "市场或销售前端获取的潜在客户线索",
+      "objectCode": "Lead",
+      "description": "市场或销售前端获取的潜在客户线索",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "线索ID",
+          "attributeCode": "Lead.lead_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "L2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "评分",
+          "attributeCode": "Lead.score",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "来源",
+          "attributeCode": "Lead.source",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "web",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Lead.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "converted",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "营销活动来源",
+      "objectCode": "Campaign",
+      "description": "营销活动来源",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CAM-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "渠道",
+          "attributeCode": "Campaign.channel",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "social",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "春季新品推广活动",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "对公销售对象（客户公司）",
+      "objectCode": "Account",
+      "description": "对公销售对象（客户公司）",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ACC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "行业",
+          "attributeCode": "Account.industry",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "finance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Account.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华泰证券股份有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "层级",
+          "attributeCode": "Account.tier",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "strategic",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "客户公司中的关键联系人",
+      "objectCode": "Contact",
+      "description": "客户公司中的关键联系人",
+      "attributes": [
+        {
+          "attributeId": 12,
+          "attributeName": "联系人ID",
+          "attributeCode": "Contact.contact_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Contact.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "职称",
+          "attributeCode": "Contact.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "销售总监",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "由合格线索转化的销售商机",
+      "objectCode": "Opportunity",
+      "description": "由合格线索转化的销售商机",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "成交日期",
+          "attributeCode": "Opportunity.close_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-09-30",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "预期金额",
+          "attributeCode": "Opportunity.expected_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "Opportunity.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东区企业云服务升级项目",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "商机ID",
+          "attributeCode": "Opportunity.opportunity_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OPP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "概率",
+          "attributeCode": "Opportunity.probability",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.65,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "阶段",
+          "attributeCode": "Opportunity.stage",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed_lost",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "可售产品父类型",
+      "objectCode": "Product",
+      "description": "可售产品父类型",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "标准价格",
+          "attributeCode": "Product.list_price",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 299.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "企业级云存储服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "软件类产品",
+      "objectCode": "SoftwareProduct",
+      "description": "软件类产品",
+      "attributes": [
+        {
+          "attributeId": 24,
+          "attributeName": "牌照类型",
+          "attributeCode": "SoftwareProduct.license_model",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "subscription",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "标准价格",
+          "attributeCode": "SoftwareProduct.list_price",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 299.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "SoftwareProduct.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "智云协同办公套件",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "产品ID",
+          "attributeCode": "SoftwareProduct.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SP-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "服务类产品",
+      "objectCode": "ServiceProduct",
+      "description": "服务类产品",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "标准价格",
+          "attributeCode": "ServiceProduct.list_price",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 8500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "ServiceProduct.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "企业IT运维支持服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "产品ID",
+          "attributeCode": "ServiceProduct.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "服务时长(小时)",
+          "attributeCode": "ServiceProduct.service_hours",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 40,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "针对商机生成的报价单",
+      "objectCode": "Quote",
+      "description": "针对商机生成的报价单",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "折扣率",
+          "attributeCode": "Quote.discount_rate",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.05,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "报价ID",
+          "attributeCode": "Quote.quote_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Q2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Quote.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "accepted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "总金额",
+          "attributeCode": "Quote.total_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "有效截止",
+          "attributeCode": "Quote.valid_until",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-12-31",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "版本",
+          "attributeCode": "Quote.version",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 1,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "报价单中的一条产品明细",
+      "objectCode": "QuoteLine",
+      "description": "报价单中的一条产品明细",
+      "attributes": [
+        {
+          "attributeId": 38,
+          "attributeName": "行号",
+          "attributeCode": "QuoteLine.line_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "QL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "行金额",
+          "attributeCode": "QuoteLine.line_total",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 6000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "数量",
+          "attributeCode": "QuoteLine.quantity",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "单价",
+          "attributeCode": "QuoteLine.unit_price",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 1200.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "由商机转化达成的成交订单",
+      "objectCode": "Deal",
+      "description": "由商机转化达成的成交订单",
+      "attributes": [
+        {
+          "attributeId": 42,
+          "attributeName": "金额",
+          "attributeCode": "Deal.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 43,
+          "attributeName": "交易ID",
+          "attributeCode": "Deal.deal_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "D2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "签署日期",
+          "attributeCode": "Deal.signed_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Deal.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "成交对应的客户合同",
+      "objectCode": "Contract",
+      "description": "成交对应的客户合同",
+      "attributes": [
+        {
+          "attributeId": 46,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "HT2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "期限(月)",
+          "attributeCode": "Contract.term_months",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 24,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "销售代表",
+      "objectCode": "SalesRep",
+      "description": "销售代表",
+      "attributes": [
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "SalesRep.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 50,
+          "attributeName": "销售代表ID",
+          "attributeCode": "SalesRep.rep_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SR001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "团队",
+          "attributeCode": "SalesRep.team",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东销售团队",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "对报价或合同的审批任务",
+      "objectCode": "ApprovalTask",
+      "description": "对报价或合同的审批任务",
+      "attributes": [
+        {
+          "attributeId": 52,
+          "attributeName": "审批人",
+          "attributeCode": "ApprovalTask.approver",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "状态",
+          "attributeCode": "ApprovalTask.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "任务ID",
+          "attributeCode": "ApprovalTask.task_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "APPR-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "销售预测条目",
+      "objectCode": "Forecast",
+      "description": "销售预测条目",
+      "attributes": [
+        {
+          "attributeId": 55,
+          "attributeName": "预测金额",
+          "attributeCode": "Forecast.forecast_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 56,
+          "attributeName": "预测ID",
+          "attributeCode": "Forecast.forecast_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Forecast_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "期间",
+          "attributeCode": "Forecast.period",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-Q3",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "市场或销售前端获取的潜在客户线索",
+      "targetObjectId": 2,
+      "targetObjectName": "营销活动来源",
+      "linkInfo": "线索来源于营销活动",
+      "linkType": "N:1",
+      "description": "lead_from_campaign",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 1,
+      "sourceObjectName": "市场或销售前端获取的潜在客户线索",
+      "targetObjectId": 13,
+      "targetObjectName": "销售代表",
+      "linkInfo": "线索归属销售",
+      "linkType": "N:1",
+      "description": "lead_owned_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 1,
+      "sourceObjectName": "市场或销售前端获取的潜在客户线索",
+      "targetObjectId": 5,
+      "targetObjectName": "由合格线索转化的销售商机",
+      "linkInfo": "线索转化为商机",
+      "linkType": "1:1",
+      "description": "lead_converts_to_opportunity",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 1,
+      "sourceObjectName": "市场或销售前端获取的潜在客户线索",
+      "targetObjectId": 4,
+      "targetObjectName": "客户公司中的关键联系人",
+      "linkInfo": "线索对应联系人",
+      "linkType": "N:1",
+      "description": "lead_for_contact",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户公司中的关键联系人",
+      "targetObjectId": 3,
+      "targetObjectName": "对公销售对象（客户公司）",
+      "linkInfo": "联系人归属客户",
+      "linkType": "N:1",
+      "description": "contact_belongs_to_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 5,
+      "sourceObjectName": "由合格线索转化的销售商机",
+      "targetObjectId": 3,
+      "targetObjectName": "对公销售对象（客户公司）",
+      "linkInfo": "商机针对的客户",
+      "linkType": "N:1",
+      "description": "opportunity_for_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 5,
+      "sourceObjectName": "由合格线索转化的销售商机",
+      "targetObjectId": 13,
+      "targetObjectName": "销售代表",
+      "linkInfo": "商机负责人",
+      "linkType": "N:1",
+      "description": "opportunity_owned_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 5,
+      "sourceObjectName": "由合格线索转化的销售商机",
+      "targetObjectId": 6,
+      "targetObjectName": "可售产品父类型",
+      "linkInfo": "商机涉及产品",
+      "linkType": "N:M",
+      "description": "opportunity_includes_product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 5,
+      "sourceObjectName": "由合格线索转化的销售商机",
+      "targetObjectId": 9,
+      "targetObjectName": "针对商机生成的报价单",
+      "linkInfo": "商机生成报价",
+      "linkType": "1:N",
+      "description": "opportunity_has_quote",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 9,
+      "sourceObjectName": "针对商机生成的报价单",
+      "targetObjectId": 10,
+      "targetObjectName": "报价单中的一条产品明细",
+      "linkInfo": "报价包含行项",
+      "linkType": "1:N",
+      "description": "quote_contains_line",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 10,
+      "sourceObjectName": "报价单中的一条产品明细",
+      "targetObjectId": 6,
+      "targetObjectName": "可售产品父类型",
+      "linkInfo": "报价行指向产品",
+      "linkType": "N:1",
+      "description": "line_for_product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 9,
+      "sourceObjectName": "针对商机生成的报价单",
+      "targetObjectId": 14,
+      "targetObjectName": "对报价或合同的审批任务",
+      "linkInfo": "报价需审批",
+      "linkType": "1:N",
+      "description": "quote_requires_approval",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 9,
+      "sourceObjectName": "针对商机生成的报价单",
+      "targetObjectId": 11,
+      "targetObjectName": "由商机转化达成的成交订单",
+      "linkInfo": "被接受的报价成为成交",
+      "linkType": "1:1",
+      "description": "quote_becomes_deal",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 11,
+      "sourceObjectName": "由商机转化达成的成交订单",
+      "targetObjectId": 5,
+      "targetObjectName": "由合格线索转化的销售商机",
+      "linkInfo": "成交归属商机",
+      "linkType": "N:1",
+      "description": "deal_for_opportunity",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 11,
+      "sourceObjectName": "由商机转化达成的成交订单",
+      "targetObjectId": 12,
+      "targetObjectName": "成交对应的客户合同",
+      "linkInfo": "成交生成合同",
+      "linkType": "1:1",
+      "description": "deal_generates_contract",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 12,
+      "sourceObjectName": "成交对应的客户合同",
+      "targetObjectId": 3,
+      "targetObjectName": "对公销售对象（客户公司）",
+      "linkInfo": "合同归属客户",
+      "linkType": "N:1",
+      "description": "contract_for_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 11,
+      "sourceObjectName": "由商机转化达成的成交订单",
+      "targetObjectId": 13,
+      "targetObjectName": "销售代表",
+      "linkInfo": "成交归属销售",
+      "linkType": "N:1",
+      "description": "deal_owned_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 15,
+      "sourceObjectName": "销售预测条目",
+      "targetObjectId": 5,
+      "targetObjectName": "由合格线索转化的销售商机",
+      "linkInfo": "预测覆盖的商机",
+      "linkType": "1:N",
+      "description": "forecast_covers_opportunity",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 2,
+      "sourceObjectName": "营销活动来源",
+      "targetObjectId": 3,
+      "targetObjectName": "对公销售对象（客户公司）",
+      "linkInfo": "活动定向客户",
+      "linkType": "N:M",
+      "description": "campaign_targets_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 7,
+      "sourceObjectName": "软件类产品",
+      "targetObjectId": 6,
+      "targetObjectName": "可售产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "SoftwareProduct is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 8,
+      "sourceObjectName": "服务类产品",
+      "targetObjectId": 6,
+      "targetObjectName": "可售产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "ServiceProduct is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "确认资格线索",
+      "actionCode": "qualify_lead",
+      "description": "执行者：销售代表；对象：市场或销售前端获取的潜在客户线索",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "市场或销售前端获取的潜在客户线索"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "淘汰线索",
+      "actionCode": "disqualify_lead",
+      "description": "执行者：销售代表；对象：市场或销售前端获取的潜在客户线索",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "市场或销售前端获取的潜在客户线索"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "转化线索",
+      "actionCode": "convert_lead",
+      "description": "执行者：销售代表；对象：市场或销售前端获取的潜在客户线索",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "市场或销售前端获取的潜在客户线索"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "推进商机至方案",
+      "actionCode": "advance_opportunity_to_proposal",
+      "description": "执行者：销售代表；对象：由合格线索转化的销售商机",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "由合格线索转化的销售商机"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "推进商机至谈判",
+      "actionCode": "advance_opportunity_to_negotiation",
+      "description": "执行者：销售代表；对象：由合格线索转化的销售商机",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "由合格线索转化的销售商机"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "赢得商机",
+      "actionCode": "win_opportunity",
+      "description": "执行者：销售代表；对象：由合格线索转化的销售商机",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "由合格线索转化的销售商机"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "输掉商机",
+      "actionCode": "lose_opportunity",
+      "description": "执行者：销售代表；对象：由合格线索转化的销售商机",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "由合格线索转化的销售商机"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "发送报价",
+      "actionCode": "send_quote",
+      "description": "执行者：销售代表；对象：针对商机生成的报价单",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "针对商机生成的报价单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "接受报价",
+      "actionCode": "accept_quote",
+      "description": "执行者：客户公司中的关键联系人；对象：针对商机生成的报价单",
+      "inputObjects": [
+        "客户公司中的关键联系人"
+      ],
+      "outputObjects": [
+        "针对商机生成的报价单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "拒绝报价",
+      "actionCode": "reject_quote",
+      "description": "执行者：客户公司中的关键联系人；对象：针对商机生成的报价单",
+      "inputObjects": [
+        "客户公司中的关键联系人"
+      ],
+      "outputObjects": [
+        "针对商机生成的报价单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "审批报价",
+      "actionCode": "approve_quote",
+      "description": "执行者：销售代表；对象：对报价或合同的审批任务",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "对报价或合同的审批任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "签署交易",
+      "actionCode": "sign_deal",
+      "description": "执行者：销售代表；对象：由商机转化达成的成交订单",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "由商机转化达成的成交订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "履行交易",
+      "actionCode": "fulfill_deal",
+      "description": "执行者：销售代表；对象：由商机转化达成的成交订单",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "由商机转化达成的成交订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "激活合同",
+      "actionCode": "activate_contract",
+      "description": "执行者：销售代表；对象：成交对应的客户合同",
+      "inputObjects": [
+        "销售代表"
+      ],
+      "outputObjects": [
+        "成交对应的客户合同"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Lead_001",
+      "instanceName": "市场或销售前端获取的潜在客户线索_001",
+      "objectId": 1,
+      "objectName": "市场或销售前端获取的潜在客户线索",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "线索ID",
+          "attributeCode": "Lead.lead_id",
+          "dataType": "string",
+          "value": "L2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "评分",
+          "attributeCode": "Lead.score",
+          "dataType": "integer",
+          "value": 75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "来源",
+          "attributeCode": "Lead.source",
+          "dataType": "string",
+          "value": "web",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Lead.status",
+          "dataType": "string",
+          "value": "converted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "线索来源于营销活动",
+          "targetInstanceId": 5,
+          "targetInstanceName": "营销活动来源_002",
+          "targetObjectId": 2,
+          "targetObjectName": "营销活动来源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "线索归属销售",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "线索转化为商机",
+          "targetInstanceId": 14,
+          "targetInstanceName": "由合格线索转化的销售商机_001",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "线索对应联系人",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户公司中的关键联系人_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户公司中的关键联系人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Lead_002",
+      "instanceName": "市场或销售前端获取的潜在客户线索_002",
+      "objectId": 1,
+      "objectName": "市场或销售前端获取的潜在客户线索",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "线索ID",
+          "attributeCode": "Lead.lead_id",
+          "dataType": "string",
+          "value": "L2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "评分",
+          "attributeCode": "Lead.score",
+          "dataType": "integer",
+          "value": 92,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "来源",
+          "attributeCode": "Lead.source",
+          "dataType": "string",
+          "value": "referral",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Lead.status",
+          "dataType": "string",
+          "value": "converted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "线索来源于营销活动",
+          "targetInstanceId": 4,
+          "targetInstanceName": "营销活动来源_001",
+          "targetObjectId": 2,
+          "targetObjectName": "营销活动来源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "线索归属销售",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "线索转化为商机",
+          "targetInstanceId": 17,
+          "targetInstanceName": "由合格线索转化的销售商机_004",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "线索对应联系人",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户公司中的关键联系人_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户公司中的关键联系人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Lead_003",
+      "instanceName": "市场或销售前端获取的潜在客户线索_003",
+      "objectId": 1,
+      "objectName": "市场或销售前端获取的潜在客户线索",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "线索ID",
+          "attributeCode": "Lead.lead_id",
+          "dataType": "string",
+          "value": "L2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "评分",
+          "attributeCode": "Lead.score",
+          "dataType": "integer",
+          "value": 43,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "来源",
+          "attributeCode": "Lead.source",
+          "dataType": "string",
+          "value": "ad",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Lead.status",
+          "dataType": "string",
+          "value": "disqualified",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "线索来源于营销活动",
+          "targetInstanceId": 6,
+          "targetInstanceName": "营销活动来源_003",
+          "targetObjectId": 2,
+          "targetObjectName": "营销活动来源",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "线索归属销售",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "线索转化为商机",
+          "targetInstanceId": 16,
+          "targetInstanceName": "由合格线索转化的销售商机_003",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "线索对应联系人",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户公司中的关键联系人_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户公司中的关键联系人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Campaign_001",
+      "instanceName": "营销活动来源_001",
+      "objectId": 2,
+      "objectName": "营销活动来源",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "value": "CAM-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "渠道",
+          "attributeCode": "Campaign.channel",
+          "dataType": "string",
+          "value": "social",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "value": "春季新品推广活动",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "活动定向客户",
+          "targetInstanceId": 9,
+          "targetInstanceName": "对公销售对象（客户公司）_003",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Campaign_002",
+      "instanceName": "营销活动来源_002",
+      "objectId": 2,
+      "objectName": "营销活动来源",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "value": "CAM-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "渠道",
+          "attributeCode": "Campaign.channel",
+          "dataType": "string",
+          "value": "email",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "value": "会员专享邮件促销",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "活动定向客户",
+          "targetInstanceId": 9,
+          "targetInstanceName": "对公销售对象（客户公司）_003",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Campaign_003",
+      "instanceName": "营销活动来源_003",
+      "objectId": 2,
+      "objectName": "营销活动来源",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "value": "CAM-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "渠道",
+          "attributeCode": "Campaign.channel",
+          "dataType": "string",
+          "value": "offline",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "value": "线下展会品牌宣传",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "活动定向客户",
+          "targetInstanceId": 10,
+          "targetInstanceName": "对公销售对象（客户公司）_004",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Account_001",
+      "instanceName": "对公销售对象（客户公司）_001",
+      "objectId": 3,
+      "objectName": "对公销售对象（客户公司）",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "行业",
+          "attributeCode": "Account.industry",
+          "dataType": "string",
+          "value": "finance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Account.name",
+          "dataType": "string",
+          "value": "华泰证券股份有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "层级",
+          "attributeCode": "Account.tier",
+          "dataType": "string",
+          "value": "strategic",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Account_002",
+      "instanceName": "对公销售对象（客户公司）_002",
+      "objectId": 3,
+      "objectName": "对公销售对象（客户公司）",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "行业",
+          "attributeCode": "Account.industry",
+          "dataType": "string",
+          "value": "manufacturing",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Account.name",
+          "dataType": "string",
+          "value": "比亚迪汽车工业有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "层级",
+          "attributeCode": "Account.tier",
+          "dataType": "string",
+          "value": "strategic",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Account_003",
+      "instanceName": "对公销售对象（客户公司）_003",
+      "objectId": 3,
+      "objectName": "对公销售对象（客户公司）",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "行业",
+          "attributeCode": "Account.industry",
+          "dataType": "string",
+          "value": "retail",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Account.name",
+          "dataType": "string",
+          "value": "永辉超市股份有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "层级",
+          "attributeCode": "Account.tier",
+          "dataType": "string",
+          "value": "key",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Account_004",
+      "instanceName": "对公销售对象（客户公司）_004",
+      "objectId": 3,
+      "objectName": "对公销售对象（客户公司）",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "行业",
+          "attributeCode": "Account.industry",
+          "dataType": "string",
+          "value": "tech",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Account.name",
+          "dataType": "string",
+          "value": "字节跳动科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "层级",
+          "attributeCode": "Account.tier",
+          "dataType": "string",
+          "value": "strategic",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Account_005",
+      "instanceName": "对公销售对象（客户公司）_005",
+      "objectId": 3,
+      "objectName": "对公销售对象（客户公司）",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "行业",
+          "attributeCode": "Account.industry",
+          "dataType": "string",
+          "value": "education",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Account.name",
+          "dataType": "string",
+          "value": "清华大学",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "层级",
+          "attributeCode": "Account.tier",
+          "dataType": "string",
+          "value": "key",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Account_006",
+      "instanceName": "对公销售对象（客户公司）_006",
+      "objectId": 3,
+      "objectName": "对公销售对象（客户公司）",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2024006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "行业",
+          "attributeCode": "Account.industry",
+          "dataType": "string",
+          "value": "manufacturing",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Account.name",
+          "dataType": "string",
+          "value": "青岛啤酒股份有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "层级",
+          "attributeCode": "Account.tier",
+          "dataType": "string",
+          "value": "general",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Contact_001",
+      "instanceName": "客户公司中的关键联系人_001",
+      "objectId": 4,
+      "objectName": "客户公司中的关键联系人",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "联系人ID",
+          "attributeCode": "Contact.contact_id",
+          "dataType": "string",
+          "value": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Contact.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "职称",
+          "attributeCode": "Contact.title",
+          "dataType": "string",
+          "value": "销售总监",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "联系人归属客户",
+          "targetInstanceId": 7,
+          "targetInstanceName": "对公销售对象（客户公司）_001",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Opportunity_001",
+      "instanceName": "由合格线索转化的销售商机_001",
+      "objectId": 5,
+      "objectName": "由合格线索转化的销售商机",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "成交日期",
+          "attributeCode": "Opportunity.close_date",
+          "dataType": "string",
+          "value": "2024-09-30",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "预期金额",
+          "attributeCode": "Opportunity.expected_amount",
+          "dataType": "number",
+          "value": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "Opportunity.name",
+          "dataType": "string",
+          "value": "华东区企业云服务升级项目",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "商机ID",
+          "attributeCode": "Opportunity.opportunity_id",
+          "dataType": "string",
+          "value": "OPP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "概率",
+          "attributeCode": "Opportunity.probability",
+          "dataType": "number",
+          "value": 0.65,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "阶段",
+          "attributeCode": "Opportunity.stage",
+          "dataType": "string",
+          "value": "closed_lost",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "商机针对的客户",
+          "targetInstanceId": 7,
+          "targetInstanceName": "对公销售对象（客户公司）_001",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "商机负责人",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "商机涉及产品",
+          "targetInstanceId": 21,
+          "targetInstanceName": "软件类产品_001",
+          "targetObjectId": 7,
+          "targetObjectName": "软件类产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "商机涉及产品",
+          "targetInstanceId": 26,
+          "targetInstanceName": "服务类产品_004",
+          "targetObjectId": 8,
+          "targetObjectName": "服务类产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Opportunity_002",
+      "instanceName": "由合格线索转化的销售商机_002",
+      "objectId": 5,
+      "objectName": "由合格线索转化的销售商机",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "成交日期",
+          "attributeCode": "Opportunity.close_date",
+          "dataType": "string",
+          "value": "2024-11-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "预期金额",
+          "attributeCode": "Opportunity.expected_amount",
+          "dataType": "number",
+          "value": 890000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "Opportunity.name",
+          "dataType": "string",
+          "value": "华南智能制造平台采购",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "商机ID",
+          "attributeCode": "Opportunity.opportunity_id",
+          "dataType": "string",
+          "value": "OPP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "概率",
+          "attributeCode": "Opportunity.probability",
+          "dataType": "number",
+          "value": 0.82,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "阶段",
+          "attributeCode": "Opportunity.stage",
+          "dataType": "string",
+          "value": "closed_won",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "商机针对的客户",
+          "targetInstanceId": 12,
+          "targetInstanceName": "对公销售对象（客户公司）_006",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "商机负责人",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "商机涉及产品",
+          "targetInstanceId": 21,
+          "targetInstanceName": "软件类产品_001",
+          "targetObjectId": 7,
+          "targetObjectName": "软件类产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "商机生成报价",
+          "targetInstanceId": 29,
+          "targetInstanceName": "针对商机生成的报价单_003",
+          "targetObjectId": 9,
+          "targetObjectName": "针对商机生成的报价单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Opportunity_003",
+      "instanceName": "由合格线索转化的销售商机_003",
+      "objectId": 5,
+      "objectName": "由合格线索转化的销售商机",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "成交日期",
+          "attributeCode": "Opportunity.close_date",
+          "dataType": "string",
+          "value": "2025-02-28",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "预期金额",
+          "attributeCode": "Opportunity.expected_amount",
+          "dataType": "number",
+          "value": 320000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "Opportunity.name",
+          "dataType": "string",
+          "value": "华北医疗大数据分析系统",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "商机ID",
+          "attributeCode": "Opportunity.opportunity_id",
+          "dataType": "string",
+          "value": "OPP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "概率",
+          "attributeCode": "Opportunity.probability",
+          "dataType": "number",
+          "value": 0.35,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "阶段",
+          "attributeCode": "Opportunity.stage",
+          "dataType": "string",
+          "value": "closed_lost",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "商机针对的客户",
+          "targetInstanceId": 12,
+          "targetInstanceName": "对公销售对象（客户公司）_006",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "商机负责人",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "商机涉及产品",
+          "targetInstanceId": 18,
+          "targetInstanceName": "可售产品父类型_001",
+          "targetObjectId": 6,
+          "targetObjectName": "可售产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "商机涉及产品",
+          "targetInstanceId": 20,
+          "targetInstanceName": "可售产品父类型_003",
+          "targetObjectId": 6,
+          "targetObjectName": "可售产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "商机生成报价",
+          "targetInstanceId": 27,
+          "targetInstanceName": "针对商机生成的报价单_001",
+          "targetObjectId": 9,
+          "targetObjectName": "针对商机生成的报价单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "商机生成报价",
+          "targetInstanceId": 28,
+          "targetInstanceName": "针对商机生成的报价单_002",
+          "targetObjectId": 9,
+          "targetObjectName": "针对商机生成的报价单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Opportunity_004",
+      "instanceName": "由合格线索转化的销售商机_004",
+      "objectId": 5,
+      "objectName": "由合格线索转化的销售商机",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "成交日期",
+          "attributeCode": "Opportunity.close_date",
+          "dataType": "string",
+          "value": "2024-08-20",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "预期金额",
+          "attributeCode": "Opportunity.expected_amount",
+          "dataType": "number",
+          "value": 475000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "Opportunity.name",
+          "dataType": "string",
+          "value": "西部教育信息化二期建设",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "商机ID",
+          "attributeCode": "Opportunity.opportunity_id",
+          "dataType": "string",
+          "value": "OPP-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "概率",
+          "attributeCode": "Opportunity.probability",
+          "dataType": "number",
+          "value": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "阶段",
+          "attributeCode": "Opportunity.stage",
+          "dataType": "string",
+          "value": "closed_won",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "商机针对的客户",
+          "targetInstanceId": 10,
+          "targetInstanceName": "对公销售对象（客户公司）_004",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "商机负责人",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "商机涉及产品",
+          "targetInstanceId": 26,
+          "targetInstanceName": "服务类产品_004",
+          "targetObjectId": 8,
+          "targetObjectName": "服务类产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "商机涉及产品",
+          "targetInstanceId": 25,
+          "targetInstanceName": "服务类产品_003",
+          "targetObjectId": 8,
+          "targetObjectName": "服务类产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "商机生成报价",
+          "targetInstanceId": 27,
+          "targetInstanceName": "针对商机生成的报价单_001",
+          "targetObjectId": 9,
+          "targetObjectName": "针对商机生成的报价单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Product_001",
+      "instanceName": "可售产品父类型_001",
+      "objectId": 6,
+      "objectName": "可售产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "标准价格",
+          "attributeCode": "Product.list_price",
+          "dataType": "number",
+          "value": 299.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "企业级云存储服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Product_002",
+      "instanceName": "可售产品父类型_002",
+      "objectId": 6,
+      "objectName": "可售产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "标准价格",
+          "attributeCode": "Product.list_price",
+          "dataType": "number",
+          "value": 499.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "智能CRM系统",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Product_003",
+      "instanceName": "可售产品父类型_003",
+      "objectId": 6,
+      "objectName": "可售产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "标准价格",
+          "attributeCode": "Product.list_price",
+          "dataType": "number",
+          "value": 399.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "数据分析平台",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "SoftwareProduct_001",
+      "instanceName": "软件类产品_001",
+      "objectId": 7,
+      "objectName": "软件类产品",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "牌照类型",
+          "attributeCode": "SoftwareProduct.license_model",
+          "dataType": "string",
+          "value": "subscription",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "标准价格",
+          "attributeCode": "SoftwareProduct.list_price",
+          "dataType": "number",
+          "value": 299.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "SoftwareProduct.name",
+          "dataType": "string",
+          "value": "智云协同办公套件",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "产品ID",
+          "attributeCode": "SoftwareProduct.product_id",
+          "dataType": "string",
+          "value": "SP-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "SoftwareProduct_002",
+      "instanceName": "软件类产品_002",
+      "objectId": 7,
+      "objectName": "软件类产品",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "牌照类型",
+          "attributeCode": "SoftwareProduct.license_model",
+          "dataType": "string",
+          "value": "perpetual",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "标准价格",
+          "attributeCode": "SoftwareProduct.list_price",
+          "dataType": "number",
+          "value": 8800.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "SoftwareProduct.name",
+          "dataType": "string",
+          "value": "天盾企业安全防护平台",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "产品ID",
+          "attributeCode": "SoftwareProduct.product_id",
+          "dataType": "string",
+          "value": "SP-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "ServiceProduct_001",
+      "instanceName": "服务类产品_001",
+      "objectId": 8,
+      "objectName": "服务类产品",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "标准价格",
+          "attributeCode": "ServiceProduct.list_price",
+          "dataType": "number",
+          "value": 8500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "ServiceProduct.name",
+          "dataType": "string",
+          "value": "企业IT运维支持服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "产品ID",
+          "attributeCode": "ServiceProduct.product_id",
+          "dataType": "string",
+          "value": "SP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "服务时长(小时)",
+          "attributeCode": "ServiceProduct.service_hours",
+          "dataType": "integer",
+          "value": 40,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "ServiceProduct_002",
+      "instanceName": "服务类产品_002",
+      "objectId": 8,
+      "objectName": "服务类产品",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "标准价格",
+          "attributeCode": "ServiceProduct.list_price",
+          "dataType": "number",
+          "value": 12800.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "ServiceProduct.name",
+          "dataType": "string",
+          "value": "云平台迁移与部署服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "产品ID",
+          "attributeCode": "ServiceProduct.product_id",
+          "dataType": "string",
+          "value": "SP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "服务时长(小时)",
+          "attributeCode": "ServiceProduct.service_hours",
+          "dataType": "integer",
+          "value": 60,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "ServiceProduct_003",
+      "instanceName": "服务类产品_003",
+      "objectId": 8,
+      "objectName": "服务类产品",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "标准价格",
+          "attributeCode": "ServiceProduct.list_price",
+          "dataType": "number",
+          "value": 6200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "ServiceProduct.name",
+          "dataType": "string",
+          "value": "数据安全合规咨询",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "产品ID",
+          "attributeCode": "ServiceProduct.product_id",
+          "dataType": "string",
+          "value": "SP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "服务时长(小时)",
+          "attributeCode": "ServiceProduct.service_hours",
+          "dataType": "integer",
+          "value": 24,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "ServiceProduct_004",
+      "instanceName": "服务类产品_004",
+      "objectId": 8,
+      "objectName": "服务类产品",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "标准价格",
+          "attributeCode": "ServiceProduct.list_price",
+          "dataType": "number",
+          "value": 15600.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "ServiceProduct.name",
+          "dataType": "string",
+          "value": "客户成功管理服务（年度）",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "产品ID",
+          "attributeCode": "ServiceProduct.product_id",
+          "dataType": "string",
+          "value": "SP-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "服务时长(小时)",
+          "attributeCode": "ServiceProduct.service_hours",
+          "dataType": "integer",
+          "value": 120,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Quote_001",
+      "instanceName": "针对商机生成的报价单_001",
+      "objectId": 9,
+      "objectName": "针对商机生成的报价单",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "折扣率",
+          "attributeCode": "Quote.discount_rate",
+          "dataType": "number",
+          "value": 0.05,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "报价ID",
+          "attributeCode": "Quote.quote_id",
+          "dataType": "string",
+          "value": "Q2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Quote.status",
+          "dataType": "string",
+          "value": "accepted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "总金额",
+          "attributeCode": "Quote.total_amount",
+          "dataType": "number",
+          "value": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "有效截止",
+          "attributeCode": "Quote.valid_until",
+          "dataType": "string",
+          "value": "2024-12-31",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "版本",
+          "attributeCode": "Quote.version",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "报价包含行项",
+          "targetInstanceId": 32,
+          "targetInstanceName": "报价单中的一条产品明细_003",
+          "targetObjectId": 10,
+          "targetObjectName": "报价单中的一条产品明细",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "报价包含行项",
+          "targetInstanceId": 33,
+          "targetInstanceName": "报价单中的一条产品明细_004",
+          "targetObjectId": 10,
+          "targetObjectName": "报价单中的一条产品明细",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "报价需审批",
+          "targetInstanceId": 39,
+          "targetInstanceName": "对报价或合同的审批任务_001",
+          "targetObjectId": 14,
+          "targetObjectName": "对报价或合同的审批任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "报价需审批",
+          "targetInstanceId": 40,
+          "targetInstanceName": "对报价或合同的审批任务_002",
+          "targetObjectId": 14,
+          "targetObjectName": "对报价或合同的审批任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "报价需审批",
+          "targetInstanceId": 43,
+          "targetInstanceName": "对报价或合同的审批任务_005",
+          "targetObjectId": 14,
+          "targetObjectName": "对报价或合同的审批任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "被接受的报价成为成交",
+          "targetInstanceId": 36,
+          "targetInstanceName": "由商机转化达成的成交订单_003",
+          "targetObjectId": 11,
+          "targetObjectName": "由商机转化达成的成交订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Quote_002",
+      "instanceName": "针对商机生成的报价单_002",
+      "objectId": 9,
+      "objectName": "针对商机生成的报价单",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "折扣率",
+          "attributeCode": "Quote.discount_rate",
+          "dataType": "number",
+          "value": 0.1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "报价ID",
+          "attributeCode": "Quote.quote_id",
+          "dataType": "string",
+          "value": "Q2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Quote.status",
+          "dataType": "string",
+          "value": "accepted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "总金额",
+          "attributeCode": "Quote.total_amount",
+          "dataType": "number",
+          "value": 89500.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "有效截止",
+          "attributeCode": "Quote.valid_until",
+          "dataType": "string",
+          "value": "2024-11-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "版本",
+          "attributeCode": "Quote.version",
+          "dataType": "integer",
+          "value": 2,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "报价包含行项",
+          "targetInstanceId": 30,
+          "targetInstanceName": "报价单中的一条产品明细_001",
+          "targetObjectId": 10,
+          "targetObjectName": "报价单中的一条产品明细",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "报价包含行项",
+          "targetInstanceId": 31,
+          "targetInstanceName": "报价单中的一条产品明细_002",
+          "targetObjectId": 10,
+          "targetObjectName": "报价单中的一条产品明细",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "被接受的报价成为成交",
+          "targetInstanceId": 35,
+          "targetInstanceName": "由商机转化达成的成交订单_002",
+          "targetObjectId": 11,
+          "targetObjectName": "由商机转化达成的成交订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Quote_003",
+      "instanceName": "针对商机生成的报价单_003",
+      "objectId": 9,
+      "objectName": "针对商机生成的报价单",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "折扣率",
+          "attributeCode": "Quote.discount_rate",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "报价ID",
+          "attributeCode": "Quote.quote_id",
+          "dataType": "string",
+          "value": "Q2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Quote.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "总金额",
+          "attributeCode": "Quote.total_amount",
+          "dataType": "number",
+          "value": 234750.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "有效截止",
+          "attributeCode": "Quote.valid_until",
+          "dataType": "string",
+          "value": "2024-10-30",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "版本",
+          "attributeCode": "Quote.version",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "报价包含行项",
+          "targetInstanceId": 30,
+          "targetInstanceName": "报价单中的一条产品明细_001",
+          "targetObjectId": 10,
+          "targetObjectName": "报价单中的一条产品明细",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "报价需审批",
+          "targetInstanceId": 41,
+          "targetInstanceName": "对报价或合同的审批任务_003",
+          "targetObjectId": 14,
+          "targetObjectName": "对报价或合同的审批任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "报价需审批",
+          "targetInstanceId": 42,
+          "targetInstanceName": "对报价或合同的审批任务_004",
+          "targetObjectId": 14,
+          "targetObjectName": "对报价或合同的审批任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "被接受的报价成为成交",
+          "targetInstanceId": 34,
+          "targetInstanceName": "由商机转化达成的成交订单_001",
+          "targetObjectId": 11,
+          "targetObjectName": "由商机转化达成的成交订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "QuoteLine_001",
+      "instanceName": "报价单中的一条产品明细_001",
+      "objectId": 10,
+      "objectName": "报价单中的一条产品明细",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "行号",
+          "attributeCode": "QuoteLine.line_id",
+          "dataType": "string",
+          "value": "QL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "行金额",
+          "attributeCode": "QuoteLine.line_total",
+          "dataType": "number",
+          "value": 6000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "数量",
+          "attributeCode": "QuoteLine.quantity",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "单价",
+          "attributeCode": "QuoteLine.unit_price",
+          "dataType": "number",
+          "value": 1200.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "报价行指向产品",
+          "targetInstanceId": 24,
+          "targetInstanceName": "服务类产品_002",
+          "targetObjectId": 8,
+          "targetObjectName": "服务类产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "QuoteLine_002",
+      "instanceName": "报价单中的一条产品明细_002",
+      "objectId": 10,
+      "objectName": "报价单中的一条产品明细",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "行号",
+          "attributeCode": "QuoteLine.line_id",
+          "dataType": "string",
+          "value": "QL-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "行金额",
+          "attributeCode": "QuoteLine.line_total",
+          "dataType": "number",
+          "value": 2551.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "数量",
+          "attributeCode": "QuoteLine.quantity",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "单价",
+          "attributeCode": "QuoteLine.unit_price",
+          "dataType": "number",
+          "value": 850.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "报价行指向产品",
+          "targetInstanceId": 18,
+          "targetInstanceName": "可售产品父类型_001",
+          "targetObjectId": 6,
+          "targetObjectName": "可售产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "QuoteLine_003",
+      "instanceName": "报价单中的一条产品明细_003",
+      "objectId": 10,
+      "objectName": "报价单中的一条产品明细",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "行号",
+          "attributeCode": "QuoteLine.line_id",
+          "dataType": "string",
+          "value": "QL-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "行金额",
+          "attributeCode": "QuoteLine.line_total",
+          "dataType": "number",
+          "value": 2999.9,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "数量",
+          "attributeCode": "QuoteLine.quantity",
+          "dataType": "integer",
+          "value": 10,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "单价",
+          "attributeCode": "QuoteLine.unit_price",
+          "dataType": "number",
+          "value": 299.99,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "报价行指向产品",
+          "targetInstanceId": 25,
+          "targetInstanceName": "服务类产品_003",
+          "targetObjectId": 8,
+          "targetObjectName": "服务类产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "QuoteLine_004",
+      "instanceName": "报价单中的一条产品明细_004",
+      "objectId": 10,
+      "objectName": "报价单中的一条产品明细",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "行号",
+          "attributeCode": "QuoteLine.line_id",
+          "dataType": "string",
+          "value": "QL-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "行金额",
+          "attributeCode": "QuoteLine.line_total",
+          "dataType": "number",
+          "value": 15800.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "数量",
+          "attributeCode": "QuoteLine.quantity",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "单价",
+          "attributeCode": "QuoteLine.unit_price",
+          "dataType": "number",
+          "value": 15800.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "报价行指向产品",
+          "targetInstanceId": 19,
+          "targetInstanceName": "可售产品父类型_002",
+          "targetObjectId": 6,
+          "targetObjectName": "可售产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Deal_001",
+      "instanceName": "由商机转化达成的成交订单_001",
+      "objectId": 11,
+      "objectName": "由商机转化达成的成交订单",
+      "attributeValues": [
+        {
+          "attributeId": 42,
+          "attributeName": "金额",
+          "attributeCode": "Deal.amount",
+          "dataType": "number",
+          "value": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 43,
+          "attributeName": "交易ID",
+          "attributeCode": "Deal.deal_id",
+          "dataType": "string",
+          "value": "D2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "签署日期",
+          "attributeCode": "Deal.signed_date",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Deal.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "成交归属商机",
+          "targetInstanceId": 16,
+          "targetInstanceName": "由合格线索转化的销售商机_003",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "成交生成合同",
+          "targetInstanceId": 37,
+          "targetInstanceName": "成交对应的客户合同_001",
+          "targetObjectId": 12,
+          "targetObjectName": "成交对应的客户合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "成交归属销售",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Deal_002",
+      "instanceName": "由商机转化达成的成交订单_002",
+      "objectId": 11,
+      "objectName": "由商机转化达成的成交订单",
+      "attributeValues": [
+        {
+          "attributeId": 42,
+          "attributeName": "金额",
+          "attributeCode": "Deal.amount",
+          "dataType": "number",
+          "value": 89500.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 43,
+          "attributeName": "交易ID",
+          "attributeCode": "Deal.deal_id",
+          "dataType": "string",
+          "value": "D2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "签署日期",
+          "attributeCode": "Deal.signed_date",
+          "dataType": "string",
+          "value": "2024-04-22",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Deal.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "成交归属商机",
+          "targetInstanceId": 15,
+          "targetInstanceName": "由合格线索转化的销售商机_002",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "成交归属销售",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Deal_003",
+      "instanceName": "由商机转化达成的成交订单_003",
+      "objectId": 11,
+      "objectName": "由商机转化达成的成交订单",
+      "attributeValues": [
+        {
+          "attributeId": 42,
+          "attributeName": "金额",
+          "attributeCode": "Deal.amount",
+          "dataType": "number",
+          "value": 210000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 43,
+          "attributeName": "交易ID",
+          "attributeCode": "Deal.deal_id",
+          "dataType": "string",
+          "value": "D2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "签署日期",
+          "attributeCode": "Deal.signed_date",
+          "dataType": "string",
+          "value": "2024-05-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "状态",
+          "attributeCode": "Deal.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "成交归属商机",
+          "targetInstanceId": 15,
+          "targetInstanceName": "由合格线索转化的销售商机_002",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "成交归属销售",
+          "targetInstanceId": 38,
+          "targetInstanceName": "销售代表_001",
+          "targetObjectId": 13,
+          "targetObjectName": "销售代表",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Contract_001",
+      "instanceName": "成交对应的客户合同_001",
+      "objectId": 12,
+      "objectName": "成交对应的客户合同",
+      "attributeValues": [
+        {
+          "attributeId": 46,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "期限(月)",
+          "attributeCode": "Contract.term_months",
+          "dataType": "integer",
+          "value": 24,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "合同归属客户",
+          "targetInstanceId": 10,
+          "targetInstanceName": "对公销售对象（客户公司）_004",
+          "targetObjectId": 3,
+          "targetObjectName": "对公销售对象（客户公司）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "SalesRep_001",
+      "instanceName": "销售代表_001",
+      "objectId": 13,
+      "objectName": "销售代表",
+      "attributeValues": [
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "SalesRep.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 50,
+          "attributeName": "销售代表ID",
+          "attributeCode": "SalesRep.rep_id",
+          "dataType": "string",
+          "value": "SR001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "团队",
+          "attributeCode": "SalesRep.team",
+          "dataType": "string",
+          "value": "华东销售团队",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "ApprovalTask_001",
+      "instanceName": "对报价或合同的审批任务_001",
+      "objectId": 14,
+      "objectName": "对报价或合同的审批任务",
+      "attributeValues": [
+        {
+          "attributeId": 52,
+          "attributeName": "审批人",
+          "attributeCode": "ApprovalTask.approver",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "状态",
+          "attributeCode": "ApprovalTask.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "任务ID",
+          "attributeCode": "ApprovalTask.task_id",
+          "dataType": "string",
+          "value": "APPR-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "ApprovalTask_002",
+      "instanceName": "对报价或合同的审批任务_002",
+      "objectId": 14,
+      "objectName": "对报价或合同的审批任务",
+      "attributeValues": [
+        {
+          "attributeId": 52,
+          "attributeName": "审批人",
+          "attributeCode": "ApprovalTask.approver",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "状态",
+          "attributeCode": "ApprovalTask.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "任务ID",
+          "attributeCode": "ApprovalTask.task_id",
+          "dataType": "string",
+          "value": "APPR-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "ApprovalTask_003",
+      "instanceName": "对报价或合同的审批任务_003",
+      "objectId": 14,
+      "objectName": "对报价或合同的审批任务",
+      "attributeValues": [
+        {
+          "attributeId": 52,
+          "attributeName": "审批人",
+          "attributeCode": "ApprovalTask.approver",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "状态",
+          "attributeCode": "ApprovalTask.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "任务ID",
+          "attributeCode": "ApprovalTask.task_id",
+          "dataType": "string",
+          "value": "APPR-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "ApprovalTask_004",
+      "instanceName": "对报价或合同的审批任务_004",
+      "objectId": 14,
+      "objectName": "对报价或合同的审批任务",
+      "attributeValues": [
+        {
+          "attributeId": 52,
+          "attributeName": "审批人",
+          "attributeCode": "ApprovalTask.approver",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "状态",
+          "attributeCode": "ApprovalTask.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "任务ID",
+          "attributeCode": "ApprovalTask.task_id",
+          "dataType": "string",
+          "value": "APPR-2024-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "ApprovalTask_005",
+      "instanceName": "对报价或合同的审批任务_005",
+      "objectId": 14,
+      "objectName": "对报价或合同的审批任务",
+      "attributeValues": [
+        {
+          "attributeId": 52,
+          "attributeName": "审批人",
+          "attributeCode": "ApprovalTask.approver",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 53,
+          "attributeName": "状态",
+          "attributeCode": "ApprovalTask.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 54,
+          "attributeName": "任务ID",
+          "attributeCode": "ApprovalTask.task_id",
+          "dataType": "string",
+          "value": "APPR-2024-005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "Forecast_001",
+      "instanceName": "销售预测条目_001",
+      "objectId": 15,
+      "objectName": "销售预测条目",
+      "attributeValues": [
+        {
+          "attributeId": 55,
+          "attributeName": "预测金额",
+          "attributeCode": "Forecast.forecast_amount",
+          "dataType": "number",
+          "value": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 56,
+          "attributeName": "预测ID",
+          "attributeCode": "Forecast.forecast_id",
+          "dataType": "string",
+          "value": "Forecast_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "期间",
+          "attributeCode": "Forecast.period",
+          "dataType": "string",
+          "value": "2024-Q3",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "预测覆盖的商机",
+          "targetInstanceId": 15,
+          "targetInstanceName": "由合格线索转化的销售商机_002",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "Forecast_002",
+      "instanceName": "销售预测条目_002",
+      "objectId": 15,
+      "objectName": "销售预测条目",
+      "attributeValues": [
+        {
+          "attributeId": 55,
+          "attributeName": "预测金额",
+          "attributeCode": "Forecast.forecast_amount",
+          "dataType": "number",
+          "value": 142800.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 56,
+          "attributeName": "预测ID",
+          "attributeCode": "Forecast.forecast_id",
+          "dataType": "string",
+          "value": "Forecast_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 57,
+          "attributeName": "期间",
+          "attributeCode": "Forecast.period",
+          "dataType": "string",
+          "value": "2024-Q4",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "预测覆盖的商机",
+          "targetInstanceId": 14,
+          "targetInstanceName": "由合格线索转化的销售商机_001",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "预测覆盖的商机",
+          "targetInstanceId": 16,
+          "targetInstanceName": "由合格线索转化的销售商机_003",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "预测覆盖的商机",
+          "targetInstanceId": 17,
+          "targetInstanceName": "由合格线索转化的销售商机_004",
+          "targetObjectId": 5,
+          "targetObjectName": "由合格线索转化的销售商机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 8,
+      "actionName": "发送报价",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "针对商机生成的报价单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 6,
+      "actionName": "赢得商机",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由合格线索转化的销售商机_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 7,
+      "actionName": "输掉商机",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由合格线索转化的销售商机_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 4,
+      "actionName": "推进商机至方案",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由合格线索转化的销售商机_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 11,
+      "actionName": "审批报价",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        42
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "对报价或合同的审批任务_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 10,
+      "actionName": "拒绝报价",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户公司中的关键联系人_001"
+      ],
+      "outputInstanceNames": [
+        "针对商机生成的报价单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 11,
+      "actionName": "审批报价",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "对报价或合同的审批任务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 13,
+      "actionName": "履行交易",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        34
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由商机转化达成的成交订单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 5,
+      "actionName": "推进商机至谈判",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由合格线索转化的销售商机_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 3,
+      "actionName": "转化线索",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "市场或销售前端获取的潜在客户线索_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 9,
+      "actionName": "接受报价",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "客户公司中的关键联系人_001"
+      ],
+      "outputInstanceNames": [
+        "针对商机生成的报价单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 7,
+      "actionName": "输掉商机",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由合格线索转化的销售商机_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 12,
+      "actionName": "签署交易",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由商机转化达成的成交订单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 13,
+      "actionName": "履行交易",
+      "inputInstances": [
+        38
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "销售代表_001"
+      ],
+      "outputInstanceNames": [
+        "由商机转化达成的成交订单_003"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

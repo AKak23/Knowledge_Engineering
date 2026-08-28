@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ontology_construct/.venv/
+ontology_construct/venv/
+ontology_construct/env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Local config and secrets
+.env
+.env.*
+!.env.example
+ontology_construct/.env
+ontology_construct/.env.*
+!ontology_construct/.env.example
+
+# Generated outputs
+outputs/
+ontology_construct/outputs/
+*.sqlite
+*.sqlite3
+*.db
+
+# Local datasets and uploaded source materials
+data/
+samples/
+*.dat
+*.pdf
+*.docx
+
+# OS / editor
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.idea/
+.vscode/
+.claude/

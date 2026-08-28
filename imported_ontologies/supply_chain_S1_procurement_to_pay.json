@@ -1,0 +1,3712 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "供应链·supply_chain_S1_procurement_to_pay",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=supply_chain_S1_procurement_to_pay，graph=supply_chain_S1_procurement_to_pay_seed45）：15 个对象类型 / 21 个关系 / 13 个动作 / 45 个实例 / 11 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "提交请购的内部用户",
+      "objectCode": "Requester",
+      "description": "提交请购的内部用户",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门",
+          "attributeCode": "Requester.department",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "研发部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Requester.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "申请人ID",
+          "attributeCode": "Requester.requester_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "REQ001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "采购请购单",
+      "objectCode": "Requisition",
+      "description": "采购请购单",
+      "attributes": [
+        {
+          "attributeId": 4,
+          "attributeName": "预估金额",
+          "attributeCode": "Requisition.estimated_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 12500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "需求ID",
+          "attributeCode": "Requisition.req_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "REQ-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Requisition.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "提交日期",
+          "attributeCode": "Requisition.submit_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "请购单明细行",
+      "objectCode": "RequisitionLine",
+      "description": "请购单明细行",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "行号",
+          "attributeCode": "RequisitionLine.line_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "数量",
+          "attributeCode": "RequisitionLine.quantity",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 15.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "单价",
+          "attributeCode": "RequisitionLine.unit_price",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 235.5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "采购物料",
+      "objectCode": "Material",
+      "description": "采购物料",
+      "attributes": [
+        {
+          "attributeId": 11,
+          "attributeName": "物料编码",
+          "attributeCode": "Material.material_code",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "不锈钢螺丝",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "计量单位",
+          "attributeCode": "Material.uom",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "pcs",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "供应商",
+      "objectCode": "Supplier",
+      "description": "供应商",
+      "attributes": [
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华兴电子科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "评分",
+          "attributeCode": "Supplier.rating",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "供应商ID",
+          "attributeCode": "Supplier.supplier_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "S001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "供应商报价",
+      "objectCode": "Quotation",
+      "description": "供应商报价",
+      "attributes": [
+        {
+          "attributeId": 17,
+          "attributeName": "报价ID",
+          "attributeCode": "Quotation.quote_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Q2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "报价价格",
+          "attributeCode": "Quotation.quoted_price",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 12500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "Quotation.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "accepted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "有效截止",
+          "attributeCode": "Quotation.valid_until",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-12-31",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "采购订单",
+      "objectCode": "PurchaseOrder",
+      "description": "采购订单",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "采购日期",
+          "attributeCode": "PurchaseOrder.po_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PO2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "confirmed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "总金额",
+          "attributeCode": "PurchaseOrder.total_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 45600.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "采购订单行项目",
+      "objectCode": "POLine",
+      "description": "采购订单行项目",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "采购订单行ID",
+          "attributeCode": "POLine.po_line_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "POLine_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "POLine.quantity",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 150.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "单价",
+          "attributeCode": "POLine.unit_price",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 28.5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "收货记录",
+      "objectCode": "GoodsReceipt",
+      "description": "收货记录",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "收货ID",
+          "attributeCode": "GoodsReceipt.gr_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "GR2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "收货日期",
+          "attributeCode": "GoodsReceipt.received_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "已收数量",
+          "attributeCode": "GoodsReceipt.received_qty",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "GoodsReceipt.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "posted",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "到货质检记录",
+      "objectCode": "QualityInspection",
+      "description": "到货质检记录",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "检验ID",
+          "attributeCode": "QualityInspection.inspection_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "QI2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "检验员",
+          "attributeCode": "QualityInspection.inspector",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "结果",
+          "attributeCode": "QualityInspection.result",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "pass",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "供应商发票",
+      "objectCode": "Invoice",
+      "description": "供应商发票",
+      "attributes": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 15680.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "开票日期",
+          "attributeCode": "Invoice.invoice_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-10-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FP20231001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "disputed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "付款单",
+      "objectCode": "Payment",
+      "description": "付款单",
+      "attributes": [
+        {
+          "attributeId": 39,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 15680.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "方法",
+          "attributeCode": "Payment.method",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "bank_transfer",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PAY2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "executed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "采购员",
+      "objectCode": "Buyer",
+      "description": "采购员",
+      "attributes": [
+        {
+          "attributeId": 43,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "B001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "具有审批权限的请购人",
+      "objectCode": "Approver",
+      "description": "具有审批权限的请购人",
+      "attributes": [
+        {
+          "attributeId": 45,
+          "attributeName": "审批额度",
+          "attributeCode": "Approver.approval_limit",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 50000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "部门",
+          "attributeCode": "Approver.department",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "采购部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "名称",
+          "attributeCode": "Approver.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "申请人ID",
+          "attributeCode": "Approver.requester_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "REQ2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "采购框架合同",
+      "objectCode": "Contract",
+      "description": "采购框架合同",
+      "attributes": [
+        {
+          "attributeId": 49,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "HT2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 50,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2025-12-31",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-01-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 2,
+      "sourceObjectName": "采购请购单",
+      "targetObjectId": 1,
+      "targetObjectName": "提交请购的内部用户",
+      "linkInfo": "请购单由请购人提交",
+      "linkType": "N:1",
+      "description": "submitted_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "采购请购单",
+      "targetObjectId": 3,
+      "targetObjectName": "请购单明细行",
+      "linkInfo": "请购单包含明细",
+      "linkType": "1:N",
+      "description": "has_req_line",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "请购单明细行",
+      "targetObjectId": 4,
+      "targetObjectName": "采购物料",
+      "linkInfo": "请购明细对应物料",
+      "linkType": "N:1",
+      "description": "req_line_for_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 2,
+      "sourceObjectName": "采购请购单",
+      "targetObjectId": 14,
+      "targetObjectName": "具有审批权限的请购人",
+      "linkInfo": "请购单审批人",
+      "linkType": "N:1",
+      "description": "approved_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 6,
+      "sourceObjectName": "供应商报价",
+      "targetObjectId": 5,
+      "targetObjectName": "供应商",
+      "linkInfo": "报价来自供应商",
+      "linkType": "N:1",
+      "description": "quote_from_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 6,
+      "sourceObjectName": "供应商报价",
+      "targetObjectId": 2,
+      "targetObjectName": "采购请购单",
+      "linkInfo": "报价针对请购单",
+      "linkType": "N:1",
+      "description": "quote_for_req",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 2,
+      "sourceObjectName": "采购请购单",
+      "targetObjectId": 7,
+      "targetObjectName": "采购订单",
+      "linkInfo": "请购单转换为采购订单",
+      "linkType": "1:N",
+      "description": "converted_to_po",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 7,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 5,
+      "targetObjectName": "供应商",
+      "linkInfo": "采购订单发往供应商",
+      "linkType": "N:1",
+      "description": "po_to_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 7,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 8,
+      "targetObjectName": "采购订单行项目",
+      "linkInfo": "采购订单包含行项目",
+      "linkType": "1:N",
+      "description": "po_has_line",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 8,
+      "sourceObjectName": "采购订单行项目",
+      "targetObjectId": 4,
+      "targetObjectName": "采购物料",
+      "linkInfo": "订单行对应物料",
+      "linkType": "N:1",
+      "description": "po_line_for_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 7,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 13,
+      "targetObjectName": "采购员",
+      "linkInfo": "采购订单归属采购员",
+      "linkType": "N:1",
+      "description": "po_owned_by_buyer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 9,
+      "sourceObjectName": "收货记录",
+      "targetObjectId": 7,
+      "targetObjectName": "采购订单",
+      "linkInfo": "收货针对采购订单",
+      "linkType": "N:1",
+      "description": "receipt_for_po",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 9,
+      "sourceObjectName": "收货记录",
+      "targetObjectId": 10,
+      "targetObjectName": "到货质检记录",
+      "linkInfo": "收货关联质检记录",
+      "linkType": "1:N",
+      "description": "receipt_inspected_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 11,
+      "sourceObjectName": "供应商发票",
+      "targetObjectId": 7,
+      "targetObjectName": "采购订单",
+      "linkInfo": "发票对应采购订单",
+      "linkType": "N:1",
+      "description": "invoice_for_po",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 11,
+      "sourceObjectName": "供应商发票",
+      "targetObjectId": 5,
+      "targetObjectName": "供应商",
+      "linkInfo": "发票来自供应商",
+      "linkType": "N:1",
+      "description": "invoice_from_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 11,
+      "sourceObjectName": "供应商发票",
+      "targetObjectId": 9,
+      "targetObjectName": "收货记录",
+      "linkInfo": "发票与收货三单匹配",
+      "linkType": "N:M",
+      "description": "invoice_matches_receipt",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 12,
+      "sourceObjectName": "付款单",
+      "targetObjectId": 11,
+      "targetObjectName": "供应商发票",
+      "linkInfo": "付款针对发票",
+      "linkType": "N:1",
+      "description": "payment_for_invoice",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 12,
+      "sourceObjectName": "付款单",
+      "targetObjectId": 5,
+      "targetObjectName": "供应商",
+      "linkInfo": "付款支付给供应商",
+      "linkType": "N:1",
+      "description": "payment_to_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 7,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 15,
+      "targetObjectName": "采购框架合同",
+      "linkInfo": "采购订单基于合同",
+      "linkType": "N:1",
+      "description": "po_under_contract",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 15,
+      "sourceObjectName": "采购框架合同",
+      "targetObjectId": 5,
+      "targetObjectName": "供应商",
+      "linkInfo": "合同对应供应商",
+      "linkType": "N:1",
+      "description": "contract_with_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 14,
+      "sourceObjectName": "具有审批权限的请购人",
+      "targetObjectId": 1,
+      "targetObjectName": "提交请购的内部用户",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Approver is-a Requester",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "提交招聘需求",
+      "actionCode": "submit_requisition",
+      "description": "执行者：提交请购的内部用户；对象：采购请购单",
+      "inputObjects": [
+        "提交请购的内部用户"
+      ],
+      "outputObjects": [
+        "采购请购单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "审批招聘需求",
+      "actionCode": "approve_requisition",
+      "description": "执行者：具有审批权限的请购人；对象：采购请购单",
+      "inputObjects": [
+        "具有审批权限的请购人"
+      ],
+      "outputObjects": [
+        "采购请购单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "拒绝招聘需求",
+      "actionCode": "reject_requisition",
+      "description": "执行者：具有审批权限的请购人；对象：采购请购单",
+      "inputObjects": [
+        "具有审批权限的请购人"
+      ],
+      "outputObjects": [
+        "采购请购单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "接受报价",
+      "actionCode": "accept_quotation",
+      "description": "执行者：采购员；对象：供应商报价",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商报价"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "签发采购订单",
+      "actionCode": "issue_purchase_order",
+      "description": "执行者：采购员；对象：采购订单",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "采购订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "确认采购订单",
+      "actionCode": "confirm_purchase_order",
+      "description": "执行者：供应商；对象：采购订单",
+      "inputObjects": [
+        "供应商"
+      ],
+      "outputObjects": [
+        "采购订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "收货过账",
+      "actionCode": "post_goods_receipt",
+      "description": "执行者：采购员；对象：收货记录",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "收货记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "完成检验",
+      "actionCode": "complete_inspection",
+      "description": "执行者：采购员；对象：到货质检记录",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "到货质检记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "匹配发票",
+      "actionCode": "match_invoice",
+      "description": "执行者：采购员；对象：供应商发票",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商发票"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "审批发票",
+      "actionCode": "approve_invoice",
+      "description": "执行者：具有审批权限的请购人；对象：供应商发票",
+      "inputObjects": [
+        "具有审批权限的请购人"
+      ],
+      "outputObjects": [
+        "供应商发票"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "提出争议发票",
+      "actionCode": "dispute_invoice",
+      "description": "执行者：采购员；对象：供应商发票",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商发票"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "执行支付",
+      "actionCode": "execute_payment",
+      "description": "执行者：具有审批权限的请购人；对象：付款单",
+      "inputObjects": [
+        "具有审批权限的请购人"
+      ],
+      "outputObjects": [
+        "付款单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "关闭采购订单",
+      "actionCode": "close_purchase_order",
+      "description": "执行者：采购员；对象：采购订单",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "采购订单"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Requester_001",
+      "instanceName": "提交请购的内部用户_001",
+      "objectId": 1,
+      "objectName": "提交请购的内部用户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门",
+          "attributeCode": "Requester.department",
+          "dataType": "string",
+          "value": "研发部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Requester.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "申请人ID",
+          "attributeCode": "Requester.requester_id",
+          "dataType": "string",
+          "value": "REQ001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Requester_002",
+      "instanceName": "提交请购的内部用户_002",
+      "objectId": 1,
+      "objectName": "提交请购的内部用户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门",
+          "attributeCode": "Requester.department",
+          "dataType": "string",
+          "value": "采购部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Requester.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "申请人ID",
+          "attributeCode": "Requester.requester_id",
+          "dataType": "string",
+          "value": "REQ002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Requester_003",
+      "instanceName": "提交请购的内部用户_003",
+      "objectId": 1,
+      "objectName": "提交请购的内部用户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门",
+          "attributeCode": "Requester.department",
+          "dataType": "string",
+          "value": "市场部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Requester.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "申请人ID",
+          "attributeCode": "Requester.requester_id",
+          "dataType": "string",
+          "value": "REQ003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Requester_004",
+      "instanceName": "提交请购的内部用户_004",
+      "objectId": 1,
+      "objectName": "提交请购的内部用户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门",
+          "attributeCode": "Requester.department",
+          "dataType": "string",
+          "value": "财务部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Requester.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "申请人ID",
+          "attributeCode": "Requester.requester_id",
+          "dataType": "string",
+          "value": "REQ004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Requester_005",
+      "instanceName": "提交请购的内部用户_005",
+      "objectId": 1,
+      "objectName": "提交请购的内部用户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "部门",
+          "attributeCode": "Requester.department",
+          "dataType": "string",
+          "value": "人力资源部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Requester.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "申请人ID",
+          "attributeCode": "Requester.requester_id",
+          "dataType": "string",
+          "value": "REQ005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Requisition_001",
+      "instanceName": "采购请购单_001",
+      "objectId": 2,
+      "objectName": "采购请购单",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "预估金额",
+          "attributeCode": "Requisition.estimated_amount",
+          "dataType": "number",
+          "value": 12500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "需求ID",
+          "attributeCode": "Requisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Requisition.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "提交日期",
+          "attributeCode": "Requisition.submit_date",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "请购单由请购人提交",
+          "targetInstanceId": 3,
+          "targetInstanceName": "提交请购的内部用户_003",
+          "targetObjectId": 1,
+          "targetObjectName": "提交请购的内部用户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "请购单包含明细",
+          "targetInstanceId": 11,
+          "targetInstanceName": "请购单明细行_001",
+          "targetObjectId": 3,
+          "targetObjectName": "请购单明细行",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "请购单包含明细",
+          "targetInstanceId": 12,
+          "targetInstanceName": "请购单明细行_002",
+          "targetObjectId": 3,
+          "targetObjectName": "请购单明细行",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "请购单审批人",
+          "targetInstanceId": 44,
+          "targetInstanceName": "具有审批权限的请购人_001",
+          "targetObjectId": 14,
+          "targetObjectName": "具有审批权限的请购人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Requisition_002",
+      "instanceName": "采购请购单_002",
+      "objectId": 2,
+      "objectName": "采购请购单",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "预估金额",
+          "attributeCode": "Requisition.estimated_amount",
+          "dataType": "number",
+          "value": 8700.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "需求ID",
+          "attributeCode": "Requisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Requisition.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "提交日期",
+          "attributeCode": "Requisition.submit_date",
+          "dataType": "string",
+          "value": "2024-03-16",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "请购单由请购人提交",
+          "targetInstanceId": 44,
+          "targetInstanceName": "具有审批权限的请购人_001",
+          "targetObjectId": 14,
+          "targetObjectName": "具有审批权限的请购人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "请购单审批人",
+          "targetInstanceId": 44,
+          "targetInstanceName": "具有审批权限的请购人_001",
+          "targetObjectId": 14,
+          "targetObjectName": "具有审批权限的请购人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "请购单转换为采购订单",
+          "targetInstanceId": 27,
+          "targetInstanceName": "采购订单_005",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Requisition_003",
+      "instanceName": "采购请购单_003",
+      "objectId": 2,
+      "objectName": "采购请购单",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "预估金额",
+          "attributeCode": "Requisition.estimated_amount",
+          "dataType": "number",
+          "value": 32000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "需求ID",
+          "attributeCode": "Requisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Requisition.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "提交日期",
+          "attributeCode": "Requisition.submit_date",
+          "dataType": "string",
+          "value": "2024-03-17",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "请购单由请购人提交",
+          "targetInstanceId": 3,
+          "targetInstanceName": "提交请购的内部用户_003",
+          "targetObjectId": 1,
+          "targetObjectName": "提交请购的内部用户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "请购单包含明细",
+          "targetInstanceId": 13,
+          "targetInstanceName": "请购单明细行_003",
+          "targetObjectId": 3,
+          "targetObjectName": "请购单明细行",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "请购单包含明细",
+          "targetInstanceId": 12,
+          "targetInstanceName": "请购单明细行_002",
+          "targetObjectId": 3,
+          "targetObjectName": "请购单明细行",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "请购单审批人",
+          "targetInstanceId": 44,
+          "targetInstanceName": "具有审批权限的请购人_001",
+          "targetObjectId": 14,
+          "targetObjectName": "具有审批权限的请购人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "请购单转换为采购订单",
+          "targetInstanceId": 26,
+          "targetInstanceName": "采购订单_004",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Requisition_004",
+      "instanceName": "采购请购单_004",
+      "objectId": 2,
+      "objectName": "采购请购单",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "预估金额",
+          "attributeCode": "Requisition.estimated_amount",
+          "dataType": "number",
+          "value": 5400.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "需求ID",
+          "attributeCode": "Requisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Requisition.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "提交日期",
+          "attributeCode": "Requisition.submit_date",
+          "dataType": "string",
+          "value": "2024-03-18",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "请购单由请购人提交",
+          "targetInstanceId": 1,
+          "targetInstanceName": "提交请购的内部用户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "提交请购的内部用户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "请购单审批人",
+          "targetInstanceId": 44,
+          "targetInstanceName": "具有审批权限的请购人_001",
+          "targetObjectId": 14,
+          "targetObjectName": "具有审批权限的请购人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "请购单转换为采购订单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "采购订单_001",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "请购单转换为采购订单",
+          "targetInstanceId": 25,
+          "targetInstanceName": "采购订单_003",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "请购单转换为采购订单",
+          "targetInstanceId": 26,
+          "targetInstanceName": "采购订单_004",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Requisition_005",
+      "instanceName": "采购请购单_005",
+      "objectId": 2,
+      "objectName": "采购请购单",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "预估金额",
+          "attributeCode": "Requisition.estimated_amount",
+          "dataType": "number",
+          "value": 18900.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "需求ID",
+          "attributeCode": "Requisition.req_id",
+          "dataType": "string",
+          "value": "REQ-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Requisition.status",
+          "dataType": "string",
+          "value": "converted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "提交日期",
+          "attributeCode": "Requisition.submit_date",
+          "dataType": "string",
+          "value": "2024-03-19",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "请购单由请购人提交",
+          "targetInstanceId": 4,
+          "targetInstanceName": "提交请购的内部用户_004",
+          "targetObjectId": 1,
+          "targetObjectName": "提交请购的内部用户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "请购单审批人",
+          "targetInstanceId": 44,
+          "targetInstanceName": "具有审批权限的请购人_001",
+          "targetObjectId": 14,
+          "targetObjectName": "具有审批权限的请购人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "请购单转换为采购订单",
+          "targetInstanceId": 24,
+          "targetInstanceName": "采购订单_002",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "RequisitionLine_001",
+      "instanceName": "请购单明细行_001",
+      "objectId": 3,
+      "objectName": "请购单明细行",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "行号",
+          "attributeCode": "RequisitionLine.line_id",
+          "dataType": "string",
+          "value": "RL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "数量",
+          "attributeCode": "RequisitionLine.quantity",
+          "dataType": "number",
+          "value": 15.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "单价",
+          "attributeCode": "RequisitionLine.unit_price",
+          "dataType": "number",
+          "value": 235.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "请购明细对应物料",
+          "targetInstanceId": 18,
+          "targetInstanceName": "采购物料_005",
+          "targetObjectId": 4,
+          "targetObjectName": "采购物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "RequisitionLine_002",
+      "instanceName": "请购单明细行_002",
+      "objectId": 3,
+      "objectName": "请购单明细行",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "行号",
+          "attributeCode": "RequisitionLine.line_id",
+          "dataType": "string",
+          "value": "RL-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "数量",
+          "attributeCode": "RequisitionLine.quantity",
+          "dataType": "number",
+          "value": 8.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "单价",
+          "attributeCode": "RequisitionLine.unit_price",
+          "dataType": "number",
+          "value": 1280.75,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "请购明细对应物料",
+          "targetInstanceId": 18,
+          "targetInstanceName": "采购物料_005",
+          "targetObjectId": 4,
+          "targetObjectName": "采购物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "RequisitionLine_003",
+      "instanceName": "请购单明细行_003",
+      "objectId": 3,
+      "objectName": "请购单明细行",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "行号",
+          "attributeCode": "RequisitionLine.line_id",
+          "dataType": "string",
+          "value": "RL-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "数量",
+          "attributeCode": "RequisitionLine.quantity",
+          "dataType": "number",
+          "value": 200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "单价",
+          "attributeCode": "RequisitionLine.unit_price",
+          "dataType": "number",
+          "value": 45.99,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "请购明细对应物料",
+          "targetInstanceId": 18,
+          "targetInstanceName": "采购物料_005",
+          "targetObjectId": 4,
+          "targetObjectName": "采购物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Material_001",
+      "instanceName": "采购物料_001",
+      "objectId": 4,
+      "objectName": "采购物料",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "物料编码",
+          "attributeCode": "Material.material_code",
+          "dataType": "string",
+          "value": "MAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "不锈钢螺丝",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "计量单位",
+          "attributeCode": "Material.uom",
+          "dataType": "string",
+          "value": "pcs",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Material_002",
+      "instanceName": "采购物料_002",
+      "objectId": 4,
+      "objectName": "采购物料",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "物料编码",
+          "attributeCode": "Material.material_code",
+          "dataType": "string",
+          "value": "MAT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "工业润滑油",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "计量单位",
+          "attributeCode": "Material.uom",
+          "dataType": "string",
+          "value": "L",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Material_003",
+      "instanceName": "采购物料_003",
+      "objectId": 4,
+      "objectName": "采购物料",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "物料编码",
+          "attributeCode": "Material.material_code",
+          "dataType": "string",
+          "value": "MAT-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "铝合金型材",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "计量单位",
+          "attributeCode": "Material.uom",
+          "dataType": "string",
+          "value": "m",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Material_004",
+      "instanceName": "采购物料_004",
+      "objectId": 4,
+      "objectName": "采购物料",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "物料编码",
+          "attributeCode": "Material.material_code",
+          "dataType": "string",
+          "value": "MAT-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "碳钢钢板",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "计量单位",
+          "attributeCode": "Material.uom",
+          "dataType": "string",
+          "value": "kg",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Material_005",
+      "instanceName": "采购物料_005",
+      "objectId": 4,
+      "objectName": "采购物料",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "物料编码",
+          "attributeCode": "Material.material_code",
+          "dataType": "string",
+          "value": "MAT-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "橡胶密封圈",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "计量单位",
+          "attributeCode": "Material.uom",
+          "dataType": "string",
+          "value": "pcs",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Supplier_001",
+      "instanceName": "供应商_001",
+      "objectId": 5,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "华兴电子科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "评分",
+          "attributeCode": "Supplier.rating",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "供应商ID",
+          "attributeCode": "Supplier.supplier_id",
+          "dataType": "string",
+          "value": "S001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Supplier_002",
+      "instanceName": "供应商_002",
+      "objectId": 5,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "鼎盛机械制造厂",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "评分",
+          "attributeCode": "Supplier.rating",
+          "dataType": "string",
+          "value": "B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "供应商ID",
+          "attributeCode": "Supplier.supplier_id",
+          "dataType": "string",
+          "value": "S002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Quotation_001",
+      "instanceName": "供应商报价_001",
+      "objectId": 6,
+      "objectName": "供应商报价",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "报价ID",
+          "attributeCode": "Quotation.quote_id",
+          "dataType": "string",
+          "value": "Q2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "报价价格",
+          "attributeCode": "Quotation.quoted_price",
+          "dataType": "number",
+          "value": 12500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "Quotation.status",
+          "dataType": "string",
+          "value": "accepted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "有效截止",
+          "attributeCode": "Quotation.valid_until",
+          "dataType": "string",
+          "value": "2024-12-31",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "报价来自供应商",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "报价针对请购单",
+          "targetInstanceId": 6,
+          "targetInstanceName": "采购请购单_001",
+          "targetObjectId": 2,
+          "targetObjectName": "采购请购单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Quotation_002",
+      "instanceName": "供应商报价_002",
+      "objectId": 6,
+      "objectName": "供应商报价",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "报价ID",
+          "attributeCode": "Quotation.quote_id",
+          "dataType": "string",
+          "value": "Q2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "报价价格",
+          "attributeCode": "Quotation.quoted_price",
+          "dataType": "number",
+          "value": 8750.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "Quotation.status",
+          "dataType": "string",
+          "value": "accepted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "有效截止",
+          "attributeCode": "Quotation.valid_until",
+          "dataType": "string",
+          "value": "2024-11-15",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "报价来自供应商",
+          "targetInstanceId": 19,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "报价针对请购单",
+          "targetInstanceId": 7,
+          "targetInstanceName": "采购请购单_002",
+          "targetObjectId": 2,
+          "targetObjectName": "采购请购单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "PurchaseOrder_001",
+      "instanceName": "采购订单_001",
+      "objectId": 7,
+      "objectName": "采购订单",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "采购日期",
+          "attributeCode": "PurchaseOrder.po_date",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "value": "PO2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "value": "confirmed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "总金额",
+          "attributeCode": "PurchaseOrder.total_amount",
+          "dataType": "number",
+          "value": 45600.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "采购订单发往供应商",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "采购订单包含行项目",
+          "targetInstanceId": 28,
+          "targetInstanceName": "采购订单行项目_001",
+          "targetObjectId": 8,
+          "targetObjectName": "采购订单行项目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "采购订单包含行项目",
+          "targetInstanceId": 31,
+          "targetInstanceName": "采购订单行项目_004",
+          "targetObjectId": 8,
+          "targetObjectName": "采购订单行项目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "采购订单归属采购员",
+          "targetInstanceId": 41,
+          "targetInstanceName": "采购员_001",
+          "targetObjectId": 13,
+          "targetObjectName": "采购员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "采购订单基于合同",
+          "targetInstanceId": 45,
+          "targetInstanceName": "采购框架合同_001",
+          "targetObjectId": 15,
+          "targetObjectName": "采购框架合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "PurchaseOrder_002",
+      "instanceName": "采购订单_002",
+      "objectId": 7,
+      "objectName": "采购订单",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "采购日期",
+          "attributeCode": "PurchaseOrder.po_date",
+          "dataType": "string",
+          "value": "2024-03-18",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "value": "PO2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "value": "confirmed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "总金额",
+          "attributeCode": "PurchaseOrder.total_amount",
+          "dataType": "number",
+          "value": 12850.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "采购订单发往供应商",
+          "targetInstanceId": 19,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "采购订单归属采购员",
+          "targetInstanceId": 43,
+          "targetInstanceName": "采购员_003",
+          "targetObjectId": 13,
+          "targetObjectName": "采购员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "采购订单基于合同",
+          "targetInstanceId": 45,
+          "targetInstanceName": "采购框架合同_001",
+          "targetObjectId": 15,
+          "targetObjectName": "采购框架合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "PurchaseOrder_003",
+      "instanceName": "采购订单_003",
+      "objectId": 7,
+      "objectName": "采购订单",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "采购日期",
+          "attributeCode": "PurchaseOrder.po_date",
+          "dataType": "string",
+          "value": "2024-03-20",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "value": "PO2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "总金额",
+          "attributeCode": "PurchaseOrder.total_amount",
+          "dataType": "number",
+          "value": 89200.75,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "采购订单发往供应商",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "采购订单归属采购员",
+          "targetInstanceId": 42,
+          "targetInstanceName": "采购员_002",
+          "targetObjectId": 13,
+          "targetObjectName": "采购员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "采购订单基于合同",
+          "targetInstanceId": 45,
+          "targetInstanceName": "采购框架合同_001",
+          "targetObjectId": 15,
+          "targetObjectName": "采购框架合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "PurchaseOrder_004",
+      "instanceName": "采购订单_004",
+      "objectId": 7,
+      "objectName": "采购订单",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "采购日期",
+          "attributeCode": "PurchaseOrder.po_date",
+          "dataType": "string",
+          "value": "2024-03-22",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "value": "PO2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "总金额",
+          "attributeCode": "PurchaseOrder.total_amount",
+          "dataType": "number",
+          "value": 32400.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "采购订单发往供应商",
+          "targetInstanceId": 19,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "采购订单归属采购员",
+          "targetInstanceId": 41,
+          "targetInstanceName": "采购员_001",
+          "targetObjectId": 13,
+          "targetObjectName": "采购员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "采购订单基于合同",
+          "targetInstanceId": 45,
+          "targetInstanceName": "采购框架合同_001",
+          "targetObjectId": 15,
+          "targetObjectName": "采购框架合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "PurchaseOrder_005",
+      "instanceName": "采购订单_005",
+      "objectId": 7,
+      "objectName": "采购订单",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "采购日期",
+          "attributeCode": "PurchaseOrder.po_date",
+          "dataType": "string",
+          "value": "2024-03-25",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "value": "PO2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "总金额",
+          "attributeCode": "PurchaseOrder.total_amount",
+          "dataType": "number",
+          "value": 6730.2,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "采购订单发往供应商",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "采购订单包含行项目",
+          "targetInstanceId": 29,
+          "targetInstanceName": "采购订单行项目_002",
+          "targetObjectId": 8,
+          "targetObjectName": "采购订单行项目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "采购订单包含行项目",
+          "targetInstanceId": 30,
+          "targetInstanceName": "采购订单行项目_003",
+          "targetObjectId": 8,
+          "targetObjectName": "采购订单行项目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "采购订单归属采购员",
+          "targetInstanceId": 42,
+          "targetInstanceName": "采购员_002",
+          "targetObjectId": 13,
+          "targetObjectName": "采购员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "采购订单基于合同",
+          "targetInstanceId": 45,
+          "targetInstanceName": "采购框架合同_001",
+          "targetObjectId": 15,
+          "targetObjectName": "采购框架合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "POLine_001",
+      "instanceName": "采购订单行项目_001",
+      "objectId": 8,
+      "objectName": "采购订单行项目",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "采购订单行ID",
+          "attributeCode": "POLine.po_line_id",
+          "dataType": "string",
+          "value": "POLine_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "POLine.quantity",
+          "dataType": "number",
+          "value": 150.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "单价",
+          "attributeCode": "POLine.unit_price",
+          "dataType": "number",
+          "value": 28.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "订单行对应物料",
+          "targetInstanceId": 16,
+          "targetInstanceName": "采购物料_003",
+          "targetObjectId": 4,
+          "targetObjectName": "采购物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "POLine_002",
+      "instanceName": "采购订单行项目_002",
+      "objectId": 8,
+      "objectName": "采购订单行项目",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "采购订单行ID",
+          "attributeCode": "POLine.po_line_id",
+          "dataType": "string",
+          "value": "POLine_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "POLine.quantity",
+          "dataType": "number",
+          "value": 80.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "单价",
+          "attributeCode": "POLine.unit_price",
+          "dataType": "number",
+          "value": 120.75,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "订单行对应物料",
+          "targetInstanceId": 16,
+          "targetInstanceName": "采购物料_003",
+          "targetObjectId": 4,
+          "targetObjectName": "采购物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "POLine_003",
+      "instanceName": "采购订单行项目_003",
+      "objectId": 8,
+      "objectName": "采购订单行项目",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "采购订单行ID",
+          "attributeCode": "POLine.po_line_id",
+          "dataType": "string",
+          "value": "POLine_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "POLine.quantity",
+          "dataType": "number",
+          "value": 200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "单价",
+          "attributeCode": "POLine.unit_price",
+          "dataType": "number",
+          "value": 45.3,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "订单行对应物料",
+          "targetInstanceId": 15,
+          "targetInstanceName": "采购物料_002",
+          "targetObjectId": 4,
+          "targetObjectName": "采购物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "POLine_004",
+      "instanceName": "采购订单行项目_004",
+      "objectId": 8,
+      "objectName": "采购订单行项目",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "采购订单行ID",
+          "attributeCode": "POLine.po_line_id",
+          "dataType": "string",
+          "value": "POLine_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "POLine.quantity",
+          "dataType": "number",
+          "value": 45.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "单价",
+          "attributeCode": "POLine.unit_price",
+          "dataType": "number",
+          "value": 320.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "订单行对应物料",
+          "targetInstanceId": 15,
+          "targetInstanceName": "采购物料_002",
+          "targetObjectId": 4,
+          "targetObjectName": "采购物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "GoodsReceipt_001",
+      "instanceName": "收货记录_001",
+      "objectId": 9,
+      "objectName": "收货记录",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "收货ID",
+          "attributeCode": "GoodsReceipt.gr_id",
+          "dataType": "string",
+          "value": "GR2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "收货日期",
+          "attributeCode": "GoodsReceipt.received_date",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "已收数量",
+          "attributeCode": "GoodsReceipt.received_qty",
+          "dataType": "number",
+          "value": 125.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "GoodsReceipt.status",
+          "dataType": "string",
+          "value": "posted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "收货针对采购订单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "采购订单_001",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "GoodsReceipt_002",
+      "instanceName": "收货记录_002",
+      "objectId": 9,
+      "objectName": "收货记录",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "收货ID",
+          "attributeCode": "GoodsReceipt.gr_id",
+          "dataType": "string",
+          "value": "GR2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "收货日期",
+          "attributeCode": "GoodsReceipt.received_date",
+          "dataType": "string",
+          "value": "2024-03-16",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "已收数量",
+          "attributeCode": "GoodsReceipt.received_qty",
+          "dataType": "number",
+          "value": 89.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "GoodsReceipt.status",
+          "dataType": "string",
+          "value": "posted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "收货针对采购订单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "采购订单_001",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "GoodsReceipt_003",
+      "instanceName": "收货记录_003",
+      "objectId": 9,
+      "objectName": "收货记录",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "收货ID",
+          "attributeCode": "GoodsReceipt.gr_id",
+          "dataType": "string",
+          "value": "GR2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "收货日期",
+          "attributeCode": "GoodsReceipt.received_date",
+          "dataType": "string",
+          "value": "2024-03-17",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "已收数量",
+          "attributeCode": "GoodsReceipt.received_qty",
+          "dataType": "number",
+          "value": 200.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "GoodsReceipt.status",
+          "dataType": "string",
+          "value": "rejected",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "收货针对采购订单",
+          "targetInstanceId": 27,
+          "targetInstanceName": "采购订单_005",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "收货关联质检记录",
+          "targetInstanceId": 35,
+          "targetInstanceName": "到货质检记录_001",
+          "targetObjectId": 10,
+          "targetObjectName": "到货质检记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "QualityInspection_001",
+      "instanceName": "到货质检记录_001",
+      "objectId": 10,
+      "objectName": "到货质检记录",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "检验ID",
+          "attributeCode": "QualityInspection.inspection_id",
+          "dataType": "string",
+          "value": "QI2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "检验员",
+          "attributeCode": "QualityInspection.inspector",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "结果",
+          "attributeCode": "QualityInspection.result",
+          "dataType": "string",
+          "value": "pass",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Invoice_001",
+      "instanceName": "供应商发票_001",
+      "objectId": 11,
+      "objectName": "供应商发票",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "value": 15680.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "开票日期",
+          "attributeCode": "Invoice.invoice_date",
+          "dataType": "string",
+          "value": "2023-10-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "value": "FP20231001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "value": "disputed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "发票对应采购订单",
+          "targetInstanceId": 27,
+          "targetInstanceName": "采购订单_005",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "发票来自供应商",
+          "targetInstanceId": 19,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "发票与收货三单匹配",
+          "targetInstanceId": 32,
+          "targetInstanceName": "收货记录_001",
+          "targetObjectId": 9,
+          "targetObjectName": "收货记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Invoice_002",
+      "instanceName": "供应商发票_002",
+      "objectId": 11,
+      "objectName": "供应商发票",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "value": 8920.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "开票日期",
+          "attributeCode": "Invoice.invoice_date",
+          "dataType": "string",
+          "value": "2023-10-05",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "value": "FP20231005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "发票对应采购订单",
+          "targetInstanceId": 25,
+          "targetInstanceName": "采购订单_003",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "发票来自供应商",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "发票与收货三单匹配",
+          "targetInstanceId": 33,
+          "targetInstanceName": "收货记录_002",
+          "targetObjectId": 9,
+          "targetObjectName": "收货记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Invoice_003",
+      "instanceName": "供应商发票_003",
+      "objectId": 11,
+      "objectName": "供应商发票",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "value": 23450.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "开票日期",
+          "attributeCode": "Invoice.invoice_date",
+          "dataType": "string",
+          "value": "2023-10-12",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "value": "FP20231012",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "发票对应采购订单",
+          "targetInstanceId": 26,
+          "targetInstanceName": "采购订单_004",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "发票来自供应商",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Invoice_004",
+      "instanceName": "供应商发票_004",
+      "objectId": 11,
+      "objectName": "供应商发票",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "value": 5670.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "开票日期",
+          "attributeCode": "Invoice.invoice_date",
+          "dataType": "string",
+          "value": "2023-10-18",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "value": "FP20231018",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "value": "disputed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "发票对应采购订单",
+          "targetInstanceId": 26,
+          "targetInstanceName": "采购订单_004",
+          "targetObjectId": 7,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "发票来自供应商",
+          "targetInstanceId": 19,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Payment_001",
+      "instanceName": "付款单_001",
+      "objectId": 12,
+      "objectName": "付款单",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "value": 15680.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "方法",
+          "attributeCode": "Payment.method",
+          "dataType": "string",
+          "value": "bank_transfer",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "value": "PAY2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "value": "executed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "付款针对发票",
+          "targetInstanceId": 36,
+          "targetInstanceName": "供应商发票_001",
+          "targetObjectId": 11,
+          "targetObjectName": "供应商发票",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "付款支付给供应商",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "Buyer_001",
+      "instanceName": "采购员_001",
+      "objectId": 13,
+      "objectName": "采购员",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "value": "B001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "Buyer_002",
+      "instanceName": "采购员_002",
+      "objectId": 13,
+      "objectName": "采购员",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "value": "B002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "Buyer_003",
+      "instanceName": "采购员_003",
+      "objectId": 13,
+      "objectName": "采购员",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "value": "B003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "Approver_001",
+      "instanceName": "具有审批权限的请购人_001",
+      "objectId": 14,
+      "objectName": "具有审批权限的请购人",
+      "attributeValues": [
+        {
+          "attributeId": 45,
+          "attributeName": "审批额度",
+          "attributeCode": "Approver.approval_limit",
+          "dataType": "number",
+          "value": 50000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "部门",
+          "attributeCode": "Approver.department",
+          "dataType": "string",
+          "value": "采购部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "名称",
+          "attributeCode": "Approver.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "申请人ID",
+          "attributeCode": "Approver.requester_id",
+          "dataType": "string",
+          "value": "REQ2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "Contract_001",
+      "instanceName": "采购框架合同_001",
+      "objectId": 15,
+      "objectName": "采购框架合同",
+      "attributeValues": [
+        {
+          "attributeId": 49,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 50,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "value": "2025-12-31",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "value": "2024-01-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 52,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "合同对应供应商",
+          "targetInstanceId": 19,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 5,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 6,
+      "actionName": "确认采购订单",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "供应商_002"
+      ],
+      "outputInstanceNames": [
+        "采购订单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 7,
+      "actionName": "收货过账",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "收货记录_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 1,
+      "actionName": "提交招聘需求",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "提交请购的内部用户_001"
+      ],
+      "outputInstanceNames": [
+        "采购请购单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 2,
+      "actionName": "审批招聘需求",
+      "inputInstances": [
+        44
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "具有审批权限的请购人_001"
+      ],
+      "outputInstanceNames": [
+        "采购请购单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 10,
+      "actionName": "审批发票",
+      "inputInstances": [
+        44
+      ],
+      "outputInstances": [
+        37
+      ],
+      "inputInstanceNames": [
+        "具有审批权限的请购人_001"
+      ],
+      "outputInstanceNames": [
+        "供应商发票_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 12,
+      "actionName": "执行支付",
+      "inputInstances": [
+        44
+      ],
+      "outputInstances": [
+        40
+      ],
+      "inputInstanceNames": [
+        "具有审批权限的请购人_001"
+      ],
+      "outputInstanceNames": [
+        "付款单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 3,
+      "actionName": "拒绝招聘需求",
+      "inputInstances": [
+        44
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "具有审批权限的请购人_001"
+      ],
+      "outputInstanceNames": [
+        "采购请购单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 13,
+      "actionName": "关闭采购订单",
+      "inputInstances": [
+        42
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "采购员_002"
+      ],
+      "outputInstanceNames": [
+        "采购订单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 9,
+      "actionName": "匹配发票",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商发票_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 4,
+      "actionName": "接受报价",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商报价_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 11,
+      "actionName": "提出争议发票",
+      "inputInstances": [
+        42
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "采购员_002"
+      ],
+      "outputInstanceNames": [
+        "供应商发票_001"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+你是一个人物关系本体构建专家。从文本中抽取人物、组织、事件及其关系链路，并区分对象类型与具体实例。
+严格按照 JSON 格式输出，不要输出任何其他内容。
+
+抽取目标：
+1. entities 表示本体对象类型（类），例如 人物、组织、职位、事件、地点、作品。**不要**把具体的某人某公司放进 entities。
+2. triples 表示对象类型之间的属性或链接，例如 人物-任职于-组织、人物-参与-事件。
+3. instances 表示文本中出现的具体实例，例如某个具体人物、公司、职位或事件。
+   - 每个 instance 必须有 class 字段指向所属对象类型的 entity id。
+   - attribute_values 列出该实例的具体属性值，每项 {name, value}。
+   - link_values 列出该实例与其他实例之间的具体关联，每项 {predicate, target}，target 使用其他 instance 的 id 或 name。
+4. actions 表示行动定义（类层），例如 任命、加入、离职、合作、投资、发布。
+5. action_invocations 表示具体的一次行动发生，inputs/outputs 引用具体 instance。
+6. 保留多跳关系链路，不要强行整理成单中心结构。
+
+输出格式：
+{
+  "entities": [
+    {"id": "e1", "name": "人物", "type": "Person", "aliases": [], "attributes": {"说明": "具体自然人"}},
+    {"id": "e2", "name": "组织", "type": "Organization", "aliases": [], "attributes": {}}
+  ],
+  "triples": [
+    {"subject": "e1", "predicate": "任职于", "object": "e2", "object_type": "entity", "confidence": 0.9}
+  ],
+  "actions": [
+    {"id": "a1", "name": "任命", "description": "组织任命人物担任职位", "inputs": ["e2", "e1"], "outputs": ["e1"]}
+  ],
+  "instances": [
+    {
+      "id": "i1",
+      "name": "张三",
+      "class": "e1",
+      "attribute_values": [{"name": "出生年份", "value": 1980}],
+      "link_values": [{"predicate": "任职于", "target": "i2"}]
+    },
+    {
+      "id": "i2",
+      "name": "苹果公司",
+      "class": "e2",
+      "attribute_values": [],
+      "link_values": []
+    }
+  ],
+  "action_invocations": [
+    {"id": "ai1", "action": "任命", "inputs": ["i2", "i1"], "outputs": ["i1"]}
+  ]
+}
+
+如果没有可抽取信息，输出 {"entities": [], "triples": [], "actions": [], "instances": [], "action_invocations": []}。
+
+文本：
+{chunk_text}

@@ -1,0 +1,3376 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "供应链·supply_chain_S4_supplier_network",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=supply_chain_S4_supplier_network，graph=supply_chain_S4_supplier_network_seed45）：15 个对象类型 / 23 个关系 / 15 个动作 / 45 个实例 / 17 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "供应链主体父类型",
+      "objectCode": "Party",
+      "description": "供应链主体父类型",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华中精密制造有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PRT001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "供应商",
+      "objectCode": "Supplier",
+      "description": "供应商",
+      "attributes": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华星电子科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Supplier.party_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PRTY001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Supplier.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "terminated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "层级",
+          "attributeCode": "Supplier.tier",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "tier1",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "自有制造方",
+      "objectCode": "Manufacturer",
+      "description": "自有制造方",
+      "attributes": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Manufacturer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东精密制造有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Manufacturer.party_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MFG2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "生产产能",
+          "attributeCode": "Manufacturer.production_capacity",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 12500.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "物料",
+      "objectCode": "Material",
+      "description": "物料",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "关键度",
+          "attributeCode": "Material.criticality",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "medium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "不锈钢螺丝",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "供货协议",
+      "objectCode": "SupplyAgreement",
+      "description": "供货协议",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "协议ID",
+          "attributeCode": "SupplyAgreement.agreement_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SA2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "年度金额",
+          "attributeCode": "SupplyAgreement.annual_value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 1250000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "SupplyAgreement.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "采购订单",
+      "objectCode": "PurchaseOrder",
+      "description": "采购订单",
+      "attributes": [
+        {
+          "attributeId": 16,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PO2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "数量",
+          "attributeCode": "PurchaseOrder.qty",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 150.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "received",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "供应商风险评估",
+      "objectCode": "RiskAssessment",
+      "description": "供应商风险评估",
+      "attributes": [
+        {
+          "attributeId": 19,
+          "attributeName": "风险ID",
+          "attributeCode": "RiskAssessment.risk_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "评分",
+          "attributeCode": "RiskAssessment.score",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 72.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "RiskAssessment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "供应商审计",
+      "objectCode": "Audit",
+      "description": "供应商审计",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "审计ID",
+          "attributeCode": "Audit.audit_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "AUD-2023-FIN-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "类型",
+          "attributeCode": "Audit.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "financial",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Audit.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "供应链质量事件",
+      "objectCode": "QualityIncident",
+      "description": "供应链质量事件",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "事件ID",
+          "attributeCode": "QualityIncident.incident_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "QI-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "严重程度",
+          "attributeCode": "QualityIncident.severity",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "QualityIncident.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "供应商间转包关系",
+      "objectCode": "Subcontract",
+      "description": "供应商间转包关系",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Subcontract.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "分包ID",
+          "attributeCode": "Subcontract.subcontract_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SC-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "地理区域",
+      "objectCode": "Region",
+      "description": "地理区域",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Region_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "供应商资质认证",
+      "objectCode": "Certification",
+      "description": "供应商资质认证",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "证书ID",
+          "attributeCode": "Certification.cert_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CERT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "方案",
+          "attributeCode": "Certification.scheme",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ISO9001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Certification.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "valid",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "采购员",
+      "objectCode": "Buyer",
+      "description": "采购员",
+      "attributes": [
+        {
+          "attributeId": 35,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "B001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "主合同",
+      "objectCode": "Contract",
+      "description": "主合同",
+      "attributes": [
+        {
+          "attributeId": 37,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "HT2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "signed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "供应商付款",
+      "objectCode": "Payment",
+      "description": "供应商付款",
+      "attributes": [
+        {
+          "attributeId": 39,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 45600.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PAY20231001001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "paid",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 2,
+      "sourceObjectName": "供应商",
+      "targetObjectId": 4,
+      "targetObjectName": "物料",
+      "linkInfo": "供应商供应物料",
+      "linkType": "N:M",
+      "description": "supplier_supplies_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "供应商",
+      "targetObjectId": 10,
+      "targetObjectName": "供应商间转包关系",
+      "linkInfo": "供应商发起转包",
+      "linkType": "1:N",
+      "description": "supplier_subcontracts_to",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 10,
+      "sourceObjectName": "供应商间转包关系",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "转包指向另一供应商（成环）",
+      "linkType": "N:1",
+      "description": "subcontract_to_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 2,
+      "sourceObjectName": "供应商",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "供应商互供（环关系）",
+      "linkType": "N:M",
+      "description": "supplier_supplies_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 5,
+      "sourceObjectName": "供货协议",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "协议绑定供应商",
+      "linkType": "N:1",
+      "description": "agreement_with_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 5,
+      "sourceObjectName": "供货协议",
+      "targetObjectId": 4,
+      "targetObjectName": "物料",
+      "linkInfo": "协议覆盖物料",
+      "linkType": "N:M",
+      "description": "agreement_for_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 6,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 5,
+      "targetObjectName": "供货协议",
+      "linkInfo": "采购订单依据协议",
+      "linkType": "N:1",
+      "description": "po_under_agreement",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 6,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "采购订单发给供应商",
+      "linkType": "N:1",
+      "description": "po_to_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 6,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 4,
+      "targetObjectName": "物料",
+      "linkInfo": "采购订单物料明细",
+      "linkType": "N:M",
+      "description": "po_for_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 6,
+      "sourceObjectName": "采购订单",
+      "targetObjectId": 13,
+      "targetObjectName": "采购员",
+      "linkInfo": "采购订单负责人",
+      "linkType": "N:1",
+      "description": "po_owned_by_buyer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 7,
+      "sourceObjectName": "供应商风险评估",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "风险评估对应供应商",
+      "linkType": "N:1",
+      "description": "risk_assesses_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 8,
+      "sourceObjectName": "供应商审计",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "审计针对供应商",
+      "linkType": "N:1",
+      "description": "audit_targets_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 9,
+      "sourceObjectName": "供应链质量事件",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "质量事件归属供应商",
+      "linkType": "N:1",
+      "description": "incident_on_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 9,
+      "sourceObjectName": "供应链质量事件",
+      "targetObjectId": 4,
+      "targetObjectName": "物料",
+      "linkInfo": "质量事件涉及物料",
+      "linkType": "N:M",
+      "description": "incident_about_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 2,
+      "sourceObjectName": "供应商",
+      "targetObjectId": 11,
+      "targetObjectName": "地理区域",
+      "linkInfo": "供应商所在区域",
+      "linkType": "N:M",
+      "description": "supplier_in_region",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 3,
+      "sourceObjectName": "自有制造方",
+      "targetObjectId": 11,
+      "targetObjectName": "地理区域",
+      "linkInfo": "制造方所在区域",
+      "linkType": "N:M",
+      "description": "manufacturer_in_region",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 3,
+      "sourceObjectName": "自有制造方",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "制造方采购供应商",
+      "linkType": "N:M",
+      "description": "manufacturer_buys_from",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 2,
+      "sourceObjectName": "供应商",
+      "targetObjectId": 12,
+      "targetObjectName": "供应商资质认证",
+      "linkInfo": "供应商持有认证",
+      "linkType": "N:M",
+      "description": "supplier_holds_cert",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 14,
+      "sourceObjectName": "主合同",
+      "targetObjectId": 1,
+      "targetObjectName": "供应链主体父类型",
+      "linkInfo": "合同对应主体",
+      "linkType": "N:1",
+      "description": "contract_with_party",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 15,
+      "sourceObjectName": "供应商付款",
+      "targetObjectId": 6,
+      "targetObjectName": "采购订单",
+      "linkInfo": "付款关联订单",
+      "linkType": "N:1",
+      "description": "payment_under_po",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 15,
+      "sourceObjectName": "供应商付款",
+      "targetObjectId": 2,
+      "targetObjectName": "供应商",
+      "linkInfo": "付款给供应商",
+      "linkType": "N:1",
+      "description": "payment_to_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 22,
+      "sourceObjectId": 2,
+      "sourceObjectName": "供应商",
+      "targetObjectId": 1,
+      "targetObjectName": "供应链主体父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Supplier is-a Party",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 23,
+      "sourceObjectId": 3,
+      "sourceObjectName": "自有制造方",
+      "targetObjectId": 1,
+      "targetObjectName": "供应链主体父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Manufacturer is-a Party",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "审批供应商",
+      "actionCode": "approve_supplier",
+      "description": "执行者：采购员；对象：供应商",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "冻结供应商",
+      "actionCode": "block_supplier",
+      "description": "执行者：采购员；对象：供应商",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "终止供应商",
+      "actionCode": "terminate_supplier",
+      "description": "执行者：采购员；对象：供应商",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "激活协议",
+      "actionCode": "activate_agreement",
+      "description": "执行者：采购员；对象：供货协议",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供货协议"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "终止协议",
+      "actionCode": "terminate_agreement",
+      "description": "执行者：采购员；对象：供货协议",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供货协议"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "确认采购订单",
+      "actionCode": "confirm_po",
+      "description": "执行者：采购员；对象：采购订单",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "采购订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "发货采购订单",
+      "actionCode": "ship_po",
+      "description": "执行者：采购员；对象：采购订单",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "采购订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "接收采购订单",
+      "actionCode": "receive_po",
+      "description": "执行者：采购员；对象：采购订单",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "采购订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "取消采购订单",
+      "actionCode": "cancel_po",
+      "description": "执行者：采购员；对象：采购订单",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "采购订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "审批风险",
+      "actionCode": "approve_risk",
+      "description": "执行者：采购员；对象：供应商风险评估",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商风险评估"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "完成审计",
+      "actionCode": "complete_audit",
+      "description": "执行者：采购员；对象：供应商审计",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商审计"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "判定失败审计",
+      "actionCode": "fail_audit",
+      "description": "执行者：采购员；对象：供应商审计",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商审计"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "关闭事件",
+      "actionCode": "close_incident",
+      "description": "执行者：采购员；对象：供应链质量事件",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应链质量事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "审批分包",
+      "actionCode": "approve_subcontract",
+      "description": "执行者：采购员；对象：供应商间转包关系",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商间转包关系"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 15,
+      "actionName": "支付供应商",
+      "actionCode": "pay_supplier",
+      "description": "执行者：采购员；对象：供应商付款",
+      "inputObjects": [
+        "采购员"
+      ],
+      "outputObjects": [
+        "供应商付款"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Party_001",
+      "instanceName": "供应链主体父类型_001",
+      "objectId": 1,
+      "objectName": "供应链主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "华中精密制造有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Party_002",
+      "instanceName": "供应链主体父类型_002",
+      "objectId": 1,
+      "objectName": "供应链主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "东南物流集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Party_003",
+      "instanceName": "供应链主体父类型_003",
+      "objectId": 1,
+      "objectName": "供应链主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "西北电子元器件厂",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Party_004",
+      "instanceName": "供应链主体父类型_004",
+      "objectId": 1,
+      "objectName": "供应链主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "华南新材料科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Party_005",
+      "instanceName": "供应链主体父类型_005",
+      "objectId": 1,
+      "objectName": "供应链主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "北方智能装备股份公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Supplier_001",
+      "instanceName": "供应商_001",
+      "objectId": 2,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "华星电子科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Supplier.party_id",
+          "dataType": "string",
+          "value": "PRTY001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Supplier.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "层级",
+          "attributeCode": "Supplier.tier",
+          "dataType": "string",
+          "value": "tier1",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "供应商供应物料",
+          "targetInstanceId": 17,
+          "targetInstanceName": "物料_004",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "供应商供应物料",
+          "targetInstanceId": 14,
+          "targetInstanceName": "物料_001",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "供应商互供（环关系）",
+          "targetInstanceId": 9,
+          "targetInstanceName": "供应商_004",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "供应商互供（环关系）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Supplier_002",
+      "instanceName": "供应商_002",
+      "objectId": 2,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "宏远精密机械厂",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Supplier.party_id",
+          "dataType": "string",
+          "value": "PRTY002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Supplier.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "层级",
+          "attributeCode": "Supplier.tier",
+          "dataType": "string",
+          "value": "tier2",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "供应商所在区域",
+          "targetInstanceId": 38,
+          "targetInstanceName": "地理区域_003",
+          "targetObjectId": 11,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "供应商持有认证",
+          "targetInstanceId": 40,
+          "targetInstanceName": "供应商资质认证_001",
+          "targetObjectId": 12,
+          "targetObjectName": "供应商资质认证",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Supplier_003",
+      "instanceName": "供应商_003",
+      "objectId": 2,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "瑞达物流服务有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Supplier.party_id",
+          "dataType": "string",
+          "value": "PRTY003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Supplier.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "层级",
+          "attributeCode": "Supplier.tier",
+          "dataType": "string",
+          "value": "tier3",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "供应商供应物料",
+          "targetInstanceId": 16,
+          "targetInstanceName": "物料_003",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "供应商互供（环关系）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "供应商所在区域",
+          "targetInstanceId": 37,
+          "targetInstanceName": "地理区域_002",
+          "targetObjectId": 11,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Supplier_004",
+      "instanceName": "供应商_004",
+      "objectId": 2,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "恒信化工材料公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Supplier.party_id",
+          "dataType": "string",
+          "value": "PRTY004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Supplier.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "层级",
+          "attributeCode": "Supplier.tier",
+          "dataType": "string",
+          "value": "tier2",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "供应商供应物料",
+          "targetInstanceId": 18,
+          "targetInstanceName": "物料_005",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "供应商互供（环关系）",
+          "targetInstanceId": 10,
+          "targetInstanceName": "供应商_005",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "供应商所在区域",
+          "targetInstanceId": 39,
+          "targetInstanceName": "地理区域_004",
+          "targetObjectId": 11,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "供应商互供（环关系）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Supplier_005",
+      "instanceName": "供应商_005",
+      "objectId": 2,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "启明软件开发中心",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Supplier.party_id",
+          "dataType": "string",
+          "value": "PRTY005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Supplier.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "层级",
+          "attributeCode": "Supplier.tier",
+          "dataType": "string",
+          "value": "tier4",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "供应商发起转包",
+          "targetInstanceId": 35,
+          "targetInstanceName": "供应商间转包关系_001",
+          "targetObjectId": 10,
+          "targetObjectName": "供应商间转包关系",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "供应商所在区域",
+          "targetInstanceId": 37,
+          "targetInstanceName": "地理区域_002",
+          "targetObjectId": 11,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Manufacturer_001",
+      "instanceName": "自有制造方_001",
+      "objectId": 3,
+      "objectName": "自有制造方",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Manufacturer.name",
+          "dataType": "string",
+          "value": "华东精密制造有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Manufacturer.party_id",
+          "dataType": "string",
+          "value": "MFG2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "生产产能",
+          "attributeCode": "Manufacturer.production_capacity",
+          "dataType": "number",
+          "value": 12500.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "制造方所在区域",
+          "targetInstanceId": 36,
+          "targetInstanceName": "地理区域_001",
+          "targetObjectId": 11,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "制造方采购供应商",
+          "targetInstanceId": 10,
+          "targetInstanceName": "供应商_005",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Manufacturer_002",
+      "instanceName": "自有制造方_002",
+      "objectId": 3,
+      "objectName": "自有制造方",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Manufacturer.name",
+          "dataType": "string",
+          "value": "华南电子装配厂",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Manufacturer.party_id",
+          "dataType": "string",
+          "value": "MFG2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "生产产能",
+          "attributeCode": "Manufacturer.production_capacity",
+          "dataType": "number",
+          "value": 8700.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "制造方所在区域",
+          "targetInstanceId": 36,
+          "targetInstanceName": "地理区域_001",
+          "targetObjectId": 11,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "制造方采购供应商",
+          "targetInstanceId": 6,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Manufacturer_003",
+      "instanceName": "自有制造方_003",
+      "objectId": 3,
+      "objectName": "自有制造方",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Manufacturer.name",
+          "dataType": "string",
+          "value": "北方重型机械集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Manufacturer.party_id",
+          "dataType": "string",
+          "value": "MFG2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "生产产能",
+          "attributeCode": "Manufacturer.production_capacity",
+          "dataType": "number",
+          "value": 24300.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "制造方采购供应商",
+          "targetInstanceId": 8,
+          "targetInstanceName": "供应商_003",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Material_001",
+      "instanceName": "物料_001",
+      "objectId": 4,
+      "objectName": "物料",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "关键度",
+          "attributeCode": "Material.criticality",
+          "dataType": "string",
+          "value": "medium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "不锈钢螺丝",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Material_002",
+      "instanceName": "物料_002",
+      "objectId": 4,
+      "objectName": "物料",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "关键度",
+          "attributeCode": "Material.criticality",
+          "dataType": "string",
+          "value": "high",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "高精度轴承",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Material_003",
+      "instanceName": "物料_003",
+      "objectId": 4,
+      "objectName": "物料",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "关键度",
+          "attributeCode": "Material.criticality",
+          "dataType": "string",
+          "value": "low",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "工业级密封胶",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Material_004",
+      "instanceName": "物料_004",
+      "objectId": 4,
+      "objectName": "物料",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "关键度",
+          "attributeCode": "Material.criticality",
+          "dataType": "string",
+          "value": "high",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "碳纤维复合板",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Material_005",
+      "instanceName": "物料_005",
+      "objectId": 4,
+      "objectName": "物料",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "关键度",
+          "attributeCode": "Material.criticality",
+          "dataType": "string",
+          "value": "medium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "PLC控制器模块",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "SupplyAgreement_001",
+      "instanceName": "供货协议_001",
+      "objectId": 5,
+      "objectName": "供货协议",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "协议ID",
+          "attributeCode": "SupplyAgreement.agreement_id",
+          "dataType": "string",
+          "value": "SA2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "年度金额",
+          "attributeCode": "SupplyAgreement.annual_value",
+          "dataType": "number",
+          "value": 1250000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "SupplyAgreement.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "协议绑定供应商",
+          "targetInstanceId": 9,
+          "targetInstanceName": "供应商_004",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "协议覆盖物料",
+          "targetInstanceId": 17,
+          "targetInstanceName": "物料_004",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "SupplyAgreement_002",
+      "instanceName": "供货协议_002",
+      "objectId": 5,
+      "objectName": "供货协议",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "协议ID",
+          "attributeCode": "SupplyAgreement.agreement_id",
+          "dataType": "string",
+          "value": "SA2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "年度金额",
+          "attributeCode": "SupplyAgreement.annual_value",
+          "dataType": "number",
+          "value": 875000.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "SupplyAgreement.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "协议绑定供应商",
+          "targetInstanceId": 8,
+          "targetInstanceName": "供应商_003",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "协议覆盖物料",
+          "targetInstanceId": 17,
+          "targetInstanceName": "物料_004",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "PurchaseOrder_001",
+      "instanceName": "采购订单_001",
+      "objectId": 6,
+      "objectName": "采购订单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "value": "PO2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "数量",
+          "attributeCode": "PurchaseOrder.qty",
+          "dataType": "number",
+          "value": 150.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "value": "received",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "采购订单依据协议",
+          "targetInstanceId": 19,
+          "targetInstanceName": "供货协议_001",
+          "targetObjectId": 5,
+          "targetObjectName": "供货协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "采购订单发给供应商",
+          "targetInstanceId": 10,
+          "targetInstanceName": "供应商_005",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "采购订单物料明细",
+          "targetInstanceId": 18,
+          "targetInstanceName": "物料_005",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "采购订单负责人",
+          "targetInstanceId": 43,
+          "targetInstanceName": "采购员_003",
+          "targetObjectId": 13,
+          "targetObjectName": "采购员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "PurchaseOrder_002",
+      "instanceName": "采购订单_002",
+      "objectId": 6,
+      "objectName": "采购订单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "采购订单ID",
+          "attributeCode": "PurchaseOrder.po_id",
+          "dataType": "string",
+          "value": "PO2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "数量",
+          "attributeCode": "PurchaseOrder.qty",
+          "dataType": "number",
+          "value": 87.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "状态",
+          "attributeCode": "PurchaseOrder.status",
+          "dataType": "string",
+          "value": "received",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "采购订单依据协议",
+          "targetInstanceId": 20,
+          "targetInstanceName": "供货协议_002",
+          "targetObjectId": 5,
+          "targetObjectName": "供货协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "采购订单发给供应商",
+          "targetInstanceId": 6,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "采购订单物料明细",
+          "targetInstanceId": 14,
+          "targetInstanceName": "物料_001",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "采购订单负责人",
+          "targetInstanceId": 43,
+          "targetInstanceName": "采购员_003",
+          "targetObjectId": 13,
+          "targetObjectName": "采购员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "RiskAssessment_001",
+      "instanceName": "供应商风险评估_001",
+      "objectId": 7,
+      "objectName": "供应商风险评估",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "风险ID",
+          "attributeCode": "RiskAssessment.risk_id",
+          "dataType": "string",
+          "value": "RA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "评分",
+          "attributeCode": "RiskAssessment.score",
+          "dataType": "number",
+          "value": 72.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "RiskAssessment.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "风险评估对应供应商",
+          "targetInstanceId": 10,
+          "targetInstanceName": "供应商_005",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "RiskAssessment_002",
+      "instanceName": "供应商风险评估_002",
+      "objectId": 7,
+      "objectName": "供应商风险评估",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "风险ID",
+          "attributeCode": "RiskAssessment.risk_id",
+          "dataType": "string",
+          "value": "RA-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "评分",
+          "attributeCode": "RiskAssessment.score",
+          "dataType": "number",
+          "value": 45.8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "RiskAssessment.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "风险评估对应供应商",
+          "targetInstanceId": 8,
+          "targetInstanceName": "供应商_003",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "RiskAssessment_003",
+      "instanceName": "供应商风险评估_003",
+      "objectId": 7,
+      "objectName": "供应商风险评估",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "风险ID",
+          "attributeCode": "RiskAssessment.risk_id",
+          "dataType": "string",
+          "value": "RA-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "评分",
+          "attributeCode": "RiskAssessment.score",
+          "dataType": "number",
+          "value": 89.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "RiskAssessment.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "风险评估对应供应商",
+          "targetInstanceId": 8,
+          "targetInstanceName": "供应商_003",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "RiskAssessment_004",
+      "instanceName": "供应商风险评估_004",
+      "objectId": 7,
+      "objectName": "供应商风险评估",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "风险ID",
+          "attributeCode": "RiskAssessment.risk_id",
+          "dataType": "string",
+          "value": "RA-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "评分",
+          "attributeCode": "RiskAssessment.score",
+          "dataType": "number",
+          "value": 31.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "RiskAssessment.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "风险评估对应供应商",
+          "targetInstanceId": 8,
+          "targetInstanceName": "供应商_003",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "RiskAssessment_005",
+      "instanceName": "供应商风险评估_005",
+      "objectId": 7,
+      "objectName": "供应商风险评估",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "风险ID",
+          "attributeCode": "RiskAssessment.risk_id",
+          "dataType": "string",
+          "value": "RA-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "评分",
+          "attributeCode": "RiskAssessment.score",
+          "dataType": "number",
+          "value": 63.7,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "RiskAssessment.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "风险评估对应供应商",
+          "targetInstanceId": 7,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Audit_001",
+      "instanceName": "供应商审计_001",
+      "objectId": 8,
+      "objectName": "供应商审计",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "审计ID",
+          "attributeCode": "Audit.audit_id",
+          "dataType": "string",
+          "value": "AUD-2023-FIN-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "类型",
+          "attributeCode": "Audit.kind",
+          "dataType": "string",
+          "value": "financial",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Audit.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "审计针对供应商",
+          "targetInstanceId": 7,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Audit_002",
+      "instanceName": "供应商审计_002",
+      "objectId": 8,
+      "objectName": "供应商审计",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "审计ID",
+          "attributeCode": "Audit.audit_id",
+          "dataType": "string",
+          "value": "AUD-2024-QAL-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "类型",
+          "attributeCode": "Audit.kind",
+          "dataType": "string",
+          "value": "quality",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Audit.status",
+          "dataType": "string",
+          "value": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "审计针对供应商",
+          "targetInstanceId": 6,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Audit_003",
+      "instanceName": "供应商审计_003",
+      "objectId": 8,
+      "objectName": "供应商审计",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "审计ID",
+          "attributeCode": "Audit.audit_id",
+          "dataType": "string",
+          "value": "AUD-2024-ETH-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "类型",
+          "attributeCode": "Audit.kind",
+          "dataType": "string",
+          "value": "ethics",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Audit.status",
+          "dataType": "string",
+          "value": "scheduled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "审计针对供应商",
+          "targetInstanceId": 10,
+          "targetInstanceName": "供应商_005",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Audit_004",
+      "instanceName": "供应商审计_004",
+      "objectId": 8,
+      "objectName": "供应商审计",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "审计ID",
+          "attributeCode": "Audit.audit_id",
+          "dataType": "string",
+          "value": "AUD-2024-ESG-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "类型",
+          "attributeCode": "Audit.kind",
+          "dataType": "string",
+          "value": "esg",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Audit.status",
+          "dataType": "string",
+          "value": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "审计针对供应商",
+          "targetInstanceId": 8,
+          "targetInstanceName": "供应商_003",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "QualityIncident_001",
+      "instanceName": "供应链质量事件_001",
+      "objectId": 9,
+      "objectName": "供应链质量事件",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "事件ID",
+          "attributeCode": "QualityIncident.incident_id",
+          "dataType": "string",
+          "value": "QI-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "严重程度",
+          "attributeCode": "QualityIncident.severity",
+          "dataType": "string",
+          "value": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "QualityIncident.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "质量事件归属供应商",
+          "targetInstanceId": 6,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "质量事件涉及物料",
+          "targetInstanceId": 18,
+          "targetInstanceName": "物料_005",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "QualityIncident_002",
+      "instanceName": "供应链质量事件_002",
+      "objectId": 9,
+      "objectName": "供应链质量事件",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "事件ID",
+          "attributeCode": "QualityIncident.incident_id",
+          "dataType": "string",
+          "value": "QI-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "严重程度",
+          "attributeCode": "QualityIncident.severity",
+          "dataType": "string",
+          "value": "minor",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "QualityIncident.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "质量事件归属供应商",
+          "targetInstanceId": 9,
+          "targetInstanceName": "供应商_004",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "QualityIncident_003",
+      "instanceName": "供应链质量事件_003",
+      "objectId": 9,
+      "objectName": "供应链质量事件",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "事件ID",
+          "attributeCode": "QualityIncident.incident_id",
+          "dataType": "string",
+          "value": "QI-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "严重程度",
+          "attributeCode": "QualityIncident.severity",
+          "dataType": "string",
+          "value": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "QualityIncident.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "质量事件归属供应商",
+          "targetInstanceId": 6,
+          "targetInstanceName": "供应商_001",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "质量事件涉及物料",
+          "targetInstanceId": 16,
+          "targetInstanceName": "物料_003",
+          "targetObjectId": 4,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Subcontract_001",
+      "instanceName": "供应商间转包关系_001",
+      "objectId": 10,
+      "objectName": "供应商间转包关系",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Subcontract.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "分包ID",
+          "attributeCode": "Subcontract.subcontract_id",
+          "dataType": "string",
+          "value": "SC-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "转包指向另一供应商（成环）",
+          "targetInstanceId": 10,
+          "targetInstanceName": "供应商_005",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Region_001",
+      "instanceName": "地理区域_001",
+      "objectId": 11,
+      "objectName": "地理区域",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华东地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Region_002",
+      "instanceName": "地理区域_002",
+      "objectId": 11,
+      "objectName": "地理区域",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华南地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Region_003",
+      "instanceName": "地理区域_003",
+      "objectId": 11,
+      "objectName": "地理区域",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华北地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Region_004",
+      "instanceName": "地理区域_004",
+      "objectId": 11,
+      "objectName": "地理区域",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "西南地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Certification_001",
+      "instanceName": "供应商资质认证_001",
+      "objectId": 12,
+      "objectName": "供应商资质认证",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "证书ID",
+          "attributeCode": "Certification.cert_id",
+          "dataType": "string",
+          "value": "CERT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "方案",
+          "attributeCode": "Certification.scheme",
+          "dataType": "string",
+          "value": "ISO9001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Certification.status",
+          "dataType": "string",
+          "value": "valid",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "Buyer_001",
+      "instanceName": "采购员_001",
+      "objectId": 13,
+      "objectName": "采购员",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "value": "B001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "Buyer_002",
+      "instanceName": "采购员_002",
+      "objectId": 13,
+      "objectName": "采购员",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "value": "B002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "Buyer_003",
+      "instanceName": "采购员_003",
+      "objectId": 13,
+      "objectName": "采购员",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "采购员ID",
+          "attributeCode": "Buyer.buyer_id",
+          "dataType": "string",
+          "value": "B003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Buyer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "Contract_001",
+      "instanceName": "主合同_001",
+      "objectId": 14,
+      "objectName": "主合同",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "signed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "合同对应主体",
+          "targetInstanceId": 2,
+          "targetInstanceName": "供应链主体父类型_002",
+          "targetObjectId": 1,
+          "targetObjectName": "供应链主体父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "Payment_001",
+      "instanceName": "供应商付款_001",
+      "objectId": 15,
+      "objectName": "供应商付款",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "value": 45600.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "value": "PAY20231001001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "value": "paid",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "付款关联订单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "采购订单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "采购订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "付款给供应商",
+          "targetInstanceId": 7,
+          "targetInstanceName": "供应商_002",
+          "targetObjectId": 2,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 7,
+      "actionName": "发货采购订单",
+      "inputInstances": [
+        42
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "采购员_002"
+      ],
+      "outputInstanceNames": [
+        "采购订单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 3,
+      "actionName": "终止供应商",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 1,
+      "actionName": "审批供应商",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 2,
+      "actionName": "冻结供应商",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 3,
+      "actionName": "终止供应商",
+      "inputInstances": [
+        42
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "采购员_002"
+      ],
+      "outputInstanceNames": [
+        "供应商_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 13,
+      "actionName": "关闭事件",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应链质量事件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 12,
+      "actionName": "判定失败审计",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商审计_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 3,
+      "actionName": "终止供应商",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 10,
+      "actionName": "审批风险",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商风险评估_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 5,
+      "actionName": "终止协议",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供货协议_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 2,
+      "actionName": "冻结供应商",
+      "inputInstances": [
+        41
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "采购员_001"
+      ],
+      "outputInstanceNames": [
+        "供应商_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 8,
+      "actionName": "接收采购订单",
+      "inputInstances": [
+        43
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "采购员_003"
+      ],
+      "outputInstanceNames": [
+        "采购订单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 3,
+      "actionName": "终止供应商",
+      "inputInstances": [
+        42
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "采购员_002"
+      ],
+      "outputInstanceNames": [
+        "供应商_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 8,
+      "actionName": "接收采购订单",
+      "inputInstances": [
+        42
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "采购员_002"
+      ],
+      "outputInstanceNames": [
+        "采购订单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 13,
+      "actionName": "关闭事件",
+      "inputInstances": [
+        43
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "采购员_003"
+      ],
+      "outputInstanceNames": [
+        "供应链质量事件_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 4,
+      "actionName": "激活协议",
+      "inputInstances": [
+        43
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "采购员_003"
+      ],
+      "outputInstanceNames": [
+        "供货协议_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 5,
+      "actionName": "终止协议",
+      "inputInstances": [
+        42
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "采购员_002"
+      ],
+      "outputInstanceNames": [
+        "供货协议_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

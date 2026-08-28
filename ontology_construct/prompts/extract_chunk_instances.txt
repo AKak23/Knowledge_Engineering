@@ -1,0 +1,46 @@
+你是一个本体实例抽取专家。最终概念集合（final_concepts）已经确定，请从给定的一段原文（source_text）中，抽取属于这些概念的具体实例，并尽量抽出实例之间的关系。只输出合法 JSON。
+
+目标：
+- 只抽取 source_text 中明确出现的实例，不要编造。
+- 每个实例必须归属到 final_concepts.name 中的一个最终概念。
+- 尽量穷尽这段原文里的不同真实实例；每个概念最多输出 {max_instances_per_concept} 个实例。
+- 不要把最终概念本身当作实例；例如概念是“套餐”，不要输出实例“套餐”。
+- 重点：只要原文表明两个实例之间存在业务关系，就在该实例的 links 中输出这条关系——这是把实例连成图的关键，请积极、完整地抽取，不要遗漏同一段文字里明显相关的实例对。
+- links.predicate 必须从以下关系词表中选择：{relation_vocab}。
+- links.target 必须是本次 instances 数组里某个实例的 name（即只连接本段原文中抽到的实例）。
+
+用户补充说明：
+{supplemental_prompt}
+
+输出 JSON 格式：
+{
+  "instances": [
+    {
+      "concept": "最终概念名称",
+      "name": "原文中出现的具体实例名称",
+      "attributes": {
+        "属性名": "属性值"
+      },
+      "links": [
+        {
+          "target": "另一个实例名称",
+          "predicate": "关系名称（取自关系词表）",
+          "evidence": ["支撑该关系的原文证据句，最多 2 条"],
+          "confidence": 0.0
+        }
+      ],
+      "evidence": ["支撑该实例的原文证据句，最多 2 条"],
+      "confidence": 0.0
+    }
+  ]
+}
+
+约束：
+- concept 必须精确等于 final_concepts 中的 name。
+- 不要输出不在 source_text 里的实例。
+- links.target 必须是本次 instances 数组中某个实例的 name。
+- 不要输出 Markdown，不要解释。
+- 如果这段原文没有可抽取的实例，输出 {"instances": []}。
+
+输入数据：
+{instance_json}

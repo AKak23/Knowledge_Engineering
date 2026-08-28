@@ -1,0 +1,3578 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "客户关系管理(CRM)·crm_C3_campaign",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=crm_C3_campaign，graph=crm_C3_campaign_seed46）：14 个对象类型 / 21 个关系 / 15 个动作 / 42 个实例 / 22 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "营销活动",
+      "objectCode": "Campaign",
+      "description": "营销活动",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CAM2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "春季焕新促销",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "目标",
+          "attributeCode": "Campaign.objective",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "acquisition",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Campaign.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "客户分群",
+      "objectCode": "Segment",
+      "description": "客户分群",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Segment.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "高价值活跃客户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "分群ID",
+          "attributeCode": "Segment.segment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Segment_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "规模预估",
+          "attributeCode": "Segment.size_estimate",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 12500,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "投放渠道",
+      "objectCode": "Channel",
+      "description": "投放渠道",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Channel_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "email",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "客户触点事件",
+      "objectCode": "Touchpoint",
+      "description": "客户触点事件",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "发生时间",
+          "attributeCode": "Touchpoint.occurred_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-10T09:15:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Touchpoint.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "converted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触点ID",
+          "attributeCode": "Touchpoint.touchpoint_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "TP-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "权益父类型",
+      "objectCode": "Offer",
+      "description": "权益父类型",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Offer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "新人专享立减券",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "权益ID",
+          "attributeCode": "Offer.offer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Offer_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "折扣权益",
+      "objectCode": "DiscountOffer",
+      "description": "折扣权益",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "折扣比例",
+          "attributeCode": "DiscountOffer.discount_pct",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "DiscountOffer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "夏季清凉折扣",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "权益ID",
+          "attributeCode": "DiscountOffer.offer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DO2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "赠品权益",
+      "objectCode": "GiftOffer",
+      "description": "赠品权益",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "礼品名称",
+          "attributeCode": "GiftOffer.gift_name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "定制保温杯",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "名称",
+          "attributeCode": "GiftOffer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "新客首单赠礼权益",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "权益ID",
+          "attributeCode": "GiftOffer.offer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OFFER2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "目标客户",
+      "objectCode": "Customer",
+      "description": "目标客户",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "创意素材",
+      "objectCode": "CreativeAsset",
+      "description": "创意素材",
+      "attributes": [
+        {
+          "attributeId": 23,
+          "attributeName": "资产ID",
+          "attributeCode": "CreativeAsset.asset_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CA-IMG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "资产类型",
+          "attributeCode": "CreativeAsset.asset_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "image",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "CreativeAsset.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "published",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "活动预算",
+      "objectCode": "Budget",
+      "description": "活动预算",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Budget.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 50000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "预算ID",
+          "attributeCode": "Budget.budget_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Budget_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "已花费",
+          "attributeCode": "Budget.spent",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 23450.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Budget.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "frozen",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "渠道/触点对转化的归因",
+      "objectCode": "Attribution",
+      "description": "渠道/触点对转化的归因",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "归因ID",
+          "attributeCode": "Attribution.attribution_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ATTR_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "型号",
+          "attributeCode": "Attribution.model",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "last_click",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "权重",
+          "attributeCode": "Attribution.weight",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "转化事件",
+      "objectCode": "Conversion",
+      "description": "转化事件",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "转化ID",
+          "attributeCode": "Conversion.conversion_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CVR-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Conversion.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "void",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "值",
+          "attributeCode": "Conversion.value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 129.99,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "A/B 实验",
+      "objectCode": "Experiment",
+      "description": "A/B 实验",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "实验ID",
+          "attributeCode": "Experiment.experiment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Exp_A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Experiment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "designed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "实验组",
+      "objectCode": "Variant",
+      "description": "实验组",
+      "attributes": [
+        {
+          "attributeId": 38,
+          "attributeName": "标签",
+          "attributeCode": "Variant.label",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "control",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "实验组ID",
+          "attributeCode": "Variant.variant_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Variant_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "营销活动",
+      "targetObjectId": 2,
+      "targetObjectName": "客户分群",
+      "linkInfo": "活动针对分群",
+      "linkType": "N:M",
+      "description": "campaign_targets_segment",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 1,
+      "sourceObjectName": "营销活动",
+      "targetObjectId": 3,
+      "targetObjectName": "投放渠道",
+      "linkInfo": "活动投放渠道",
+      "linkType": "N:M",
+      "description": "campaign_uses_channel",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 1,
+      "sourceObjectName": "营销活动",
+      "targetObjectId": 5,
+      "targetObjectName": "权益父类型",
+      "linkInfo": "活动包含权益",
+      "linkType": "N:M",
+      "description": "campaign_offers_offer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 2,
+      "sourceObjectName": "客户分群",
+      "targetObjectId": 8,
+      "targetObjectName": "目标客户",
+      "linkInfo": "分群包含客户",
+      "linkType": "N:M",
+      "description": "segment_contains_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户触点事件",
+      "targetObjectId": 1,
+      "targetObjectName": "营销活动",
+      "linkInfo": "触点归属活动",
+      "linkType": "N:1",
+      "description": "touchpoint_in_campaign",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户触点事件",
+      "targetObjectId": 3,
+      "targetObjectName": "投放渠道",
+      "linkInfo": "触点经由渠道",
+      "linkType": "N:1",
+      "description": "touchpoint_via_channel",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户触点事件",
+      "targetObjectId": 8,
+      "targetObjectName": "目标客户",
+      "linkInfo": "触点抵达客户",
+      "linkType": "N:1",
+      "description": "touchpoint_to_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户触点事件",
+      "targetObjectId": 9,
+      "targetObjectName": "创意素材",
+      "linkInfo": "触点使用素材",
+      "linkType": "N:M",
+      "description": "touchpoint_uses_creative",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户触点事件",
+      "targetObjectId": 5,
+      "targetObjectName": "权益父类型",
+      "linkInfo": "触点携带权益",
+      "linkType": "N:M",
+      "description": "touchpoint_carries_offer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 1,
+      "sourceObjectName": "营销活动",
+      "targetObjectId": 10,
+      "targetObjectName": "活动预算",
+      "linkInfo": "活动绑定预算",
+      "linkType": "1:N",
+      "description": "campaign_has_budget",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 3,
+      "sourceObjectName": "投放渠道",
+      "targetObjectId": 10,
+      "targetObjectName": "活动预算",
+      "linkInfo": "渠道消耗预算",
+      "linkType": "N:M",
+      "description": "channel_consumes_budget",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 12,
+      "sourceObjectName": "转化事件",
+      "targetObjectId": 11,
+      "targetObjectName": "渠道/触点对转化的归因",
+      "linkInfo": "转化通过归因关联触点",
+      "linkType": "1:N",
+      "description": "conversion_attributed_via",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 11,
+      "sourceObjectName": "渠道/触点对转化的归因",
+      "targetObjectId": 4,
+      "targetObjectName": "客户触点事件",
+      "linkInfo": "归因指向触点",
+      "linkType": "N:1",
+      "description": "attribution_for_touchpoint",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 12,
+      "sourceObjectName": "转化事件",
+      "targetObjectId": 8,
+      "targetObjectName": "目标客户",
+      "linkInfo": "转化由客户产生",
+      "linkType": "N:1",
+      "description": "conversion_by_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 1,
+      "sourceObjectName": "营销活动",
+      "targetObjectId": 13,
+      "targetObjectName": "A/B 实验",
+      "linkInfo": "活动包含实验",
+      "linkType": "1:N",
+      "description": "campaign_has_experiment",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 13,
+      "sourceObjectName": "A/B 实验",
+      "targetObjectId": 14,
+      "targetObjectName": "实验组",
+      "linkInfo": "实验包含分组",
+      "linkType": "1:N",
+      "description": "experiment_has_variant",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 14,
+      "sourceObjectName": "实验组",
+      "targetObjectId": 8,
+      "targetObjectName": "目标客户",
+      "linkInfo": "分组分配客户",
+      "linkType": "N:M",
+      "description": "variant_assigned_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 9,
+      "sourceObjectName": "创意素材",
+      "targetObjectId": 3,
+      "targetObjectName": "投放渠道",
+      "linkInfo": "素材适配渠道",
+      "linkType": "N:M",
+      "description": "creative_for_channel",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 5,
+      "sourceObjectName": "权益父类型",
+      "targetObjectId": 2,
+      "targetObjectName": "客户分群",
+      "linkInfo": "权益匹配分群策略",
+      "linkType": "N:M",
+      "description": "offer_in_segment_strategy",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 6,
+      "sourceObjectName": "折扣权益",
+      "targetObjectId": 5,
+      "targetObjectName": "权益父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "DiscountOffer is-a Offer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 7,
+      "sourceObjectName": "赠品权益",
+      "targetObjectId": 5,
+      "targetObjectName": "权益父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "GiftOffer is-a Offer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "排期活动",
+      "actionCode": "schedule_campaign",
+      "description": "执行者：目标客户；对象：营销活动",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "营销活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "启动活动",
+      "actionCode": "launch_campaign",
+      "description": "执行者：目标客户；对象：营销活动",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "营销活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "暂停活动",
+      "actionCode": "pause_campaign",
+      "description": "执行者：目标客户；对象：营销活动",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "营销活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "完成活动",
+      "actionCode": "complete_campaign",
+      "description": "执行者：目标客户；对象：营销活动",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "营销活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "发送触点",
+      "actionCode": "send_touchpoint",
+      "description": "执行者：目标客户；对象：客户触点事件",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "客户触点事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "开启触点",
+      "actionCode": "open_touchpoint",
+      "description": "执行者：目标客户；对象：客户触点事件",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "客户触点事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "点击触点",
+      "actionCode": "click_touchpoint",
+      "description": "执行者：目标客户；对象：客户触点事件",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "客户触点事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "转化触点",
+      "actionCode": "convert_touchpoint",
+      "description": "执行者：目标客户；对象：客户触点事件",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "客户触点事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "审批创意素材",
+      "actionCode": "approve_creative",
+      "description": "执行者：目标客户；对象：创意素材",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "创意素材"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "发布创意素材",
+      "actionCode": "publish_creative",
+      "description": "执行者：目标客户；对象：创意素材",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "创意素材"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "冻结预算",
+      "actionCode": "freeze_budget",
+      "description": "执行者：目标客户；对象：活动预算",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "活动预算"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "消耗预算",
+      "actionCode": "consume_budget",
+      "description": "执行者：目标客户；对象：活动预算",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "活动预算"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "确认转化",
+      "actionCode": "confirm_conversion",
+      "description": "执行者：目标客户；对象：转化事件",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "转化事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "作废转化",
+      "actionCode": "void_conversion",
+      "description": "执行者：目标客户；对象：转化事件",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "转化事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 15,
+      "actionName": "结束实验",
+      "actionCode": "conclude_experiment",
+      "description": "执行者：目标客户；对象：A/B 实验",
+      "inputObjects": [
+        "目标客户"
+      ],
+      "outputObjects": [
+        "A/B 实验"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Campaign_001",
+      "instanceName": "营销活动_001",
+      "objectId": 1,
+      "objectName": "营销活动",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "value": "CAM2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "value": "春季焕新促销",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "目标",
+          "attributeCode": "Campaign.objective",
+          "dataType": "string",
+          "value": "acquisition",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Campaign.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户分群_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "活动投放渠道",
+          "targetInstanceId": 13,
+          "targetInstanceName": "投放渠道_003",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "活动包含实验",
+          "targetInstanceId": 35,
+          "targetInstanceName": "A/B 实验_001",
+          "targetObjectId": 13,
+          "targetObjectName": "A/B 实验",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "活动包含实验",
+          "targetInstanceId": 36,
+          "targetInstanceName": "A/B 实验_002",
+          "targetObjectId": 13,
+          "targetObjectName": "A/B 实验",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Campaign_002",
+      "instanceName": "营销活动_002",
+      "objectId": 1,
+      "objectName": "营销活动",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "value": "CAM2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "value": "VIP客户忠诚计划",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "目标",
+          "attributeCode": "Campaign.objective",
+          "dataType": "string",
+          "value": "retention",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Campaign.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "活动投放渠道",
+          "targetInstanceId": 13,
+          "targetInstanceName": "投放渠道_003",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "活动包含权益",
+          "targetInstanceId": 18,
+          "targetInstanceName": "权益父类型_001",
+          "targetObjectId": 5,
+          "targetObjectName": "权益父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "活动包含实验",
+          "targetInstanceId": 37,
+          "targetInstanceName": "A/B 实验_003",
+          "targetObjectId": 13,
+          "targetObjectName": "A/B 实验",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "活动包含实验",
+          "targetInstanceId": 35,
+          "targetInstanceName": "A/B 实验_001",
+          "targetObjectId": 13,
+          "targetObjectName": "A/B 实验",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Campaign_003",
+      "instanceName": "营销活动_003",
+      "objectId": 1,
+      "objectName": "营销活动",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "value": "CAM2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "value": "高端耳机搭配智能手表推荐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "目标",
+          "attributeCode": "Campaign.objective",
+          "dataType": "string",
+          "value": "cross_sell",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Campaign.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户分群_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户分群_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 5,
+          "targetInstanceName": "客户分群_001",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 8,
+          "targetInstanceName": "客户分群_004",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "活动投放渠道",
+          "targetInstanceId": 11,
+          "targetInstanceName": "投放渠道_001",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "活动包含权益",
+          "targetInstanceId": 18,
+          "targetInstanceName": "权益父类型_001",
+          "targetObjectId": 5,
+          "targetObjectName": "权益父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "活动包含权益",
+          "targetInstanceId": 19,
+          "targetInstanceName": "折扣权益_001",
+          "targetObjectId": 6,
+          "targetObjectName": "折扣权益",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "活动绑定预算",
+          "targetInstanceId": 27,
+          "targetInstanceName": "活动预算_001",
+          "targetObjectId": 10,
+          "targetObjectName": "活动预算",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Campaign_004",
+      "instanceName": "营销活动_004",
+      "objectId": 1,
+      "objectName": "营销活动",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "活动ID",
+          "attributeCode": "Campaign.campaign_id",
+          "dataType": "string",
+          "value": "CAM2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Campaign.name",
+          "dataType": "string",
+          "value": "老用户专属升级优惠",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "目标",
+          "attributeCode": "Campaign.objective",
+          "dataType": "string",
+          "value": "upsell",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Campaign.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户分群_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户分群_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "活动针对分群",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户分群_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "活动包含权益",
+          "targetInstanceId": 18,
+          "targetInstanceName": "权益父类型_001",
+          "targetObjectId": 5,
+          "targetObjectName": "权益父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "活动绑定预算",
+          "targetInstanceId": 28,
+          "targetInstanceName": "活动预算_002",
+          "targetObjectId": 10,
+          "targetObjectName": "活动预算",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Segment_001",
+      "instanceName": "客户分群_001",
+      "objectId": 2,
+      "objectName": "客户分群",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Segment.name",
+          "dataType": "string",
+          "value": "高价值活跃客户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "分群ID",
+          "attributeCode": "Segment.segment_id",
+          "dataType": "string",
+          "value": "Segment_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "规模预估",
+          "attributeCode": "Segment.size_estimate",
+          "dataType": "integer",
+          "value": 12500,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Segment_002",
+      "instanceName": "客户分群_002",
+      "objectId": 2,
+      "objectName": "客户分群",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Segment.name",
+          "dataType": "string",
+          "value": "潜在新客",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "分群ID",
+          "attributeCode": "Segment.segment_id",
+          "dataType": "string",
+          "value": "Segment_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "规模预估",
+          "attributeCode": "Segment.size_estimate",
+          "dataType": "integer",
+          "value": 89000,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Segment_003",
+      "instanceName": "客户分群_003",
+      "objectId": 2,
+      "objectName": "客户分群",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Segment.name",
+          "dataType": "string",
+          "value": "沉睡用户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "分群ID",
+          "attributeCode": "Segment.segment_id",
+          "dataType": "string",
+          "value": "Segment_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "规模预估",
+          "attributeCode": "Segment.size_estimate",
+          "dataType": "integer",
+          "value": 34200,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "分群包含客户",
+          "targetInstanceId": 23,
+          "targetInstanceName": "目标客户_002",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Segment_004",
+      "instanceName": "客户分群_004",
+      "objectId": 2,
+      "objectName": "客户分群",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Segment.name",
+          "dataType": "string",
+          "value": "忠诚会员",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "分群ID",
+          "attributeCode": "Segment.segment_id",
+          "dataType": "string",
+          "value": "Segment_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "规模预估",
+          "attributeCode": "Segment.size_estimate",
+          "dataType": "integer",
+          "value": 7600,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Segment_005",
+      "instanceName": "客户分群_005",
+      "objectId": 2,
+      "objectName": "客户分群",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Segment.name",
+          "dataType": "string",
+          "value": "价格敏感型客户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "分群ID",
+          "attributeCode": "Segment.segment_id",
+          "dataType": "string",
+          "value": "Segment_005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "规模预估",
+          "attributeCode": "Segment.size_estimate",
+          "dataType": "integer",
+          "value": 41800,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "分群包含客户",
+          "targetInstanceId": 22,
+          "targetInstanceName": "目标客户_001",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Segment_006",
+      "instanceName": "客户分群_006",
+      "objectId": 2,
+      "objectName": "客户分群",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Segment.name",
+          "dataType": "string",
+          "value": "年轻初购人群",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "分群ID",
+          "attributeCode": "Segment.segment_id",
+          "dataType": "string",
+          "value": "Segment_006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "规模预估",
+          "attributeCode": "Segment.size_estimate",
+          "dataType": "integer",
+          "value": 27300,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "分群包含客户",
+          "targetInstanceId": 22,
+          "targetInstanceName": "目标客户_001",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Channel_001",
+      "instanceName": "投放渠道_001",
+      "objectId": 3,
+      "objectName": "投放渠道",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "value": "Channel_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "value": "email",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "渠道消耗预算",
+          "targetInstanceId": 27,
+          "targetInstanceName": "活动预算_001",
+          "targetObjectId": 10,
+          "targetObjectName": "活动预算",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Channel_002",
+      "instanceName": "投放渠道_002",
+      "objectId": 3,
+      "objectName": "投放渠道",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "value": "Channel_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "value": "sms",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "渠道消耗预算",
+          "targetInstanceId": 27,
+          "targetInstanceName": "活动预算_001",
+          "targetObjectId": 10,
+          "targetObjectName": "活动预算",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Channel_003",
+      "instanceName": "投放渠道_003",
+      "objectId": 3,
+      "objectName": "投放渠道",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "value": "Channel_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "value": "push",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Touchpoint_001",
+      "instanceName": "客户触点事件_001",
+      "objectId": 4,
+      "objectName": "客户触点事件",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "发生时间",
+          "attributeCode": "Touchpoint.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-10T09:15:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Touchpoint.status",
+          "dataType": "string",
+          "value": "converted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触点ID",
+          "attributeCode": "Touchpoint.touchpoint_id",
+          "dataType": "string",
+          "value": "TP-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "触点归属活动",
+          "targetInstanceId": 1,
+          "targetInstanceName": "营销活动_001",
+          "targetObjectId": 1,
+          "targetObjectName": "营销活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "触点经由渠道",
+          "targetInstanceId": 11,
+          "targetInstanceName": "投放渠道_001",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "触点抵达客户",
+          "targetInstanceId": 22,
+          "targetInstanceName": "目标客户_001",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "触点携带权益",
+          "targetInstanceId": 18,
+          "targetInstanceName": "权益父类型_001",
+          "targetObjectId": 5,
+          "targetObjectName": "权益父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "触点携带权益",
+          "targetInstanceId": 19,
+          "targetInstanceName": "折扣权益_001",
+          "targetObjectId": 6,
+          "targetObjectName": "折扣权益",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "触点携带权益",
+          "targetInstanceId": 21,
+          "targetInstanceName": "赠品权益_001",
+          "targetObjectId": 7,
+          "targetObjectName": "赠品权益",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Touchpoint_002",
+      "instanceName": "客户触点事件_002",
+      "objectId": 4,
+      "objectName": "客户触点事件",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "发生时间",
+          "attributeCode": "Touchpoint.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-10T14:33:07Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Touchpoint.status",
+          "dataType": "string",
+          "value": "converted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触点ID",
+          "attributeCode": "Touchpoint.touchpoint_id",
+          "dataType": "string",
+          "value": "TP-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "触点归属活动",
+          "targetInstanceId": 2,
+          "targetInstanceName": "营销活动_002",
+          "targetObjectId": 1,
+          "targetObjectName": "营销活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "触点经由渠道",
+          "targetInstanceId": 11,
+          "targetInstanceName": "投放渠道_001",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "触点抵达客户",
+          "targetInstanceId": 22,
+          "targetInstanceName": "目标客户_001",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "触点使用素材",
+          "targetInstanceId": 25,
+          "targetInstanceName": "创意素材_002",
+          "targetObjectId": 9,
+          "targetObjectName": "创意素材",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Touchpoint_003",
+      "instanceName": "客户触点事件_003",
+      "objectId": 4,
+      "objectName": "客户触点事件",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "发生时间",
+          "attributeCode": "Touchpoint.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-11T11:20:45Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Touchpoint.status",
+          "dataType": "string",
+          "value": "converted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触点ID",
+          "attributeCode": "Touchpoint.touchpoint_id",
+          "dataType": "string",
+          "value": "TP-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "触点归属活动",
+          "targetInstanceId": 2,
+          "targetInstanceName": "营销活动_002",
+          "targetObjectId": 1,
+          "targetObjectName": "营销活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "触点经由渠道",
+          "targetInstanceId": 12,
+          "targetInstanceName": "投放渠道_002",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "触点抵达客户",
+          "targetInstanceId": 23,
+          "targetInstanceName": "目标客户_002",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "触点使用素材",
+          "targetInstanceId": 25,
+          "targetInstanceName": "创意素材_002",
+          "targetObjectId": 9,
+          "targetObjectName": "创意素材",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "触点携带权益",
+          "targetInstanceId": 20,
+          "targetInstanceName": "折扣权益_002",
+          "targetObjectId": 6,
+          "targetObjectName": "折扣权益",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "触点携带权益",
+          "targetInstanceId": 18,
+          "targetInstanceName": "权益父类型_001",
+          "targetObjectId": 5,
+          "targetObjectName": "权益父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Touchpoint_004",
+      "instanceName": "客户触点事件_004",
+      "objectId": 4,
+      "objectName": "客户触点事件",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "发生时间",
+          "attributeCode": "Touchpoint.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-12T08:05:13Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Touchpoint.status",
+          "dataType": "string",
+          "value": "converted",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触点ID",
+          "attributeCode": "Touchpoint.touchpoint_id",
+          "dataType": "string",
+          "value": "TP-2024-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "触点归属活动",
+          "targetInstanceId": 3,
+          "targetInstanceName": "营销活动_003",
+          "targetObjectId": 1,
+          "targetObjectName": "营销活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "触点经由渠道",
+          "targetInstanceId": 12,
+          "targetInstanceName": "投放渠道_002",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "触点抵达客户",
+          "targetInstanceId": 23,
+          "targetInstanceName": "目标客户_002",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "触点使用素材",
+          "targetInstanceId": 25,
+          "targetInstanceName": "创意素材_002",
+          "targetObjectId": 9,
+          "targetObjectName": "创意素材",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "触点携带权益",
+          "targetInstanceId": 19,
+          "targetInstanceName": "折扣权益_001",
+          "targetObjectId": 6,
+          "targetObjectName": "折扣权益",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Offer_001",
+      "instanceName": "权益父类型_001",
+      "objectId": 5,
+      "objectName": "权益父类型",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Offer.name",
+          "dataType": "string",
+          "value": "新人专享立减券",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "权益ID",
+          "attributeCode": "Offer.offer_id",
+          "dataType": "string",
+          "value": "Offer_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户分群_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "DiscountOffer_001",
+      "instanceName": "折扣权益_001",
+      "objectId": 6,
+      "objectName": "折扣权益",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "折扣比例",
+          "attributeCode": "DiscountOffer.discount_pct",
+          "dataType": "number",
+          "value": 0.15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "DiscountOffer.name",
+          "dataType": "string",
+          "value": "夏季清凉折扣",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "权益ID",
+          "attributeCode": "DiscountOffer.offer_id",
+          "dataType": "string",
+          "value": "DO2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 5,
+          "targetInstanceName": "客户分群_001",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户分群_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户分群_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "DiscountOffer_002",
+      "instanceName": "折扣权益_002",
+      "objectId": 6,
+      "objectName": "折扣权益",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "折扣比例",
+          "attributeCode": "DiscountOffer.discount_pct",
+          "dataType": "number",
+          "value": 0.25,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "DiscountOffer.name",
+          "dataType": "string",
+          "value": "会员专享折上折",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "权益ID",
+          "attributeCode": "DiscountOffer.offer_id",
+          "dataType": "string",
+          "value": "DO2024002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户分群_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户分群_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户分群_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "GiftOffer_001",
+      "instanceName": "赠品权益_001",
+      "objectId": 7,
+      "objectName": "赠品权益",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "礼品名称",
+          "attributeCode": "GiftOffer.gift_name",
+          "dataType": "string",
+          "value": "定制保温杯",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "名称",
+          "attributeCode": "GiftOffer.name",
+          "dataType": "string",
+          "value": "新客首单赠礼权益",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "权益ID",
+          "attributeCode": "GiftOffer.offer_id",
+          "dataType": "string",
+          "value": "OFFER2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户分群_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "权益匹配分群策略",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户分群_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户分群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Customer_001",
+      "instanceName": "目标客户_001",
+      "objectId": 8,
+      "objectName": "目标客户",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Customer_002",
+      "instanceName": "目标客户_002",
+      "objectId": 8,
+      "objectName": "目标客户",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "CreativeAsset_001",
+      "instanceName": "创意素材_001",
+      "objectId": 9,
+      "objectName": "创意素材",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "资产ID",
+          "attributeCode": "CreativeAsset.asset_id",
+          "dataType": "string",
+          "value": "CA-IMG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "资产类型",
+          "attributeCode": "CreativeAsset.asset_type",
+          "dataType": "string",
+          "value": "image",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "CreativeAsset.status",
+          "dataType": "string",
+          "value": "published",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "素材适配渠道",
+          "targetInstanceId": 12,
+          "targetInstanceName": "投放渠道_002",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "CreativeAsset_002",
+      "instanceName": "创意素材_002",
+      "objectId": 9,
+      "objectName": "创意素材",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "资产ID",
+          "attributeCode": "CreativeAsset.asset_id",
+          "dataType": "string",
+          "value": "CA-VID-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "资产类型",
+          "attributeCode": "CreativeAsset.asset_type",
+          "dataType": "string",
+          "value": "video",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "CreativeAsset.status",
+          "dataType": "string",
+          "value": "published",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "CreativeAsset_003",
+      "instanceName": "创意素材_003",
+      "objectId": 9,
+      "objectName": "创意素材",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "资产ID",
+          "attributeCode": "CreativeAsset.asset_id",
+          "dataType": "string",
+          "value": "CA-COPY-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "资产类型",
+          "attributeCode": "CreativeAsset.asset_type",
+          "dataType": "string",
+          "value": "copy",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "CreativeAsset.status",
+          "dataType": "string",
+          "value": "published",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "素材适配渠道",
+          "targetInstanceId": 13,
+          "targetInstanceName": "投放渠道_003",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "素材适配渠道",
+          "targetInstanceId": 11,
+          "targetInstanceName": "投放渠道_001",
+          "targetObjectId": 3,
+          "targetObjectName": "投放渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Budget_001",
+      "instanceName": "活动预算_001",
+      "objectId": 10,
+      "objectName": "活动预算",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Budget.amount",
+          "dataType": "number",
+          "value": 50000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "预算ID",
+          "attributeCode": "Budget.budget_id",
+          "dataType": "string",
+          "value": "Budget_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "已花费",
+          "attributeCode": "Budget.spent",
+          "dataType": "number",
+          "value": 23450.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Budget.status",
+          "dataType": "string",
+          "value": "frozen",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Budget_002",
+      "instanceName": "活动预算_002",
+      "objectId": 10,
+      "objectName": "活动预算",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Budget.amount",
+          "dataType": "number",
+          "value": 85000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "预算ID",
+          "attributeCode": "Budget.budget_id",
+          "dataType": "string",
+          "value": "Budget_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "已花费",
+          "attributeCode": "Budget.spent",
+          "dataType": "number",
+          "value": 85000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Budget.status",
+          "dataType": "string",
+          "value": "consumed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Attribution_001",
+      "instanceName": "渠道/触点对转化的归因_001",
+      "objectId": 11,
+      "objectName": "渠道/触点对转化的归因",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "归因ID",
+          "attributeCode": "Attribution.attribution_id",
+          "dataType": "string",
+          "value": "ATTR_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "型号",
+          "attributeCode": "Attribution.model",
+          "dataType": "string",
+          "value": "last_click",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "权重",
+          "attributeCode": "Attribution.weight",
+          "dataType": "number",
+          "value": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "归因指向触点",
+          "targetInstanceId": 14,
+          "targetInstanceName": "客户触点事件_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户触点事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Attribution_002",
+      "instanceName": "渠道/触点对转化的归因_002",
+      "objectId": 11,
+      "objectName": "渠道/触点对转化的归因",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "归因ID",
+          "attributeCode": "Attribution.attribution_id",
+          "dataType": "string",
+          "value": "ATTR_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "型号",
+          "attributeCode": "Attribution.model",
+          "dataType": "string",
+          "value": "linear",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "权重",
+          "attributeCode": "Attribution.weight",
+          "dataType": "number",
+          "value": 0.25,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "归因指向触点",
+          "targetInstanceId": 17,
+          "targetInstanceName": "客户触点事件_004",
+          "targetObjectId": 4,
+          "targetObjectName": "客户触点事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Attribution_003",
+      "instanceName": "渠道/触点对转化的归因_003",
+      "objectId": 11,
+      "objectName": "渠道/触点对转化的归因",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "归因ID",
+          "attributeCode": "Attribution.attribution_id",
+          "dataType": "string",
+          "value": "ATTR_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "型号",
+          "attributeCode": "Attribution.model",
+          "dataType": "string",
+          "value": "time_decay",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "权重",
+          "attributeCode": "Attribution.weight",
+          "dataType": "number",
+          "value": 0.42,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "归因指向触点",
+          "targetInstanceId": 14,
+          "targetInstanceName": "客户触点事件_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户触点事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Conversion_001",
+      "instanceName": "转化事件_001",
+      "objectId": 12,
+      "objectName": "转化事件",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "转化ID",
+          "attributeCode": "Conversion.conversion_id",
+          "dataType": "string",
+          "value": "CVR-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Conversion.status",
+          "dataType": "string",
+          "value": "void",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "值",
+          "attributeCode": "Conversion.value",
+          "dataType": "number",
+          "value": 129.99,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "转化由客户产生",
+          "targetInstanceId": 23,
+          "targetInstanceName": "目标客户_002",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Conversion_002",
+      "instanceName": "转化事件_002",
+      "objectId": 12,
+      "objectName": "转化事件",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "转化ID",
+          "attributeCode": "Conversion.conversion_id",
+          "dataType": "string",
+          "value": "CVR-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Conversion.status",
+          "dataType": "string",
+          "value": "void",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "值",
+          "attributeCode": "Conversion.value",
+          "dataType": "number",
+          "value": 45.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "转化通过归因关联触点",
+          "targetInstanceId": 30,
+          "targetInstanceName": "渠道/触点对转化的归因_002",
+          "targetObjectId": 11,
+          "targetObjectName": "渠道/触点对转化的归因",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "转化由客户产生",
+          "targetInstanceId": 23,
+          "targetInstanceName": "目标客户_002",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Conversion_003",
+      "instanceName": "转化事件_003",
+      "objectId": 12,
+      "objectName": "转化事件",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "转化ID",
+          "attributeCode": "Conversion.conversion_id",
+          "dataType": "string",
+          "value": "CVR-2023-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Conversion.status",
+          "dataType": "string",
+          "value": "void",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "值",
+          "attributeCode": "Conversion.value",
+          "dataType": "number",
+          "value": 899.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "转化通过归因关联触点",
+          "targetInstanceId": 29,
+          "targetInstanceName": "渠道/触点对转化的归因_001",
+          "targetObjectId": 11,
+          "targetObjectName": "渠道/触点对转化的归因",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "转化通过归因关联触点",
+          "targetInstanceId": 31,
+          "targetInstanceName": "渠道/触点对转化的归因_003",
+          "targetObjectId": 11,
+          "targetObjectName": "渠道/触点对转化的归因",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "转化由客户产生",
+          "targetInstanceId": 23,
+          "targetInstanceName": "目标客户_002",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Experiment_001",
+      "instanceName": "A/B 实验_001",
+      "objectId": 13,
+      "objectName": "A/B 实验",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "实验ID",
+          "attributeCode": "Experiment.experiment_id",
+          "dataType": "string",
+          "value": "Exp_A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Experiment.status",
+          "dataType": "string",
+          "value": "designed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "实验包含分组",
+          "targetInstanceId": 40,
+          "targetInstanceName": "实验组_003",
+          "targetObjectId": 14,
+          "targetObjectName": "实验组",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "实验包含分组",
+          "targetInstanceId": 42,
+          "targetInstanceName": "实验组_005",
+          "targetObjectId": 14,
+          "targetObjectName": "实验组",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Experiment_002",
+      "instanceName": "A/B 实验_002",
+      "objectId": 13,
+      "objectName": "A/B 实验",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "实验ID",
+          "attributeCode": "Experiment.experiment_id",
+          "dataType": "string",
+          "value": "Exp_B002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Experiment.status",
+          "dataType": "string",
+          "value": "concluded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "实验包含分组",
+          "targetInstanceId": 38,
+          "targetInstanceName": "实验组_001",
+          "targetObjectId": 14,
+          "targetObjectName": "实验组",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "实验包含分组",
+          "targetInstanceId": 39,
+          "targetInstanceName": "实验组_002",
+          "targetObjectId": 14,
+          "targetObjectName": "实验组",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Experiment_003",
+      "instanceName": "A/B 实验_003",
+      "objectId": 13,
+      "objectName": "A/B 实验",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "实验ID",
+          "attributeCode": "Experiment.experiment_id",
+          "dataType": "string",
+          "value": "Exp_C003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Experiment.status",
+          "dataType": "string",
+          "value": "concluded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "实验包含分组",
+          "targetInstanceId": 41,
+          "targetInstanceName": "实验组_004",
+          "targetObjectId": 14,
+          "targetObjectName": "实验组",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Variant_001",
+      "instanceName": "实验组_001",
+      "objectId": 14,
+      "objectName": "实验组",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "标签",
+          "attributeCode": "Variant.label",
+          "dataType": "string",
+          "value": "control",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "实验组ID",
+          "attributeCode": "Variant.variant_id",
+          "dataType": "string",
+          "value": "Variant_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Variant_002",
+      "instanceName": "实验组_002",
+      "objectId": 14,
+      "objectName": "实验组",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "标签",
+          "attributeCode": "Variant.label",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "实验组ID",
+          "attributeCode": "Variant.variant_id",
+          "dataType": "string",
+          "value": "Variant_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Variant_003",
+      "instanceName": "实验组_003",
+      "objectId": 14,
+      "objectName": "实验组",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "标签",
+          "attributeCode": "Variant.label",
+          "dataType": "string",
+          "value": "B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "实验组ID",
+          "attributeCode": "Variant.variant_id",
+          "dataType": "string",
+          "value": "Variant_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "Variant_004",
+      "instanceName": "实验组_004",
+      "objectId": 14,
+      "objectName": "实验组",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "标签",
+          "attributeCode": "Variant.label",
+          "dataType": "string",
+          "value": "C",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "实验组ID",
+          "attributeCode": "Variant.variant_id",
+          "dataType": "string",
+          "value": "Variant_004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "分组分配客户",
+          "targetInstanceId": 22,
+          "targetInstanceName": "目标客户_001",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "Variant_005",
+      "instanceName": "实验组_005",
+      "objectId": 14,
+      "objectName": "实验组",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "标签",
+          "attributeCode": "Variant.label",
+          "dataType": "string",
+          "value": "control",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "实验组ID",
+          "attributeCode": "Variant.variant_id",
+          "dataType": "string",
+          "value": "Variant_005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "分组分配客户",
+          "targetInstanceId": 22,
+          "targetInstanceName": "目标客户_001",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "分组分配客户",
+          "targetInstanceId": 23,
+          "targetInstanceName": "目标客户_002",
+          "targetObjectId": 8,
+          "targetObjectName": "目标客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 15,
+      "actionName": "结束实验",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "A/B 实验_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 11,
+      "actionName": "冻结预算",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "活动预算_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 3,
+      "actionName": "暂停活动",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "营销活动_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 8,
+      "actionName": "转化触点",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "客户触点事件_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 1,
+      "actionName": "排期活动",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "营销活动_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 7,
+      "actionName": "点击触点",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "客户触点事件_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 2,
+      "actionName": "启动活动",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "营销活动_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 10,
+      "actionName": "发布创意素材",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "创意素材_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 13,
+      "actionName": "确认转化",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "转化事件_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 3,
+      "actionName": "暂停活动",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "营销活动_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 4,
+      "actionName": "完成活动",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "营销活动_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 6,
+      "actionName": "开启触点",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "客户触点事件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 14,
+      "actionName": "作废转化",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "转化事件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 9,
+      "actionName": "审批创意素材",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "创意素材_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 2,
+      "actionName": "启动活动",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "营销活动_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 14,
+      "actionName": "作废转化",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "转化事件_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 4,
+      "actionName": "完成活动",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "营销活动_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 4,
+      "actionName": "完成活动",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "营销活动_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 7,
+      "actionName": "点击触点",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "客户触点事件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 8,
+      "actionName": "转化触点",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "客户触点事件_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 8,
+      "actionName": "转化触点",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "目标客户_002"
+      ],
+      "outputInstanceNames": [
+        "客户触点事件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 10,
+      "actionName": "发布创意素材",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "目标客户_001"
+      ],
+      "outputInstanceNames": [
+        "创意素材_003"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

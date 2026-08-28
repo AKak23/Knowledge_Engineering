@@ -1,0 +1,2890 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "人力资源(HR)·hr_H4_compensation",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=hr_H4_compensation，graph=hr_H4_compensation_seed45）：12 个对象类型 / 18 个关系 / 13 个动作 / 36 个实例 / 12 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "objectCode": "PayBand",
+      "description": "薪酬带",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PB-2024-A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "初级工程师薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "薪级",
+      "objectCode": "PayGrade",
+      "description": "薪级",
+      "attributes": [
+        {
+          "attributeId": 4,
+          "attributeName": "等级ID",
+          "attributeCode": "PayGrade.grade_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PG-A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "PayGrade.level",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "最高薪资",
+          "attributeCode": "PayGrade.max_salary",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 8000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "最低薪资",
+          "attributeCode": "PayGrade.min_salary",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 5000.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "员工薪酬包",
+      "objectCode": "CompensationPackage",
+      "description": "员工薪酬包",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "基本薪资",
+          "attributeCode": "CompensationPackage.base_salary",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 12500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "套餐ID",
+          "attributeCode": "CompensationPackage.package_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "CompensationPackage.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "薪酬组件父类型",
+      "objectCode": "PayComponent",
+      "description": "薪酬组件父类型",
+      "attributes": [
+        {
+          "attributeId": 11,
+          "attributeName": "金额",
+          "attributeCode": "PayComponent.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 8500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件ID",
+          "attributeCode": "PayComponent.component_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "PayComponent.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "基本工资",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "奖金组件",
+      "objectCode": "BonusComponent",
+      "description": "奖金组件",
+      "attributes": [
+        {
+          "attributeId": 14,
+          "attributeName": "金额",
+          "attributeCode": "BonusComponent.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 15000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "奖金类型",
+          "attributeCode": "BonusComponent.bonus_kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "annual",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "组件ID",
+          "attributeCode": "BonusComponent.component_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "BonusComponent.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "年度绩效奖金",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "股权组件",
+      "objectCode": "EquityComponent",
+      "description": "股权组件",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "金额",
+          "attributeCode": "EquityComponent.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 150000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "组件ID",
+          "attributeCode": "EquityComponent.component_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "EquityComponent.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "限制性股票单位",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "归属年限",
+          "attributeCode": "EquityComponent.vesting_years",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 4,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "津贴组件",
+      "objectCode": "AllowanceComponent",
+      "description": "津贴组件",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "金额",
+          "attributeCode": "AllowanceComponent.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 800.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "组件ID",
+          "attributeCode": "AllowanceComponent.component_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "AC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "频率",
+          "attributeCode": "AllowanceComponent.frequency",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "monthly",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "名称",
+          "attributeCode": "AllowanceComponent.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "交通津贴",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "员工",
+      "objectCode": "Employee",
+      "description": "员工",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "福利项",
+      "objectCode": "Benefit",
+      "description": "福利项",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "福利ID",
+          "attributeCode": "Benefit.benefit_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Benefit_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "类型",
+          "attributeCode": "Benefit.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "health",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Benefit.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "医疗保险",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "福利投保",
+      "objectCode": "Enrollment",
+      "description": "福利投保",
+      "attributes": [
+        {
+          "attributeId": 31,
+          "attributeName": "报名ID",
+          "attributeCode": "Enrollment.enrollment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ENR2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "Enrollment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "工资发放批次",
+      "objectCode": "PayrollRun",
+      "description": "工资发放批次",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "期间",
+          "attributeCode": "PayrollRun.period",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-04",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "运行ID",
+          "attributeCode": "PayrollRun.run_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PR20240401",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "PayrollRun.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "paid",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "调薪记录",
+      "objectCode": "MeritIncrease",
+      "description": "调薪记录",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "涨幅ID",
+          "attributeCode": "MeritIncrease.increase_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MI-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "比例",
+          "attributeCode": "MeritIncrease.pct",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 5.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "MeritIncrease.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "applied",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "薪酬带",
+      "targetObjectId": 2,
+      "targetObjectName": "薪级",
+      "linkInfo": "薪酬带包含薪级",
+      "linkType": "1:N",
+      "description": "band_has_grade",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 3,
+      "sourceObjectName": "员工薪酬包",
+      "targetObjectId": 2,
+      "targetObjectName": "薪级",
+      "linkInfo": "薪酬包对应薪级",
+      "linkType": "N:1",
+      "description": "package_in_grade",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "员工薪酬包",
+      "targetObjectId": 8,
+      "targetObjectName": "员工",
+      "linkInfo": "薪酬包归属员工",
+      "linkType": "N:1",
+      "description": "package_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 3,
+      "sourceObjectName": "员工薪酬包",
+      "targetObjectId": 4,
+      "targetObjectName": "薪酬组件父类型",
+      "linkInfo": "薪酬包包含组件",
+      "linkType": "1:N",
+      "description": "package_includes_component",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 10,
+      "sourceObjectName": "福利投保",
+      "targetObjectId": 8,
+      "targetObjectName": "员工",
+      "linkInfo": "投保归属员工",
+      "linkType": "N:1",
+      "description": "enrollment_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 10,
+      "sourceObjectName": "福利投保",
+      "targetObjectId": 9,
+      "targetObjectName": "福利项",
+      "linkInfo": "投保对应福利",
+      "linkType": "N:1",
+      "description": "enrollment_for_benefit",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 11,
+      "sourceObjectName": "工资发放批次",
+      "targetObjectId": 8,
+      "targetObjectName": "员工",
+      "linkInfo": "发放覆盖员工",
+      "linkType": "N:M",
+      "description": "payroll_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 11,
+      "sourceObjectName": "工资发放批次",
+      "targetObjectId": 3,
+      "targetObjectName": "员工薪酬包",
+      "linkInfo": "发放针对薪酬包",
+      "linkType": "N:M",
+      "description": "payroll_pays_package",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 12,
+      "sourceObjectName": "调薪记录",
+      "targetObjectId": 8,
+      "targetObjectName": "员工",
+      "linkInfo": "调薪针对员工",
+      "linkType": "N:1",
+      "description": "merit_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 12,
+      "sourceObjectName": "调薪记录",
+      "targetObjectId": 3,
+      "targetObjectName": "员工薪酬包",
+      "linkInfo": "调薪修改薪酬包",
+      "linkType": "N:1",
+      "description": "merit_updates_package",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 5,
+      "sourceObjectName": "奖金组件",
+      "targetObjectId": 11,
+      "targetObjectName": "工资发放批次",
+      "linkInfo": "奖金在发放批次",
+      "linkType": "N:1",
+      "description": "bonus_paid_in_run",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 6,
+      "sourceObjectName": "股权组件",
+      "targetObjectId": 8,
+      "targetObjectName": "员工",
+      "linkInfo": "股权归属员工",
+      "linkType": "N:1",
+      "description": "equity_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 7,
+      "sourceObjectName": "津贴组件",
+      "targetObjectId": 8,
+      "targetObjectName": "员工",
+      "linkInfo": "津贴归属员工",
+      "linkType": "N:1",
+      "description": "allowance_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 9,
+      "sourceObjectName": "福利项",
+      "targetObjectId": 1,
+      "targetObjectName": "薪酬带",
+      "linkInfo": "福利适用薪酬带",
+      "linkType": "N:M",
+      "description": "benefit_in_band",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 3,
+      "sourceObjectName": "员工薪酬包",
+      "targetObjectId": 3,
+      "targetObjectName": "员工薪酬包",
+      "linkInfo": "薪酬包替代关系",
+      "linkType": "N:1",
+      "description": "package_supersedes",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 5,
+      "sourceObjectName": "奖金组件",
+      "targetObjectId": 4,
+      "targetObjectName": "薪酬组件父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "BonusComponent is-a PayComponent",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 6,
+      "sourceObjectName": "股权组件",
+      "targetObjectId": 4,
+      "targetObjectName": "薪酬组件父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "EquityComponent is-a PayComponent",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 7,
+      "sourceObjectName": "津贴组件",
+      "targetObjectId": 4,
+      "targetObjectName": "薪酬组件父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "AllowanceComponent is-a PayComponent",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "起草套餐",
+      "actionCode": "draft_package",
+      "description": "执行者：员工；对象：员工薪酬包",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "员工薪酬包"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "审批套餐",
+      "actionCode": "approve_package",
+      "description": "执行者：员工；对象：员工薪酬包",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "员工薪酬包"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "激活套餐",
+      "actionCode": "activate_package",
+      "description": "执行者：员工；对象：员工薪酬包",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "员工薪酬包"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "过期套餐",
+      "actionCode": "expire_package",
+      "description": "执行者：员工；对象：员工薪酬包",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "员工薪酬包"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "报名福利",
+      "actionCode": "enroll_benefit",
+      "description": "执行者：员工；对象：福利投保",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "福利投保"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "豁免福利",
+      "actionCode": "waive_benefit",
+      "description": "执行者：员工；对象：福利投保",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "福利投保"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "终止报名",
+      "actionCode": "terminate_enrollment",
+      "description": "执行者：员工；对象：福利投保",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "福利投保"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "处理薪资发放",
+      "actionCode": "process_payroll",
+      "description": "执行者：员工；对象：工资发放批次",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "工资发放批次"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "完成薪资发放",
+      "actionCode": "complete_payroll",
+      "description": "执行者：员工；对象：工资发放批次",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "工资发放批次"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "薪资发放失败",
+      "actionCode": "fail_payroll",
+      "description": "执行者：员工；对象：工资发放批次",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "工资发放批次"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "提出绩效调薪",
+      "actionCode": "propose_merit",
+      "description": "执行者：员工；对象：调薪记录",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "调薪记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "审批绩效调薪",
+      "actionCode": "approve_merit",
+      "description": "执行者：员工；对象：调薪记录",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "调薪记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "执行绩效调薪",
+      "actionCode": "apply_merit",
+      "description": "执行者：员工；对象：调薪记录",
+      "inputObjects": [
+        "员工"
+      ],
+      "outputObjects": [
+        "调薪记录"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "PayBand_001",
+      "instanceName": "薪酬带_001",
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "value": "PB-2024-A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "value": "初级工程师薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "PayBand_002",
+      "instanceName": "薪酬带_002",
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "value": "PB-2024-B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "value": "中级工程师薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "薪酬带包含薪级",
+          "targetInstanceId": 9,
+          "targetInstanceName": "薪级_002",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "薪酬带包含薪级",
+          "targetInstanceId": 10,
+          "targetInstanceName": "薪级_003",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "PayBand_003",
+      "instanceName": "薪酬带_003",
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "value": "PB-2024-C",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "value": "高级工程师薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "PayBand_004",
+      "instanceName": "薪酬带_004",
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "value": "PB-2024-D",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "value": "USD",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "value": "技术专家薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "PayBand_005",
+      "instanceName": "薪酬带_005",
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "value": "PB-2024-E",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "value": "USD",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "value": "总监级薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "PayBand_006",
+      "instanceName": "薪酬带_006",
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "value": "PB-2024-F",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "value": "EUR",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "value": "副总裁薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "薪酬带包含薪级",
+          "targetInstanceId": 8,
+          "targetInstanceName": "薪级_001",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "PayBand_007",
+      "instanceName": "薪酬带_007",
+      "objectId": 1,
+      "objectName": "薪酬带",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "频段ID",
+          "attributeCode": "PayBand.band_id",
+          "dataType": "string",
+          "value": "PB-2024-G",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "币种",
+          "attributeCode": "PayBand.currency",
+          "dataType": "string",
+          "value": "GBP",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "PayBand.name",
+          "dataType": "string",
+          "value": "首席执行官薪酬带",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "薪酬带包含薪级",
+          "targetInstanceId": 11,
+          "targetInstanceName": "薪级_004",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "PayGrade_001",
+      "instanceName": "薪级_001",
+      "objectId": 2,
+      "objectName": "薪级",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "等级ID",
+          "attributeCode": "PayGrade.grade_id",
+          "dataType": "string",
+          "value": "PG-A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "PayGrade.level",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "最高薪资",
+          "attributeCode": "PayGrade.max_salary",
+          "dataType": "number",
+          "value": 8000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "最低薪资",
+          "attributeCode": "PayGrade.min_salary",
+          "dataType": "number",
+          "value": 5000.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "PayGrade_002",
+      "instanceName": "薪级_002",
+      "objectId": 2,
+      "objectName": "薪级",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "等级ID",
+          "attributeCode": "PayGrade.grade_id",
+          "dataType": "string",
+          "value": "PG-B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "PayGrade.level",
+          "dataType": "integer",
+          "value": 2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "最高薪资",
+          "attributeCode": "PayGrade.max_salary",
+          "dataType": "number",
+          "value": 12000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "最低薪资",
+          "attributeCode": "PayGrade.min_salary",
+          "dataType": "number",
+          "value": 8500.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "PayGrade_003",
+      "instanceName": "薪级_003",
+      "objectId": 2,
+      "objectName": "薪级",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "等级ID",
+          "attributeCode": "PayGrade.grade_id",
+          "dataType": "string",
+          "value": "PG-C",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "PayGrade.level",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "最高薪资",
+          "attributeCode": "PayGrade.max_salary",
+          "dataType": "number",
+          "value": 18000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "最低薪资",
+          "attributeCode": "PayGrade.min_salary",
+          "dataType": "number",
+          "value": 12500.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "PayGrade_004",
+      "instanceName": "薪级_004",
+      "objectId": 2,
+      "objectName": "薪级",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "等级ID",
+          "attributeCode": "PayGrade.grade_id",
+          "dataType": "string",
+          "value": "PG-D",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "PayGrade.level",
+          "dataType": "integer",
+          "value": 4,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "最高薪资",
+          "attributeCode": "PayGrade.max_salary",
+          "dataType": "number",
+          "value": 25000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "最低薪资",
+          "attributeCode": "PayGrade.min_salary",
+          "dataType": "number",
+          "value": 18500.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "CompensationPackage_001",
+      "instanceName": "员工薪酬包_001",
+      "objectId": 3,
+      "objectName": "员工薪酬包",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "基本薪资",
+          "attributeCode": "CompensationPackage.base_salary",
+          "dataType": "number",
+          "value": 12500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "套餐ID",
+          "attributeCode": "CompensationPackage.package_id",
+          "dataType": "string",
+          "value": "CP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "CompensationPackage.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "薪酬包对应薪级",
+          "targetInstanceId": 11,
+          "targetInstanceName": "薪级_004",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "薪酬包归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 19,
+          "targetInstanceName": "薪酬组件父类型_004",
+          "targetObjectId": 4,
+          "targetObjectName": "薪酬组件父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 21,
+          "targetInstanceName": "奖金组件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "奖金组件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 22,
+          "targetInstanceName": "奖金组件_002",
+          "targetObjectId": 5,
+          "targetObjectName": "奖金组件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "薪酬包替代关系",
+          "targetInstanceId": 12,
+          "targetInstanceName": "员工薪酬包_001",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "CompensationPackage_002",
+      "instanceName": "员工薪酬包_002",
+      "objectId": 3,
+      "objectName": "员工薪酬包",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "基本薪资",
+          "attributeCode": "CompensationPackage.base_salary",
+          "dataType": "number",
+          "value": 9800.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "套餐ID",
+          "attributeCode": "CompensationPackage.package_id",
+          "dataType": "string",
+          "value": "CP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "CompensationPackage.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "薪酬包对应薪级",
+          "targetInstanceId": 8,
+          "targetInstanceName": "薪级_001",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "薪酬包归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "薪酬包替代关系",
+          "targetInstanceId": 12,
+          "targetInstanceName": "员工薪酬包_001",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "CompensationPackage_003",
+      "instanceName": "员工薪酬包_003",
+      "objectId": 3,
+      "objectName": "员工薪酬包",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "基本薪资",
+          "attributeCode": "CompensationPackage.base_salary",
+          "dataType": "number",
+          "value": 15600.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "套餐ID",
+          "attributeCode": "CompensationPackage.package_id",
+          "dataType": "string",
+          "value": "CP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "CompensationPackage.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "薪酬包对应薪级",
+          "targetInstanceId": 11,
+          "targetInstanceName": "薪级_004",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "薪酬包归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 16,
+          "targetInstanceName": "薪酬组件父类型_001",
+          "targetObjectId": 4,
+          "targetObjectName": "薪酬组件父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 17,
+          "targetInstanceName": "薪酬组件父类型_002",
+          "targetObjectId": 4,
+          "targetObjectName": "薪酬组件父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 18,
+          "targetInstanceName": "薪酬组件父类型_003",
+          "targetObjectId": 4,
+          "targetObjectName": "薪酬组件父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 23,
+          "targetInstanceName": "股权组件_001",
+          "targetObjectId": 6,
+          "targetObjectName": "股权组件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 24,
+          "targetInstanceName": "津贴组件_001",
+          "targetObjectId": 7,
+          "targetObjectName": "津贴组件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 26,
+          "targetInstanceName": "津贴组件_003",
+          "targetObjectId": 7,
+          "targetObjectName": "津贴组件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "薪酬包替代关系",
+          "targetInstanceId": 14,
+          "targetInstanceName": "员工薪酬包_003",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "CompensationPackage_004",
+      "instanceName": "员工薪酬包_004",
+      "objectId": 3,
+      "objectName": "员工薪酬包",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "基本薪资",
+          "attributeCode": "CompensationPackage.base_salary",
+          "dataType": "number",
+          "value": 8200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "套餐ID",
+          "attributeCode": "CompensationPackage.package_id",
+          "dataType": "string",
+          "value": "CP-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "CompensationPackage.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "薪酬包对应薪级",
+          "targetInstanceId": 9,
+          "targetInstanceName": "薪级_002",
+          "targetObjectId": 2,
+          "targetObjectName": "薪级",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "薪酬包归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 20,
+          "targetInstanceName": "薪酬组件父类型_005",
+          "targetObjectId": 4,
+          "targetObjectName": "薪酬组件父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "薪酬包包含组件",
+          "targetInstanceId": 25,
+          "targetInstanceName": "津贴组件_002",
+          "targetObjectId": 7,
+          "targetObjectName": "津贴组件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "薪酬包替代关系",
+          "targetInstanceId": 14,
+          "targetInstanceName": "员工薪酬包_003",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "PayComponent_001",
+      "instanceName": "薪酬组件父类型_001",
+      "objectId": 4,
+      "objectName": "薪酬组件父类型",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "金额",
+          "attributeCode": "PayComponent.amount",
+          "dataType": "number",
+          "value": 8500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件ID",
+          "attributeCode": "PayComponent.component_id",
+          "dataType": "string",
+          "value": "PC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "PayComponent.name",
+          "dataType": "string",
+          "value": "基本工资",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "PayComponent_002",
+      "instanceName": "薪酬组件父类型_002",
+      "objectId": 4,
+      "objectName": "薪酬组件父类型",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "金额",
+          "attributeCode": "PayComponent.amount",
+          "dataType": "number",
+          "value": 3200.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件ID",
+          "attributeCode": "PayComponent.component_id",
+          "dataType": "string",
+          "value": "PC-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "PayComponent.name",
+          "dataType": "string",
+          "value": "绩效奖金",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "PayComponent_003",
+      "instanceName": "薪酬组件父类型_003",
+      "objectId": 4,
+      "objectName": "薪酬组件父类型",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "金额",
+          "attributeCode": "PayComponent.amount",
+          "dataType": "number",
+          "value": 800.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件ID",
+          "attributeCode": "PayComponent.component_id",
+          "dataType": "string",
+          "value": "PC-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "PayComponent.name",
+          "dataType": "string",
+          "value": "交通补贴",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "PayComponent_004",
+      "instanceName": "薪酬组件父类型_004",
+      "objectId": 4,
+      "objectName": "薪酬组件父类型",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "金额",
+          "attributeCode": "PayComponent.amount",
+          "dataType": "number",
+          "value": 1200.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件ID",
+          "attributeCode": "PayComponent.component_id",
+          "dataType": "string",
+          "value": "PC-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "PayComponent.name",
+          "dataType": "string",
+          "value": "住房补贴",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "PayComponent_005",
+      "instanceName": "薪酬组件父类型_005",
+      "objectId": 4,
+      "objectName": "薪酬组件父类型",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "金额",
+          "attributeCode": "PayComponent.amount",
+          "dataType": "number",
+          "value": 28500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件ID",
+          "attributeCode": "PayComponent.component_id",
+          "dataType": "string",
+          "value": "PC-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "PayComponent.name",
+          "dataType": "string",
+          "value": "年终奖",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "BonusComponent_001",
+      "instanceName": "奖金组件_001",
+      "objectId": 5,
+      "objectName": "奖金组件",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "金额",
+          "attributeCode": "BonusComponent.amount",
+          "dataType": "number",
+          "value": 15000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "奖金类型",
+          "attributeCode": "BonusComponent.bonus_kind",
+          "dataType": "string",
+          "value": "annual",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "组件ID",
+          "attributeCode": "BonusComponent.component_id",
+          "dataType": "string",
+          "value": "BC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "BonusComponent.name",
+          "dataType": "string",
+          "value": "年度绩效奖金",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "奖金在发放批次",
+          "targetInstanceId": 33,
+          "targetInstanceName": "工资发放批次_002",
+          "targetObjectId": 11,
+          "targetObjectName": "工资发放批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "BonusComponent_002",
+      "instanceName": "奖金组件_002",
+      "objectId": 5,
+      "objectName": "奖金组件",
+      "attributeValues": [
+        {
+          "attributeId": 14,
+          "attributeName": "金额",
+          "attributeCode": "BonusComponent.amount",
+          "dataType": "number",
+          "value": 3500.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "奖金类型",
+          "attributeCode": "BonusComponent.bonus_kind",
+          "dataType": "string",
+          "value": "spot",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "组件ID",
+          "attributeCode": "BonusComponent.component_id",
+          "dataType": "string",
+          "value": "BC-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "BonusComponent.name",
+          "dataType": "string",
+          "value": "即时激励奖金",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "奖金在发放批次",
+          "targetInstanceId": 33,
+          "targetInstanceName": "工资发放批次_002",
+          "targetObjectId": 11,
+          "targetObjectName": "工资发放批次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "EquityComponent_001",
+      "instanceName": "股权组件_001",
+      "objectId": 6,
+      "objectName": "股权组件",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "金额",
+          "attributeCode": "EquityComponent.amount",
+          "dataType": "number",
+          "value": 150000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "组件ID",
+          "attributeCode": "EquityComponent.component_id",
+          "dataType": "string",
+          "value": "EC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "EquityComponent.name",
+          "dataType": "string",
+          "value": "限制性股票单位",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "归属年限",
+          "attributeCode": "EquityComponent.vesting_years",
+          "dataType": "integer",
+          "value": 4,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "股权归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "AllowanceComponent_001",
+      "instanceName": "津贴组件_001",
+      "objectId": 7,
+      "objectName": "津贴组件",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "金额",
+          "attributeCode": "AllowanceComponent.amount",
+          "dataType": "number",
+          "value": 800.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "组件ID",
+          "attributeCode": "AllowanceComponent.component_id",
+          "dataType": "string",
+          "value": "AC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "频率",
+          "attributeCode": "AllowanceComponent.frequency",
+          "dataType": "string",
+          "value": "monthly",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "名称",
+          "attributeCode": "AllowanceComponent.name",
+          "dataType": "string",
+          "value": "交通津贴",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "津贴归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "AllowanceComponent_002",
+      "instanceName": "津贴组件_002",
+      "objectId": 7,
+      "objectName": "津贴组件",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "金额",
+          "attributeCode": "AllowanceComponent.amount",
+          "dataType": "number",
+          "value": 2500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "组件ID",
+          "attributeCode": "AllowanceComponent.component_id",
+          "dataType": "string",
+          "value": "AC-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "频率",
+          "attributeCode": "AllowanceComponent.frequency",
+          "dataType": "string",
+          "value": "monthly",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "名称",
+          "attributeCode": "AllowanceComponent.name",
+          "dataType": "string",
+          "value": "住房补贴",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "津贴归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "AllowanceComponent_003",
+      "instanceName": "津贴组件_003",
+      "objectId": 7,
+      "objectName": "津贴组件",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "金额",
+          "attributeCode": "AllowanceComponent.amount",
+          "dataType": "number",
+          "value": 12000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "组件ID",
+          "attributeCode": "AllowanceComponent.component_id",
+          "dataType": "string",
+          "value": "AC-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "频率",
+          "attributeCode": "AllowanceComponent.frequency",
+          "dataType": "string",
+          "value": "annual",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "名称",
+          "attributeCode": "AllowanceComponent.name",
+          "dataType": "string",
+          "value": "年度绩效津贴",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "津贴归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Employee_001",
+      "instanceName": "员工_001",
+      "objectId": 8,
+      "objectName": "员工",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Benefit_001",
+      "instanceName": "福利项_001",
+      "objectId": 9,
+      "objectName": "福利项",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "福利ID",
+          "attributeCode": "Benefit.benefit_id",
+          "dataType": "string",
+          "value": "Benefit_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "类型",
+          "attributeCode": "Benefit.kind",
+          "dataType": "string",
+          "value": "health",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Benefit.name",
+          "dataType": "string",
+          "value": "医疗保险",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Benefit_002",
+      "instanceName": "福利项_002",
+      "objectId": 9,
+      "objectName": "福利项",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "福利ID",
+          "attributeCode": "Benefit.benefit_id",
+          "dataType": "string",
+          "value": "Benefit_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "类型",
+          "attributeCode": "Benefit.kind",
+          "dataType": "string",
+          "value": "retirement",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Benefit.name",
+          "dataType": "string",
+          "value": "企业年金",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Benefit_003",
+      "instanceName": "福利项_003",
+      "objectId": 9,
+      "objectName": "福利项",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "福利ID",
+          "attributeCode": "Benefit.benefit_id",
+          "dataType": "string",
+          "value": "Benefit_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "类型",
+          "attributeCode": "Benefit.kind",
+          "dataType": "string",
+          "value": "wellness",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Benefit.name",
+          "dataType": "string",
+          "value": "员工健康计划",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "福利适用薪酬带",
+          "targetInstanceId": 4,
+          "targetInstanceName": "薪酬带_004",
+          "targetObjectId": 1,
+          "targetObjectName": "薪酬带",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Enrollment_001",
+      "instanceName": "福利投保_001",
+      "objectId": 10,
+      "objectName": "福利投保",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "报名ID",
+          "attributeCode": "Enrollment.enrollment_id",
+          "dataType": "string",
+          "value": "ENR2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "Enrollment.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "投保归属员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "投保对应福利",
+          "targetInstanceId": 29,
+          "targetInstanceName": "福利项_002",
+          "targetObjectId": 9,
+          "targetObjectName": "福利项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "PayrollRun_001",
+      "instanceName": "工资发放批次_001",
+      "objectId": 11,
+      "objectName": "工资发放批次",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "期间",
+          "attributeCode": "PayrollRun.period",
+          "dataType": "string",
+          "value": "2024-04",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "运行ID",
+          "attributeCode": "PayrollRun.run_id",
+          "dataType": "string",
+          "value": "PR20240401",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "PayrollRun.status",
+          "dataType": "string",
+          "value": "paid",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "PayrollRun_002",
+      "instanceName": "工资发放批次_002",
+      "objectId": 11,
+      "objectName": "工资发放批次",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "期间",
+          "attributeCode": "PayrollRun.period",
+          "dataType": "string",
+          "value": "2024-05",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "运行ID",
+          "attributeCode": "PayrollRun.run_id",
+          "dataType": "string",
+          "value": "PR20240501",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "PayrollRun.status",
+          "dataType": "string",
+          "value": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "发放覆盖员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "发放针对薪酬包",
+          "targetInstanceId": 13,
+          "targetInstanceName": "员工薪酬包_002",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "MeritIncrease_001",
+      "instanceName": "调薪记录_001",
+      "objectId": 12,
+      "objectName": "调薪记录",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "涨幅ID",
+          "attributeCode": "MeritIncrease.increase_id",
+          "dataType": "string",
+          "value": "MI-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "比例",
+          "attributeCode": "MeritIncrease.pct",
+          "dataType": "number",
+          "value": 5.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "MeritIncrease.status",
+          "dataType": "string",
+          "value": "applied",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "调薪针对员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "调薪修改薪酬包",
+          "targetInstanceId": 15,
+          "targetInstanceName": "员工薪酬包_004",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "MeritIncrease_002",
+      "instanceName": "调薪记录_002",
+      "objectId": 12,
+      "objectName": "调薪记录",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "涨幅ID",
+          "attributeCode": "MeritIncrease.increase_id",
+          "dataType": "string",
+          "value": "MI-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "比例",
+          "attributeCode": "MeritIncrease.pct",
+          "dataType": "number",
+          "value": 3.8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "MeritIncrease.status",
+          "dataType": "string",
+          "value": "applied",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "调薪针对员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "调薪修改薪酬包",
+          "targetInstanceId": 14,
+          "targetInstanceName": "员工薪酬包_003",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "MeritIncrease_003",
+      "instanceName": "调薪记录_003",
+      "objectId": 12,
+      "objectName": "调薪记录",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "涨幅ID",
+          "attributeCode": "MeritIncrease.increase_id",
+          "dataType": "string",
+          "value": "MI-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "比例",
+          "attributeCode": "MeritIncrease.pct",
+          "dataType": "number",
+          "value": 7.1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "MeritIncrease.status",
+          "dataType": "string",
+          "value": "applied",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "调薪针对员工",
+          "targetInstanceId": 27,
+          "targetInstanceName": "员工_001",
+          "targetObjectId": 8,
+          "targetObjectName": "员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "调薪修改薪酬包",
+          "targetInstanceId": 13,
+          "targetInstanceName": "员工薪酬包_002",
+          "targetObjectId": 3,
+          "targetObjectName": "员工薪酬包",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 7,
+      "actionName": "终止报名",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        31
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "福利投保_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 4,
+      "actionName": "过期套餐",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "员工薪酬包_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 2,
+      "actionName": "审批套餐",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "员工薪酬包_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 3,
+      "actionName": "激活套餐",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "员工薪酬包_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 3,
+      "actionName": "激活套餐",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "员工薪酬包_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 4,
+      "actionName": "过期套餐",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "员工薪酬包_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 8,
+      "actionName": "处理薪资发放",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "工资发放批次_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 12,
+      "actionName": "审批绩效调薪",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        35
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "调薪记录_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 13,
+      "actionName": "执行绩效调薪",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        34
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "调薪记录_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 4,
+      "actionName": "过期套餐",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "员工薪酬包_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 10,
+      "actionName": "薪资发放失败",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "工资发放批次_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 13,
+      "actionName": "执行绩效调薪",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        35
+      ],
+      "inputInstanceNames": [
+        "员工_001"
+      ],
+      "outputInstanceNames": [
+        "调薪记录_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

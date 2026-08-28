@@ -1,0 +1,44 @@
+你是一个本体建模专家。请从下面文本中抽取“概括性概念候选”和“概念之间的候选关系”，只输出合法 JSON。
+
+目标：
+- 构建简洁的概念层本体，不要构建事实流水账。
+- 优先抽象概念、对象类型、业务环节、状态类型、风险类型、资源类型、行为类型。
+- 不要把具体编号、具体姓名、单次事件、具体数值、日期、地点门牌、文档章节标题当成本体类。
+- 每个 chunk 最多输出 {max_candidates} 个概念。
+- 概念抽象程度偏好：{abstraction_level}。
+- 关系谓词只能从以下词表选择：{relation_vocab}。
+
+用户补充说明：
+{supplemental_prompt}
+
+输出 JSON 格式：
+{
+  "concepts": [
+    {
+      "name": "概念名称",
+      "definition": "一句话定义这个概念在本文档领域中的含义",
+      "abstraction_level": "high|medium|low",
+      "aliases": ["同义词或近义说法"],
+      "evidence": ["支撑该概念的短证据句，最多 3 条"],
+      "should_be_class": true
+    }
+  ],
+  "relations": [
+    {
+      "source": "概念名称",
+      "predicate": "包含|属于|导致|依赖|触发|产生|影响|约束|输入|输出|关联",
+      "target": "概念名称",
+      "evidence": ["支撑关系的短证据句，最多 2 条"],
+      "confidence": 0.0
+    }
+  ]
+}
+
+约束：
+- source 和 target 必须引用 concepts 中已经输出的 name 或 aliases。
+- 如果文本只提供具体实例，请把它们概括为类型后输出。
+- 如果信息不足，输出空数组。
+- 不要输出 Markdown，不要解释。
+
+文本：
+{chunk_text}

@@ -1,0 +1,4867 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "电信·telecom_T5_network_optimization",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=telecom_T5_network_optimization，graph=telecom_T5_network_optimization_seed42）：13 个对象类型 / 19 个关系 / 14 个动作 / 39 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "网络节点",
+      "objectCode": "NetworkElement",
+      "description": "网络节点",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "NE001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Cell",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "normal",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "供应商",
+          "attributeCode": "NetworkElement.vendor",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "huawei",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "无线小区",
+      "objectCode": "Cell",
+      "description": "无线小区",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "方位角",
+          "attributeCode": "Cell.azimuth",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 120,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "频率(MHz)",
+          "attributeCode": "Cell.frequency_mhz",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 2600,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "网元ID",
+          "attributeCode": "Cell.ne_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "NE1001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "网元类型",
+          "attributeCode": "Cell.ne_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Cell",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Cell.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "tuning",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "供应商",
+          "attributeCode": "Cell.vendor",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "huawei",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "节点间物理/逻辑链路",
+      "objectCode": "Link",
+      "description": "节点间物理/逻辑链路",
+      "attributes": [
+        {
+          "attributeId": 11,
+          "attributeName": "容量(Gbps)",
+          "attributeCode": "Link.capacity_gbps",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 10.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "链路ID",
+          "attributeCode": "Link.link_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "L-2024-A1",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Link.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "up",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "利用率",
+          "attributeCode": "Link.utilization",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.35,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "站点",
+      "objectCode": "Site",
+      "description": "站点",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "纬度",
+          "attributeCode": "Site.lat",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 39.9042,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "经度",
+          "attributeCode": "Site.lon",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 116.4074,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "S001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "地理区域",
+      "objectCode": "Region",
+      "description": "地理区域",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Region_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "网络优化任务",
+      "objectCode": "OptimizationTask",
+      "description": "网络优化任务",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "目标",
+          "attributeCode": "OptimizationTask.objective",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "coverage",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "OptimizationTask.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "rolled_back",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "任务ID",
+          "attributeCode": "OptimizationTask.task_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "KPI 指标",
+      "objectCode": "KPIMetric",
+      "description": "KPI 指标",
+      "attributes": [
+        {
+          "attributeId": 23,
+          "attributeName": "指标ID",
+          "attributeCode": "KPIMetric.metric_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "KPIMetric_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "KPIMetric.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "rsrp",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "KPIMetric.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "normal",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "值",
+          "attributeCode": "KPIMetric.value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": -95.3,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "网元参数变更",
+      "objectCode": "ConfigChange",
+      "description": "网元参数变更",
+      "attributes": [
+        {
+          "attributeId": 27,
+          "attributeName": "变更ID",
+          "attributeCode": "ConfigChange.change_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CHG-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "参数",
+          "attributeCode": "ConfigChange.parameter",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "小区重选迟滞",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "ConfigChange.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "reverted",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "小区邻区关系",
+      "objectCode": "Neighbor",
+      "description": "小区邻区关系",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "邻区ID",
+          "attributeCode": "Neighbor.neighbor_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "NBR-2024-A01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "关系类型",
+          "attributeCode": "Neighbor.relation_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "intra_freq",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "网元告警",
+      "objectCode": "Alarm",
+      "description": "网元告警",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ALM20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "优化工程师",
+      "objectCode": "Engineer",
+      "description": "优化工程师",
+      "attributes": [
+        {
+          "attributeId": 35,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ENG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "小区覆盖质量评估",
+      "objectCode": "Coverage",
+      "description": "小区覆盖质量评估",
+      "attributes": [
+        {
+          "attributeId": 37,
+          "attributeName": "覆盖ID",
+          "attributeCode": "Coverage.coverage_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CVRG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "质量",
+          "attributeCode": "Coverage.quality",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "good",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "优化效果报告",
+      "objectCode": "Report",
+      "description": "优化效果报告",
+      "attributes": [
+        {
+          "attributeId": 39,
+          "attributeName": "报告ID",
+          "attributeCode": "Report.report_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OPT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "状态",
+          "attributeCode": "Report.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "archived",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "网络节点",
+      "targetObjectId": 4,
+      "targetObjectName": "站点",
+      "linkInfo": "网元位于站点",
+      "linkType": "N:1",
+      "description": "ne_at_site",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 4,
+      "sourceObjectName": "站点",
+      "targetObjectId": 5,
+      "targetObjectName": "地理区域",
+      "linkInfo": "站点位于区域",
+      "linkType": "N:1",
+      "description": "site_in_region",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "节点间物理/逻辑链路",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "链路起点",
+      "linkType": "N:1",
+      "description": "link_from_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 3,
+      "sourceObjectName": "节点间物理/逻辑链路",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "链路终点",
+      "linkType": "N:1",
+      "description": "link_to_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 1,
+      "sourceObjectName": "网络节点",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "网元互为邻接（成环）",
+      "linkType": "N:M",
+      "description": "ne_neighbors_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 2,
+      "sourceObjectName": "无线小区",
+      "targetObjectId": 9,
+      "targetObjectName": "小区邻区关系",
+      "linkInfo": "小区邻区关系",
+      "linkType": "1:N",
+      "description": "cell_neighbor_relation",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 9,
+      "sourceObjectName": "小区邻区关系",
+      "targetObjectId": 2,
+      "targetObjectName": "无线小区",
+      "linkInfo": "邻区指向小区（环关系一端）",
+      "linkType": "N:1",
+      "description": "neighbor_to_cell",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 6,
+      "sourceObjectName": "网络优化任务",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "优化任务目标网元",
+      "linkType": "N:M",
+      "description": "task_targets_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 6,
+      "sourceObjectName": "网络优化任务",
+      "targetObjectId": 11,
+      "targetObjectName": "优化工程师",
+      "linkInfo": "任务负责人",
+      "linkType": "N:1",
+      "description": "task_owned_by_engineer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 7,
+      "sourceObjectName": "KPI 指标",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "KPI 归属网元",
+      "linkType": "N:1",
+      "description": "kpi_of_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 6,
+      "sourceObjectName": "网络优化任务",
+      "targetObjectId": 7,
+      "targetObjectName": "KPI 指标",
+      "linkInfo": "任务关注 KPI",
+      "linkType": "N:M",
+      "description": "task_uses_kpi",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 8,
+      "sourceObjectName": "网元参数变更",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "配置变更作用网元",
+      "linkType": "N:1",
+      "description": "change_for_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 6,
+      "sourceObjectName": "网络优化任务",
+      "targetObjectId": 8,
+      "targetObjectName": "网元参数变更",
+      "linkInfo": "任务包含配置变更",
+      "linkType": "1:N",
+      "description": "task_includes_change",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 10,
+      "sourceObjectName": "网元告警",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "告警归属网元",
+      "linkType": "N:1",
+      "description": "alarm_on_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 6,
+      "sourceObjectName": "网络优化任务",
+      "targetObjectId": 10,
+      "targetObjectName": "网元告警",
+      "linkInfo": "告警触发任务",
+      "linkType": "N:M",
+      "description": "task_triggered_by_alarm",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 12,
+      "sourceObjectName": "小区覆盖质量评估",
+      "targetObjectId": 2,
+      "targetObjectName": "无线小区",
+      "linkInfo": "覆盖评估归属小区",
+      "linkType": "N:1",
+      "description": "coverage_of_cell",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 13,
+      "sourceObjectName": "优化效果报告",
+      "targetObjectId": 6,
+      "targetObjectName": "网络优化任务",
+      "linkInfo": "报告对应任务",
+      "linkType": "1:1",
+      "description": "report_for_task",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 11,
+      "sourceObjectName": "优化工程师",
+      "targetObjectId": 10,
+      "targetObjectName": "网元告警",
+      "linkInfo": "工程师处理告警",
+      "linkType": "N:M",
+      "description": "engineer_handles_alarm",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 2,
+      "sourceObjectName": "无线小区",
+      "targetObjectId": 1,
+      "targetObjectName": "网络节点",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Cell is-a NetworkElement",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "排程任务",
+      "actionCode": "plan_task",
+      "description": "执行者：优化工程师；对象：网络优化任务",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络优化任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "开始任务",
+      "actionCode": "start_task",
+      "description": "执行者：优化工程师；对象：网络优化任务",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络优化任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "完成任务",
+      "actionCode": "complete_task",
+      "description": "执行者：优化工程师；对象：网络优化任务",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络优化任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "回滚任务",
+      "actionCode": "rollback_task",
+      "description": "执行者：优化工程师；对象：网络优化任务",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络优化任务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "提出配置",
+      "actionCode": "propose_config",
+      "description": "执行者：优化工程师；对象：网元参数变更",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网元参数变更"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "应用配置",
+      "actionCode": "apply_config",
+      "description": "执行者：优化工程师；对象：网元参数变更",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网元参数变更"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "回退配置",
+      "actionCode": "revert_config",
+      "description": "执行者：优化工程师；对象：网元参数变更",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网元参数变更"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "actionCode": "block_ne",
+      "description": "执行者：优化工程师；对象：网络节点",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络节点"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "解封网元",
+      "actionCode": "unblock_ne",
+      "description": "执行者：优化工程师；对象：网络节点",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络节点"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "调优网元",
+      "actionCode": "tune_ne",
+      "description": "执行者：优化工程师；对象：网络节点",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络节点"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "完成调优",
+      "actionCode": "finish_tuning",
+      "description": "执行者：优化工程师；对象：网络节点",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网络节点"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "签发报告",
+      "actionCode": "issue_report",
+      "description": "执行者：优化工程师；对象：优化效果报告",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "优化效果报告"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "归档报告",
+      "actionCode": "archive_report",
+      "description": "执行者：优化工程师；对象：优化效果报告",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "优化效果报告"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "清除告警",
+      "actionCode": "clear_alarm",
+      "description": "执行者：优化工程师；对象：网元告警",
+      "inputObjects": [
+        "优化工程师"
+      ],
+      "outputObjects": [
+        "网元告警"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "NetworkElement_001",
+      "instanceName": "网络节点_001",
+      "objectId": 1,
+      "objectName": "网络节点",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "Cell",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "供应商",
+          "attributeCode": "NetworkElement.vendor",
+          "dataType": "string",
+          "value": "huawei",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 13,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 4,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 1,
+          "targetInstanceName": "网络节点_001",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "NetworkElement_002",
+      "instanceName": "网络节点_002",
+      "objectId": 1,
+      "objectName": "网络节点",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "Antenna",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "blocked",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "供应商",
+          "attributeCode": "NetworkElement.vendor",
+          "dataType": "string",
+          "value": "ericsson",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 13,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 4,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 6,
+          "targetInstanceName": "网络节点_006",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 5,
+          "targetInstanceName": "网络节点_005",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "NetworkElement_003",
+      "instanceName": "网络节点_003",
+      "objectId": 1,
+      "objectName": "网络节点",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "BBU",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "供应商",
+          "attributeCode": "NetworkElement.vendor",
+          "dataType": "string",
+          "value": "nokia",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 14,
+          "targetInstanceName": "站点_002",
+          "targetObjectId": 4,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 5,
+          "targetInstanceName": "网络节点_005",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 2,
+          "targetInstanceName": "网络节点_002",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "NetworkElement_004",
+      "instanceName": "网络节点_004",
+      "objectId": 1,
+      "objectName": "网络节点",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "RRU",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "供应商",
+          "attributeCode": "NetworkElement.vendor",
+          "dataType": "string",
+          "value": "zte",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 13,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 4,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "NetworkElement_005",
+      "instanceName": "网络节点_005",
+      "objectId": 1,
+      "objectName": "网络节点",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "Router",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "blocked",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "供应商",
+          "attributeCode": "NetworkElement.vendor",
+          "dataType": "string",
+          "value": "huawei",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 13,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 4,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 3,
+          "targetInstanceName": "网络节点_003",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 4,
+          "targetInstanceName": "网络节点_004",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "NetworkElement_006",
+      "instanceName": "网络节点_006",
+      "objectId": 1,
+      "objectName": "网络节点",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "Cell",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "tuning",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "供应商",
+          "attributeCode": "NetworkElement.vendor",
+          "dataType": "string",
+          "value": "nokia",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 14,
+          "targetInstanceName": "站点_002",
+          "targetObjectId": 4,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 2,
+          "targetInstanceName": "网络节点_002",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Cell_001",
+      "instanceName": "无线小区_001",
+      "objectId": 2,
+      "objectName": "无线小区",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "方位角",
+          "attributeCode": "Cell.azimuth",
+          "dataType": "integer",
+          "value": 120,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "频率(MHz)",
+          "attributeCode": "Cell.frequency_mhz",
+          "dataType": "integer",
+          "value": 2600,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "网元ID",
+          "attributeCode": "Cell.ne_id",
+          "dataType": "string",
+          "value": "NE1001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "网元类型",
+          "attributeCode": "Cell.ne_type",
+          "dataType": "string",
+          "value": "Cell",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Cell.status",
+          "dataType": "string",
+          "value": "tuning",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "供应商",
+          "attributeCode": "Cell.vendor",
+          "dataType": "string",
+          "value": "huawei",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 13,
+          "targetInstanceName": "站点_001",
+          "targetObjectId": 4,
+          "targetObjectName": "站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 6,
+          "targetInstanceName": "网络节点_006",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "网元互为邻接（成环）",
+          "targetInstanceId": 3,
+          "targetInstanceName": "网络节点_003",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "小区邻区关系",
+          "targetInstanceId": 29,
+          "targetInstanceName": "小区邻区关系_001",
+          "targetObjectId": 9,
+          "targetObjectName": "小区邻区关系",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "小区邻区关系",
+          "targetInstanceId": 30,
+          "targetInstanceName": "小区邻区关系_002",
+          "targetObjectId": 9,
+          "targetObjectName": "小区邻区关系",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Link_001",
+      "instanceName": "节点间物理/逻辑链路_001",
+      "objectId": 3,
+      "objectName": "节点间物理/逻辑链路",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "容量(Gbps)",
+          "attributeCode": "Link.capacity_gbps",
+          "dataType": "number",
+          "value": 10.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "链路ID",
+          "attributeCode": "Link.link_id",
+          "dataType": "string",
+          "value": "L-2024-A1",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Link.status",
+          "dataType": "string",
+          "value": "up",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "利用率",
+          "attributeCode": "Link.utilization",
+          "dataType": "number",
+          "value": 0.35,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "链路起点",
+          "targetInstanceId": 5,
+          "targetInstanceName": "网络节点_005",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "链路终点",
+          "targetInstanceId": 4,
+          "targetInstanceName": "网络节点_004",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Link_002",
+      "instanceName": "节点间物理/逻辑链路_002",
+      "objectId": 3,
+      "objectName": "节点间物理/逻辑链路",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "容量(Gbps)",
+          "attributeCode": "Link.capacity_gbps",
+          "dataType": "number",
+          "value": 40.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "链路ID",
+          "attributeCode": "Link.link_id",
+          "dataType": "string",
+          "value": "L-2024-B2",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Link.status",
+          "dataType": "string",
+          "value": "congested",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "利用率",
+          "attributeCode": "Link.utilization",
+          "dataType": "number",
+          "value": 0.82,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "链路起点",
+          "targetInstanceId": 3,
+          "targetInstanceName": "网络节点_003",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "链路终点",
+          "targetInstanceId": 5,
+          "targetInstanceName": "网络节点_005",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Link_003",
+      "instanceName": "节点间物理/逻辑链路_003",
+      "objectId": 3,
+      "objectName": "节点间物理/逻辑链路",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "容量(Gbps)",
+          "attributeCode": "Link.capacity_gbps",
+          "dataType": "number",
+          "value": 100.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "链路ID",
+          "attributeCode": "Link.link_id",
+          "dataType": "string",
+          "value": "L-2024-C3",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Link.status",
+          "dataType": "string",
+          "value": "up",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "利用率",
+          "attributeCode": "Link.utilization",
+          "dataType": "number",
+          "value": 0.12,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "链路起点",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "链路终点",
+          "targetInstanceId": 1,
+          "targetInstanceName": "网络节点_001",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Link_004",
+      "instanceName": "节点间物理/逻辑链路_004",
+      "objectId": 3,
+      "objectName": "节点间物理/逻辑链路",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "容量(Gbps)",
+          "attributeCode": "Link.capacity_gbps",
+          "dataType": "number",
+          "value": 25.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "链路ID",
+          "attributeCode": "Link.link_id",
+          "dataType": "string",
+          "value": "L-2024-D4",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Link.status",
+          "dataType": "string",
+          "value": "down",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "利用率",
+          "attributeCode": "Link.utilization",
+          "dataType": "number",
+          "value": 0.96,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "链路起点",
+          "targetInstanceId": 1,
+          "targetInstanceName": "网络节点_001",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "链路终点",
+          "targetInstanceId": 4,
+          "targetInstanceName": "网络节点_004",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Link_005",
+      "instanceName": "节点间物理/逻辑链路_005",
+      "objectId": 3,
+      "objectName": "节点间物理/逻辑链路",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "容量(Gbps)",
+          "attributeCode": "Link.capacity_gbps",
+          "dataType": "number",
+          "value": 10.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "链路ID",
+          "attributeCode": "Link.link_id",
+          "dataType": "string",
+          "value": "L-2024-E5",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Link.status",
+          "dataType": "string",
+          "value": "up",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "利用率",
+          "attributeCode": "Link.utilization",
+          "dataType": "number",
+          "value": 0.47,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "链路起点",
+          "targetInstanceId": 6,
+          "targetInstanceName": "网络节点_006",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "链路终点",
+          "targetInstanceId": 1,
+          "targetInstanceName": "网络节点_001",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Site_001",
+      "instanceName": "站点_001",
+      "objectId": 4,
+      "objectName": "站点",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "纬度",
+          "attributeCode": "Site.lat",
+          "dataType": "number",
+          "value": 39.9042,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "经度",
+          "attributeCode": "Site.lon",
+          "dataType": "number",
+          "value": 116.4074,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "value": "S001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "站点位于区域",
+          "targetInstanceId": 16,
+          "targetInstanceName": "地理区域_002",
+          "targetObjectId": 5,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Site_002",
+      "instanceName": "站点_002",
+      "objectId": 4,
+      "objectName": "站点",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "纬度",
+          "attributeCode": "Site.lat",
+          "dataType": "number",
+          "value": 31.2304,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "经度",
+          "attributeCode": "Site.lon",
+          "dataType": "number",
+          "value": 121.4737,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "value": "S002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "站点位于区域",
+          "targetInstanceId": 16,
+          "targetInstanceName": "地理区域_002",
+          "targetObjectId": 5,
+          "targetObjectName": "地理区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Region_001",
+      "instanceName": "地理区域_001",
+      "objectId": 5,
+      "objectName": "地理区域",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华东地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Region_002",
+      "instanceName": "地理区域_002",
+      "objectId": 5,
+      "objectName": "地理区域",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华南地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "OptimizationTask_001",
+      "instanceName": "网络优化任务_001",
+      "objectId": 6,
+      "objectName": "网络优化任务",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "目标",
+          "attributeCode": "OptimizationTask.objective",
+          "dataType": "string",
+          "value": "coverage",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "OptimizationTask.status",
+          "dataType": "string",
+          "value": "rolled_back",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "任务ID",
+          "attributeCode": "OptimizationTask.task_id",
+          "dataType": "string",
+          "value": "OT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "任务负责人",
+          "targetInstanceId": 33,
+          "targetInstanceName": "优化工程师_002",
+          "targetObjectId": 11,
+          "targetObjectName": "优化工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "任务关注 KPI",
+          "targetInstanceId": 23,
+          "targetInstanceName": "KPI 指标_001",
+          "targetObjectId": 7,
+          "targetObjectName": "KPI 指标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "任务关注 KPI",
+          "targetInstanceId": 24,
+          "targetInstanceName": "KPI 指标_002",
+          "targetObjectId": 7,
+          "targetObjectName": "KPI 指标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "OptimizationTask_002",
+      "instanceName": "网络优化任务_002",
+      "objectId": 6,
+      "objectName": "网络优化任务",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "目标",
+          "attributeCode": "OptimizationTask.objective",
+          "dataType": "string",
+          "value": "capacity",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "OptimizationTask.status",
+          "dataType": "string",
+          "value": "rolled_back",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "任务ID",
+          "attributeCode": "OptimizationTask.task_id",
+          "dataType": "string",
+          "value": "OT-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 3,
+          "targetInstanceName": "网络节点_003",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 5,
+          "targetInstanceName": "网络节点_005",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "任务负责人",
+          "targetInstanceId": 35,
+          "targetInstanceName": "优化工程师_004",
+          "targetObjectId": 11,
+          "targetObjectName": "优化工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "任务包含配置变更",
+          "targetInstanceId": 28,
+          "targetInstanceName": "网元参数变更_004",
+          "targetObjectId": 8,
+          "targetObjectName": "网元参数变更",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "OptimizationTask_003",
+      "instanceName": "网络优化任务_003",
+      "objectId": 6,
+      "objectName": "网络优化任务",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "目标",
+          "attributeCode": "OptimizationTask.objective",
+          "dataType": "string",
+          "value": "interference",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "OptimizationTask.status",
+          "dataType": "string",
+          "value": "rolled_back",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "任务ID",
+          "attributeCode": "OptimizationTask.task_id",
+          "dataType": "string",
+          "value": "OT-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 2,
+          "targetInstanceName": "网络节点_002",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "任务负责人",
+          "targetInstanceId": 35,
+          "targetInstanceName": "优化工程师_004",
+          "targetObjectId": 11,
+          "targetObjectName": "优化工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "任务包含配置变更",
+          "targetInstanceId": 27,
+          "targetInstanceName": "网元参数变更_003",
+          "targetObjectId": 8,
+          "targetObjectName": "网元参数变更",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "OptimizationTask_004",
+      "instanceName": "网络优化任务_004",
+      "objectId": 6,
+      "objectName": "网络优化任务",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "目标",
+          "attributeCode": "OptimizationTask.objective",
+          "dataType": "string",
+          "value": "handover",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "OptimizationTask.status",
+          "dataType": "string",
+          "value": "rolled_back",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "任务ID",
+          "attributeCode": "OptimizationTask.task_id",
+          "dataType": "string",
+          "value": "OT-2024-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "任务负责人",
+          "targetInstanceId": 34,
+          "targetInstanceName": "优化工程师_003",
+          "targetObjectId": 11,
+          "targetObjectName": "优化工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "OptimizationTask_005",
+      "instanceName": "网络优化任务_005",
+      "objectId": 6,
+      "objectName": "网络优化任务",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "目标",
+          "attributeCode": "OptimizationTask.objective",
+          "dataType": "string",
+          "value": "coverage",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "OptimizationTask.status",
+          "dataType": "string",
+          "value": "rolled_back",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "任务ID",
+          "attributeCode": "OptimizationTask.task_id",
+          "dataType": "string",
+          "value": "OT-2024-005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 6,
+          "targetInstanceName": "网络节点_006",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "任务负责人",
+          "targetInstanceId": 33,
+          "targetInstanceName": "优化工程师_002",
+          "targetObjectId": 11,
+          "targetObjectName": "优化工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "任务包含配置变更",
+          "targetInstanceId": 25,
+          "targetInstanceName": "网元参数变更_001",
+          "targetObjectId": 8,
+          "targetObjectName": "网元参数变更",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "OptimizationTask_006",
+      "instanceName": "网络优化任务_006",
+      "objectId": 6,
+      "objectName": "网络优化任务",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "目标",
+          "attributeCode": "OptimizationTask.objective",
+          "dataType": "string",
+          "value": "capacity",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "OptimizationTask.status",
+          "dataType": "string",
+          "value": "rolled_back",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "任务ID",
+          "attributeCode": "OptimizationTask.task_id",
+          "dataType": "string",
+          "value": "OT-2024-006",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 3,
+          "targetInstanceName": "网络节点_003",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 6,
+          "targetInstanceName": "网络节点_006",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 1,
+          "targetInstanceName": "网络节点_001",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "优化任务目标网元",
+          "targetInstanceId": 2,
+          "targetInstanceName": "网络节点_002",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "任务负责人",
+          "targetInstanceId": 34,
+          "targetInstanceName": "优化工程师_003",
+          "targetObjectId": 11,
+          "targetObjectName": "优化工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "任务包含配置变更",
+          "targetInstanceId": 26,
+          "targetInstanceName": "网元参数变更_002",
+          "targetObjectId": 8,
+          "targetObjectName": "网元参数变更",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "任务包含配置变更",
+          "targetInstanceId": 28,
+          "targetInstanceName": "网元参数变更_004",
+          "targetObjectId": 8,
+          "targetObjectName": "网元参数变更",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "告警触发任务",
+          "targetInstanceId": 31,
+          "targetInstanceName": "网元告警_001",
+          "targetObjectId": 10,
+          "targetObjectName": "网元告警",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "KPIMetric_001",
+      "instanceName": "KPI 指标_001",
+      "objectId": 7,
+      "objectName": "KPI 指标",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "指标ID",
+          "attributeCode": "KPIMetric.metric_id",
+          "dataType": "string",
+          "value": "KPIMetric_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "KPIMetric.name",
+          "dataType": "string",
+          "value": "rsrp",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "KPIMetric.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "值",
+          "attributeCode": "KPIMetric.value",
+          "dataType": "number",
+          "value": -95.3,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "KPI 归属网元",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "KPIMetric_002",
+      "instanceName": "KPI 指标_002",
+      "objectId": 7,
+      "objectName": "KPI 指标",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "指标ID",
+          "attributeCode": "KPIMetric.metric_id",
+          "dataType": "string",
+          "value": "KPIMetric_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "KPIMetric.name",
+          "dataType": "string",
+          "value": "drop_rate",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "KPIMetric.status",
+          "dataType": "string",
+          "value": "degraded",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "值",
+          "attributeCode": "KPIMetric.value",
+          "dataType": "number",
+          "value": 0.87,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "KPI 归属网元",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "ConfigChange_001",
+      "instanceName": "网元参数变更_001",
+      "objectId": 8,
+      "objectName": "网元参数变更",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "变更ID",
+          "attributeCode": "ConfigChange.change_id",
+          "dataType": "string",
+          "value": "CHG-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "参数",
+          "attributeCode": "ConfigChange.parameter",
+          "dataType": "string",
+          "value": "小区重选迟滞",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "ConfigChange.status",
+          "dataType": "string",
+          "value": "reverted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "配置变更作用网元",
+          "targetInstanceId": 4,
+          "targetInstanceName": "网络节点_004",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "ConfigChange_002",
+      "instanceName": "网元参数变更_002",
+      "objectId": 8,
+      "objectName": "网元参数变更",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "变更ID",
+          "attributeCode": "ConfigChange.change_id",
+          "dataType": "string",
+          "value": "CHG-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "参数",
+          "attributeCode": "ConfigChange.parameter",
+          "dataType": "string",
+          "value": "功率控制步长",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "ConfigChange.status",
+          "dataType": "string",
+          "value": "reverted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "配置变更作用网元",
+          "targetInstanceId": 3,
+          "targetInstanceName": "网络节点_003",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "ConfigChange_003",
+      "instanceName": "网元参数变更_003",
+      "objectId": 8,
+      "objectName": "网元参数变更",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "变更ID",
+          "attributeCode": "ConfigChange.change_id",
+          "dataType": "string",
+          "value": "CHG-2023-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "参数",
+          "attributeCode": "ConfigChange.parameter",
+          "dataType": "string",
+          "value": "切换触发时间",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "ConfigChange.status",
+          "dataType": "string",
+          "value": "reverted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "配置变更作用网元",
+          "targetInstanceId": 1,
+          "targetInstanceName": "网络节点_001",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "ConfigChange_004",
+      "instanceName": "网元参数变更_004",
+      "objectId": 8,
+      "objectName": "网元参数变更",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "变更ID",
+          "attributeCode": "ConfigChange.change_id",
+          "dataType": "string",
+          "value": "CHG-2023-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "参数",
+          "attributeCode": "ConfigChange.parameter",
+          "dataType": "string",
+          "value": "邻区偏置",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "ConfigChange.status",
+          "dataType": "string",
+          "value": "reverted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "配置变更作用网元",
+          "targetInstanceId": 2,
+          "targetInstanceName": "网络节点_002",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Neighbor_001",
+      "instanceName": "小区邻区关系_001",
+      "objectId": 9,
+      "objectName": "小区邻区关系",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "邻区ID",
+          "attributeCode": "Neighbor.neighbor_id",
+          "dataType": "string",
+          "value": "NBR-2024-A01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "关系类型",
+          "attributeCode": "Neighbor.relation_type",
+          "dataType": "string",
+          "value": "intra_freq",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "邻区指向小区（环关系一端）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Neighbor_002",
+      "instanceName": "小区邻区关系_002",
+      "objectId": 9,
+      "objectName": "小区邻区关系",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "邻区ID",
+          "attributeCode": "Neighbor.neighbor_id",
+          "dataType": "string",
+          "value": "NBR-2024-B02",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "关系类型",
+          "attributeCode": "Neighbor.relation_type",
+          "dataType": "string",
+          "value": "inter_freq",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "邻区指向小区（环关系一端）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Alarm_001",
+      "instanceName": "网元告警_001",
+      "objectId": 10,
+      "objectName": "网元告警",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "告警ID",
+          "attributeCode": "Alarm.alarm_id",
+          "dataType": "string",
+          "value": "ALM20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "级别",
+          "attributeCode": "Alarm.level",
+          "dataType": "string",
+          "value": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Alarm.status",
+          "dataType": "string",
+          "value": "cleared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "告警归属网元",
+          "targetInstanceId": 4,
+          "targetInstanceName": "网络节点_004",
+          "targetObjectId": 1,
+          "targetObjectName": "网络节点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Engineer_001",
+      "instanceName": "优化工程师_001",
+      "objectId": 11,
+      "objectName": "优化工程师",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "value": "ENG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Engineer_002",
+      "instanceName": "优化工程师_002",
+      "objectId": 11,
+      "objectName": "优化工程师",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "value": "ENG-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Engineer_003",
+      "instanceName": "优化工程师_003",
+      "objectId": 11,
+      "objectName": "优化工程师",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "value": "ENG-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "工程师处理告警",
+          "targetInstanceId": 31,
+          "targetInstanceName": "网元告警_001",
+          "targetObjectId": 10,
+          "targetObjectName": "网元告警",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Engineer_004",
+      "instanceName": "优化工程师_004",
+      "objectId": 11,
+      "objectName": "优化工程师",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "value": "ENG-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Coverage_001",
+      "instanceName": "小区覆盖质量评估_001",
+      "objectId": 12,
+      "objectName": "小区覆盖质量评估",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "覆盖ID",
+          "attributeCode": "Coverage.coverage_id",
+          "dataType": "string",
+          "value": "CVRG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "质量",
+          "attributeCode": "Coverage.quality",
+          "dataType": "string",
+          "value": "good",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "覆盖评估归属小区",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Coverage_002",
+      "instanceName": "小区覆盖质量评估_002",
+      "objectId": 12,
+      "objectName": "小区覆盖质量评估",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "覆盖ID",
+          "attributeCode": "Coverage.coverage_id",
+          "dataType": "string",
+          "value": "CVRG-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "质量",
+          "attributeCode": "Coverage.quality",
+          "dataType": "string",
+          "value": "weak",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "覆盖评估归属小区",
+          "targetInstanceId": 7,
+          "targetInstanceName": "无线小区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "无线小区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Report_001",
+      "instanceName": "优化效果报告_001",
+      "objectId": 13,
+      "objectName": "优化效果报告",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "报告ID",
+          "attributeCode": "Report.report_id",
+          "dataType": "string",
+          "value": "OPT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "状态",
+          "attributeCode": "Report.status",
+          "dataType": "string",
+          "value": "archived",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "报告对应任务",
+          "targetInstanceId": 22,
+          "targetInstanceName": "网络优化任务_006",
+          "targetObjectId": 6,
+          "targetObjectName": "网络优化任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Report_002",
+      "instanceName": "优化效果报告_002",
+      "objectId": 13,
+      "objectName": "优化效果报告",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "报告ID",
+          "attributeCode": "Report.report_id",
+          "dataType": "string",
+          "value": "OPT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "状态",
+          "attributeCode": "Report.status",
+          "dataType": "string",
+          "value": "archived",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "报告对应任务",
+          "targetInstanceId": 21,
+          "targetInstanceName": "网络优化任务_005",
+          "targetObjectId": 6,
+          "targetObjectName": "网络优化任务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 13,
+      "actionName": "归档报告",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "优化效果报告_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 6,
+      "actionName": "应用配置",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网元参数变更_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 4,
+      "actionName": "回滚任务",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络优化任务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 3,
+      "actionName": "完成任务",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络优化任务_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 7,
+      "actionName": "回退配置",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网元参数变更_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 14,
+      "actionName": "清除告警",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        31
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网元告警_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 2,
+      "actionName": "开始任务",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络优化任务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 4,
+      "actionName": "回滚任务",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络优化任务_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 4,
+      "actionName": "回滚任务",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络优化任务_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 7,
+      "actionName": "回退配置",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网元参数变更_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 7,
+      "actionName": "回退配置",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网元参数变更_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 12,
+      "actionName": "签发报告",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "优化效果报告_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 13,
+      "actionName": "归档报告",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "优化效果报告_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 4,
+      "actionName": "回滚任务",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络优化任务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 4,
+      "actionName": "回滚任务",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络优化任务_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_004"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_003"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 8,
+      "actionName": "冻结网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 11,
+      "actionName": "完成调优",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "优化工程师_002"
+      ],
+      "outputInstanceNames": [
+        "网络节点_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 10,
+      "actionName": "调优网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "无线小区_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 9,
+      "actionName": "解封网元",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "优化工程师_001"
+      ],
+      "outputInstanceNames": [
+        "网络节点_001"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

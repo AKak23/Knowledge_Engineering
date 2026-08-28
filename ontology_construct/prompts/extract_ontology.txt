@@ -1,0 +1,64 @@
+你是一个本体构建专家。从给定文本中提取知识三元组和具体实例。
+严格按照 JSON 格式输出，不要输出任何其他内容。
+不要使用 Markdown 代码块，不要输出解释、前言或总结。
+
+请从以下文本中提取重要对象类型、属性、关系、行动、具体实例以及行动调用，输出 JSON 格式的本体结构。
+
+要求：
+1. entities 表示本体对象类型或概念类型（即「类」），例如 公司、人物、订单、事件、地点。**不要**把具体名称放进 entities。
+   - 每个 entity 增加 primary_key 字段，填该对象类型最能唯一标识实例的属性名（如 公司 → "公司编号" 或 "名称"；订单 → "订单编号"）。该属性名应同时作为一条 object_type=literal 的属性出现。
+2. 属性 attribute 是对象类型的特征定义，作为 object_type=literal 的 triple。
+3. 关系 relation 是两个对象类型之间的关联，作为 object_type=entity 的 triple。
+   - 每条 object_type=entity 的 triple 需给出 cardinality，取值只能是 ONE_TO_ONE / ONE_TO_MANY / MANY_TO_ONE / MANY_TO_MANY（从 subject 看向 object：一个 subject 关联多少个 object、一个 object 被多少个 subject 关联）。
+4. 实体 id 必须在本 chunk 内唯一，例如 e1、e2。
+5. triple.subject 和 triple.object 使用实体 id；字面量值直接写入 triple.object。
+6. 如果无法确认实体类型，type 使用 Concept。
+7. confidence 是 0 到 1 之间的小数。
+8. 只保留本段最重要的信息，最多输出 20 个 entities、30 个 triples、15 个 instances 和 10 个 action_invocations。
+9. aliases 最多 3 个，attributes 只保留短值，不要复制长句原文。
+10. actions 表示对象类型上发生的行动定义（类层），例如 创建订单、审批。
+11. instances 表示对象类型的**具体实例**，例如「Apple Inc.」是「公司」的实例。
+    - 每个 instance 必须有 class 字段指向所属对象类型的 entity id。
+    - attribute_values 列出该实例的具体属性值，每项 {name, value}；value 使用 string/integer/number/boolean。
+    - link_values 列出该实例和其他实例之间的具体关系，每项 {predicate, target}；target 使用本 chunk 内其他 instance 的 id 或 name。
+12. action_invocations 表示具体的一次行动调用，引用某个 action 名称，并把 inputs/outputs 指向具体 instance 的 id 或 name。
+13. 如果文本没有可抽取的本体信息，输出 {"entities": [], "triples": [], "actions": [], "instances": [], "action_invocations": []}。
+
+输出格式：
+{
+  "entities": [
+    {"id": "e1", "name": "公司", "type": "Organization", "primary_key": "公司名称", "aliases": [], "attributes": {"说明": "营利性法人组织"}},
+    {"id": "e2", "name": "人物", "type": "Person", "primary_key": "姓名", "aliases": [], "attributes": {}}
+  ],
+  "triples": [
+    {"subject": "e1", "predicate": "公司名称", "object": "名称", "object_type": "literal", "confidence": 0.9},
+    {"subject": "e1", "predicate": "成立年份", "object": 1976, "object_type": "literal", "confidence": 0.9},
+    {"subject": "e1", "predicate": "雇佣", "object": "e2", "object_type": "entity", "cardinality": "ONE_TO_MANY", "confidence": 0.9}
+  ],
+  "actions": [
+    {"id": "a1", "name": "任命", "description": "公司任命某人担任职务", "inputs": ["e1"], "outputs": ["e2"]}
+  ],
+  "instances": [
+    {
+      "id": "i1",
+      "name": "Apple Inc.",
+      "class": "e1",
+      "attribute_values": [{"name": "成立年份", "value": 1976}],
+      "link_values": [{"predicate": "雇佣", "target": "i2"}],
+      "generated": false
+    },
+    {
+      "id": "i2",
+      "name": "Steve Jobs",
+      "class": "e2",
+      "attribute_values": [],
+      "link_values": []
+    }
+  ],
+  "action_invocations": [
+    {"id": "ai1", "action": "任命", "inputs": ["i1"], "outputs": ["i2"]}
+  ]
+}
+
+文本：
+{chunk_text}

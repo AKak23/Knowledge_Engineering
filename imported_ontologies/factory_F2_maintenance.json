@@ -1,0 +1,4438 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "智能工厂·factory_F2_maintenance",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=factory_F2_maintenance，graph=factory_F2_maintenance_seed47）：12 个对象类型 / 19 个关系 / 13 个动作 / 36 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "生产线",
+      "objectCode": "ProductionLine",
+      "description": "生产线",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "行号",
+          "attributeCode": "ProductionLine.line_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PL-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "ProductionLine.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "装配一线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "ProductionLine.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "running",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "资产父类型",
+      "objectCode": "Asset",
+      "description": "资产父类型",
+      "attributes": [
+        {
+          "attributeId": 4,
+          "attributeName": "资产ID",
+          "attributeCode": "Asset.asset_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Asset.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "主生产线装配机",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "设备",
+      "objectCode": "Machine",
+      "description": "设备",
+      "attributes": [
+        {
+          "attributeId": 6,
+          "attributeName": "资产ID",
+          "attributeCode": "Machine.asset_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ASSET-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "可用率",
+          "attributeCode": "Machine.availability",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.92,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "型号",
+          "attributeCode": "Machine.model",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CK6150D",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "Machine.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "数控车床A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "running",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "设备部件",
+      "objectCode": "Component",
+      "description": "设备部件",
+      "attributes": [
+        {
+          "attributeId": 11,
+          "attributeName": "资产ID",
+          "attributeCode": "Component.asset_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件类型",
+          "attributeCode": "Component.component_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "电机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Component.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "主驱动电机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Component.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "replaced",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "磨损级别",
+          "attributeCode": "Component.wear_level",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.23,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "维护工单",
+      "objectCode": "MaintenanceOrder",
+      "description": "维护工单",
+      "attributes": [
+        {
+          "attributeId": 16,
+          "attributeName": "类型",
+          "attributeCode": "MaintenanceOrder.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "preventive",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "订单ID",
+          "attributeCode": "MaintenanceOrder.order_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MO-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "排期日期",
+          "attributeCode": "MaintenanceOrder.scheduled_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-06-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "MaintenanceOrder.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "维护工程师",
+      "objectCode": "Technician",
+      "description": "维护工程师",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "Technician.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "技能等级",
+          "attributeCode": "Technician.skill_level",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "L2",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "技术员ID",
+          "attributeCode": "Technician.tech_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "T001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "备件",
+      "objectCode": "SparePart",
+      "description": "备件",
+      "attributes": [
+        {
+          "attributeId": 23,
+          "attributeName": "名称",
+          "attributeCode": "SparePart.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "主轴轴承",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "零件ID",
+          "attributeCode": "SparePart.part_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "库存数量",
+          "attributeCode": "SparePart.stock_qty",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 12,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "故障记录",
+      "objectCode": "FaultRecord",
+      "description": "故障记录",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "发生时间",
+          "attributeCode": "FaultRecord.occurred_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-12T08:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "记录ID",
+          "attributeCode": "FaultRecord.record_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "严重程度",
+          "attributeCode": "FaultRecord.severity",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "FaultRecord.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "周期性维护计划",
+      "objectCode": "MaintenancePlan",
+      "description": "周期性维护计划",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "间隔天数",
+          "attributeCode": "MaintenancePlan.interval_days",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 30,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "计划ID",
+          "attributeCode": "MaintenancePlan.plan_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "MaintenancePlan.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "deprecated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "传感器读数",
+      "objectCode": "Reading",
+      "description": "传感器读数",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "采集时间",
+          "attributeCode": "Reading.captured_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-20T14:30:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "指标",
+          "attributeCode": "Reading.metric",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "temperature",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "读数ID",
+          "attributeCode": "Reading.reading_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "R001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "值",
+          "attributeCode": "Reading.value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 42.5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "工作班次",
+      "objectCode": "WorkShift",
+      "description": "工作班次",
+      "attributes": [
+        {
+          "attributeId": 37,
+          "attributeName": "班次ID",
+          "attributeCode": "WorkShift.shift_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "WS-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "班次类型",
+          "attributeCode": "WorkShift.shift_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "day",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "车间",
+      "objectCode": "Workshop",
+      "description": "车间",
+      "attributes": [
+        {
+          "attributeId": 39,
+          "attributeName": "名称",
+          "attributeCode": "Workshop.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "装配车间",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "W001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "生产线",
+      "targetObjectId": 12,
+      "targetObjectName": "车间",
+      "linkInfo": "产线属于车间",
+      "linkType": "N:1",
+      "description": "line_in_workshop",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 1,
+      "sourceObjectName": "生产线",
+      "targetObjectId": 3,
+      "targetObjectName": "设备",
+      "linkInfo": "产线包含设备",
+      "linkType": "1:N",
+      "description": "line_has_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "设备",
+      "targetObjectId": 4,
+      "targetObjectName": "设备部件",
+      "linkInfo": "设备包含部件",
+      "linkType": "1:N",
+      "description": "machine_has_component",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 2,
+      "sourceObjectName": "资产父类型",
+      "targetObjectId": 3,
+      "targetObjectName": "设备",
+      "linkInfo": "资产分类",
+      "linkType": "1:1",
+      "description": "asset_classification",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 5,
+      "sourceObjectName": "维护工单",
+      "targetObjectId": 3,
+      "targetObjectName": "设备",
+      "linkInfo": "工单针对设备",
+      "linkType": "N:1",
+      "description": "order_for_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 5,
+      "sourceObjectName": "维护工单",
+      "targetObjectId": 4,
+      "targetObjectName": "设备部件",
+      "linkInfo": "工单涉及部件",
+      "linkType": "N:M",
+      "description": "order_for_component",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 5,
+      "sourceObjectName": "维护工单",
+      "targetObjectId": 6,
+      "targetObjectName": "维护工程师",
+      "linkInfo": "工单指派维护工",
+      "linkType": "N:1",
+      "description": "order_assigned_to",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 5,
+      "sourceObjectName": "维护工单",
+      "targetObjectId": 7,
+      "targetObjectName": "备件",
+      "linkInfo": "工单消耗备件",
+      "linkType": "N:M",
+      "description": "order_uses_part",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 8,
+      "sourceObjectName": "故障记录",
+      "targetObjectId": 3,
+      "targetObjectName": "设备",
+      "linkInfo": "故障归属设备",
+      "linkType": "N:1",
+      "description": "fault_on_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 8,
+      "sourceObjectName": "故障记录",
+      "targetObjectId": 4,
+      "targetObjectName": "设备部件",
+      "linkInfo": "故障归属部件",
+      "linkType": "N:1",
+      "description": "fault_on_component",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 8,
+      "sourceObjectName": "故障记录",
+      "targetObjectId": 5,
+      "targetObjectName": "维护工单",
+      "linkInfo": "故障触发工单",
+      "linkType": "1:N",
+      "description": "fault_triggers_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 9,
+      "sourceObjectName": "周期性维护计划",
+      "targetObjectId": 3,
+      "targetObjectName": "设备",
+      "linkInfo": "维护计划覆盖设备",
+      "linkType": "N:M",
+      "description": "plan_targets_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 9,
+      "sourceObjectName": "周期性维护计划",
+      "targetObjectId": 5,
+      "targetObjectName": "维护工单",
+      "linkInfo": "维护计划生成工单",
+      "linkType": "1:N",
+      "description": "plan_generates_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 10,
+      "sourceObjectName": "传感器读数",
+      "targetObjectId": 4,
+      "targetObjectName": "设备部件",
+      "linkInfo": "读数来自部件",
+      "linkType": "N:1",
+      "description": "reading_from_component",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 11,
+      "sourceObjectName": "工作班次",
+      "targetObjectId": 1,
+      "targetObjectName": "生产线",
+      "linkInfo": "班次覆盖产线",
+      "linkType": "N:M",
+      "description": "shift_covers_line",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 6,
+      "sourceObjectName": "维护工程师",
+      "targetObjectId": 11,
+      "targetObjectName": "工作班次",
+      "linkInfo": "维护工分配班次",
+      "linkType": "N:M",
+      "description": "technician_in_shift",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 12,
+      "sourceObjectName": "车间",
+      "targetObjectId": 7,
+      "targetObjectName": "备件",
+      "linkInfo": "车间存放备件",
+      "linkType": "N:M",
+      "description": "workshop_has_part_stock",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 3,
+      "sourceObjectName": "设备",
+      "targetObjectId": 2,
+      "targetObjectName": "资产父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Machine is-a Asset",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 4,
+      "sourceObjectName": "设备部件",
+      "targetObjectId": 2,
+      "targetObjectName": "资产父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Component is-a Asset",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "排期订单",
+      "actionCode": "schedule_order",
+      "description": "执行者：维护工程师；对象：维护工单",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "维护工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "开始订单",
+      "actionCode": "start_order",
+      "description": "执行者：维护工程师；对象：维护工单",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "维护工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "完成订单",
+      "actionCode": "complete_order",
+      "description": "执行者：维护工程师；对象：维护工单",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "维护工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "取消订单",
+      "actionCode": "cancel_order",
+      "description": "执行者：维护工程师；对象：维护工单",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "维护工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "actionCode": "set_machine_maintenance",
+      "description": "执行者：维护工程师；对象：设备",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "设备"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "actionCode": "restore_machine",
+      "description": "执行者：维护工程师；对象：设备",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "设备"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "上报故障",
+      "actionCode": "report_fault",
+      "description": "执行者：维护工程师；对象：设备",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "设备"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "更换组件",
+      "actionCode": "replace_component",
+      "description": "执行者：维护工程师；对象：设备部件",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "设备部件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "降级组件",
+      "actionCode": "degrade_component",
+      "description": "执行者：维护工程师；对象：设备部件",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "设备部件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "判定失败组件",
+      "actionCode": "fail_component",
+      "description": "执行者：维护工程师；对象：设备部件",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "设备部件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "激活计划",
+      "actionCode": "activate_plan",
+      "description": "执行者：维护工程师；对象：周期性维护计划",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "周期性维护计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "弃用计划",
+      "actionCode": "deprecate_plan",
+      "description": "执行者：维护工程师；对象：周期性维护计划",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "周期性维护计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "解决故障",
+      "actionCode": "resolve_fault",
+      "description": "执行者：维护工程师；对象：故障记录",
+      "inputObjects": [
+        "维护工程师"
+      ],
+      "outputObjects": [
+        "故障记录"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "ProductionLine_001",
+      "instanceName": "生产线_001",
+      "objectId": 1,
+      "objectName": "生产线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "行号",
+          "attributeCode": "ProductionLine.line_id",
+          "dataType": "string",
+          "value": "PL-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "ProductionLine.name",
+          "dataType": "string",
+          "value": "装配一线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "ProductionLine.status",
+          "dataType": "string",
+          "value": "running",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "产线属于车间",
+          "targetInstanceId": 33,
+          "targetInstanceName": "车间_002",
+          "targetObjectId": 12,
+          "targetObjectName": "车间",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "产线包含设备",
+          "targetInstanceId": 8,
+          "targetInstanceName": "设备_001",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "ProductionLine_002",
+      "instanceName": "生产线_002",
+      "objectId": 1,
+      "objectName": "生产线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "行号",
+          "attributeCode": "ProductionLine.line_id",
+          "dataType": "string",
+          "value": "PL-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "ProductionLine.name",
+          "dataType": "string",
+          "value": "喷涂二线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "ProductionLine.status",
+          "dataType": "string",
+          "value": "idle",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "产线属于车间",
+          "targetInstanceId": 36,
+          "targetInstanceName": "车间_005",
+          "targetObjectId": 12,
+          "targetObjectName": "车间",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "ProductionLine_003",
+      "instanceName": "生产线_003",
+      "objectId": 1,
+      "objectName": "生产线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "行号",
+          "attributeCode": "ProductionLine.line_id",
+          "dataType": "string",
+          "value": "PL-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "ProductionLine.name",
+          "dataType": "string",
+          "value": "焊接三线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "ProductionLine.status",
+          "dataType": "string",
+          "value": "stopped",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "产线属于车间",
+          "targetInstanceId": 36,
+          "targetInstanceName": "车间_005",
+          "targetObjectId": 12,
+          "targetObjectName": "车间",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "ProductionLine_004",
+      "instanceName": "生产线_004",
+      "objectId": 1,
+      "objectName": "生产线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "行号",
+          "attributeCode": "ProductionLine.line_id",
+          "dataType": "string",
+          "value": "PL-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "ProductionLine.name",
+          "dataType": "string",
+          "value": "冲压四线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "ProductionLine.status",
+          "dataType": "string",
+          "value": "running",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "产线属于车间",
+          "targetInstanceId": 34,
+          "targetInstanceName": "车间_003",
+          "targetObjectId": 12,
+          "targetObjectName": "车间",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "ProductionLine_005",
+      "instanceName": "生产线_005",
+      "objectId": 1,
+      "objectName": "生产线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "行号",
+          "attributeCode": "ProductionLine.line_id",
+          "dataType": "string",
+          "value": "PL-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "ProductionLine.name",
+          "dataType": "string",
+          "value": "总装五线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "ProductionLine.status",
+          "dataType": "string",
+          "value": "idle",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "产线属于车间",
+          "targetInstanceId": 35,
+          "targetInstanceName": "车间_004",
+          "targetObjectId": 12,
+          "targetObjectName": "车间",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "产线包含设备",
+          "targetInstanceId": 9,
+          "targetInstanceName": "设备_002",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "ProductionLine_006",
+      "instanceName": "生产线_006",
+      "objectId": 1,
+      "objectName": "生产线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "行号",
+          "attributeCode": "ProductionLine.line_id",
+          "dataType": "string",
+          "value": "PL-006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "ProductionLine.name",
+          "dataType": "string",
+          "value": "检测六线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "ProductionLine.status",
+          "dataType": "string",
+          "value": "running",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "产线属于车间",
+          "targetInstanceId": 33,
+          "targetInstanceName": "车间_002",
+          "targetObjectId": 12,
+          "targetObjectName": "车间",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Asset_001",
+      "instanceName": "资产父类型_001",
+      "objectId": 2,
+      "objectName": "资产父类型",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "资产ID",
+          "attributeCode": "Asset.asset_id",
+          "dataType": "string",
+          "value": "A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Asset.name",
+          "dataType": "string",
+          "value": "主生产线装配机",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Machine_001",
+      "instanceName": "设备_001",
+      "objectId": 3,
+      "objectName": "设备",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "资产ID",
+          "attributeCode": "Machine.asset_id",
+          "dataType": "string",
+          "value": "ASSET-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "可用率",
+          "attributeCode": "Machine.availability",
+          "dataType": "number",
+          "value": 0.92,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "型号",
+          "attributeCode": "Machine.model",
+          "dataType": "string",
+          "value": "CK6150D",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "Machine.name",
+          "dataType": "string",
+          "value": "数控车床A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "running",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Machine_002",
+      "instanceName": "设备_002",
+      "objectId": 3,
+      "objectName": "设备",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "资产ID",
+          "attributeCode": "Machine.asset_id",
+          "dataType": "string",
+          "value": "ASSET-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "可用率",
+          "attributeCode": "Machine.availability",
+          "dataType": "number",
+          "value": 0.78,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "型号",
+          "attributeCode": "Machine.model",
+          "dataType": "string",
+          "value": "LC-3015F",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "Machine.name",
+          "dataType": "string",
+          "value": "激光切割机B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "running",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "设备包含部件",
+          "targetInstanceId": 10,
+          "targetInstanceName": "设备部件_001",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "设备包含部件",
+          "targetInstanceId": 11,
+          "targetInstanceName": "设备部件_002",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Component_001",
+      "instanceName": "设备部件_001",
+      "objectId": 4,
+      "objectName": "设备部件",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "资产ID",
+          "attributeCode": "Component.asset_id",
+          "dataType": "string",
+          "value": "A2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件类型",
+          "attributeCode": "Component.component_type",
+          "dataType": "string",
+          "value": "电机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Component.name",
+          "dataType": "string",
+          "value": "主驱动电机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Component.status",
+          "dataType": "string",
+          "value": "replaced",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "磨损级别",
+          "attributeCode": "Component.wear_level",
+          "dataType": "number",
+          "value": 0.23,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Component_002",
+      "instanceName": "设备部件_002",
+      "objectId": 4,
+      "objectName": "设备部件",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "资产ID",
+          "attributeCode": "Component.asset_id",
+          "dataType": "string",
+          "value": "A2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "组件类型",
+          "attributeCode": "Component.component_type",
+          "dataType": "string",
+          "value": "液压元件",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Component.name",
+          "dataType": "string",
+          "value": "液压泵阀组",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Component.status",
+          "dataType": "string",
+          "value": "replaced",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "磨损级别",
+          "attributeCode": "Component.wear_level",
+          "dataType": "number",
+          "value": 0.67,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "资产分类（is-a）",
+          "targetInstanceId": 8,
+          "targetInstanceName": "设备_001",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "MaintenanceOrder_001",
+      "instanceName": "维护工单_001",
+      "objectId": 5,
+      "objectName": "维护工单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "类型",
+          "attributeCode": "MaintenanceOrder.kind",
+          "dataType": "string",
+          "value": "preventive",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "订单ID",
+          "attributeCode": "MaintenanceOrder.order_id",
+          "dataType": "string",
+          "value": "MO-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "排期日期",
+          "attributeCode": "MaintenanceOrder.scheduled_date",
+          "dataType": "string",
+          "value": "2024-06-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "MaintenanceOrder.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "工单针对设备",
+          "targetInstanceId": 8,
+          "targetInstanceName": "设备_001",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "工单涉及部件",
+          "targetInstanceId": 11,
+          "targetInstanceName": "设备部件_002",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "工单指派维护工",
+          "targetInstanceId": 16,
+          "targetInstanceName": "维护工程师_002",
+          "targetObjectId": 6,
+          "targetObjectName": "维护工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "MaintenanceOrder_002",
+      "instanceName": "维护工单_002",
+      "objectId": 5,
+      "objectName": "维护工单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "类型",
+          "attributeCode": "MaintenanceOrder.kind",
+          "dataType": "string",
+          "value": "corrective",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "订单ID",
+          "attributeCode": "MaintenanceOrder.order_id",
+          "dataType": "string",
+          "value": "MO-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "排期日期",
+          "attributeCode": "MaintenanceOrder.scheduled_date",
+          "dataType": "string",
+          "value": "2024-06-18",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "MaintenanceOrder.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "工单针对设备",
+          "targetInstanceId": 8,
+          "targetInstanceName": "设备_001",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "工单指派维护工",
+          "targetInstanceId": 16,
+          "targetInstanceName": "维护工程师_002",
+          "targetObjectId": 6,
+          "targetObjectName": "维护工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "MaintenanceOrder_003",
+      "instanceName": "维护工单_003",
+      "objectId": 5,
+      "objectName": "维护工单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "类型",
+          "attributeCode": "MaintenanceOrder.kind",
+          "dataType": "string",
+          "value": "predictive",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "订单ID",
+          "attributeCode": "MaintenanceOrder.order_id",
+          "dataType": "string",
+          "value": "MO-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "排期日期",
+          "attributeCode": "MaintenanceOrder.scheduled_date",
+          "dataType": "string",
+          "value": "2024-06-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "MaintenanceOrder.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "工单针对设备",
+          "targetInstanceId": 9,
+          "targetInstanceName": "设备_002",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "工单指派维护工",
+          "targetInstanceId": 15,
+          "targetInstanceName": "维护工程师_001",
+          "targetObjectId": 6,
+          "targetObjectName": "维护工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "工单消耗备件",
+          "targetInstanceId": 18,
+          "targetInstanceName": "备件_002",
+          "targetObjectId": 7,
+          "targetObjectName": "备件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Technician_001",
+      "instanceName": "维护工程师_001",
+      "objectId": 6,
+      "objectName": "维护工程师",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "Technician.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "技能等级",
+          "attributeCode": "Technician.skill_level",
+          "dataType": "string",
+          "value": "L2",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "技术员ID",
+          "attributeCode": "Technician.tech_id",
+          "dataType": "string",
+          "value": "T001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Technician_002",
+      "instanceName": "维护工程师_002",
+      "objectId": 6,
+      "objectName": "维护工程师",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "Technician.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "技能等级",
+          "attributeCode": "Technician.skill_level",
+          "dataType": "string",
+          "value": "L3",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "技术员ID",
+          "attributeCode": "Technician.tech_id",
+          "dataType": "string",
+          "value": "T002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "维护工分配班次",
+          "targetInstanceId": 30,
+          "targetInstanceName": "工作班次_002",
+          "targetObjectId": 11,
+          "targetObjectName": "工作班次",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "SparePart_001",
+      "instanceName": "备件_001",
+      "objectId": 7,
+      "objectName": "备件",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "名称",
+          "attributeCode": "SparePart.name",
+          "dataType": "string",
+          "value": "主轴轴承",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "零件ID",
+          "attributeCode": "SparePart.part_id",
+          "dataType": "string",
+          "value": "BP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "库存数量",
+          "attributeCode": "SparePart.stock_qty",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "SparePart_002",
+      "instanceName": "备件_002",
+      "objectId": 7,
+      "objectName": "备件",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "名称",
+          "attributeCode": "SparePart.name",
+          "dataType": "string",
+          "value": "液压油泵",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "零件ID",
+          "attributeCode": "SparePart.part_id",
+          "dataType": "string",
+          "value": "BP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "库存数量",
+          "attributeCode": "SparePart.stock_qty",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "SparePart_003",
+      "instanceName": "备件_003",
+      "objectId": 7,
+      "objectName": "备件",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "名称",
+          "attributeCode": "SparePart.name",
+          "dataType": "string",
+          "value": "PLC模块",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "零件ID",
+          "attributeCode": "SparePart.part_id",
+          "dataType": "string",
+          "value": "BP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "库存数量",
+          "attributeCode": "SparePart.stock_qty",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "SparePart_004",
+      "instanceName": "备件_004",
+      "objectId": 7,
+      "objectName": "备件",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "名称",
+          "attributeCode": "SparePart.name",
+          "dataType": "string",
+          "value": "伺服电机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "零件ID",
+          "attributeCode": "SparePart.part_id",
+          "dataType": "string",
+          "value": "BP-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "库存数量",
+          "attributeCode": "SparePart.stock_qty",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "SparePart_005",
+      "instanceName": "备件_005",
+      "objectId": 7,
+      "objectName": "备件",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "名称",
+          "attributeCode": "SparePart.name",
+          "dataType": "string",
+          "value": "气动电磁阀",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "零件ID",
+          "attributeCode": "SparePart.part_id",
+          "dataType": "string",
+          "value": "BP-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "库存数量",
+          "attributeCode": "SparePart.stock_qty",
+          "dataType": "integer",
+          "value": 22,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "FaultRecord_001",
+      "instanceName": "故障记录_001",
+      "objectId": 8,
+      "objectName": "故障记录",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "发生时间",
+          "attributeCode": "FaultRecord.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-12T08:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "记录ID",
+          "attributeCode": "FaultRecord.record_id",
+          "dataType": "string",
+          "value": "FR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "严重程度",
+          "attributeCode": "FaultRecord.severity",
+          "dataType": "string",
+          "value": "major",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "FaultRecord.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "故障归属设备",
+          "targetInstanceId": 9,
+          "targetInstanceName": "设备_002",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "故障归属部件",
+          "targetInstanceId": 11,
+          "targetInstanceName": "设备部件_002",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "故障触发工单",
+          "targetInstanceId": 14,
+          "targetInstanceName": "维护工单_003",
+          "targetObjectId": 5,
+          "targetObjectName": "维护工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "FaultRecord_002",
+      "instanceName": "故障记录_002",
+      "objectId": 8,
+      "objectName": "故障记录",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "发生时间",
+          "attributeCode": "FaultRecord.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-13T14:22:15Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "记录ID",
+          "attributeCode": "FaultRecord.record_id",
+          "dataType": "string",
+          "value": "FR-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "严重程度",
+          "attributeCode": "FaultRecord.severity",
+          "dataType": "string",
+          "value": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "FaultRecord.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "故障归属设备",
+          "targetInstanceId": 8,
+          "targetInstanceName": "设备_001",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "故障归属部件",
+          "targetInstanceId": 11,
+          "targetInstanceName": "设备部件_002",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "FaultRecord_003",
+      "instanceName": "故障记录_003",
+      "objectId": 8,
+      "objectName": "故障记录",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "发生时间",
+          "attributeCode": "FaultRecord.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-14T09:10:45Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "记录ID",
+          "attributeCode": "FaultRecord.record_id",
+          "dataType": "string",
+          "value": "FR-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "严重程度",
+          "attributeCode": "FaultRecord.severity",
+          "dataType": "string",
+          "value": "minor",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "FaultRecord.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "故障归属设备",
+          "targetInstanceId": 9,
+          "targetInstanceName": "设备_002",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "故障归属部件",
+          "targetInstanceId": 11,
+          "targetInstanceName": "设备部件_002",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "故障触发工单",
+          "targetInstanceId": 12,
+          "targetInstanceName": "维护工单_001",
+          "targetObjectId": 5,
+          "targetObjectName": "维护工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "故障触发工单",
+          "targetInstanceId": 13,
+          "targetInstanceName": "维护工单_002",
+          "targetObjectId": 5,
+          "targetObjectName": "维护工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "FaultRecord_004",
+      "instanceName": "故障记录_004",
+      "objectId": 8,
+      "objectName": "故障记录",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "发生时间",
+          "attributeCode": "FaultRecord.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-15T16:55:30Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "记录ID",
+          "attributeCode": "FaultRecord.record_id",
+          "dataType": "string",
+          "value": "FR-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "严重程度",
+          "attributeCode": "FaultRecord.severity",
+          "dataType": "string",
+          "value": "critical",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "FaultRecord.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "故障归属设备",
+          "targetInstanceId": 8,
+          "targetInstanceName": "设备_001",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "故障归属部件",
+          "targetInstanceId": 10,
+          "targetInstanceName": "设备部件_001",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "MaintenancePlan_001",
+      "instanceName": "周期性维护计划_001",
+      "objectId": 9,
+      "objectName": "周期性维护计划",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "间隔天数",
+          "attributeCode": "MaintenancePlan.interval_days",
+          "dataType": "integer",
+          "value": 30,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "计划ID",
+          "attributeCode": "MaintenancePlan.plan_id",
+          "dataType": "string",
+          "value": "MP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "MaintenancePlan.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "维护计划生成工单",
+          "targetInstanceId": 14,
+          "targetInstanceName": "维护工单_003",
+          "targetObjectId": 5,
+          "targetObjectName": "维护工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "MaintenancePlan_002",
+      "instanceName": "周期性维护计划_002",
+      "objectId": 9,
+      "objectName": "周期性维护计划",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "间隔天数",
+          "attributeCode": "MaintenancePlan.interval_days",
+          "dataType": "integer",
+          "value": 90,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "计划ID",
+          "attributeCode": "MaintenancePlan.plan_id",
+          "dataType": "string",
+          "value": "MP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "MaintenancePlan.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "维护计划覆盖设备",
+          "targetInstanceId": 9,
+          "targetInstanceName": "设备_002",
+          "targetObjectId": 3,
+          "targetObjectName": "设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "维护计划生成工单",
+          "targetInstanceId": 12,
+          "targetInstanceName": "维护工单_001",
+          "targetObjectId": 5,
+          "targetObjectName": "维护工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "维护计划生成工单",
+          "targetInstanceId": 13,
+          "targetInstanceName": "维护工单_002",
+          "targetObjectId": 5,
+          "targetObjectName": "维护工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Reading_001",
+      "instanceName": "传感器读数_001",
+      "objectId": 10,
+      "objectName": "传感器读数",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "采集时间",
+          "attributeCode": "Reading.captured_at",
+          "dataType": "string",
+          "value": "2024-05-20T14:30:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "指标",
+          "attributeCode": "Reading.metric",
+          "dataType": "string",
+          "value": "temperature",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "读数ID",
+          "attributeCode": "Reading.reading_id",
+          "dataType": "string",
+          "value": "R001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "值",
+          "attributeCode": "Reading.value",
+          "dataType": "number",
+          "value": 42.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "读数来自部件",
+          "targetInstanceId": 10,
+          "targetInstanceName": "设备部件_001",
+          "targetObjectId": 4,
+          "targetObjectName": "设备部件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "WorkShift_001",
+      "instanceName": "工作班次_001",
+      "objectId": 11,
+      "objectName": "工作班次",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "班次ID",
+          "attributeCode": "WorkShift.shift_id",
+          "dataType": "string",
+          "value": "WS-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "班次类型",
+          "attributeCode": "WorkShift.shift_type",
+          "dataType": "string",
+          "value": "day",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "WorkShift_002",
+      "instanceName": "工作班次_002",
+      "objectId": 11,
+      "objectName": "工作班次",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "班次ID",
+          "attributeCode": "WorkShift.shift_id",
+          "dataType": "string",
+          "value": "WS-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "班次类型",
+          "attributeCode": "WorkShift.shift_type",
+          "dataType": "string",
+          "value": "night",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "WorkShift_003",
+      "instanceName": "工作班次_003",
+      "objectId": 11,
+      "objectName": "工作班次",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "班次ID",
+          "attributeCode": "WorkShift.shift_id",
+          "dataType": "string",
+          "value": "WS-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "班次类型",
+          "attributeCode": "WorkShift.shift_type",
+          "dataType": "string",
+          "value": "day",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "班次覆盖产线",
+          "targetInstanceId": 2,
+          "targetInstanceName": "生产线_002",
+          "targetObjectId": 1,
+          "targetObjectName": "生产线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Workshop_001",
+      "instanceName": "车间_001",
+      "objectId": 12,
+      "objectName": "车间",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "名称",
+          "attributeCode": "Workshop.name",
+          "dataType": "string",
+          "value": "装配车间",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "value": "W001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Workshop_002",
+      "instanceName": "车间_002",
+      "objectId": 12,
+      "objectName": "车间",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "名称",
+          "attributeCode": "Workshop.name",
+          "dataType": "string",
+          "value": "机加工车间",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "value": "W002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Workshop_003",
+      "instanceName": "车间_003",
+      "objectId": 12,
+      "objectName": "车间",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "名称",
+          "attributeCode": "Workshop.name",
+          "dataType": "string",
+          "value": "涂装车间",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "value": "W003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "车间存放备件",
+          "targetInstanceId": 21,
+          "targetInstanceName": "备件_005",
+          "targetObjectId": 7,
+          "targetObjectName": "备件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Workshop_004",
+      "instanceName": "车间_004",
+      "objectId": 12,
+      "objectName": "车间",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "名称",
+          "attributeCode": "Workshop.name",
+          "dataType": "string",
+          "value": "焊接车间",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "value": "W004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Workshop_005",
+      "instanceName": "车间_005",
+      "objectId": 12,
+      "objectName": "车间",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "名称",
+          "attributeCode": "Workshop.name",
+          "dataType": "string",
+          "value": "热处理车间",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "车间ID",
+          "attributeCode": "Workshop.workshop_id",
+          "dataType": "string",
+          "value": "W005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 11,
+      "actionName": "激活计划",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "周期性维护计划_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 13,
+      "actionName": "解决故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "故障记录_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 12,
+      "actionName": "弃用计划",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "周期性维护计划_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 3,
+      "actionName": "完成订单",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "维护工单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 10,
+      "actionName": "判定失败组件",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        10
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备部件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 8,
+      "actionName": "更换组件",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        10
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备部件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 13,
+      "actionName": "解决故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "故障记录_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 2,
+      "actionName": "开始订单",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "维护工单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 8,
+      "actionName": "更换组件",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        11
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备部件_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 13,
+      "actionName": "解决故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "故障记录_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 12,
+      "actionName": "弃用计划",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "周期性维护计划_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 3,
+      "actionName": "完成订单",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "维护工单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 5,
+      "actionName": "置机床为维护态",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 7,
+      "actionName": "上报故障",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "维护工程师_001"
+      ],
+      "outputInstanceNames": [
+        "设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 6,
+      "actionName": "恢复机床",
+      "inputInstances": [
+        16
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "维护工程师_002"
+      ],
+      "outputInstanceNames": [
+        "设备_001"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

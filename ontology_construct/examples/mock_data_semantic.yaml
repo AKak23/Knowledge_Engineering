@@ -1,0 +1,387 @@
+version: 1
+
+source:
+  type: postgresql
+  connection:
+    host: 127.0.0.1
+    port: 5432
+    database: mock_data_ontology
+    user: shuaichen
+    schema: public
+
+metadata:
+  tables:
+    meta_tables: meta.meta_tables
+    meta_columns: meta.meta_columns
+    entity_map: meta.meta_entity_map
+    relation_map: meta.meta_relation_map
+  fallback:
+    use_information_schema: true
+    use_pg_comments: true
+    infer_fk_from_constraints: true
+
+construction:
+  mode: hybrid
+  use_meta: true
+  use_information_schema: true
+  use_pg_comments: true
+  use_constraints: true
+  use_sampling: true
+  use_embedding: false
+  use_llm: true
+
+ontology:
+  name: 设备运维语义本体
+  profile: industrial_process
+
+instances:
+  sample:
+    per_entity_table: 50
+    per_reference_table: 80
+    per_quality_table: 50
+  relation_sample:
+    per_relation_type: 120
+  event_sample:
+    per_event_type: 50
+
+llm:
+  enabled: true
+  usage:
+    schema_mapping: true
+    relation_mapping: true
+    schema_polish: true
+    instance_generation: false
+
+semantic_mapping:
+  sampling:
+    default_per_class: 50
+    class_limits:
+      device: 0
+      spare_part: 0
+      fault_sop: 0
+      telemetry_record: 150
+      alarm_rule: 150
+      device_status: 150
+      repair_work_order: 150
+      production_order: 120
+      oee_record: 150
+      purchase_order: 120
+    table_limits:
+      eam_device_bom: 250
+    auto_include_related: true
+
+  classes:
+    - id: device
+      name: 设备
+      description: 工厂设备主数据，承载设备名称、制造商、投用日期、寿命和大修信息。
+      source_tables: [eam_device_master]
+      primary_table: eam_device_master
+      primary_key: device_id
+      label_column: device_name
+      attributes:
+        - source_column: manufacturer
+          name: 制造商
+        - source_column: commission_date
+          name: 投用日期
+        - source_column: design_life_years
+          name: 设计寿命
+        - source_column: last_overhaul_date
+          name: 上次大修时间
+
+    - id: spare_part
+      name: 备件
+      description: 可用于维修和替换的库存备件。
+      source_tables: [erp_inventory]
+      primary_table: erp_inventory
+      primary_key: part_id
+      label_column: part_name
+      attributes:
+        - source_column: stock_qty
+          name: 库存数量
+        - source_column: location
+          name: 库位
+        - source_column: safety_stock
+          name: 安全库存
+
+    - id: alarm_rule
+      name: 报警规则
+      description: 测点阈值和报警等级配置。
+      source_tables: [iot_alarm_config]
+      primary_table: iot_alarm_config
+      primary_key: id
+      label_column: point_id
+      attributes:
+        - source_column: point_id
+          name: 测点编号
+        - source_column: upper_limit
+          name: 上限阈值
+        - source_column: lower_limit
+          name: 下限阈值
+        - source_column: alarm_level
+          name: 报警级别
+
+    - id: telemetry_record
+      name: 测点记录
+      description: 设备传感器采集的实时测点值。
+      source_tables: [iot_device_telemetry]
+      primary_table: iot_device_telemetry
+      primary_key: id
+      label_column: point_id
+      attributes:
+        - source_column: point_id
+          name: 测点编号
+        - source_column: point_value
+          name: 测点值
+        - source_column: collect_time
+          name: 采集时间
+
+    - id: device_status
+      name: 运行状态记录
+      description: 设备运行、停机、待机和故障状态记录。
+      source_tables: [iot_device_status]
+      primary_table: iot_device_status
+      primary_key: id
+      attributes:
+        - source_column: status_code
+          name: 状态编码
+        - source_column: status_time
+          name: 状态时间
+
+    - id: repair_work_order
+      name: 维修工单
+      description: 设备故障处理闭环记录。
+      source_tables: [eam_repair_work_order]
+      primary_table: eam_repair_work_order
+      primary_key: order_id
+      label_column: fault_phenomenon
+      attributes:
+        - source_column: fault_phenomenon
+          name: 故障现象
+        - source_column: repair_action
+          name: 维修措施
+        - source_column: repair_time
+          name: 维修完成时间
+        - source_column: technician
+          name: 维修人员
+
+    - id: fault_sop
+      name: 故障SOP
+      description: 故障原因、处理步骤、所需备件和安全注意事项。
+      source_tables: [kb_fault_sop]
+      primary_table: kb_fault_sop
+      primary_key: rule_id
+      label_column: fault_desc
+      attributes:
+        - source_column: fault_cause_code
+          name: 故障原因代码
+        - source_column: action_steps
+          name: 处理步骤
+        - source_column: required_parts
+          name: 所需备件
+        - source_column: safety_notes
+          name: 安全注意事项
+
+    - id: production_order
+      name: 生产订单
+      description: 生产计划和设备排程记录。
+      source_tables: [mes_production_order]
+      primary_table: mes_production_order
+      primary_key: order_id
+      attributes:
+        - source_column: product_id
+          name: 产品编号
+        - source_column: plan_qty
+          name: 计划数量
+        - source_column: start_time
+          name: 计划开始时间
+        - source_column: end_time
+          name: 计划结束时间
+
+    - id: oee_record
+      name: OEE记录
+      description: 设备稼动率和停机损失记录。
+      source_tables: [mes_device_oee]
+      primary_table: mes_device_oee
+      primary_key: id
+      attributes:
+        - source_column: record_date
+          name: 记录日期
+        - source_column: planned_run_time
+          name: 计划运行时间
+        - source_column: actual_run_time
+          name: 实际运行时间
+        - source_column: downtime_loss_code
+          name: 停机损失代码
+
+    - id: purchase_order
+      name: 采购订单
+      description: 备件采购申请、供应商和到货状态记录。
+      source_tables: [erp_purchase_order]
+      primary_table: erp_purchase_order
+      primary_key: po_id
+      attributes:
+        - source_column: qty
+          name: 采购数量
+        - source_column: eta
+          name: 预计到货时间
+        - source_column: supplier
+          name: 供应商
+        - source_column: status
+          name: 采购状态
+
+  relation_tables:
+    - table: eam_device_bom
+      source_class: device
+      predicate: 包含
+      target_class: spare_part
+      source_column: parent_device_id
+      target_column: child_part_id
+      materialize_as_class: false
+      inverse_predicate: 属于设备
+
+  relations:
+    - source_class: telemetry_record
+      predicate: 采集自
+      target_class: device
+      source_table: iot_device_telemetry
+      target_table: eam_device_master
+      source_column: device_id
+      target_column: device_id
+      join_type: fk
+      inverse_predicate: 拥有测点记录
+
+    - source_class: alarm_rule
+      predicate: 作用于测点
+      target_class: telemetry_record
+      source_table: iot_alarm_config
+      target_table: iot_device_telemetry
+      source_column: point_id
+      target_column: point_id
+      join_type: value_match
+      confidence: 0.85
+      inverse_predicate: 触发报警规则
+
+    - source_class: device_status
+      predicate: 描述
+      target_class: device
+      source_table: iot_device_status
+      target_table: eam_device_master
+      source_column: device_id
+      target_column: device_id
+      join_type: fk
+      inverse_predicate: 拥有运行状态
+
+    - source_class: repair_work_order
+      predicate: 维修设备
+      target_class: device
+      source_table: eam_repair_work_order
+      target_table: eam_device_master
+      source_column: device_id
+      target_column: device_id
+      join_type: fk
+      inverse_predicate: 发生维修工单
+
+    - source_class: repair_work_order
+      predicate: 更换备件
+      target_class: spare_part
+      source_table: eam_repair_work_order
+      target_table: erp_inventory
+      source_column: replaced_part_id
+      target_column: part_id
+      join_type: fk
+      inverse_predicate: 被工单更换
+
+    - source_class: repair_work_order
+      predicate: 参照
+      target_class: fault_sop
+      source_table: eam_repair_work_order
+      target_table: kb_fault_sop
+      source_column: fault_cause_code
+      target_column: fault_cause_code
+      join_type: value_match
+      inverse_predicate: 指导维修工单
+
+    - source_class: production_order
+      predicate: 分配到
+      target_class: device
+      source_table: mes_production_order
+      target_table: eam_device_master
+      source_column: assigned_device_id
+      target_column: device_id
+      join_type: fk
+      inverse_predicate: 承担生产订单
+
+    - source_class: oee_record
+      predicate: 统计设备
+      target_class: device
+      source_table: mes_device_oee
+      target_table: eam_device_master
+      source_column: device_id
+      target_column: device_id
+      join_type: fk
+      inverse_predicate: 拥有OEE记录
+
+    - source_class: oee_record
+      predicate: 对应故障SOP
+      target_class: fault_sop
+      source_table: mes_device_oee
+      target_table: kb_fault_sop
+      source_column: downtime_loss_code
+      target_column: fault_cause_code
+      join_type: value_match
+      confidence: 0.75
+      inverse_predicate: 关联OEE记录
+
+    - source_class: purchase_order
+      predicate: 采购
+      target_class: spare_part
+      source_table: erp_purchase_order
+      target_table: erp_inventory
+      source_column: part_id
+      target_column: part_id
+      join_type: fk
+      inverse_predicate: 被采购订单采购
+
+  derived_relations:
+    - source_class: repair_work_order
+      predicate: 关联运行状态
+      target_class: device_status
+      source_table: eam_repair_work_order
+      target_table: iot_device_status
+      source_column: device_id
+      target_column: device_id
+      confidence: 0.82
+      inverse_predicate: 关联维修工单
+
+    - source_class: repair_work_order
+      predicate: 关联OEE记录
+      target_class: oee_record
+      source_table: eam_repair_work_order
+      target_table: mes_device_oee
+      source_column: device_id
+      target_column: device_id
+      confidence: 0.82
+      inverse_predicate: 关联维修工单
+
+    - source_class: telemetry_record
+      predicate: 同设备运行状态
+      target_class: device_status
+      source_table: iot_device_telemetry
+      target_table: iot_device_status
+      source_column: device_id
+      target_column: device_id
+      confidence: 0.8
+      inverse_predicate: 同设备测点记录
+
+    - source_class: alarm_rule
+      predicate: 关联设备
+      target_class: device
+      source_table: iot_alarm_config
+      target_table: eam_device_master
+      source_column: point_id
+      target_column: device_id
+      via_table: iot_device_telemetry
+      via_source_column: point_id
+      via_target_column: device_id
+      confidence: 0.78
+      inverse_predicate: 关联报警规则

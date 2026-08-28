@@ -1,0 +1,4604 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "电信·telecom_T4_enterprise_service",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=telecom_T4_enterprise_service，graph=telecom_T4_enterprise_service_seed45）：18 个对象类型 / 25 个关系 / 15 个动作 / 54 个实例 / 23 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "政企客户",
+      "objectCode": "EnterpriseCustomer",
+      "description": "政企客户",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "EnterpriseCustomer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "行业",
+          "attributeCode": "EnterpriseCustomer.industry",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "finance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "EnterpriseCustomer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华信金融集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "层级",
+          "attributeCode": "EnterpriseCustomer.tier",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "服务合同",
+      "objectCode": "Contract",
+      "description": "服务合同",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "金额",
+          "attributeCode": "Contract.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "HT2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2025-01-14",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-01-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "objectCode": "Product",
+      "description": "产品父类型",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "5G企业专网服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "数据专线产品",
+      "objectCode": "DataLineProduct",
+      "description": "数据专线产品",
+      "attributes": [
+        {
+          "attributeId": 12,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "DataLineProduct.bandwidth_mbps",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 100,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "DataLineProduct.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "高速数据专线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "产品ID",
+          "attributeCode": "DataLineProduct.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DL-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "VPN 产品",
+      "objectCode": "VPNProduct",
+      "description": "VPN 产品",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "VPNProduct.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "企业级MPLS VPN",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "产品ID",
+          "attributeCode": "VPNProduct.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "VP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "VPN类型",
+          "attributeCode": "VPNProduct.vpn_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "mpls",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "云产品",
+      "objectCode": "CloudProduct",
+      "description": "云产品",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "CloudProduct.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "云存储服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "产品ID",
+          "attributeCode": "CloudProduct.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CP-2024-A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "层级",
+          "attributeCode": "CloudProduct.tier",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "standard",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "已开通的业务实例",
+      "objectCode": "Service",
+      "description": "已开通的业务实例",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-05-12T09:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SVC-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "业务开通/变更订单",
+      "objectCode": "ServiceOrder",
+      "description": "业务开通/变更订单",
+      "attributes": [
+        {
+          "attributeId": 24,
+          "attributeName": "订单ID",
+          "attributeCode": "ServiceOrder.order_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SO20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ServiceOrder.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "承载网元",
+      "objectCode": "NetworkElement",
+      "description": "承载网元",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "NE-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OTN交叉设备",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "客户站点",
+      "objectCode": "Site",
+      "description": "客户站点",
+      "attributes": [
+        {
+          "attributeId": 29,
+          "attributeName": "地址",
+          "attributeCode": "Site.address",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "北京市朝阳区建国路8号SOHO现代城A座12层",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SIT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "服务等级协议",
+      "objectCode": "SLA",
+      "description": "服务等级协议",
+      "attributes": [
+        {
+          "attributeId": 31,
+          "attributeName": "可用率目标",
+          "attributeCode": "SLA.availability_target",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 99.95,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SLA_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "服务工单",
+      "objectCode": "Ticket",
+      "description": "服务工单",
+      "attributes": [
+        {
+          "attributeId": 34,
+          "attributeName": "严重程度",
+          "attributeCode": "Ticket.severity",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "medium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "resolved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "T20240001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "变更请求",
+      "objectCode": "ChangeRequest",
+      "description": "变更请求",
+      "attributes": [
+        {
+          "attributeId": 37,
+          "attributeName": "变更类型",
+          "attributeCode": "ChangeRequest.change_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "bandwidth",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "变更请求ID",
+          "attributeCode": "ChangeRequest.cr_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "ChangeRequest.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "implemented",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "服务发票",
+      "objectCode": "Invoice",
+      "description": "服务发票",
+      "attributes": [
+        {
+          "attributeId": 40,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 8999.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INV-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "issued",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "客户经理",
+      "objectCode": "AccountManager",
+      "description": "客户经理",
+      "attributes": [
+        {
+          "attributeId": 43,
+          "attributeName": "经理ID",
+          "attributeCode": "AccountManager.manager_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "AM2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "AccountManager.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 16,
+      "objectName": "实施/运维工程师",
+      "objectCode": "Engineer",
+      "description": "实施/运维工程师",
+      "attributes": [
+        {
+          "attributeId": 45,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ENG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "专业",
+          "attributeCode": "Engineer.specialty",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "网络运维",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 17,
+      "objectName": "服务目录",
+      "objectCode": "ServiceCatalog",
+      "description": "服务目录",
+      "attributes": [
+        {
+          "attributeId": 48,
+          "attributeName": "目录ID",
+          "attributeCode": "ServiceCatalog.catalog_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "ServiceCatalog.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "云通信服务目录",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 18,
+      "objectName": "合同折扣",
+      "objectCode": "Discount",
+      "description": "合同折扣",
+      "attributes": [
+        {
+          "attributeId": 50,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DISC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "费率",
+          "attributeCode": "Discount.rate",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.15,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "政企客户",
+      "targetObjectId": 2,
+      "targetObjectName": "服务合同",
+      "linkInfo": "客户签订合同",
+      "linkType": "1:N",
+      "description": "customer_signs_contract",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "服务合同",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "合同涵盖产品",
+      "linkType": "N:M",
+      "description": "contract_includes_product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 2,
+      "sourceObjectName": "服务合同",
+      "targetObjectId": 7,
+      "targetObjectName": "已开通的业务实例",
+      "linkInfo": "合同管辖业务实例",
+      "linkType": "1:N",
+      "description": "contract_governs_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 7,
+      "sourceObjectName": "已开通的业务实例",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "业务实例对应产品",
+      "linkType": "N:1",
+      "description": "service_realizes_product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 7,
+      "sourceObjectName": "已开通的业务实例",
+      "targetObjectId": 9,
+      "targetObjectName": "承载网元",
+      "linkInfo": "业务承载于网元",
+      "linkType": "N:M",
+      "description": "service_runs_on_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 7,
+      "sourceObjectName": "已开通的业务实例",
+      "targetObjectId": 10,
+      "targetObjectName": "客户站点",
+      "linkInfo": "业务接入站点",
+      "linkType": "N:M",
+      "description": "service_at_site",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 9,
+      "sourceObjectName": "承载网元",
+      "targetObjectId": 10,
+      "targetObjectName": "客户站点",
+      "linkInfo": "网元位于站点",
+      "linkType": "N:1",
+      "description": "ne_at_site",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 7,
+      "sourceObjectName": "已开通的业务实例",
+      "targetObjectId": 11,
+      "targetObjectName": "服务等级协议",
+      "linkInfo": "业务对应 服务等级协议",
+      "linkType": "N:1",
+      "description": "service_bound_sla",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 2,
+      "sourceObjectName": "服务合同",
+      "targetObjectId": 11,
+      "targetObjectName": "服务等级协议",
+      "linkInfo": "合同包含 服务等级协议 项",
+      "linkType": "1:N",
+      "description": "contract_has_sla",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 12,
+      "sourceObjectName": "服务工单",
+      "targetObjectId": 7,
+      "targetObjectName": "已开通的业务实例",
+      "linkInfo": "工单针对业务",
+      "linkType": "N:M",
+      "description": "ticket_for_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 12,
+      "sourceObjectName": "服务工单",
+      "targetObjectId": 16,
+      "targetObjectName": "实施/运维工程师",
+      "linkInfo": "工单分配工程师",
+      "linkType": "N:M",
+      "description": "ticket_assigned_engineer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 12,
+      "sourceObjectName": "服务工单",
+      "targetObjectId": 11,
+      "targetObjectName": "服务等级协议",
+      "linkInfo": "工单关联 服务等级协议",
+      "linkType": "N:1",
+      "description": "ticket_against_sla",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 13,
+      "sourceObjectName": "变更请求",
+      "targetObjectId": 7,
+      "targetObjectName": "已开通的业务实例",
+      "linkInfo": "变更影响业务",
+      "linkType": "N:M",
+      "description": "change_for_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 13,
+      "sourceObjectName": "变更请求",
+      "targetObjectId": 15,
+      "targetObjectName": "客户经理",
+      "linkInfo": "变更由客户经理发起",
+      "linkType": "N:1",
+      "description": "change_initiated_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 8,
+      "sourceObjectName": "业务开通/变更订单",
+      "targetObjectId": 7,
+      "targetObjectName": "已开通的业务实例",
+      "linkInfo": "服务订单生成业务",
+      "linkType": "1:1",
+      "description": "service_order_for_service",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 8,
+      "sourceObjectName": "业务开通/变更订单",
+      "targetObjectId": 2,
+      "targetObjectName": "服务合同",
+      "linkInfo": "订单归属合同",
+      "linkType": "N:1",
+      "description": "order_under_contract",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 14,
+      "sourceObjectName": "服务发票",
+      "targetObjectId": 2,
+      "targetObjectName": "服务合同",
+      "linkInfo": "发票对应合同",
+      "linkType": "N:1",
+      "description": "invoice_for_contract",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 15,
+      "sourceObjectName": "客户经理",
+      "targetObjectId": 1,
+      "targetObjectName": "政企客户",
+      "linkInfo": "客户经理服务客户",
+      "linkType": "N:M",
+      "description": "manager_serves_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 16,
+      "sourceObjectName": "实施/运维工程师",
+      "targetObjectId": 1,
+      "targetObjectName": "政企客户",
+      "linkInfo": "工程师支持客户",
+      "linkType": "N:M",
+      "description": "engineer_supports_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 17,
+      "sourceObjectName": "服务目录",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "目录列出产品",
+      "linkType": "1:N",
+      "description": "catalog_lists_product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 18,
+      "sourceObjectName": "合同折扣",
+      "targetObjectId": 2,
+      "targetObjectName": "服务合同",
+      "linkInfo": "合同适用折扣",
+      "linkType": "N:M",
+      "description": "discount_on_contract",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 22,
+      "sourceObjectId": 12,
+      "sourceObjectName": "服务工单",
+      "targetObjectId": 9,
+      "targetObjectName": "承载网元",
+      "linkInfo": "工单涉及网元",
+      "linkType": "N:M",
+      "description": "ticket_about_ne",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 23,
+      "sourceObjectId": 4,
+      "sourceObjectName": "数据专线产品",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "DataLineProduct is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 24,
+      "sourceObjectId": 5,
+      "sourceObjectName": "VPN 产品",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "VPNProduct is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 25,
+      "sourceObjectId": 6,
+      "sourceObjectName": "云产品",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "CloudProduct is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "签署合同",
+      "actionCode": "sign_contract",
+      "description": "执行者：政企客户；对象：服务合同",
+      "inputObjects": [
+        "政企客户"
+      ],
+      "outputObjects": [
+        "服务合同"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "激活合同",
+      "actionCode": "activate_contract",
+      "description": "执行者：客户经理；对象：服务合同",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "服务合同"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "终止合同",
+      "actionCode": "terminate_contract",
+      "description": "执行者：政企客户；对象：服务合同",
+      "inputObjects": [
+        "政企客户"
+      ],
+      "outputObjects": [
+        "服务合同"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "提交服务订单",
+      "actionCode": "submit_service_order",
+      "description": "执行者：客户经理；对象：业务开通/变更订单",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "业务开通/变更订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "审批服务订单",
+      "actionCode": "approve_service_order",
+      "description": "执行者：客户经理；对象：业务开通/变更订单",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "业务开通/变更订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "开通服务",
+      "actionCode": "provision_service",
+      "description": "执行者：实施/运维工程师；对象：已开通的业务实例",
+      "inputObjects": [
+        "实施/运维工程师"
+      ],
+      "outputObjects": [
+        "已开通的业务实例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "暂停服务",
+      "actionCode": "suspend_service",
+      "description": "执行者：客户经理；对象：已开通的业务实例",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "已开通的业务实例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "终止服务",
+      "actionCode": "terminate_service",
+      "description": "执行者：客户经理；对象：已开通的业务实例",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "已开通的业务实例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "提交变更请求",
+      "actionCode": "submit_change_request",
+      "description": "执行者：客户经理；对象：变更请求",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "变更请求"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "审批变更",
+      "actionCode": "approve_change",
+      "description": "执行者：实施/运维工程师；对象：变更请求",
+      "inputObjects": [
+        "实施/运维工程师"
+      ],
+      "outputObjects": [
+        "变更请求"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "实施变更",
+      "actionCode": "implement_change",
+      "description": "执行者：实施/运维工程师；对象：变更请求",
+      "inputObjects": [
+        "实施/运维工程师"
+      ],
+      "outputObjects": [
+        "变更请求"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "开启工单",
+      "actionCode": "open_ticket",
+      "description": "执行者：政企客户；对象：服务工单",
+      "inputObjects": [
+        "政企客户"
+      ],
+      "outputObjects": [
+        "服务工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "解决工单",
+      "actionCode": "resolve_ticket",
+      "description": "执行者：实施/运维工程师；对象：服务工单",
+      "inputObjects": [
+        "实施/运维工程师"
+      ],
+      "outputObjects": [
+        "服务工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "违反SLA",
+      "actionCode": "breach_sla",
+      "description": "执行者：实施/运维工程师；对象：服务等级协议",
+      "inputObjects": [
+        "实施/运维工程师"
+      ],
+      "outputObjects": [
+        "服务等级协议"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 15,
+      "actionName": "签发发票",
+      "actionCode": "issue_invoice",
+      "description": "执行者：客户经理；对象：服务发票",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "服务发票"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "EnterpriseCustomer_001",
+      "instanceName": "政企客户_001",
+      "objectId": 1,
+      "objectName": "政企客户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "EnterpriseCustomer.customer_id",
+          "dataType": "string",
+          "value": "EC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "行业",
+          "attributeCode": "EnterpriseCustomer.industry",
+          "dataType": "string",
+          "value": "finance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "EnterpriseCustomer.name",
+          "dataType": "string",
+          "value": "华信金融集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "层级",
+          "attributeCode": "EnterpriseCustomer.tier",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户签订合同",
+          "targetInstanceId": 6,
+          "targetInstanceName": "服务合同_001",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户签订合同",
+          "targetInstanceId": 8,
+          "targetInstanceName": "服务合同_003",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户签订合同",
+          "targetInstanceId": 9,
+          "targetInstanceName": "服务合同_004",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "EnterpriseCustomer_002",
+      "instanceName": "政企客户_002",
+      "objectId": 1,
+      "objectName": "政企客户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "EnterpriseCustomer.customer_id",
+          "dataType": "string",
+          "value": "EC2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "行业",
+          "attributeCode": "EnterpriseCustomer.industry",
+          "dataType": "string",
+          "value": "manufacturing",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "EnterpriseCustomer.name",
+          "dataType": "string",
+          "value": "宏远智能制造有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "层级",
+          "attributeCode": "EnterpriseCustomer.tier",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "EnterpriseCustomer_003",
+      "instanceName": "政企客户_003",
+      "objectId": 1,
+      "objectName": "政企客户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "EnterpriseCustomer.customer_id",
+          "dataType": "string",
+          "value": "EC2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "行业",
+          "attributeCode": "EnterpriseCustomer.industry",
+          "dataType": "string",
+          "value": "energy",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "EnterpriseCustomer.name",
+          "dataType": "string",
+          "value": "南方电网能源公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "层级",
+          "attributeCode": "EnterpriseCustomer.tier",
+          "dataType": "string",
+          "value": "B",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户签订合同",
+          "targetInstanceId": 10,
+          "targetInstanceName": "服务合同_005",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户签订合同",
+          "targetInstanceId": 9,
+          "targetInstanceName": "服务合同_004",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "EnterpriseCustomer_004",
+      "instanceName": "政企客户_004",
+      "objectId": 1,
+      "objectName": "政企客户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "EnterpriseCustomer.customer_id",
+          "dataType": "string",
+          "value": "EC2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "行业",
+          "attributeCode": "EnterpriseCustomer.industry",
+          "dataType": "string",
+          "value": "education",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "EnterpriseCustomer.name",
+          "dataType": "string",
+          "value": "启明教育科技集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "层级",
+          "attributeCode": "EnterpriseCustomer.tier",
+          "dataType": "string",
+          "value": "B",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户签订合同",
+          "targetInstanceId": 7,
+          "targetInstanceName": "服务合同_002",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "EnterpriseCustomer_005",
+      "instanceName": "政企客户_005",
+      "objectId": 1,
+      "objectName": "政企客户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "EnterpriseCustomer.customer_id",
+          "dataType": "string",
+          "value": "EC2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "行业",
+          "attributeCode": "EnterpriseCustomer.industry",
+          "dataType": "string",
+          "value": "government",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "EnterpriseCustomer.name",
+          "dataType": "string",
+          "value": "滨海市人民政府大数据中心",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "层级",
+          "attributeCode": "EnterpriseCustomer.tier",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Contract_001",
+      "instanceName": "服务合同_001",
+      "objectId": 2,
+      "objectName": "服务合同",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "金额",
+          "attributeCode": "Contract.amount",
+          "dataType": "number",
+          "value": 125000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "value": "2025-01-14",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "value": "2024-01-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 18,
+          "targetInstanceName": "数据专线产品_005",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 14,
+          "targetInstanceName": "数据专线产品_001",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 19,
+          "targetInstanceName": "VPN 产品_001",
+          "targetObjectId": 5,
+          "targetObjectName": "VPN 产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 20,
+          "targetInstanceName": "VPN 产品_002",
+          "targetObjectId": 5,
+          "targetObjectName": "VPN 产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "合同管辖业务实例",
+          "targetInstanceId": 24,
+          "targetInstanceName": "已开通的业务实例_002",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "合同管辖业务实例",
+          "targetInstanceId": 25,
+          "targetInstanceName": "已开通的业务实例_003",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Contract_002",
+      "instanceName": "服务合同_002",
+      "objectId": 2,
+      "objectName": "服务合同",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "金额",
+          "attributeCode": "Contract.amount",
+          "dataType": "number",
+          "value": 86500.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "value": "2024-12-31",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "value": "2024-03-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 13,
+          "targetInstanceName": "产品父类型_003",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "合同包含 SLA 项",
+          "targetInstanceId": 41,
+          "targetInstanceName": "服务等级协议_004",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Contract_003",
+      "instanceName": "服务合同_003",
+      "objectId": 2,
+      "objectName": "服务合同",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "金额",
+          "attributeCode": "Contract.amount",
+          "dataType": "number",
+          "value": 210000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "value": "2024-11-19",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "value": "2023-11-20",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 20,
+          "targetInstanceName": "VPN 产品_002",
+          "targetObjectId": 5,
+          "targetObjectName": "VPN 产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 14,
+          "targetInstanceName": "数据专线产品_001",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 13,
+          "targetInstanceName": "产品父类型_003",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 15,
+          "targetInstanceName": "数据专线产品_002",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 11,
+          "targetInstanceName": "产品父类型_001",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "合同管辖业务实例",
+          "targetInstanceId": 27,
+          "targetInstanceName": "已开通的业务实例_005",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "合同包含 SLA 项",
+          "targetInstanceId": 38,
+          "targetInstanceName": "服务等级协议_001",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "合同包含 SLA 项",
+          "targetInstanceId": 39,
+          "targetInstanceName": "服务等级协议_002",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Contract_004",
+      "instanceName": "服务合同_004",
+      "objectId": 2,
+      "objectName": "服务合同",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "金额",
+          "attributeCode": "Contract.amount",
+          "dataType": "number",
+          "value": 45000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "value": "2025-05-31",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "value": "2024-06-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 22,
+          "targetInstanceName": "云产品_002",
+          "targetObjectId": 6,
+          "targetObjectName": "云产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 17,
+          "targetInstanceName": "数据专线产品_004",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 13,
+          "targetInstanceName": "产品父类型_003",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "合同管辖业务实例",
+          "targetInstanceId": 23,
+          "targetInstanceName": "已开通的业务实例_001",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "合同包含 SLA 项",
+          "targetInstanceId": 40,
+          "targetInstanceName": "服务等级协议_003",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Contract_005",
+      "instanceName": "服务合同_005",
+      "objectId": 2,
+      "objectName": "服务合同",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "金额",
+          "attributeCode": "Contract.amount",
+          "dataType": "number",
+          "value": 178000.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "Contract.end_date",
+          "dataType": "string",
+          "value": "2024-08-09",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "Contract.start_date",
+          "dataType": "string",
+          "value": "2024-02-10",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 21,
+          "targetInstanceName": "云产品_001",
+          "targetObjectId": 6,
+          "targetObjectName": "云产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 22,
+          "targetInstanceName": "云产品_002",
+          "targetObjectId": 6,
+          "targetObjectName": "云产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 17,
+          "targetInstanceName": "数据专线产品_004",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 18,
+          "targetInstanceName": "数据专线产品_005",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 12,
+          "targetInstanceName": "产品父类型_002",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 11,
+          "targetInstanceName": "产品父类型_001",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 19,
+          "targetInstanceName": "VPN 产品_001",
+          "targetObjectId": 5,
+          "targetObjectName": "VPN 产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "合同涵盖产品",
+          "targetInstanceId": 15,
+          "targetInstanceName": "数据专线产品_002",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "合同管辖业务实例",
+          "targetInstanceId": 26,
+          "targetInstanceName": "已开通的业务实例_004",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "合同管辖业务实例",
+          "targetInstanceId": 27,
+          "targetInstanceName": "已开通的业务实例_005",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "合同包含 SLA 项",
+          "targetInstanceId": 41,
+          "targetInstanceName": "服务等级协议_004",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Product_001",
+      "instanceName": "产品父类型_001",
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "5G企业专网服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Product_002",
+      "instanceName": "产品父类型_002",
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "云视讯会议系统",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Product_003",
+      "instanceName": "产品父类型_003",
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "物联网连接管理平台",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "DataLineProduct_001",
+      "instanceName": "数据专线产品_001",
+      "objectId": 4,
+      "objectName": "数据专线产品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "DataLineProduct.bandwidth_mbps",
+          "dataType": "integer",
+          "value": 100,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "DataLineProduct.name",
+          "dataType": "string",
+          "value": "高速数据专线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "产品ID",
+          "attributeCode": "DataLineProduct.product_id",
+          "dataType": "string",
+          "value": "DL-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "DataLineProduct_002",
+      "instanceName": "数据专线产品_002",
+      "objectId": 4,
+      "objectName": "数据专线产品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "DataLineProduct.bandwidth_mbps",
+          "dataType": "integer",
+          "value": 500,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "DataLineProduct.name",
+          "dataType": "string",
+          "value": "企业级数据专线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "产品ID",
+          "attributeCode": "DataLineProduct.product_id",
+          "dataType": "string",
+          "value": "DL-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "DataLineProduct_003",
+      "instanceName": "数据专线产品_003",
+      "objectId": 4,
+      "objectName": "数据专线产品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "DataLineProduct.bandwidth_mbps",
+          "dataType": "integer",
+          "value": 1000,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "DataLineProduct.name",
+          "dataType": "string",
+          "value": "金融专网专线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "产品ID",
+          "attributeCode": "DataLineProduct.product_id",
+          "dataType": "string",
+          "value": "DL-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "DataLineProduct_004",
+      "instanceName": "数据专线产品_004",
+      "objectId": 4,
+      "objectName": "数据专线产品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "DataLineProduct.bandwidth_mbps",
+          "dataType": "integer",
+          "value": 200,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "DataLineProduct.name",
+          "dataType": "string",
+          "value": "云接入数据专线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "产品ID",
+          "attributeCode": "DataLineProduct.product_id",
+          "dataType": "string",
+          "value": "DL-2024-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "DataLineProduct_005",
+      "instanceName": "数据专线产品_005",
+      "objectId": 4,
+      "objectName": "数据专线产品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "带宽(Mbps)",
+          "attributeCode": "DataLineProduct.bandwidth_mbps",
+          "dataType": "integer",
+          "value": 150,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "DataLineProduct.name",
+          "dataType": "string",
+          "value": "政务安全专线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "产品ID",
+          "attributeCode": "DataLineProduct.product_id",
+          "dataType": "string",
+          "value": "DL-2024-005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "VPNProduct_001",
+      "instanceName": "VPN 产品_001",
+      "objectId": 5,
+      "objectName": "VPN 产品",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "VPNProduct.name",
+          "dataType": "string",
+          "value": "企业级MPLS VPN",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "产品ID",
+          "attributeCode": "VPNProduct.product_id",
+          "dataType": "string",
+          "value": "VP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "VPN类型",
+          "attributeCode": "VPNProduct.vpn_type",
+          "dataType": "string",
+          "value": "mpls",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "VPNProduct_002",
+      "instanceName": "VPN 产品_002",
+      "objectId": 5,
+      "objectName": "VPN 产品",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "名称",
+          "attributeCode": "VPNProduct.name",
+          "dataType": "string",
+          "value": "安全IPSec远程接入VPN",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "产品ID",
+          "attributeCode": "VPNProduct.product_id",
+          "dataType": "string",
+          "value": "VP002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "VPN类型",
+          "attributeCode": "VPNProduct.vpn_type",
+          "dataType": "string",
+          "value": "ipsec",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "CloudProduct_001",
+      "instanceName": "云产品_001",
+      "objectId": 6,
+      "objectName": "云产品",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "CloudProduct.name",
+          "dataType": "string",
+          "value": "云存储服务",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "产品ID",
+          "attributeCode": "CloudProduct.product_id",
+          "dataType": "string",
+          "value": "CP-2024-A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "层级",
+          "attributeCode": "CloudProduct.tier",
+          "dataType": "string",
+          "value": "standard",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "CloudProduct_002",
+      "instanceName": "云产品_002",
+      "objectId": 6,
+      "objectName": "云产品",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "CloudProduct.name",
+          "dataType": "string",
+          "value": "企业级云数据库",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "产品ID",
+          "attributeCode": "CloudProduct.product_id",
+          "dataType": "string",
+          "value": "CP-2024-B002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "层级",
+          "attributeCode": "CloudProduct.tier",
+          "dataType": "string",
+          "value": "enterprise",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Service_001",
+      "instanceName": "已开通的业务实例_001",
+      "objectId": 7,
+      "objectName": "已开通的业务实例",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2023-05-12T09:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "业务实例对应产品",
+          "targetInstanceId": 15,
+          "targetInstanceName": "数据专线产品_002",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "业务承载于网元",
+          "targetInstanceId": 32,
+          "targetInstanceName": "承载网元_001",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "业务接入站点",
+          "targetInstanceId": 36,
+          "targetInstanceName": "客户站点_001",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "业务接入站点",
+          "targetInstanceId": 37,
+          "targetInstanceName": "客户站点_002",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "业务对应 SLA",
+          "targetInstanceId": 38,
+          "targetInstanceName": "服务等级协议_001",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Service_002",
+      "instanceName": "已开通的业务实例_002",
+      "objectId": 7,
+      "objectName": "已开通的业务实例",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2023-06-01T14:15:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "业务实例对应产品",
+          "targetInstanceId": 18,
+          "targetInstanceName": "数据专线产品_005",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "业务承载于网元",
+          "targetInstanceId": 32,
+          "targetInstanceName": "承载网元_001",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "业务承载于网元",
+          "targetInstanceId": 33,
+          "targetInstanceName": "承载网元_002",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "业务对应 SLA",
+          "targetInstanceId": 38,
+          "targetInstanceName": "服务等级协议_001",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Service_003",
+      "instanceName": "已开通的业务实例_003",
+      "objectId": 7,
+      "objectName": "已开通的业务实例",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2023-04-22T11:20:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-2023-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "业务实例对应产品",
+          "targetInstanceId": 18,
+          "targetInstanceName": "数据专线产品_005",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "业务承载于网元",
+          "targetInstanceId": 33,
+          "targetInstanceName": "承载网元_002",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "业务对应 SLA",
+          "targetInstanceId": 40,
+          "targetInstanceName": "服务等级协议_003",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Service_004",
+      "instanceName": "已开通的业务实例_004",
+      "objectId": 7,
+      "objectName": "已开通的业务实例",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2022-11-30T08:45:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-2023-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "业务实例对应产品",
+          "targetInstanceId": 14,
+          "targetInstanceName": "数据专线产品_001",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "业务承载于网元",
+          "targetInstanceId": 32,
+          "targetInstanceName": "承载网元_001",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "业务接入站点",
+          "targetInstanceId": 36,
+          "targetInstanceName": "客户站点_001",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "业务接入站点",
+          "targetInstanceId": 37,
+          "targetInstanceName": "客户站点_002",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "业务对应 SLA",
+          "targetInstanceId": 41,
+          "targetInstanceName": "服务等级协议_004",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Service_005",
+      "instanceName": "已开通的业务实例_005",
+      "objectId": 7,
+      "objectName": "已开通的业务实例",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "激活时间",
+          "attributeCode": "Service.activated_at",
+          "dataType": "string",
+          "value": "2023-07-18T16:00:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "服务ID",
+          "attributeCode": "Service.service_id",
+          "dataType": "string",
+          "value": "SVC-2023-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Service.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "业务实例对应产品",
+          "targetInstanceId": 16,
+          "targetInstanceName": "数据专线产品_003",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "业务承载于网元",
+          "targetInstanceId": 33,
+          "targetInstanceName": "承载网元_002",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "业务承载于网元",
+          "targetInstanceId": 34,
+          "targetInstanceName": "承载网元_003",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "业务对应 SLA",
+          "targetInstanceId": 39,
+          "targetInstanceName": "服务等级协议_002",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "ServiceOrder_001",
+      "instanceName": "业务开通/变更订单_001",
+      "objectId": 8,
+      "objectName": "业务开通/变更订单",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "订单ID",
+          "attributeCode": "ServiceOrder.order_id",
+          "dataType": "string",
+          "value": "SO20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ServiceOrder.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "服务订单生成业务",
+          "targetInstanceId": 23,
+          "targetInstanceName": "已开通的业务实例_001",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "订单归属合同",
+          "targetInstanceId": 8,
+          "targetInstanceName": "服务合同_003",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "ServiceOrder_002",
+      "instanceName": "业务开通/变更订单_002",
+      "objectId": 8,
+      "objectName": "业务开通/变更订单",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "订单ID",
+          "attributeCode": "ServiceOrder.order_id",
+          "dataType": "string",
+          "value": "SO20240002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ServiceOrder.status",
+          "dataType": "string",
+          "value": "approved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "服务订单生成业务",
+          "targetInstanceId": 25,
+          "targetInstanceName": "已开通的业务实例_003",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "订单归属合同",
+          "targetInstanceId": 8,
+          "targetInstanceName": "服务合同_003",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "ServiceOrder_003",
+      "instanceName": "业务开通/变更订单_003",
+      "objectId": 8,
+      "objectName": "业务开通/变更订单",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "订单ID",
+          "attributeCode": "ServiceOrder.order_id",
+          "dataType": "string",
+          "value": "SO20240003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ServiceOrder.status",
+          "dataType": "string",
+          "value": "provisioning",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "服务订单生成业务",
+          "targetInstanceId": 26,
+          "targetInstanceName": "已开通的业务实例_004",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "订单归属合同",
+          "targetInstanceId": 6,
+          "targetInstanceName": "服务合同_001",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "ServiceOrder_004",
+      "instanceName": "业务开通/变更订单_004",
+      "objectId": 8,
+      "objectName": "业务开通/变更订单",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "订单ID",
+          "attributeCode": "ServiceOrder.order_id",
+          "dataType": "string",
+          "value": "SO20240004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "ServiceOrder.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "服务订单生成业务",
+          "targetInstanceId": 24,
+          "targetInstanceName": "已开通的业务实例_002",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "订单归属合同",
+          "targetInstanceId": 10,
+          "targetInstanceName": "服务合同_005",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "NetworkElement_001",
+      "instanceName": "承载网元_001",
+      "objectId": 9,
+      "objectName": "承载网元",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "OTN交叉设备",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "normal",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 37,
+          "targetInstanceName": "客户站点_002",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "NetworkElement_002",
+      "instanceName": "承载网元_002",
+      "objectId": 9,
+      "objectName": "承载网元",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "PTN分组传输设备",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "degraded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 37,
+          "targetInstanceName": "客户站点_002",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "NetworkElement_003",
+      "instanceName": "承载网元_003",
+      "objectId": 9,
+      "objectName": "承载网元",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "SPN切片分组网元",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "down",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 37,
+          "targetInstanceName": "客户站点_002",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "NetworkElement_004",
+      "instanceName": "承载网元_004",
+      "objectId": 9,
+      "objectName": "承载网元",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "网元ID",
+          "attributeCode": "NetworkElement.ne_id",
+          "dataType": "string",
+          "value": "NE-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "网元类型",
+          "attributeCode": "NetworkElement.ne_type",
+          "dataType": "string",
+          "value": "ASON智能光网络节点",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "NetworkElement.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "网元位于站点",
+          "targetInstanceId": 36,
+          "targetInstanceName": "客户站点_001",
+          "targetObjectId": 10,
+          "targetObjectName": "客户站点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Site_001",
+      "instanceName": "客户站点_001",
+      "objectId": 10,
+      "objectName": "客户站点",
+      "attributeValues": [
+        {
+          "attributeId": 29,
+          "attributeName": "地址",
+          "attributeCode": "Site.address",
+          "dataType": "string",
+          "value": "北京市朝阳区建国路8号SOHO现代城A座12层",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "value": "SIT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Site_002",
+      "instanceName": "客户站点_002",
+      "objectId": 10,
+      "objectName": "客户站点",
+      "attributeValues": [
+        {
+          "attributeId": 29,
+          "attributeName": "地址",
+          "attributeCode": "Site.address",
+          "dataType": "string",
+          "value": "上海市浦东新区张江路123号创新大厦B栋5楼",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "站点ID",
+          "attributeCode": "Site.site_id",
+          "dataType": "string",
+          "value": "SIT-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "SLA_001",
+      "instanceName": "服务等级协议_001",
+      "objectId": 11,
+      "objectName": "服务等级协议",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "可用率目标",
+          "attributeCode": "SLA.availability_target",
+          "dataType": "number",
+          "value": 99.95,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "SLA_002",
+      "instanceName": "服务等级协议_002",
+      "objectId": 11,
+      "objectName": "服务等级协议",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "可用率目标",
+          "attributeCode": "SLA.availability_target",
+          "dataType": "number",
+          "value": 99.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "SLA_003",
+      "instanceName": "服务等级协议_003",
+      "objectId": 11,
+      "objectName": "服务等级协议",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "可用率目标",
+          "attributeCode": "SLA.availability_target",
+          "dataType": "number",
+          "value": 99.99,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "SLA_004",
+      "instanceName": "服务等级协议_004",
+      "objectId": 11,
+      "objectName": "服务等级协议",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "可用率目标",
+          "attributeCode": "SLA.availability_target",
+          "dataType": "number",
+          "value": 99.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "Ticket_001",
+      "instanceName": "服务工单_001",
+      "objectId": 12,
+      "objectName": "服务工单",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "严重程度",
+          "attributeCode": "Ticket.severity",
+          "dataType": "string",
+          "value": "medium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "value": "T20240001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "工单针对业务",
+          "targetInstanceId": 26,
+          "targetInstanceName": "已开通的业务实例_004",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "工单分配工程师",
+          "targetInstanceId": 48,
+          "targetInstanceName": "实施/运维工程师_001",
+          "targetObjectId": 16,
+          "targetObjectName": "实施/运维工程师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "工单关联 SLA",
+          "targetInstanceId": 39,
+          "targetInstanceName": "服务等级协议_002",
+          "targetObjectId": 11,
+          "targetObjectName": "服务等级协议",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 22,
+          "linkInfo": "工单涉及网元",
+          "targetInstanceId": 34,
+          "targetInstanceName": "承载网元_003",
+          "targetObjectId": 9,
+          "targetObjectName": "承载网元",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "ChangeRequest_001",
+      "instanceName": "变更请求_001",
+      "objectId": 13,
+      "objectName": "变更请求",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "变更类型",
+          "attributeCode": "ChangeRequest.change_type",
+          "dataType": "string",
+          "value": "bandwidth",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "变更请求ID",
+          "attributeCode": "ChangeRequest.cr_id",
+          "dataType": "string",
+          "value": "CR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "ChangeRequest.status",
+          "dataType": "string",
+          "value": "implemented",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "变更影响业务",
+          "targetInstanceId": 23,
+          "targetInstanceName": "已开通的业务实例_001",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "变更由客户经理发起",
+          "targetInstanceId": 47,
+          "targetInstanceName": "客户经理_001",
+          "targetObjectId": 15,
+          "targetObjectName": "客户经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "ChangeRequest_002",
+      "instanceName": "变更请求_002",
+      "objectId": 13,
+      "objectName": "变更请求",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "变更类型",
+          "attributeCode": "ChangeRequest.change_type",
+          "dataType": "string",
+          "value": "topology",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "变更请求ID",
+          "attributeCode": "ChangeRequest.cr_id",
+          "dataType": "string",
+          "value": "CR-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "ChangeRequest.status",
+          "dataType": "string",
+          "value": "implemented",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "变更影响业务",
+          "targetInstanceId": 26,
+          "targetInstanceName": "已开通的业务实例_004",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "变更由客户经理发起",
+          "targetInstanceId": 47,
+          "targetInstanceName": "客户经理_001",
+          "targetObjectId": 15,
+          "targetObjectName": "客户经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "ChangeRequest_003",
+      "instanceName": "变更请求_003",
+      "objectId": 13,
+      "objectName": "变更请求",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "变更类型",
+          "attributeCode": "ChangeRequest.change_type",
+          "dataType": "string",
+          "value": "decommission",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "变更请求ID",
+          "attributeCode": "ChangeRequest.cr_id",
+          "dataType": "string",
+          "value": "CR-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "ChangeRequest.status",
+          "dataType": "string",
+          "value": "implemented",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "变更影响业务",
+          "targetInstanceId": 25,
+          "targetInstanceName": "已开通的业务实例_003",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "变更影响业务",
+          "targetInstanceId": 26,
+          "targetInstanceName": "已开通的业务实例_004",
+          "targetObjectId": 7,
+          "targetObjectName": "已开通的业务实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "变更由客户经理发起",
+          "targetInstanceId": 47,
+          "targetInstanceName": "客户经理_001",
+          "targetObjectId": 15,
+          "targetObjectName": "客户经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 46,
+      "instanceCode": "Invoice_001",
+      "instanceName": "服务发票_001",
+      "objectId": 14,
+      "objectName": "服务发票",
+      "attributeValues": [
+        {
+          "attributeId": 40,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "value": 8999.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "value": "INV-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "value": "issued",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "发票对应合同",
+          "targetInstanceId": 7,
+          "targetInstanceName": "服务合同_002",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 47,
+      "instanceCode": "AccountManager_001",
+      "instanceName": "客户经理_001",
+      "objectId": 15,
+      "objectName": "客户经理",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "经理ID",
+          "attributeCode": "AccountManager.manager_id",
+          "dataType": "string",
+          "value": "AM2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "AccountManager.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "客户经理服务客户",
+          "targetInstanceId": 3,
+          "targetInstanceName": "政企客户_003",
+          "targetObjectId": 1,
+          "targetObjectName": "政企客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "客户经理服务客户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "政企客户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "政企客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 48,
+      "instanceCode": "Engineer_001",
+      "instanceName": "实施/运维工程师_001",
+      "objectId": 16,
+      "objectName": "实施/运维工程师",
+      "attributeValues": [
+        {
+          "attributeId": 45,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "value": "ENG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "专业",
+          "attributeCode": "Engineer.specialty",
+          "dataType": "string",
+          "value": "网络运维",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 49,
+      "instanceCode": "Engineer_002",
+      "instanceName": "实施/运维工程师_002",
+      "objectId": 16,
+      "objectName": "实施/运维工程师",
+      "attributeValues": [
+        {
+          "attributeId": 45,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "value": "ENG-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "专业",
+          "attributeCode": "Engineer.specialty",
+          "dataType": "string",
+          "value": "系统集成",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "工程师支持客户",
+          "targetInstanceId": 3,
+          "targetInstanceName": "政企客户_003",
+          "targetObjectId": 1,
+          "targetObjectName": "政企客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 50,
+      "instanceCode": "Engineer_003",
+      "instanceName": "实施/运维工程师_003",
+      "objectId": 16,
+      "objectName": "实施/运维工程师",
+      "attributeValues": [
+        {
+          "attributeId": 45,
+          "attributeName": "工程师ID",
+          "attributeCode": "Engineer.engineer_id",
+          "dataType": "string",
+          "value": "ENG-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "名称",
+          "attributeCode": "Engineer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 47,
+          "attributeName": "专业",
+          "attributeCode": "Engineer.specialty",
+          "dataType": "string",
+          "value": "云平台运维",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "工程师支持客户",
+          "targetInstanceId": 2,
+          "targetInstanceName": "政企客户_002",
+          "targetObjectId": 1,
+          "targetObjectName": "政企客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "工程师支持客户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "政企客户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "政企客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "工程师支持客户",
+          "targetInstanceId": 5,
+          "targetInstanceName": "政企客户_005",
+          "targetObjectId": 1,
+          "targetObjectName": "政企客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "工程师支持客户",
+          "targetInstanceId": 4,
+          "targetInstanceName": "政企客户_004",
+          "targetObjectId": 1,
+          "targetObjectName": "政企客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 51,
+      "instanceCode": "ServiceCatalog_001",
+      "instanceName": "服务目录_001",
+      "objectId": 17,
+      "objectName": "服务目录",
+      "attributeValues": [
+        {
+          "attributeId": 48,
+          "attributeName": "目录ID",
+          "attributeCode": "ServiceCatalog.catalog_id",
+          "dataType": "string",
+          "value": "CAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "ServiceCatalog.name",
+          "dataType": "string",
+          "value": "云通信服务目录",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 11,
+          "targetInstanceName": "产品父类型_001",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 12,
+          "targetInstanceName": "产品父类型_002",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 13,
+          "targetInstanceName": "产品父类型_003",
+          "targetObjectId": 3,
+          "targetObjectName": "产品父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 14,
+          "targetInstanceName": "数据专线产品_001",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 15,
+          "targetInstanceName": "数据专线产品_002",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 16,
+          "targetInstanceName": "数据专线产品_003",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 19,
+          "targetInstanceName": "VPN 产品_001",
+          "targetObjectId": 5,
+          "targetObjectName": "VPN 产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 52,
+      "instanceCode": "ServiceCatalog_002",
+      "instanceName": "服务目录_002",
+      "objectId": 17,
+      "objectName": "服务目录",
+      "attributeValues": [
+        {
+          "attributeId": 48,
+          "attributeName": "目录ID",
+          "attributeCode": "ServiceCatalog.catalog_id",
+          "dataType": "string",
+          "value": "CAT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 49,
+          "attributeName": "名称",
+          "attributeCode": "ServiceCatalog.name",
+          "dataType": "string",
+          "value": "企业专线服务目录",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 17,
+          "targetInstanceName": "数据专线产品_004",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 18,
+          "targetInstanceName": "数据专线产品_005",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 20,
+          "targetInstanceName": "VPN 产品_002",
+          "targetObjectId": 5,
+          "targetObjectName": "VPN 产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 21,
+          "targetInstanceName": "云产品_001",
+          "targetObjectId": 6,
+          "targetObjectName": "云产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 22,
+          "targetInstanceName": "云产品_002",
+          "targetObjectId": 6,
+          "targetObjectName": "云产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "目录列出产品",
+          "targetInstanceId": 14,
+          "targetInstanceName": "数据专线产品_001",
+          "targetObjectId": 4,
+          "targetObjectName": "数据专线产品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 53,
+      "instanceCode": "Discount_001",
+      "instanceName": "合同折扣_001",
+      "objectId": 18,
+      "objectName": "合同折扣",
+      "attributeValues": [
+        {
+          "attributeId": 50,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "value": "DISC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "费率",
+          "attributeCode": "Discount.rate",
+          "dataType": "number",
+          "value": 0.15,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 21,
+          "linkInfo": "合同适用折扣",
+          "targetInstanceId": 7,
+          "targetInstanceName": "服务合同_002",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "合同适用折扣",
+          "targetInstanceId": 6,
+          "targetInstanceName": "服务合同_001",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "合同适用折扣",
+          "targetInstanceId": 9,
+          "targetInstanceName": "服务合同_004",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "合同适用折扣",
+          "targetInstanceId": 10,
+          "targetInstanceName": "服务合同_005",
+          "targetObjectId": 2,
+          "targetObjectName": "服务合同",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 54,
+      "instanceCode": "Discount_002",
+      "instanceName": "合同折扣_002",
+      "objectId": 18,
+      "objectName": "合同折扣",
+      "attributeValues": [
+        {
+          "attributeId": 50,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "value": "DISC2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "费率",
+          "attributeCode": "Discount.rate",
+          "dataType": "number",
+          "value": 0.2,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 8,
+      "actionName": "终止服务",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "已开通的业务实例_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 8,
+      "actionName": "终止服务",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "已开通的业务实例_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 7,
+      "actionName": "暂停服务",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "已开通的业务实例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 1,
+      "actionName": "签署合同",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "政企客户_001"
+      ],
+      "outputInstanceNames": [
+        "服务合同_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 2,
+      "actionName": "激活合同",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "服务合同_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 14,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        50
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_003"
+      ],
+      "outputInstanceNames": [
+        "服务等级协议_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 13,
+      "actionName": "解决工单",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        42
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "服务工单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 3,
+      "actionName": "终止合同",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "政企客户_002"
+      ],
+      "outputInstanceNames": [
+        "服务合同_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 10,
+      "actionName": "审批变更",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        44
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "变更请求_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 11,
+      "actionName": "实施变更",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        43
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "变更请求_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 2,
+      "actionName": "激活合同",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "服务合同_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 8,
+      "actionName": "终止服务",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "已开通的业务实例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 11,
+      "actionName": "实施变更",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        44
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "变更请求_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 3,
+      "actionName": "终止合同",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "政企客户_003"
+      ],
+      "outputInstanceNames": [
+        "服务合同_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 9,
+      "actionName": "提交变更请求",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        45
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "变更请求_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 14,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        40
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "服务等级协议_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 6,
+      "actionName": "开通服务",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "已开通的业务实例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 14,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "服务等级协议_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 10,
+      "actionName": "审批变更",
+      "inputInstances": [
+        49
+      ],
+      "outputInstances": [
+        45
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_002"
+      ],
+      "outputInstanceNames": [
+        "变更请求_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 5,
+      "actionName": "审批服务订单",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "业务开通/变更订单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 11,
+      "actionName": "实施变更",
+      "inputInstances": [
+        48
+      ],
+      "outputInstances": [
+        45
+      ],
+      "inputInstanceNames": [
+        "实施/运维工程师_001"
+      ],
+      "outputInstanceNames": [
+        "变更请求_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 8,
+      "actionName": "终止服务",
+      "inputInstances": [
+        47
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "已开通的业务实例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 3,
+      "actionName": "终止合同",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "政企客户_001"
+      ],
+      "outputInstanceNames": [
+        "服务合同_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

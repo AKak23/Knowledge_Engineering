@@ -1,0 +1,2999 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "客户关系管理(CRM)·crm_C4_service_support",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=crm_C4_service_support，graph=crm_C4_service_support_seed45）：12 个对象类型 / 18 个关系 / 13 个动作 / 36 个实例 / 20 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "客服案例",
+      "objectCode": "Case",
+      "description": "客服案例",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "案例ID",
+          "attributeCode": "Case.case_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "开启时间",
+          "attributeCode": "Case.opened_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-10T09:15:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "优先级",
+          "attributeCode": "Case.priority",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "high",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Case.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Case.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "客户登录失败问题",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "子案例",
+      "objectCode": "SubCase",
+      "description": "子案例",
+      "attributes": [
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "SubCase.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "resolved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "子案例ID",
+          "attributeCode": "SubCase.subcase_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "主题",
+          "attributeCode": "SubCase.topic",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "账户登录异常",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "处理活动",
+      "objectCode": "Activity",
+      "description": "处理活动",
+      "attributes": [
+        {
+          "attributeId": 9,
+          "attributeName": "活动ID",
+          "attributeCode": "Activity.activity_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ACT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "类型",
+          "attributeCode": "Activity.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "call",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发生时间",
+          "attributeCode": "Activity.occurred_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-10T09:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Activity.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "客户",
+      "objectCode": "Customer",
+      "description": "客户",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "objectCode": "Agent",
+      "description": "客服父类型",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "一线客服",
+      "objectCode": "FrontlineAgent",
+      "description": "一线客服",
+      "attributes": [
+        {
+          "attributeId": 17,
+          "attributeName": "坐席ID",
+          "attributeCode": "FrontlineAgent.agent_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FA001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "FrontlineAgent.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "李明",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "团队",
+          "attributeCode": "FrontlineAgent.team",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "售后支持组",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "升级专员",
+      "objectCode": "EscalationAgent",
+      "description": "升级专员",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "坐席ID",
+          "attributeCode": "EscalationAgent.agent_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EA001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "名称",
+          "attributeCode": "EscalationAgent.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "李伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "专业",
+          "attributeCode": "EscalationAgent.specialty",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "支付问题处理",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "知识库文章",
+      "objectCode": "KnowledgeArticle",
+      "description": "知识库文章",
+      "attributes": [
+        {
+          "attributeId": 23,
+          "attributeName": "知识文章ID",
+          "attributeCode": "KnowledgeArticle.article_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "KA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "KnowledgeArticle.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "职称",
+          "attributeCode": "KnowledgeArticle.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "如何重置用户密码",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "服务分类",
+      "objectCode": "ServiceCategory",
+      "description": "服务分类",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "类别ID",
+          "attributeCode": "ServiceCategory.category_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SC001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "名称",
+          "attributeCode": "ServiceCategory.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "技术支持服务",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "服务 服务 SLA",
+      "objectCode": "SLA",
+      "description": "服务 SLA",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "响应时长(分钟)",
+          "attributeCode": "SLA.response_minutes",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SLA_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "案例后调研",
+      "objectCode": "Survey",
+      "description": "案例后调研",
+      "attributes": [
+        {
+          "attributeId": 31,
+          "attributeName": "客户满意度",
+          "attributeCode": "Survey.csat",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "Survey.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "responded",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "调研ID",
+          "attributeCode": "Survey.survey_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Survey_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "服务渠道",
+      "objectCode": "Channel",
+      "description": "服务渠道",
+      "attributes": [
+        {
+          "attributeId": 34,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CHN001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "phone",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 4,
+      "targetObjectName": "客户",
+      "linkInfo": "案例归属客户",
+      "linkType": "N:1",
+      "description": "case_for_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 5,
+      "targetObjectName": "客服父类型",
+      "linkInfo": "案例分配客服",
+      "linkType": "N:1",
+      "description": "case_assigned_to",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 12,
+      "targetObjectName": "服务渠道",
+      "linkInfo": "案例来源渠道",
+      "linkType": "N:1",
+      "description": "case_via_channel",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 9,
+      "targetObjectName": "服务分类",
+      "linkInfo": "案例分类",
+      "linkType": "N:1",
+      "description": "case_in_category",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 10,
+      "targetObjectName": "服务 服务 SLA",
+      "linkInfo": "案例 服务 SLA",
+      "linkType": "N:1",
+      "description": "case_bound_sla",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 2,
+      "targetObjectName": "子案例",
+      "linkInfo": "案例分解为子案例",
+      "linkType": "1:N",
+      "description": "case_has_subcase",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 2,
+      "sourceObjectName": "子案例",
+      "targetObjectId": 3,
+      "targetObjectName": "处理活动",
+      "linkInfo": "子案例下的活动",
+      "linkType": "1:N",
+      "description": "subcase_has_activity",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 3,
+      "targetObjectName": "处理活动",
+      "linkInfo": "案例下的顶层活动",
+      "linkType": "1:N",
+      "description": "case_has_activity",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 3,
+      "sourceObjectName": "处理活动",
+      "targetObjectId": 5,
+      "targetObjectName": "客服父类型",
+      "linkInfo": "活动由客服执行",
+      "linkType": "N:1",
+      "description": "activity_by_agent",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 8,
+      "targetObjectName": "知识库文章",
+      "linkInfo": "案例引用知识",
+      "linkType": "N:M",
+      "description": "case_uses_article",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 2,
+      "sourceObjectName": "子案例",
+      "targetObjectId": 8,
+      "targetObjectName": "知识库文章",
+      "linkInfo": "子案例引用知识",
+      "linkType": "N:M",
+      "description": "subcase_uses_article",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 7,
+      "targetObjectName": "升级专员",
+      "linkInfo": "案例升级到专员",
+      "linkType": "N:1",
+      "description": "case_escalated_to",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客服案例",
+      "targetObjectId": 11,
+      "targetObjectName": "案例后调研",
+      "linkInfo": "案例后置调研",
+      "linkType": "1:1",
+      "description": "case_followed_by_survey",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 9,
+      "sourceObjectName": "服务分类",
+      "targetObjectId": 8,
+      "targetObjectName": "知识库文章",
+      "linkInfo": "分类下的知识",
+      "linkType": "1:N",
+      "description": "category_has_articles",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 5,
+      "sourceObjectName": "客服父类型",
+      "targetObjectId": 12,
+      "targetObjectName": "服务渠道",
+      "linkInfo": "客服服务渠道",
+      "linkType": "N:M",
+      "description": "agent_in_channel",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 9,
+      "sourceObjectName": "服务分类",
+      "targetObjectId": 10,
+      "targetObjectName": "服务 服务 SLA",
+      "linkInfo": "分类对应 服务 SLA",
+      "linkType": "1:N",
+      "description": "category_governs_sla",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 6,
+      "sourceObjectName": "一线客服",
+      "targetObjectId": 5,
+      "targetObjectName": "客服父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "FrontlineAgent is-a Agent",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 7,
+      "sourceObjectName": "升级专员",
+      "targetObjectId": 5,
+      "targetObjectName": "客服父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "EscalationAgent is-a Agent",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "开启案例",
+      "actionCode": "open_case",
+      "description": "执行者：客户；对象：客服案例",
+      "inputObjects": [
+        "客户"
+      ],
+      "outputObjects": [
+        "客服案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "开始案例",
+      "actionCode": "start_case",
+      "description": "执行者：客服父类型；对象：客服案例",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "客服案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "升级案例",
+      "actionCode": "escalate_case",
+      "description": "执行者：客服父类型；对象：客服案例",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "客服案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "解决案例",
+      "actionCode": "resolve_case",
+      "description": "执行者：客服父类型；对象：客服案例",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "客服案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "关闭案例",
+      "actionCode": "close_case",
+      "description": "执行者：客户；对象：客服案例",
+      "inputObjects": [
+        "客户"
+      ],
+      "outputObjects": [
+        "客服案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "开始子案例",
+      "actionCode": "start_subcase",
+      "description": "执行者：客服父类型；对象：子案例",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "子案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "解决子案例",
+      "actionCode": "resolve_subcase",
+      "description": "执行者：客服父类型；对象：子案例",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "子案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "完成活动",
+      "actionCode": "complete_activity",
+      "description": "执行者：客服父类型；对象：处理活动",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "处理活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "取消活动",
+      "actionCode": "cancel_activity",
+      "description": "执行者：客服父类型；对象：处理活动",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "处理活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "发布知识文章",
+      "actionCode": "publish_article",
+      "description": "执行者：客服父类型；对象：知识库文章",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "知识库文章"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "弃用知识文章",
+      "actionCode": "deprecate_article",
+      "description": "执行者：客服父类型；对象：知识库文章",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "知识库文章"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "回复调研",
+      "actionCode": "respond_survey",
+      "description": "执行者：客户；对象：案例后调研",
+      "inputObjects": [
+        "客户"
+      ],
+      "outputObjects": [
+        "案例后调研"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "actionCode": "breach_sla",
+      "description": "执行者：客服父类型；对象：服务 服务 SLA",
+      "inputObjects": [
+        "客服父类型"
+      ],
+      "outputObjects": [
+        "服务 服务 SLA"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Case_001",
+      "instanceName": "客服案例_001",
+      "objectId": 1,
+      "objectName": "客服案例",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "案例ID",
+          "attributeCode": "Case.case_id",
+          "dataType": "string",
+          "value": "CS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "开启时间",
+          "attributeCode": "Case.opened_at",
+          "dataType": "string",
+          "value": "2024-05-10T09:15:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "优先级",
+          "attributeCode": "Case.priority",
+          "dataType": "string",
+          "value": "high",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Case.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Case.title",
+          "dataType": "string",
+          "value": "客户登录失败问题",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "案例归属客户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "案例分配客服",
+          "targetInstanceId": 23,
+          "targetInstanceName": "升级专员_001",
+          "targetObjectId": 7,
+          "targetObjectName": "升级专员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "案例来源渠道",
+          "targetInstanceId": 34,
+          "targetInstanceName": "服务渠道_001",
+          "targetObjectId": 12,
+          "targetObjectName": "服务渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "案例分类",
+          "targetInstanceId": 28,
+          "targetInstanceName": "服务分类_001",
+          "targetObjectId": 9,
+          "targetObjectName": "服务分类",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "案例 SLA",
+          "targetInstanceId": 29,
+          "targetInstanceName": "服务 服务 SLA_001",
+          "targetObjectId": 10,
+          "targetObjectName": "服务 服务 SLA",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "案例分解为子案例",
+          "targetInstanceId": 7,
+          "targetInstanceName": "子案例_003",
+          "targetObjectId": 2,
+          "targetObjectName": "子案例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "案例下的顶层活动",
+          "targetInstanceId": 9,
+          "targetInstanceName": "处理活动_001",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "案例升级到专员",
+          "targetInstanceId": 23,
+          "targetInstanceName": "升级专员_001",
+          "targetObjectId": 7,
+          "targetObjectName": "升级专员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Case_002",
+      "instanceName": "客服案例_002",
+      "objectId": 1,
+      "objectName": "客服案例",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "案例ID",
+          "attributeCode": "Case.case_id",
+          "dataType": "string",
+          "value": "CS-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "开启时间",
+          "attributeCode": "Case.opened_at",
+          "dataType": "string",
+          "value": "2024-05-10T11:30:45Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "优先级",
+          "attributeCode": "Case.priority",
+          "dataType": "string",
+          "value": "medium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Case.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Case.title",
+          "dataType": "string",
+          "value": "订单状态未更新",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "案例归属客户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "案例分配客服",
+          "targetInstanceId": 20,
+          "targetInstanceName": "客服父类型_007",
+          "targetObjectId": 5,
+          "targetObjectName": "客服父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "案例来源渠道",
+          "targetInstanceId": 34,
+          "targetInstanceName": "服务渠道_001",
+          "targetObjectId": 12,
+          "targetObjectName": "服务渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "案例分类",
+          "targetInstanceId": 28,
+          "targetInstanceName": "服务分类_001",
+          "targetObjectId": 9,
+          "targetObjectName": "服务分类",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "案例 SLA",
+          "targetInstanceId": 29,
+          "targetInstanceName": "服务 服务 SLA_001",
+          "targetObjectId": 10,
+          "targetObjectName": "服务 服务 SLA",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "案例下的顶层活动",
+          "targetInstanceId": 10,
+          "targetInstanceName": "处理活动_002",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "案例升级到专员",
+          "targetInstanceId": 24,
+          "targetInstanceName": "升级专员_002",
+          "targetObjectId": 7,
+          "targetObjectName": "升级专员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "案例后置调研",
+          "targetInstanceId": 32,
+          "targetInstanceName": "案例后调研_001",
+          "targetObjectId": 11,
+          "targetObjectName": "案例后调研",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Case_003",
+      "instanceName": "客服案例_003",
+      "objectId": 1,
+      "objectName": "客服案例",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "案例ID",
+          "attributeCode": "Case.case_id",
+          "dataType": "string",
+          "value": "CS-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "开启时间",
+          "attributeCode": "Case.opened_at",
+          "dataType": "string",
+          "value": "2024-05-09T16:22:10Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "优先级",
+          "attributeCode": "Case.priority",
+          "dataType": "string",
+          "value": "urgent",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Case.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Case.title",
+          "dataType": "string",
+          "value": "支付接口超时异常",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "案例归属客户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "案例分配客服",
+          "targetInstanceId": 16,
+          "targetInstanceName": "客服父类型_003",
+          "targetObjectId": 5,
+          "targetObjectName": "客服父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "案例来源渠道",
+          "targetInstanceId": 35,
+          "targetInstanceName": "服务渠道_002",
+          "targetObjectId": 12,
+          "targetObjectName": "服务渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "案例分类",
+          "targetInstanceId": 28,
+          "targetInstanceName": "服务分类_001",
+          "targetObjectId": 9,
+          "targetObjectName": "服务分类",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "案例 SLA",
+          "targetInstanceId": 30,
+          "targetInstanceName": "服务 服务 SLA_002",
+          "targetObjectId": 10,
+          "targetObjectName": "服务 服务 SLA",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "案例分解为子案例",
+          "targetInstanceId": 6,
+          "targetInstanceName": "子案例_002",
+          "targetObjectId": 2,
+          "targetObjectName": "子案例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "案例升级到专员",
+          "targetInstanceId": 23,
+          "targetInstanceName": "升级专员_001",
+          "targetObjectId": 7,
+          "targetObjectName": "升级专员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "案例后置调研",
+          "targetInstanceId": 33,
+          "targetInstanceName": "案例后调研_002",
+          "targetObjectId": 11,
+          "targetObjectName": "案例后调研",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Case_004",
+      "instanceName": "客服案例_004",
+      "objectId": 1,
+      "objectName": "客服案例",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "案例ID",
+          "attributeCode": "Case.case_id",
+          "dataType": "string",
+          "value": "CS-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "开启时间",
+          "attributeCode": "Case.opened_at",
+          "dataType": "string",
+          "value": "2024-05-08T14:05:33Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "优先级",
+          "attributeCode": "Case.priority",
+          "dataType": "string",
+          "value": "low",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Case.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "职称",
+          "attributeCode": "Case.title",
+          "dataType": "string",
+          "value": "用户资料同步延迟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "案例归属客户",
+          "targetInstanceId": 13,
+          "targetInstanceName": "客户_001",
+          "targetObjectId": 4,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "案例分配客服",
+          "targetInstanceId": 14,
+          "targetInstanceName": "客服父类型_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客服父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "案例来源渠道",
+          "targetInstanceId": 35,
+          "targetInstanceName": "服务渠道_002",
+          "targetObjectId": 12,
+          "targetObjectName": "服务渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "案例分类",
+          "targetInstanceId": 28,
+          "targetInstanceName": "服务分类_001",
+          "targetObjectId": 9,
+          "targetObjectName": "服务分类",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "案例 SLA",
+          "targetInstanceId": 30,
+          "targetInstanceName": "服务 服务 SLA_002",
+          "targetObjectId": 10,
+          "targetObjectName": "服务 服务 SLA",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "案例分解为子案例",
+          "targetInstanceId": 5,
+          "targetInstanceName": "子案例_001",
+          "targetObjectId": 2,
+          "targetObjectName": "子案例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "案例分解为子案例",
+          "targetInstanceId": 8,
+          "targetInstanceName": "子案例_004",
+          "targetObjectId": 2,
+          "targetObjectName": "子案例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "案例下的顶层活动",
+          "targetInstanceId": 11,
+          "targetInstanceName": "处理活动_003",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "案例下的顶层活动",
+          "targetInstanceId": 12,
+          "targetInstanceName": "处理活动_004",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "案例引用知识",
+          "targetInstanceId": 25,
+          "targetInstanceName": "知识库文章_001",
+          "targetObjectId": 8,
+          "targetObjectName": "知识库文章",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "案例升级到专员",
+          "targetInstanceId": 23,
+          "targetInstanceName": "升级专员_001",
+          "targetObjectId": 7,
+          "targetObjectName": "升级专员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "SubCase_001",
+      "instanceName": "子案例_001",
+      "objectId": 2,
+      "objectName": "子案例",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "SubCase.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "子案例ID",
+          "attributeCode": "SubCase.subcase_id",
+          "dataType": "string",
+          "value": "SC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "主题",
+          "attributeCode": "SubCase.topic",
+          "dataType": "string",
+          "value": "账户登录异常",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "SubCase_002",
+      "instanceName": "子案例_002",
+      "objectId": 2,
+      "objectName": "子案例",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "SubCase.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "子案例ID",
+          "attributeCode": "SubCase.subcase_id",
+          "dataType": "string",
+          "value": "SC-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "主题",
+          "attributeCode": "SubCase.topic",
+          "dataType": "string",
+          "value": "订单支付失败",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "子案例下的活动",
+          "targetInstanceId": 10,
+          "targetInstanceName": "处理活动_002",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "子案例下的活动",
+          "targetInstanceId": 12,
+          "targetInstanceName": "处理活动_004",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "SubCase_003",
+      "instanceName": "子案例_003",
+      "objectId": 2,
+      "objectName": "子案例",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "SubCase.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "子案例ID",
+          "attributeCode": "SubCase.subcase_id",
+          "dataType": "string",
+          "value": "SC-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "主题",
+          "attributeCode": "SubCase.topic",
+          "dataType": "string",
+          "value": "发票开具问题",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "子案例下的活动",
+          "targetInstanceId": 9,
+          "targetInstanceName": "处理活动_001",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "子案例下的活动",
+          "targetInstanceId": 11,
+          "targetInstanceName": "处理活动_003",
+          "targetObjectId": 3,
+          "targetObjectName": "处理活动",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "SubCase_004",
+      "instanceName": "子案例_004",
+      "objectId": 2,
+      "objectName": "子案例",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "SubCase.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "子案例ID",
+          "attributeCode": "SubCase.subcase_id",
+          "dataType": "string",
+          "value": "SC-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "主题",
+          "attributeCode": "SubCase.topic",
+          "dataType": "string",
+          "value": "密码重置未收到短信",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "子案例引用知识",
+          "targetInstanceId": 27,
+          "targetInstanceName": "知识库文章_003",
+          "targetObjectId": 8,
+          "targetObjectName": "知识库文章",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Activity_001",
+      "instanceName": "处理活动_001",
+      "objectId": 3,
+      "objectName": "处理活动",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "活动ID",
+          "attributeCode": "Activity.activity_id",
+          "dataType": "string",
+          "value": "ACT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "类型",
+          "attributeCode": "Activity.kind",
+          "dataType": "string",
+          "value": "call",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发生时间",
+          "attributeCode": "Activity.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-10T09:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Activity.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "活动由客服执行",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客服父类型_005",
+          "targetObjectId": 5,
+          "targetObjectName": "客服父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Activity_002",
+      "instanceName": "处理活动_002",
+      "objectId": 3,
+      "objectName": "处理活动",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "活动ID",
+          "attributeCode": "Activity.activity_id",
+          "dataType": "string",
+          "value": "ACT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "类型",
+          "attributeCode": "Activity.kind",
+          "dataType": "string",
+          "value": "email",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发生时间",
+          "attributeCode": "Activity.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-12T14:00:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Activity.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "活动由客服执行",
+          "targetInstanceId": 17,
+          "targetInstanceName": "客服父类型_004",
+          "targetObjectId": 5,
+          "targetObjectName": "客服父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Activity_003",
+      "instanceName": "处理活动_003",
+      "objectId": 3,
+      "objectName": "处理活动",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "活动ID",
+          "attributeCode": "Activity.activity_id",
+          "dataType": "string",
+          "value": "ACT-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "类型",
+          "attributeCode": "Activity.kind",
+          "dataType": "string",
+          "value": "visit",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发生时间",
+          "attributeCode": "Activity.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-08T11:15:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Activity.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "活动由客服执行",
+          "targetInstanceId": 20,
+          "targetInstanceName": "客服父类型_007",
+          "targetObjectId": 5,
+          "targetObjectName": "客服父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Activity_004",
+      "instanceName": "处理活动_004",
+      "objectId": 3,
+      "objectName": "处理活动",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "活动ID",
+          "attributeCode": "Activity.activity_id",
+          "dataType": "string",
+          "value": "ACT-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "类型",
+          "attributeCode": "Activity.kind",
+          "dataType": "string",
+          "value": "internal_note",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "发生时间",
+          "attributeCode": "Activity.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-11T16:20:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "状态",
+          "attributeCode": "Activity.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "活动由客服执行",
+          "targetInstanceId": 20,
+          "targetInstanceName": "客服父类型_007",
+          "targetObjectId": 5,
+          "targetObjectName": "客服父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Customer_001",
+      "instanceName": "客户_001",
+      "objectId": 4,
+      "objectName": "客户",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Agent_001",
+      "instanceName": "客服父类型_001",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "客服服务渠道",
+          "targetInstanceId": 35,
+          "targetInstanceName": "服务渠道_002",
+          "targetObjectId": 12,
+          "targetObjectName": "服务渠道",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Agent_002",
+      "instanceName": "客服父类型_002",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Agent_003",
+      "instanceName": "客服父类型_003",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "王芳",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Agent_004",
+      "instanceName": "客服父类型_004",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Agent_005",
+      "instanceName": "客服父类型_005",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Agent_006",
+      "instanceName": "客服父类型_006",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "赵敏",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Agent_007",
+      "instanceName": "客服父类型_007",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A007",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "黄磊",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Agent_008",
+      "instanceName": "客服父类型_008",
+      "objectId": 5,
+      "objectName": "客服父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "坐席ID",
+          "attributeCode": "Agent.agent_id",
+          "dataType": "string",
+          "value": "A008",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Agent.name",
+          "dataType": "string",
+          "value": "周婷",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "FrontlineAgent_001",
+      "instanceName": "一线客服_001",
+      "objectId": 6,
+      "objectName": "一线客服",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "坐席ID",
+          "attributeCode": "FrontlineAgent.agent_id",
+          "dataType": "string",
+          "value": "FA001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "名称",
+          "attributeCode": "FrontlineAgent.name",
+          "dataType": "string",
+          "value": "李明",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "团队",
+          "attributeCode": "FrontlineAgent.team",
+          "dataType": "string",
+          "value": "售后支持组",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "EscalationAgent_001",
+      "instanceName": "升级专员_001",
+      "objectId": 7,
+      "objectName": "升级专员",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "坐席ID",
+          "attributeCode": "EscalationAgent.agent_id",
+          "dataType": "string",
+          "value": "EA001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "名称",
+          "attributeCode": "EscalationAgent.name",
+          "dataType": "string",
+          "value": "李伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "专业",
+          "attributeCode": "EscalationAgent.specialty",
+          "dataType": "string",
+          "value": "支付问题处理",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "EscalationAgent_002",
+      "instanceName": "升级专员_002",
+      "objectId": 7,
+      "objectName": "升级专员",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "坐席ID",
+          "attributeCode": "EscalationAgent.agent_id",
+          "dataType": "string",
+          "value": "EA002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "名称",
+          "attributeCode": "EscalationAgent.name",
+          "dataType": "string",
+          "value": "王芳",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "专业",
+          "attributeCode": "EscalationAgent.specialty",
+          "dataType": "string",
+          "value": "账户安全与风控",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "KnowledgeArticle_001",
+      "instanceName": "知识库文章_001",
+      "objectId": 8,
+      "objectName": "知识库文章",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "知识文章ID",
+          "attributeCode": "KnowledgeArticle.article_id",
+          "dataType": "string",
+          "value": "KA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "KnowledgeArticle.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "职称",
+          "attributeCode": "KnowledgeArticle.title",
+          "dataType": "string",
+          "value": "如何重置用户密码",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "KnowledgeArticle_002",
+      "instanceName": "知识库文章_002",
+      "objectId": 8,
+      "objectName": "知识库文章",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "知识文章ID",
+          "attributeCode": "KnowledgeArticle.article_id",
+          "dataType": "string",
+          "value": "KA-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "KnowledgeArticle.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "职称",
+          "attributeCode": "KnowledgeArticle.title",
+          "dataType": "string",
+          "value": "系统升级注意事项",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "KnowledgeArticle_003",
+      "instanceName": "知识库文章_003",
+      "objectId": 8,
+      "objectName": "知识库文章",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "知识文章ID",
+          "attributeCode": "KnowledgeArticle.article_id",
+          "dataType": "string",
+          "value": "KA-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "KnowledgeArticle.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "职称",
+          "attributeCode": "KnowledgeArticle.title",
+          "dataType": "string",
+          "value": "旧版API停用公告",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "ServiceCategory_001",
+      "instanceName": "服务分类_001",
+      "objectId": 9,
+      "objectName": "服务分类",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "类别ID",
+          "attributeCode": "ServiceCategory.category_id",
+          "dataType": "string",
+          "value": "SC001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "名称",
+          "attributeCode": "ServiceCategory.name",
+          "dataType": "string",
+          "value": "技术支持服务",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "分类下的知识",
+          "targetInstanceId": 25,
+          "targetInstanceName": "知识库文章_001",
+          "targetObjectId": 8,
+          "targetObjectName": "知识库文章",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "分类下的知识",
+          "targetInstanceId": 26,
+          "targetInstanceName": "知识库文章_002",
+          "targetObjectId": 8,
+          "targetObjectName": "知识库文章",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "分类下的知识",
+          "targetInstanceId": 27,
+          "targetInstanceName": "知识库文章_003",
+          "targetObjectId": 8,
+          "targetObjectName": "知识库文章",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "分类对应 SLA",
+          "targetInstanceId": 29,
+          "targetInstanceName": "服务 服务 SLA_001",
+          "targetObjectId": 10,
+          "targetObjectName": "服务 服务 SLA",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "分类对应 SLA",
+          "targetInstanceId": 30,
+          "targetInstanceName": "服务 服务 SLA_002",
+          "targetObjectId": 10,
+          "targetObjectName": "服务 服务 SLA",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "分类对应 SLA",
+          "targetInstanceId": 31,
+          "targetInstanceName": "服务 服务 SLA_003",
+          "targetObjectId": 10,
+          "targetObjectName": "服务 服务 SLA",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "SLA_001",
+      "instanceName": "服务 服务 SLA_001",
+      "objectId": 10,
+      "objectName": "服务 服务 SLA",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "响应时长(分钟)",
+          "attributeCode": "SLA.response_minutes",
+          "dataType": "integer",
+          "value": 15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "SLA_002",
+      "instanceName": "服务 服务 SLA_002",
+      "objectId": 10,
+      "objectName": "服务 服务 SLA",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "响应时长(分钟)",
+          "attributeCode": "SLA.response_minutes",
+          "dataType": "integer",
+          "value": 30,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "SLA_003",
+      "instanceName": "服务 服务 SLA_003",
+      "objectId": 10,
+      "objectName": "服务 服务 SLA",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "响应时长(分钟)",
+          "attributeCode": "SLA.response_minutes",
+          "dataType": "integer",
+          "value": 60,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "SLAID",
+          "attributeCode": "SLA.sla_id",
+          "dataType": "string",
+          "value": "SLA_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "SLA.status",
+          "dataType": "string",
+          "value": "breached",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Survey_001",
+      "instanceName": "案例后调研_001",
+      "objectId": 11,
+      "objectName": "案例后调研",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "客户满意度",
+          "attributeCode": "Survey.csat",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "Survey.status",
+          "dataType": "string",
+          "value": "responded",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "调研ID",
+          "attributeCode": "Survey.survey_id",
+          "dataType": "string",
+          "value": "Survey_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Survey_002",
+      "instanceName": "案例后调研_002",
+      "objectId": 11,
+      "objectName": "案例后调研",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "客户满意度",
+          "attributeCode": "Survey.csat",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "Survey.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "调研ID",
+          "attributeCode": "Survey.survey_id",
+          "dataType": "string",
+          "value": "Survey_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Channel_001",
+      "instanceName": "服务渠道_001",
+      "objectId": 12,
+      "objectName": "服务渠道",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "value": "CHN001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "value": "phone",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Channel_002",
+      "instanceName": "服务渠道_002",
+      "objectId": 12,
+      "objectName": "服务渠道",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "value": "CHN002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "value": "chat",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Channel_003",
+      "instanceName": "服务渠道_003",
+      "objectId": 12,
+      "objectName": "服务渠道",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "渠道ID",
+          "attributeCode": "Channel.channel_id",
+          "dataType": "string",
+          "value": "CHN003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "渠道类型",
+          "attributeCode": "Channel.channel_type",
+          "dataType": "string",
+          "value": "store",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 5,
+      "actionName": "关闭案例",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "客户_001"
+      ],
+      "outputInstanceNames": [
+        "客服案例_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 6,
+      "actionName": "开始子案例",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "客服父类型_002"
+      ],
+      "outputInstanceNames": [
+        "子案例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 7,
+      "actionName": "解决子案例",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "客服父类型_001"
+      ],
+      "outputInstanceNames": [
+        "子案例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 9,
+      "actionName": "取消活动",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        10
+      ],
+      "inputInstanceNames": [
+        "客服父类型_001"
+      ],
+      "outputInstanceNames": [
+        "处理活动_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 3,
+      "actionName": "升级案例",
+      "inputInstances": [
+        18
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "客服父类型_005"
+      ],
+      "outputInstanceNames": [
+        "客服案例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 2,
+      "actionName": "开始案例",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "升级专员_001"
+      ],
+      "outputInstanceNames": [
+        "客服案例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 4,
+      "actionName": "解决案例",
+      "inputInstances": [
+        18
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "客服父类型_005"
+      ],
+      "outputInstanceNames": [
+        "客服案例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 5,
+      "actionName": "关闭案例",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "客户_001"
+      ],
+      "outputInstanceNames": [
+        "客服案例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        15
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客服父类型_002"
+      ],
+      "outputInstanceNames": [
+        "服务 服务 SLA_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 4,
+      "actionName": "解决案例",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "客服父类型_001"
+      ],
+      "outputInstanceNames": [
+        "客服案例_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 6,
+      "actionName": "开始子案例",
+      "inputInstances": [
+        18
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "客服父类型_005"
+      ],
+      "outputInstanceNames": [
+        "子案例_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 13,
+      "actionName": "违反SLA",
+      "inputInstances": [
+        19
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "客服父类型_006"
+      ],
+      "outputInstanceNames": [
+        "服务 服务 SLA_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 4,
+      "actionName": "解决案例",
+      "inputInstances": [
+        14
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "客服父类型_001"
+      ],
+      "outputInstanceNames": [
+        "客服案例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 7,
+      "actionName": "解决子案例",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "客服父类型_007"
+      ],
+      "outputInstanceNames": [
+        "子案例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 11,
+      "actionName": "弃用知识文章",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "升级专员_002"
+      ],
+      "outputInstanceNames": [
+        "知识库文章_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 7,
+      "actionName": "解决子案例",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "升级专员_001"
+      ],
+      "outputInstanceNames": [
+        "子案例_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 5,
+      "actionName": "关闭案例",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "客户_001"
+      ],
+      "outputInstanceNames": [
+        "客服案例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 10,
+      "actionName": "发布知识文章",
+      "inputInstances": [
+        17
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "客服父类型_004"
+      ],
+      "outputInstanceNames": [
+        "知识库文章_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 5,
+      "actionName": "关闭案例",
+      "inputInstances": [
+        13
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "客户_001"
+      ],
+      "outputInstanceNames": [
+        "客服案例_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 11,
+      "actionName": "弃用知识文章",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "升级专员_001"
+      ],
+      "outputInstanceNames": [
+        "知识库文章_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

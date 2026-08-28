@@ -1,0 +1,3461 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "客户关系管理(CRM)·crm_C5_relationship_network",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=crm_C5_relationship_network，graph=crm_C5_relationship_network_seed46）：15 个对象类型 / 25 个关系 / 15 个动作 / 45 个实例 / 20 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "客户主体父类型",
+      "objectCode": "Party",
+      "description": "客户主体父类型",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PRT001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "客户",
+      "objectCode": "Customer",
+      "description": "客户",
+      "attributes": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Customer.party_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PRTY001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "premium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "家庭",
+      "objectCode": "Household",
+      "description": "家庭",
+      "attributes": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Household.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "李明家庭",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Household.party_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PRTY_HH_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "规模",
+          "attributeCode": "Household.size",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 3,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "客户所属组织",
+      "objectCode": "Organization",
+      "description": "客户所属组织",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "行业",
+          "attributeCode": "Organization.industry",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "信息技术",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Organization.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华信科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "往来方ID",
+          "attributeCode": "Organization.party_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PRTY001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "客户推荐事件",
+      "objectCode": "Referral",
+      "description": "客户推荐事件",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "推荐ID",
+          "attributeCode": "Referral.referral_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Referral_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "奖励金额",
+          "attributeCode": "Referral.reward_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "Referral.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "rewarded",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "客户间合作",
+      "objectCode": "Partnership",
+      "description": "客户间合作",
+      "attributes": [
+        {
+          "attributeId": 16,
+          "attributeName": "合作ID",
+          "attributeCode": "Partnership.partnership_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PRTN-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Partnership.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ended",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "类型",
+          "attributeCode": "Partnership.type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "channel",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "客户间竞争关系",
+      "objectCode": "Competition",
+      "description": "客户间竞争关系",
+      "attributes": [
+        {
+          "attributeId": 19,
+          "attributeName": "竞赛ID",
+          "attributeCode": "Competition.competition_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Competition_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "强度",
+          "attributeCode": "Competition.intensity",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "medium",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "家庭成员关系",
+      "objectCode": "FamilyTie",
+      "description": "家庭成员关系",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "关系ID",
+          "attributeCode": "FamilyTie.tie_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FT001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "关系类型",
+          "attributeCode": "FamilyTie.tie_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "spouse",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "客户经理",
+      "objectCode": "AccountManager",
+      "description": "客户经理",
+      "attributes": [
+        {
+          "attributeId": 23,
+          "attributeName": "经理ID",
+          "attributeCode": "AccountManager.manager_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "AM001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "AccountManager.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "客户社群",
+      "objectCode": "Community",
+      "description": "客户社群",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "社群ID",
+          "attributeCode": "Community.community_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "Community.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "科技爱好者交流群",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Community.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "archived",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "影响力评分",
+      "objectCode": "InfluenceScore",
+      "description": "影响力评分",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "评分ID",
+          "attributeCode": "InfluenceScore.score_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "InfluenceScore_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "值",
+          "attributeCode": "InfluenceScore.value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 87.5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "客户间互动事件",
+      "objectCode": "Interaction",
+      "description": "客户间互动事件",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "类型",
+          "attributeCode": "Interaction.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "meeting",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-04-12T10:30:00Z",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "客户合同",
+      "objectCode": "Contract",
+      "description": "客户合同",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "HT2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "推荐/合作奖励",
+      "objectCode": "Reward",
+      "description": "推荐/合作奖励",
+      "attributes": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Reward.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 88.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "奖励ID",
+          "attributeCode": "Reward.reward_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RWD2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Reward.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "claimed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 15,
+      "objectName": "客户所在区域",
+      "objectCode": "Region",
+      "description": "客户所在区域",
+      "attributes": [
+        {
+          "attributeId": 38,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Region_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 2,
+      "sourceObjectName": "客户",
+      "targetObjectId": 3,
+      "targetObjectName": "家庭",
+      "linkInfo": "客户隶属家庭",
+      "linkType": "N:1",
+      "description": "customer_member_of_household",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "客户",
+      "targetObjectId": 4,
+      "targetObjectName": "客户所属组织",
+      "linkInfo": "客户就职于组织",
+      "linkType": "N:M",
+      "description": "customer_works_at_org",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 2,
+      "sourceObjectName": "客户",
+      "targetObjectId": 5,
+      "targetObjectName": "客户推荐事件",
+      "linkInfo": "客户发起推荐",
+      "linkType": "1:N",
+      "description": "customer_referred_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 5,
+      "sourceObjectName": "客户推荐事件",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "推荐指向客户（环关系）",
+      "linkType": "N:1",
+      "description": "referral_targets_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 6,
+      "sourceObjectName": "客户间合作",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "合作方 A",
+      "linkType": "N:1",
+      "description": "partnership_between_a",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 6,
+      "sourceObjectName": "客户间合作",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "合作方 B（与 A 形成环）",
+      "linkType": "N:1",
+      "description": "partnership_between_b",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 7,
+      "sourceObjectName": "客户间竞争关系",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "竞争方 A",
+      "linkType": "N:1",
+      "description": "competition_a",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 7,
+      "sourceObjectName": "客户间竞争关系",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "竞争方 B",
+      "linkType": "N:1",
+      "description": "competition_b",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 8,
+      "sourceObjectName": "家庭成员关系",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "家庭关系一端",
+      "linkType": "N:1",
+      "description": "family_tie_a",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 8,
+      "sourceObjectName": "家庭成员关系",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "家庭关系另一端",
+      "linkType": "N:1",
+      "description": "family_tie_b",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 9,
+      "sourceObjectName": "客户经理",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "经理服务客户",
+      "linkType": "N:M",
+      "description": "manager_serves_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 9,
+      "sourceObjectName": "客户经理",
+      "targetObjectId": 3,
+      "targetObjectName": "家庭",
+      "linkInfo": "经理服务家庭",
+      "linkType": "N:M",
+      "description": "manager_serves_household",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 9,
+      "sourceObjectName": "客户经理",
+      "targetObjectId": 4,
+      "targetObjectName": "客户所属组织",
+      "linkInfo": "经理服务组织",
+      "linkType": "N:M",
+      "description": "manager_serves_org",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 2,
+      "sourceObjectName": "客户",
+      "targetObjectId": 10,
+      "targetObjectName": "客户社群",
+      "linkInfo": "客户加入社群",
+      "linkType": "N:M",
+      "description": "customer_in_community",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 10,
+      "sourceObjectName": "客户社群",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "社群管理员（环关系）",
+      "linkType": "N:1",
+      "description": "community_admin_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 11,
+      "sourceObjectName": "影响力评分",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "评分关联客户",
+      "linkType": "N:1",
+      "description": "score_for_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 12,
+      "sourceObjectName": "客户间互动事件",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "互动方 A",
+      "linkType": "N:1",
+      "description": "interaction_between_a",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 12,
+      "sourceObjectName": "客户间互动事件",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "互动方 B",
+      "linkType": "N:1",
+      "description": "interaction_between_b",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 13,
+      "sourceObjectName": "客户合同",
+      "targetObjectId": 2,
+      "targetObjectName": "客户",
+      "linkInfo": "合同关联客户",
+      "linkType": "N:1",
+      "description": "contract_with_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 14,
+      "sourceObjectName": "推荐/合作奖励",
+      "targetObjectId": 5,
+      "targetObjectName": "客户推荐事件",
+      "linkInfo": "奖励基于推荐",
+      "linkType": "N:1",
+      "description": "reward_for_referral",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 2,
+      "sourceObjectName": "客户",
+      "targetObjectId": 15,
+      "targetObjectName": "客户所在区域",
+      "linkInfo": "客户所在区域",
+      "linkType": "N:1",
+      "description": "customer_in_region",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 22,
+      "sourceObjectId": 3,
+      "sourceObjectName": "家庭",
+      "targetObjectId": 15,
+      "targetObjectName": "客户所在区域",
+      "linkInfo": "家庭所在区域",
+      "linkType": "N:1",
+      "description": "household_in_region",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 23,
+      "sourceObjectId": 2,
+      "sourceObjectName": "客户",
+      "targetObjectId": 1,
+      "targetObjectName": "客户主体父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Customer is-a Party",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 24,
+      "sourceObjectId": 3,
+      "sourceObjectName": "家庭",
+      "targetObjectId": 1,
+      "targetObjectName": "客户主体父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Household is-a Party",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 25,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户所属组织",
+      "targetObjectId": 1,
+      "targetObjectName": "客户主体父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Organization is-a Party",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "发起推荐",
+      "actionCode": "make_referral",
+      "description": "执行者：客户；对象：客户推荐事件",
+      "inputObjects": [
+        "客户"
+      ],
+      "outputObjects": [
+        "客户推荐事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "接受推荐",
+      "actionCode": "accept_referral",
+      "description": "执行者：客户；对象：客户推荐事件",
+      "inputObjects": [
+        "客户"
+      ],
+      "outputObjects": [
+        "客户推荐事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "奖励推荐",
+      "actionCode": "reward_referral",
+      "description": "执行者：客户经理；对象：客户推荐事件",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户推荐事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "拒绝推荐",
+      "actionCode": "reject_referral",
+      "description": "执行者：客户；对象：客户推荐事件",
+      "inputObjects": [
+        "客户"
+      ],
+      "outputObjects": [
+        "客户推荐事件"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "建立合作",
+      "actionCode": "form_partnership",
+      "description": "执行者：客户经理；对象：客户间合作",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户间合作"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "结束合作",
+      "actionCode": "end_partnership",
+      "description": "执行者：客户经理；对象：客户间合作",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户间合作"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "停用客户",
+      "actionCode": "deactivate_customer",
+      "description": "执行者：客户经理；对象：客户",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "流失客户",
+      "actionCode": "churn_customer",
+      "description": "执行者：客户经理；对象：客户",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "激活社群",
+      "actionCode": "activate_community",
+      "description": "执行者：客户经理；对象：客户社群",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户社群"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "归档社群",
+      "actionCode": "archive_community",
+      "description": "执行者：客户经理；对象：客户社群",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户社群"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "发放奖励",
+      "actionCode": "issue_reward",
+      "description": "执行者：客户经理；对象：推荐/合作奖励",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "推荐/合作奖励"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "领取奖励",
+      "actionCode": "claim_reward",
+      "description": "执行者：客户；对象：推荐/合作奖励",
+      "inputObjects": [
+        "客户"
+      ],
+      "outputObjects": [
+        "推荐/合作奖励"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "作废奖励",
+      "actionCode": "void_reward",
+      "description": "执行者：客户经理；对象：推荐/合作奖励",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "推荐/合作奖励"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "激活合同",
+      "actionCode": "activate_contract",
+      "description": "执行者：客户经理；对象：客户合同",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户合同"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 15,
+      "actionName": "结束合同",
+      "actionCode": "end_contract",
+      "description": "执行者：客户经理；对象：客户合同",
+      "inputObjects": [
+        "客户经理"
+      ],
+      "outputObjects": [
+        "客户合同"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Party_001",
+      "instanceName": "客户主体父类型_001",
+      "objectId": 1,
+      "objectName": "客户主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Party_002",
+      "instanceName": "客户主体父类型_002",
+      "objectId": 1,
+      "objectName": "客户主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Party_003",
+      "instanceName": "客户主体父类型_003",
+      "objectId": 1,
+      "objectName": "客户主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Party_004",
+      "instanceName": "客户主体父类型_004",
+      "objectId": 1,
+      "objectName": "客户主体父类型",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Party.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "往来方ID",
+          "attributeCode": "Party.party_id",
+          "dataType": "string",
+          "value": "PRT004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Customer_001",
+      "instanceName": "客户_001",
+      "objectId": 2,
+      "objectName": "客户",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Customer.party_id",
+          "dataType": "string",
+          "value": "PRTY001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "premium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户隶属家庭",
+          "targetInstanceId": 12,
+          "targetInstanceName": "家庭_002",
+          "targetObjectId": 3,
+          "targetObjectName": "家庭",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户就职于组织",
+          "targetInstanceId": 16,
+          "targetInstanceName": "客户所属组织_003",
+          "targetObjectId": 4,
+          "targetObjectName": "客户所属组织",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "客户加入社群",
+          "targetInstanceId": 28,
+          "targetInstanceName": "客户社群_002",
+          "targetObjectId": 10,
+          "targetObjectName": "客户社群",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "客户所在区域",
+          "targetInstanceId": 43,
+          "targetInstanceName": "客户所在区域_001",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Customer_002",
+      "instanceName": "客户_002",
+      "objectId": 2,
+      "objectName": "客户",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Customer.party_id",
+          "dataType": "string",
+          "value": "PRTY002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "vip",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户隶属家庭",
+          "targetInstanceId": 11,
+          "targetInstanceName": "家庭_001",
+          "targetObjectId": 3,
+          "targetObjectName": "家庭",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户发起推荐",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户推荐事件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客户推荐事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "客户所在区域",
+          "targetInstanceId": 44,
+          "targetInstanceName": "客户所在区域_002",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Customer_003",
+      "instanceName": "客户_003",
+      "objectId": 2,
+      "objectName": "客户",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Customer.party_id",
+          "dataType": "string",
+          "value": "PRTY003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "mass",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户隶属家庭",
+          "targetInstanceId": 12,
+          "targetInstanceName": "家庭_002",
+          "targetObjectId": 3,
+          "targetObjectName": "家庭",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户就职于组织",
+          "targetInstanceId": 15,
+          "targetInstanceName": "客户所属组织_002",
+          "targetObjectId": 4,
+          "targetObjectName": "客户所属组织",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "客户所在区域",
+          "targetInstanceId": 44,
+          "targetInstanceName": "客户所在区域_002",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Customer_004",
+      "instanceName": "客户_004",
+      "objectId": 2,
+      "objectName": "客户",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Customer.party_id",
+          "dataType": "string",
+          "value": "PRTY004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "premium",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户隶属家庭",
+          "targetInstanceId": 13,
+          "targetInstanceName": "家庭_003",
+          "targetObjectId": 3,
+          "targetObjectName": "家庭",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户就职于组织",
+          "targetInstanceId": 17,
+          "targetInstanceName": "客户所属组织_004",
+          "targetObjectId": 4,
+          "targetObjectName": "客户所属组织",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户发起推荐",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户推荐事件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客户推荐事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "客户所在区域",
+          "targetInstanceId": 45,
+          "targetInstanceName": "客户所在区域_003",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Customer_005",
+      "instanceName": "客户_005",
+      "objectId": 2,
+      "objectName": "客户",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Customer.party_id",
+          "dataType": "string",
+          "value": "PRTY005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "vip",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户隶属家庭",
+          "targetInstanceId": 12,
+          "targetInstanceName": "家庭_002",
+          "targetObjectId": 3,
+          "targetObjectName": "家庭",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "客户所在区域",
+          "targetInstanceId": 43,
+          "targetInstanceName": "客户所在区域_001",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Customer_006",
+      "instanceName": "客户_006",
+      "objectId": 2,
+      "objectName": "客户",
+      "attributeValues": [
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "赵敏",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "往来方ID",
+          "attributeCode": "Customer.party_id",
+          "dataType": "string",
+          "value": "PRTY006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "mass",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "Customer.status",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户隶属家庭",
+          "targetInstanceId": 13,
+          "targetInstanceName": "家庭_003",
+          "targetObjectId": 3,
+          "targetObjectName": "家庭",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 21,
+          "linkInfo": "客户所在区域",
+          "targetInstanceId": 43,
+          "targetInstanceName": "客户所在区域_001",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Household_001",
+      "instanceName": "家庭_001",
+      "objectId": 3,
+      "objectName": "家庭",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Household.name",
+          "dataType": "string",
+          "value": "李明家庭",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Household.party_id",
+          "dataType": "string",
+          "value": "PRTY_HH_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "规模",
+          "attributeCode": "Household.size",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 22,
+          "linkInfo": "家庭所在区域",
+          "targetInstanceId": 44,
+          "targetInstanceName": "客户所在区域_002",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Household_002",
+      "instanceName": "家庭_002",
+      "objectId": 3,
+      "objectName": "家庭",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Household.name",
+          "dataType": "string",
+          "value": "王芳家庭",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Household.party_id",
+          "dataType": "string",
+          "value": "PRTY_HH_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "规模",
+          "attributeCode": "Household.size",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 22,
+          "linkInfo": "家庭所在区域",
+          "targetInstanceId": 45,
+          "targetInstanceName": "客户所在区域_003",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Household_003",
+      "instanceName": "家庭_003",
+      "objectId": 3,
+      "objectName": "家庭",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Household.name",
+          "dataType": "string",
+          "value": "张伟家庭",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "往来方ID",
+          "attributeCode": "Household.party_id",
+          "dataType": "string",
+          "value": "PRTY_HH_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "规模",
+          "attributeCode": "Household.size",
+          "dataType": "integer",
+          "value": 4,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 22,
+          "linkInfo": "家庭所在区域",
+          "targetInstanceId": 44,
+          "targetInstanceName": "客户所在区域_002",
+          "targetObjectId": 15,
+          "targetObjectName": "客户所在区域",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Organization_001",
+      "instanceName": "客户所属组织_001",
+      "objectId": 4,
+      "objectName": "客户所属组织",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "行业",
+          "attributeCode": "Organization.industry",
+          "dataType": "string",
+          "value": "信息技术",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Organization.name",
+          "dataType": "string",
+          "value": "华信科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "往来方ID",
+          "attributeCode": "Organization.party_id",
+          "dataType": "string",
+          "value": "PRTY001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Organization_002",
+      "instanceName": "客户所属组织_002",
+      "objectId": 4,
+      "objectName": "客户所属组织",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "行业",
+          "attributeCode": "Organization.industry",
+          "dataType": "string",
+          "value": "建筑业",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Organization.name",
+          "dataType": "string",
+          "value": "宏远建筑工程集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "往来方ID",
+          "attributeCode": "Organization.party_id",
+          "dataType": "string",
+          "value": "PRTY002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Organization_003",
+      "instanceName": "客户所属组织_003",
+      "objectId": 4,
+      "objectName": "客户所属组织",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "行业",
+          "attributeCode": "Organization.industry",
+          "dataType": "string",
+          "value": "医药卫生",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Organization.name",
+          "dataType": "string",
+          "value": "康健医药连锁有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "往来方ID",
+          "attributeCode": "Organization.party_id",
+          "dataType": "string",
+          "value": "PRTY003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Organization_004",
+      "instanceName": "客户所属组织_004",
+      "objectId": 4,
+      "objectName": "客户所属组织",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "行业",
+          "attributeCode": "Organization.industry",
+          "dataType": "string",
+          "value": "教育",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Organization.name",
+          "dataType": "string",
+          "value": "星辰教育发展中心",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "往来方ID",
+          "attributeCode": "Organization.party_id",
+          "dataType": "string",
+          "value": "PRTY004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Referral_001",
+      "instanceName": "客户推荐事件_001",
+      "objectId": 5,
+      "objectName": "客户推荐事件",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "推荐ID",
+          "attributeCode": "Referral.referral_id",
+          "dataType": "string",
+          "value": "Referral_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "奖励金额",
+          "attributeCode": "Referral.reward_amount",
+          "dataType": "number",
+          "value": 200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "Referral.status",
+          "dataType": "string",
+          "value": "rewarded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "推荐指向客户（环关系）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Partnership_001",
+      "instanceName": "客户间合作_001",
+      "objectId": 6,
+      "objectName": "客户间合作",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "合作ID",
+          "attributeCode": "Partnership.partnership_id",
+          "dataType": "string",
+          "value": "PRTN-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Partnership.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "类型",
+          "attributeCode": "Partnership.type",
+          "dataType": "string",
+          "value": "channel",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "合作方 A",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "合作方 B（与 A 形成环）",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Partnership_002",
+      "instanceName": "客户间合作_002",
+      "objectId": 6,
+      "objectName": "客户间合作",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "合作ID",
+          "attributeCode": "Partnership.partnership_id",
+          "dataType": "string",
+          "value": "PRTN-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Partnership.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "类型",
+          "attributeCode": "Partnership.type",
+          "dataType": "string",
+          "value": "co_marketing",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "合作方 A",
+          "targetInstanceId": 5,
+          "targetInstanceName": "客户_001",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "合作方 B（与 A 形成环）",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Competition_001",
+      "instanceName": "客户间竞争关系_001",
+      "objectId": 7,
+      "objectName": "客户间竞争关系",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "竞赛ID",
+          "attributeCode": "Competition.competition_id",
+          "dataType": "string",
+          "value": "Competition_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "强度",
+          "attributeCode": "Competition.intensity",
+          "dataType": "string",
+          "value": "medium",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "竞争方 A",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "竞争方 B",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "FamilyTie_001",
+      "instanceName": "家庭成员关系_001",
+      "objectId": 8,
+      "objectName": "家庭成员关系",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "关系ID",
+          "attributeCode": "FamilyTie.tie_id",
+          "dataType": "string",
+          "value": "FT001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "关系类型",
+          "attributeCode": "FamilyTie.tie_type",
+          "dataType": "string",
+          "value": "spouse",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "家庭关系一端",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "家庭关系另一端",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "FamilyTie_002",
+      "instanceName": "家庭成员关系_002",
+      "objectId": 8,
+      "objectName": "家庭成员关系",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "关系ID",
+          "attributeCode": "FamilyTie.tie_id",
+          "dataType": "string",
+          "value": "FT002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "关系类型",
+          "attributeCode": "FamilyTie.tie_type",
+          "dataType": "string",
+          "value": "parent",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "家庭关系一端",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "家庭关系另一端",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "AccountManager_001",
+      "instanceName": "客户经理_001",
+      "objectId": 9,
+      "objectName": "客户经理",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "经理ID",
+          "attributeCode": "AccountManager.manager_id",
+          "dataType": "string",
+          "value": "AM001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "AccountManager.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "经理服务客户",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "AccountManager_002",
+      "instanceName": "客户经理_002",
+      "objectId": 9,
+      "objectName": "客户经理",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "经理ID",
+          "attributeCode": "AccountManager.manager_id",
+          "dataType": "string",
+          "value": "AM002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "AccountManager.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "经理服务家庭",
+          "targetInstanceId": 13,
+          "targetInstanceName": "家庭_003",
+          "targetObjectId": 3,
+          "targetObjectName": "家庭",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "AccountManager_003",
+      "instanceName": "客户经理_003",
+      "objectId": 9,
+      "objectName": "客户经理",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "经理ID",
+          "attributeCode": "AccountManager.manager_id",
+          "dataType": "string",
+          "value": "AM003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "AccountManager.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "经理服务客户",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "经理服务组织",
+          "targetInstanceId": 15,
+          "targetInstanceName": "客户所属组织_002",
+          "targetObjectId": 4,
+          "targetObjectName": "客户所属组织",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Community_001",
+      "instanceName": "客户社群_001",
+      "objectId": 10,
+      "objectName": "客户社群",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "社群ID",
+          "attributeCode": "Community.community_id",
+          "dataType": "string",
+          "value": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "Community.name",
+          "dataType": "string",
+          "value": "科技爱好者交流群",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Community.status",
+          "dataType": "string",
+          "value": "archived",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "社群管理员（环关系）",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Community_002",
+      "instanceName": "客户社群_002",
+      "objectId": 10,
+      "objectName": "客户社群",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "社群ID",
+          "attributeCode": "Community.community_id",
+          "dataType": "string",
+          "value": "C002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "名称",
+          "attributeCode": "Community.name",
+          "dataType": "string",
+          "value": "母婴育儿互助圈",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "Community.status",
+          "dataType": "string",
+          "value": "archived",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "社群管理员（环关系）",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "InfluenceScore_001",
+      "instanceName": "影响力评分_001",
+      "objectId": 11,
+      "objectName": "影响力评分",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "评分ID",
+          "attributeCode": "InfluenceScore.score_id",
+          "dataType": "string",
+          "value": "InfluenceScore_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "值",
+          "attributeCode": "InfluenceScore.value",
+          "dataType": "number",
+          "value": 87.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "评分关联客户",
+          "targetInstanceId": 5,
+          "targetInstanceName": "客户_001",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "InfluenceScore_002",
+      "instanceName": "影响力评分_002",
+      "objectId": 11,
+      "objectName": "影响力评分",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "评分ID",
+          "attributeCode": "InfluenceScore.score_id",
+          "dataType": "string",
+          "value": "InfluenceScore_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "值",
+          "attributeCode": "InfluenceScore.value",
+          "dataType": "number",
+          "value": 92.3,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "评分关联客户",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "InfluenceScore_003",
+      "instanceName": "影响力评分_003",
+      "objectId": 11,
+      "objectName": "影响力评分",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "评分ID",
+          "attributeCode": "InfluenceScore.score_id",
+          "dataType": "string",
+          "value": "InfluenceScore_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "值",
+          "attributeCode": "InfluenceScore.value",
+          "dataType": "number",
+          "value": 76.8,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "评分关联客户",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Interaction_001",
+      "instanceName": "客户间互动事件_001",
+      "objectId": 12,
+      "objectName": "客户间互动事件",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "value": "INT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "类型",
+          "attributeCode": "Interaction.kind",
+          "dataType": "string",
+          "value": "meeting",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "value": "2023-04-12T10:30:00Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "互动方 A",
+          "targetInstanceId": 6,
+          "targetInstanceName": "客户_002",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "互动方 B",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Interaction_002",
+      "instanceName": "客户间互动事件_002",
+      "objectId": 12,
+      "objectName": "客户间互动事件",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "value": "INT-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "类型",
+          "attributeCode": "Interaction.kind",
+          "dataType": "string",
+          "value": "deal",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "value": "2023-05-18T15:45:00Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "互动方 A",
+          "targetInstanceId": 7,
+          "targetInstanceName": "客户_003",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "互动方 B",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Interaction_003",
+      "instanceName": "客户间互动事件_003",
+      "objectId": 12,
+      "objectName": "客户间互动事件",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "value": "INT-2023-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "类型",
+          "attributeCode": "Interaction.kind",
+          "dataType": "string",
+          "value": "shared_event",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "value": "2023-06-22T09:00:00Z",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "互动方 A",
+          "targetInstanceId": 8,
+          "targetInstanceName": "客户_004",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "互动方 B",
+          "targetInstanceId": 5,
+          "targetInstanceName": "客户_001",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Contract_001",
+      "instanceName": "客户合同_001",
+      "objectId": 13,
+      "objectName": "客户合同",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "合同关联客户",
+          "targetInstanceId": 9,
+          "targetInstanceName": "客户_005",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Contract_002",
+      "instanceName": "客户合同_002",
+      "objectId": 13,
+      "objectName": "客户合同",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "合同关联客户",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Contract_003",
+      "instanceName": "客户合同_003",
+      "objectId": 13,
+      "objectName": "客户合同",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "合同ID",
+          "attributeCode": "Contract.contract_id",
+          "dataType": "string",
+          "value": "HT2023003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "状态",
+          "attributeCode": "Contract.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "合同关联客户",
+          "targetInstanceId": 10,
+          "targetInstanceName": "客户_006",
+          "targetObjectId": 2,
+          "targetObjectName": "客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Reward_001",
+      "instanceName": "推荐/合作奖励_001",
+      "objectId": 14,
+      "objectName": "推荐/合作奖励",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Reward.amount",
+          "dataType": "number",
+          "value": 88.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "奖励ID",
+          "attributeCode": "Reward.reward_id",
+          "dataType": "string",
+          "value": "RWD2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Reward.status",
+          "dataType": "string",
+          "value": "claimed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "奖励基于推荐",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户推荐事件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客户推荐事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Reward_002",
+      "instanceName": "推荐/合作奖励_002",
+      "objectId": 14,
+      "objectName": "推荐/合作奖励",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Reward.amount",
+          "dataType": "number",
+          "value": 150.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "奖励ID",
+          "attributeCode": "Reward.reward_id",
+          "dataType": "string",
+          "value": "RWD2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Reward.status",
+          "dataType": "string",
+          "value": "void",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "奖励基于推荐",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户推荐事件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客户推荐事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Reward_003",
+      "instanceName": "推荐/合作奖励_003",
+      "objectId": 14,
+      "objectName": "推荐/合作奖励",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Reward.amount",
+          "dataType": "number",
+          "value": 200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "奖励ID",
+          "attributeCode": "Reward.reward_id",
+          "dataType": "string",
+          "value": "RWD2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Reward.status",
+          "dataType": "string",
+          "value": "claimed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "奖励基于推荐",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户推荐事件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客户推荐事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "Reward_004",
+      "instanceName": "推荐/合作奖励_004",
+      "objectId": 14,
+      "objectName": "推荐/合作奖励",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Reward.amount",
+          "dataType": "number",
+          "value": 50.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "奖励ID",
+          "attributeCode": "Reward.reward_id",
+          "dataType": "string",
+          "value": "RWD2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Reward.status",
+          "dataType": "string",
+          "value": "void",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "奖励基于推荐",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户推荐事件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客户推荐事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "Reward_005",
+      "instanceName": "推荐/合作奖励_005",
+      "objectId": 14,
+      "objectName": "推荐/合作奖励",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "金额",
+          "attributeCode": "Reward.amount",
+          "dataType": "number",
+          "value": 120.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "奖励ID",
+          "attributeCode": "Reward.reward_id",
+          "dataType": "string",
+          "value": "RWD2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "状态",
+          "attributeCode": "Reward.status",
+          "dataType": "string",
+          "value": "claimed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "奖励基于推荐",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户推荐事件_001",
+          "targetObjectId": 5,
+          "targetObjectName": "客户推荐事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 43,
+      "instanceCode": "Region_001",
+      "instanceName": "客户所在区域_001",
+      "objectId": 15,
+      "objectName": "客户所在区域",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华东地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 44,
+      "instanceCode": "Region_002",
+      "instanceName": "客户所在区域_002",
+      "objectId": 15,
+      "objectName": "客户所在区域",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华南地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 45,
+      "instanceCode": "Region_003",
+      "instanceName": "客户所在区域_003",
+      "objectId": 15,
+      "objectName": "客户所在区域",
+      "attributeValues": [
+        {
+          "attributeId": 38,
+          "attributeName": "名称",
+          "attributeCode": "Region.name",
+          "dataType": "string",
+          "value": "华北地区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "区域ID",
+          "attributeCode": "Region.region_id",
+          "dataType": "string",
+          "value": "Region_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 6,
+      "actionName": "结束合作",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "客户经理_002"
+      ],
+      "outputInstanceNames": [
+        "客户间合作_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 14,
+      "actionName": "激活合同",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "客户合同_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 13,
+      "actionName": "作废奖励",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "推荐/合作奖励_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 5,
+      "actionName": "建立合作",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "客户间合作_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 9,
+      "actionName": "激活社群",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户经理_003"
+      ],
+      "outputInstanceNames": [
+        "客户社群_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 6,
+      "actionName": "结束合作",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "客户间合作_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 10,
+      "actionName": "归档社群",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "客户经理_003"
+      ],
+      "outputInstanceNames": [
+        "客户社群_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 7,
+      "actionName": "停用客户",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "客户经理_002"
+      ],
+      "outputInstanceNames": [
+        "客户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 8,
+      "actionName": "流失客户",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        10
+      ],
+      "inputInstanceNames": [
+        "客户经理_002"
+      ],
+      "outputInstanceNames": [
+        "客户_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 10,
+      "actionName": "归档社群",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "客户社群_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 15,
+      "actionName": "结束合同",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        35
+      ],
+      "inputInstanceNames": [
+        "客户经理_003"
+      ],
+      "outputInstanceNames": [
+        "客户合同_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 7,
+      "actionName": "停用客户",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "客户经理_002"
+      ],
+      "outputInstanceNames": [
+        "客户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 8,
+      "actionName": "流失客户",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "客户经理_003"
+      ],
+      "outputInstanceNames": [
+        "客户_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 12,
+      "actionName": "领取奖励",
+      "inputInstances": [
+        6
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "客户_002"
+      ],
+      "outputInstanceNames": [
+        "推荐/合作奖励_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 12,
+      "actionName": "领取奖励",
+      "inputInstances": [
+        7
+      ],
+      "outputInstances": [
+        42
+      ],
+      "inputInstanceNames": [
+        "客户_003"
+      ],
+      "outputInstanceNames": [
+        "推荐/合作奖励_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 3,
+      "actionName": "奖励推荐",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "客户经理_003"
+      ],
+      "outputInstanceNames": [
+        "客户推荐事件_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 15,
+      "actionName": "结束合同",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "客户合同_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 8,
+      "actionName": "流失客户",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "客户经理_002"
+      ],
+      "outputInstanceNames": [
+        "客户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 8,
+      "actionName": "流失客户",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "客户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 8,
+      "actionName": "流失客户",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "客户经理_001"
+      ],
+      "outputInstanceNames": [
+        "客户_003"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

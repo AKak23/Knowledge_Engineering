@@ -1,0 +1,3368 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "供应链·supply_chain_S5_demand_planning",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=supply_chain_S5_demand_planning，graph=supply_chain_S5_demand_planning_seed49）：14 个对象类型 / 21 个关系 / 13 个动作 / 42 个实例 / 26 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "市场",
+      "objectCode": "Market",
+      "description": "市场",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "市场ID",
+          "attributeCode": "Market.market_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Market_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Market.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华北市场",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "区域",
+          "attributeCode": "Market.region",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "north",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "商品类目",
+      "objectCode": "Category",
+      "description": "商品类目",
+      "attributes": [
+        {
+          "attributeId": 4,
+          "attributeName": "类别ID",
+          "attributeCode": "Category.category_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "Category.level",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Category.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "电子产品",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "objectCode": "Product",
+      "description": "产品父类型",
+      "attributes": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "智能手表",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "库存最小单位",
+      "objectCode": "SKU",
+      "description": "库存最小单位",
+      "attributes": [
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "SKU.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "智能恒温水壶",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "产品ID",
+          "attributeCode": "SKU.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P1001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "SKU编码",
+          "attributeCode": "SKU.sku_code",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SKU-2024-A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "计量单位",
+          "attributeCode": "SKU.uom",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "each",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "捆绑商品",
+      "objectCode": "Bundle",
+      "description": "捆绑商品",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "套餐规格",
+          "attributeCode": "Bundle.bundle_size",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Bundle.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "家庭清洁套装",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "产品ID",
+          "attributeCode": "Bundle.product_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BNDL-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "需求预测",
+      "objectCode": "Forecast",
+      "description": "需求预测",
+      "attributes": [
+        {
+          "attributeId": 16,
+          "attributeName": "预测ID",
+          "attributeCode": "Forecast.forecast_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FCT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "预测周期(天)",
+          "attributeCode": "Forecast.horizon_days",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 90,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "预测数量",
+          "attributeCode": "Forecast.predicted_qty",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 1250.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "Forecast.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "superseded",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "预测模型",
+      "objectCode": "ForecastModel",
+      "description": "预测模型",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "算法",
+          "attributeCode": "ForecastModel.algorithm",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "arima",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "型号ID",
+          "attributeCode": "ForecastModel.model_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ForecastModel_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "原始需求信号",
+      "objectCode": "DemandSignal",
+      "description": "原始需求信号",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "信号ID",
+          "attributeCode": "DemandSignal.signal_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DS2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "来源",
+          "attributeCode": "DemandSignal.source",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "pos",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "值",
+          "attributeCode": "DemandSignal.value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "补货计划",
+      "objectCode": "ReplenishmentPlan",
+      "description": "补货计划",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "计划ID",
+          "attributeCode": "ReplenishmentPlan.plan_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "ReplenishmentPlan.qty",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 150.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "ReplenishmentPlan.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "促销活动",
+      "objectCode": "Promotion",
+      "description": "促销活动",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "提升比例",
+          "attributeCode": "Promotion.lift_pct",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 12.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "促销ID",
+          "attributeCode": "Promotion.promotion_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PROMO2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Promotion.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "库存快照",
+      "objectCode": "Inventory",
+      "description": "库存快照",
+      "attributes": [
+        {
+          "attributeId": 31,
+          "attributeName": "库存ID",
+          "attributeCode": "Inventory.inventory_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INV-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "在手库存",
+          "attributeCode": "Inventory.on_hand",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "需求规划师",
+      "objectCode": "Planner",
+      "description": "需求规划师",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Planner.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "计划员ID",
+          "attributeCode": "Planner.planner_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "预测准确度评估",
+      "objectCode": "Accuracy",
+      "description": "预测准确度评估",
+      "attributes": [
+        {
+          "attributeId": 35,
+          "attributeName": "准确率ID",
+          "attributeCode": "Accuracy.accuracy_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Accuracy_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "MAPE",
+          "attributeCode": "Accuracy.mape",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "供给侧约束",
+      "objectCode": "SupplyConstraint",
+      "description": "供给侧约束",
+      "attributes": [
+        {
+          "attributeId": 37,
+          "attributeName": "约束ID",
+          "attributeCode": "SupplyConstraint.constraint_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "类型",
+          "attributeCode": "SupplyConstraint.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "capacity",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "SupplyConstraint.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "市场",
+      "targetObjectId": 2,
+      "targetObjectName": "商品类目",
+      "linkInfo": "市场覆盖类目",
+      "linkType": "N:M",
+      "description": "market_has_category",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "商品类目",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "类目下属 库存最小单位",
+      "linkType": "1:N",
+      "description": "category_has_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 2,
+      "sourceObjectName": "商品类目",
+      "targetObjectId": 2,
+      "targetObjectName": "商品类目",
+      "linkInfo": "类目层次（父→子）",
+      "linkType": "1:N",
+      "description": "category_parent_child",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 5,
+      "sourceObjectName": "捆绑商品",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "捆绑包含 库存最小单位",
+      "linkType": "1:N",
+      "description": "bundle_contains_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 6,
+      "sourceObjectName": "需求预测",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "预测对应 库存最小单位",
+      "linkType": "N:1",
+      "description": "forecast_for_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 6,
+      "sourceObjectName": "需求预测",
+      "targetObjectId": 1,
+      "targetObjectName": "市场",
+      "linkInfo": "预测对应市场",
+      "linkType": "N:1",
+      "description": "forecast_in_market",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 6,
+      "sourceObjectName": "需求预测",
+      "targetObjectId": 7,
+      "targetObjectName": "预测模型",
+      "linkInfo": "预测使用模型",
+      "linkType": "N:1",
+      "description": "forecast_uses_model",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 6,
+      "sourceObjectName": "需求预测",
+      "targetObjectId": 8,
+      "targetObjectName": "原始需求信号",
+      "linkInfo": "预测使用信号",
+      "linkType": "N:M",
+      "description": "forecast_consumes_signal",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 8,
+      "sourceObjectName": "原始需求信号",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "信号针对 库存最小单位",
+      "linkType": "N:1",
+      "description": "signal_for_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 9,
+      "sourceObjectName": "补货计划",
+      "targetObjectId": 6,
+      "targetObjectName": "需求预测",
+      "linkInfo": "补货计划基于预测",
+      "linkType": "N:1",
+      "description": "plan_from_forecast",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 9,
+      "sourceObjectName": "补货计划",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "补货计划对应 库存最小单位",
+      "linkType": "N:1",
+      "description": "plan_for_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 9,
+      "sourceObjectName": "补货计划",
+      "targetObjectId": 12,
+      "targetObjectName": "需求规划师",
+      "linkInfo": "补货计划负责人",
+      "linkType": "N:1",
+      "description": "plan_owner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 10,
+      "sourceObjectName": "促销活动",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "促销影响 库存最小单位",
+      "linkType": "N:M",
+      "description": "promotion_targets_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 10,
+      "sourceObjectName": "促销活动",
+      "targetObjectId": 1,
+      "targetObjectName": "市场",
+      "linkInfo": "促销在市场",
+      "linkType": "N:M",
+      "description": "promotion_in_market",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 11,
+      "sourceObjectName": "库存快照",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "库存对应 库存最小单位",
+      "linkType": "N:1",
+      "description": "inventory_of_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 13,
+      "sourceObjectName": "预测准确度评估",
+      "targetObjectId": 6,
+      "targetObjectName": "需求预测",
+      "linkInfo": "准确度对应预测",
+      "linkType": "1:1",
+      "description": "accuracy_of_forecast",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 14,
+      "sourceObjectName": "供给侧约束",
+      "targetObjectId": 4,
+      "targetObjectName": "库存最小单位",
+      "linkInfo": "约束影响 库存最小单位",
+      "linkType": "N:M",
+      "description": "constraint_on_sku",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 12,
+      "sourceObjectName": "需求规划师",
+      "targetObjectId": 6,
+      "targetObjectName": "需求预测",
+      "linkInfo": "规划师负责预测",
+      "linkType": "1:N",
+      "description": "planner_owns_forecast",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 7,
+      "sourceObjectName": "预测模型",
+      "targetObjectId": 12,
+      "targetObjectName": "需求规划师",
+      "linkInfo": "模型归属规划师",
+      "linkType": "N:1",
+      "description": "model_owned_by_planner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 4,
+      "sourceObjectName": "库存最小单位",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "SKU is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 5,
+      "sourceObjectName": "捆绑商品",
+      "targetObjectId": 3,
+      "targetObjectName": "产品父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Bundle is-a Product",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "接入信号",
+      "actionCode": "ingest_signal",
+      "description": "执行者：需求规划师；对象：原始需求信号",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "原始需求信号"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "起草预测",
+      "actionCode": "draft_forecast",
+      "description": "执行者：需求规划师；对象：需求预测",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "需求预测"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "审批预测",
+      "actionCode": "approve_forecast",
+      "description": "执行者：需求规划师；对象：需求预测",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "需求预测"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "激活预测",
+      "actionCode": "activate_forecast",
+      "description": "执行者：需求规划师；对象：需求预测",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "需求预测"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "取代预测",
+      "actionCode": "supersede_forecast",
+      "description": "执行者：需求规划师；对象：需求预测",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "需求预测"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "审批计划",
+      "actionCode": "approve_plan",
+      "description": "执行者：需求规划师；对象：补货计划",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "补货计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "执行计划",
+      "actionCode": "execute_plan",
+      "description": "执行者：需求规划师；对象：补货计划",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "补货计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "履行计划",
+      "actionCode": "fulfill_plan",
+      "description": "执行者：需求规划师；对象：补货计划",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "补货计划"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "启动促销",
+      "actionCode": "launch_promotion",
+      "description": "执行者：需求规划师；对象：促销活动",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "促销活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "结束促销",
+      "actionCode": "end_promotion",
+      "description": "执行者：需求规划师；对象：促销活动",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "促销活动"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "解决约束",
+      "actionCode": "resolve_constraint",
+      "description": "执行者：需求规划师；对象：供给侧约束",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "供给侧约束"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "库存快照",
+      "actionCode": "snapshot_inventory",
+      "description": "执行者：需求规划师；对象：库存快照",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "库存快照"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "计算准确率",
+      "actionCode": "compute_accuracy",
+      "description": "执行者：需求规划师；对象：预测准确度评估",
+      "inputObjects": [
+        "需求规划师"
+      ],
+      "outputObjects": [
+        "预测准确度评估"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Market_001",
+      "instanceName": "市场_001",
+      "objectId": 1,
+      "objectName": "市场",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "市场ID",
+          "attributeCode": "Market.market_id",
+          "dataType": "string",
+          "value": "Market_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Market.name",
+          "dataType": "string",
+          "value": "华北市场",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "区域",
+          "attributeCode": "Market.region",
+          "dataType": "string",
+          "value": "north",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "市场覆盖类目",
+          "targetInstanceId": 6,
+          "targetInstanceName": "商品类目_004",
+          "targetObjectId": 2,
+          "targetObjectName": "商品类目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "市场覆盖类目",
+          "targetInstanceId": 3,
+          "targetInstanceName": "商品类目_001",
+          "targetObjectId": 2,
+          "targetObjectName": "商品类目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Market_002",
+      "instanceName": "市场_002",
+      "objectId": 1,
+      "objectName": "市场",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "市场ID",
+          "attributeCode": "Market.market_id",
+          "dataType": "string",
+          "value": "Market_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Market.name",
+          "dataType": "string",
+          "value": "华南市场",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "区域",
+          "attributeCode": "Market.region",
+          "dataType": "string",
+          "value": "south",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Category_001",
+      "instanceName": "商品类目_001",
+      "objectId": 2,
+      "objectName": "商品类目",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "类别ID",
+          "attributeCode": "Category.category_id",
+          "dataType": "string",
+          "value": "C001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "Category.level",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Category.name",
+          "dataType": "string",
+          "value": "电子产品",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Category_002",
+      "instanceName": "商品类目_002",
+      "objectId": 2,
+      "objectName": "商品类目",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "类别ID",
+          "attributeCode": "Category.category_id",
+          "dataType": "string",
+          "value": "C002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "Category.level",
+          "dataType": "integer",
+          "value": 2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Category.name",
+          "dataType": "string",
+          "value": "智能手机",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "类目层次（父→子）",
+          "targetInstanceId": 4,
+          "targetInstanceName": "商品类目_002",
+          "targetObjectId": 2,
+          "targetObjectName": "商品类目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "类目层次（父→子）",
+          "targetInstanceId": 6,
+          "targetInstanceName": "商品类目_004",
+          "targetObjectId": 2,
+          "targetObjectName": "商品类目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Category_003",
+      "instanceName": "商品类目_003",
+      "objectId": 2,
+      "objectName": "商品类目",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "类别ID",
+          "attributeCode": "Category.category_id",
+          "dataType": "string",
+          "value": "C003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "Category.level",
+          "dataType": "integer",
+          "value": 2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Category.name",
+          "dataType": "string",
+          "value": "笔记本电脑",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "类目下属 SKU",
+          "targetInstanceId": 12,
+          "targetInstanceName": "库存最小单位_002",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "类目层次（父→子）",
+          "targetInstanceId": 3,
+          "targetInstanceName": "商品类目_001",
+          "targetObjectId": 2,
+          "targetObjectName": "商品类目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "类目层次（父→子）",
+          "targetInstanceId": 7,
+          "targetInstanceName": "商品类目_005",
+          "targetObjectId": 2,
+          "targetObjectName": "商品类目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Category_004",
+      "instanceName": "商品类目_004",
+      "objectId": 2,
+      "objectName": "商品类目",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "类别ID",
+          "attributeCode": "Category.category_id",
+          "dataType": "string",
+          "value": "C004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "Category.level",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Category.name",
+          "dataType": "string",
+          "value": "iPhone 15系列",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "类目层次（父→子）",
+          "targetInstanceId": 5,
+          "targetInstanceName": "商品类目_003",
+          "targetObjectId": 2,
+          "targetObjectName": "商品类目",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Category_005",
+      "instanceName": "商品类目_005",
+      "objectId": 2,
+      "objectName": "商品类目",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "类别ID",
+          "attributeCode": "Category.category_id",
+          "dataType": "string",
+          "value": "C005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "级别",
+          "attributeCode": "Category.level",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "Category.name",
+          "dataType": "string",
+          "value": "MacBook Pro",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "类目下属 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "类目下属 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Product_001",
+      "instanceName": "产品父类型_001",
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "智能手表",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Product_002",
+      "instanceName": "产品父类型_002",
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "无线耳机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Product_003",
+      "instanceName": "产品父类型_003",
+      "objectId": 3,
+      "objectName": "产品父类型",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "Product.name",
+          "dataType": "string",
+          "value": "便携式充电宝",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "产品ID",
+          "attributeCode": "Product.product_id",
+          "dataType": "string",
+          "value": "P003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "SKU_001",
+      "instanceName": "库存最小单位_001",
+      "objectId": 4,
+      "objectName": "库存最小单位",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "SKU.name",
+          "dataType": "string",
+          "value": "智能恒温水壶",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "产品ID",
+          "attributeCode": "SKU.product_id",
+          "dataType": "string",
+          "value": "P1001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "SKU编码",
+          "attributeCode": "SKU.sku_code",
+          "dataType": "string",
+          "value": "SKU-2024-A001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "计量单位",
+          "attributeCode": "SKU.uom",
+          "dataType": "string",
+          "value": "each",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "SKU_002",
+      "instanceName": "库存最小单位_002",
+      "objectId": 4,
+      "objectName": "库存最小单位",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "SKU.name",
+          "dataType": "string",
+          "value": "有机燕麦片",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "产品ID",
+          "attributeCode": "SKU.product_id",
+          "dataType": "string",
+          "value": "P1002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "SKU编码",
+          "attributeCode": "SKU.sku_code",
+          "dataType": "string",
+          "value": "SKU-2024-B002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "计量单位",
+          "attributeCode": "SKU.uom",
+          "dataType": "string",
+          "value": "kg",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "SKU_003",
+      "instanceName": "库存最小单位_003",
+      "objectId": 4,
+      "objectName": "库存最小单位",
+      "attributeValues": [
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "SKU.name",
+          "dataType": "string",
+          "value": "无糖杏仁奶",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "产品ID",
+          "attributeCode": "SKU.product_id",
+          "dataType": "string",
+          "value": "P1003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "SKU编码",
+          "attributeCode": "SKU.sku_code",
+          "dataType": "string",
+          "value": "SKU-2024-C003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "计量单位",
+          "attributeCode": "SKU.uom",
+          "dataType": "string",
+          "value": "liter",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Bundle_001",
+      "instanceName": "捆绑商品_001",
+      "objectId": 5,
+      "objectName": "捆绑商品",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "套餐规格",
+          "attributeCode": "Bundle.bundle_size",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "Bundle.name",
+          "dataType": "string",
+          "value": "家庭清洁套装",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "产品ID",
+          "attributeCode": "Bundle.product_id",
+          "dataType": "string",
+          "value": "BNDL-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "捆绑包含 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "捆绑包含 SKU",
+          "targetInstanceId": 12,
+          "targetInstanceName": "库存最小单位_002",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "捆绑包含 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Forecast_001",
+      "instanceName": "需求预测_001",
+      "objectId": 6,
+      "objectName": "需求预测",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "预测ID",
+          "attributeCode": "Forecast.forecast_id",
+          "dataType": "string",
+          "value": "FCT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "预测周期(天)",
+          "attributeCode": "Forecast.horizon_days",
+          "dataType": "integer",
+          "value": 90,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "预测数量",
+          "attributeCode": "Forecast.predicted_qty",
+          "dataType": "number",
+          "value": 1250.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "Forecast.status",
+          "dataType": "string",
+          "value": "superseded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "预测对应 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "预测对应市场",
+          "targetInstanceId": 1,
+          "targetInstanceName": "市场_001",
+          "targetObjectId": 1,
+          "targetObjectName": "市场",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "预测使用模型",
+          "targetInstanceId": 17,
+          "targetInstanceName": "预测模型_001",
+          "targetObjectId": 7,
+          "targetObjectName": "预测模型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "预测使用信号",
+          "targetInstanceId": 21,
+          "targetInstanceName": "原始需求信号_002",
+          "targetObjectId": 8,
+          "targetObjectName": "原始需求信号",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Forecast_002",
+      "instanceName": "需求预测_002",
+      "objectId": 6,
+      "objectName": "需求预测",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "预测ID",
+          "attributeCode": "Forecast.forecast_id",
+          "dataType": "string",
+          "value": "FCT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "预测周期(天)",
+          "attributeCode": "Forecast.horizon_days",
+          "dataType": "integer",
+          "value": 30,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "预测数量",
+          "attributeCode": "Forecast.predicted_qty",
+          "dataType": "number",
+          "value": 480.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "状态",
+          "attributeCode": "Forecast.status",
+          "dataType": "string",
+          "value": "superseded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "预测对应 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "预测对应市场",
+          "targetInstanceId": 1,
+          "targetInstanceName": "市场_001",
+          "targetObjectId": 1,
+          "targetObjectName": "市场",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "预测使用模型",
+          "targetInstanceId": 17,
+          "targetInstanceName": "预测模型_001",
+          "targetObjectId": 7,
+          "targetObjectName": "预测模型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "ForecastModel_001",
+      "instanceName": "预测模型_001",
+      "objectId": 7,
+      "objectName": "预测模型",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "算法",
+          "attributeCode": "ForecastModel.algorithm",
+          "dataType": "string",
+          "value": "arima",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "型号ID",
+          "attributeCode": "ForecastModel.model_id",
+          "dataType": "string",
+          "value": "ForecastModel_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "模型归属规划师",
+          "targetInstanceId": 36,
+          "targetInstanceName": "需求规划师_001",
+          "targetObjectId": 12,
+          "targetObjectName": "需求规划师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "ForecastModel_002",
+      "instanceName": "预测模型_002",
+      "objectId": 7,
+      "objectName": "预测模型",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "算法",
+          "attributeCode": "ForecastModel.algorithm",
+          "dataType": "string",
+          "value": "prophet",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "型号ID",
+          "attributeCode": "ForecastModel.model_id",
+          "dataType": "string",
+          "value": "ForecastModel_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "模型归属规划师",
+          "targetInstanceId": 36,
+          "targetInstanceName": "需求规划师_001",
+          "targetObjectId": 12,
+          "targetObjectName": "需求规划师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "ForecastModel_003",
+      "instanceName": "预测模型_003",
+      "objectId": 7,
+      "objectName": "预测模型",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "算法",
+          "attributeCode": "ForecastModel.algorithm",
+          "dataType": "string",
+          "value": "lstm",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "型号ID",
+          "attributeCode": "ForecastModel.model_id",
+          "dataType": "string",
+          "value": "ForecastModel_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 19,
+          "linkInfo": "模型归属规划师",
+          "targetInstanceId": 36,
+          "targetInstanceName": "需求规划师_001",
+          "targetObjectId": 12,
+          "targetObjectName": "需求规划师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "DemandSignal_001",
+      "instanceName": "原始需求信号_001",
+      "objectId": 8,
+      "objectName": "原始需求信号",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "信号ID",
+          "attributeCode": "DemandSignal.signal_id",
+          "dataType": "string",
+          "value": "DS2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "来源",
+          "attributeCode": "DemandSignal.source",
+          "dataType": "string",
+          "value": "pos",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "值",
+          "attributeCode": "DemandSignal.value",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "信号针对 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "DemandSignal_002",
+      "instanceName": "原始需求信号_002",
+      "objectId": 8,
+      "objectName": "原始需求信号",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "信号ID",
+          "attributeCode": "DemandSignal.signal_id",
+          "dataType": "string",
+          "value": "DS2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "来源",
+          "attributeCode": "DemandSignal.source",
+          "dataType": "string",
+          "value": "ecommerce",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "值",
+          "attributeCode": "DemandSignal.value",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "信号针对 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "DemandSignal_003",
+      "instanceName": "原始需求信号_003",
+      "objectId": 8,
+      "objectName": "原始需求信号",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "信号ID",
+          "attributeCode": "DemandSignal.signal_id",
+          "dataType": "string",
+          "value": "DS2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "来源",
+          "attributeCode": "DemandSignal.source",
+          "dataType": "string",
+          "value": "promotion",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "值",
+          "attributeCode": "DemandSignal.value",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "信号针对 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "ReplenishmentPlan_001",
+      "instanceName": "补货计划_001",
+      "objectId": 9,
+      "objectName": "补货计划",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "计划ID",
+          "attributeCode": "ReplenishmentPlan.plan_id",
+          "dataType": "string",
+          "value": "RP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "ReplenishmentPlan.qty",
+          "dataType": "number",
+          "value": 150.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "ReplenishmentPlan.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "补货计划基于预测",
+          "targetInstanceId": 16,
+          "targetInstanceName": "需求预测_002",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "补货计划对应 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "补货计划负责人",
+          "targetInstanceId": 37,
+          "targetInstanceName": "需求规划师_002",
+          "targetObjectId": 12,
+          "targetObjectName": "需求规划师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "ReplenishmentPlan_002",
+      "instanceName": "补货计划_002",
+      "objectId": 9,
+      "objectName": "补货计划",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "计划ID",
+          "attributeCode": "ReplenishmentPlan.plan_id",
+          "dataType": "string",
+          "value": "RP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "ReplenishmentPlan.qty",
+          "dataType": "number",
+          "value": 89.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "ReplenishmentPlan.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "补货计划基于预测",
+          "targetInstanceId": 15,
+          "targetInstanceName": "需求预测_001",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "补货计划对应 SKU",
+          "targetInstanceId": 12,
+          "targetInstanceName": "库存最小单位_002",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "补货计划负责人",
+          "targetInstanceId": 37,
+          "targetInstanceName": "需求规划师_002",
+          "targetObjectId": 12,
+          "targetObjectName": "需求规划师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "ReplenishmentPlan_003",
+      "instanceName": "补货计划_003",
+      "objectId": 9,
+      "objectName": "补货计划",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "计划ID",
+          "attributeCode": "ReplenishmentPlan.plan_id",
+          "dataType": "string",
+          "value": "RP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "ReplenishmentPlan.qty",
+          "dataType": "number",
+          "value": 234.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "ReplenishmentPlan.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "补货计划基于预测",
+          "targetInstanceId": 16,
+          "targetInstanceName": "需求预测_002",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "补货计划对应 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "补货计划负责人",
+          "targetInstanceId": 36,
+          "targetInstanceName": "需求规划师_001",
+          "targetObjectId": 12,
+          "targetObjectName": "需求规划师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "ReplenishmentPlan_004",
+      "instanceName": "补货计划_004",
+      "objectId": 9,
+      "objectName": "补货计划",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "计划ID",
+          "attributeCode": "ReplenishmentPlan.plan_id",
+          "dataType": "string",
+          "value": "RP-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "数量",
+          "attributeCode": "ReplenishmentPlan.qty",
+          "dataType": "number",
+          "value": 67.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "状态",
+          "attributeCode": "ReplenishmentPlan.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "补货计划基于预测",
+          "targetInstanceId": 16,
+          "targetInstanceName": "需求预测_002",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "补货计划对应 SKU",
+          "targetInstanceId": 12,
+          "targetInstanceName": "库存最小单位_002",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "补货计划负责人",
+          "targetInstanceId": 37,
+          "targetInstanceName": "需求规划师_002",
+          "targetObjectId": 12,
+          "targetObjectName": "需求规划师",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Promotion_001",
+      "instanceName": "促销活动_001",
+      "objectId": 10,
+      "objectName": "促销活动",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "提升比例",
+          "attributeCode": "Promotion.lift_pct",
+          "dataType": "number",
+          "value": 12.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "促销ID",
+          "attributeCode": "Promotion.promotion_id",
+          "dataType": "string",
+          "value": "PROMO2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Promotion.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "促销影响 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Promotion_002",
+      "instanceName": "促销活动_002",
+      "objectId": 10,
+      "objectName": "促销活动",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "提升比例",
+          "attributeCode": "Promotion.lift_pct",
+          "dataType": "number",
+          "value": 8.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "促销ID",
+          "attributeCode": "Promotion.promotion_id",
+          "dataType": "string",
+          "value": "PROMO2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Promotion.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Promotion_003",
+      "instanceName": "促销活动_003",
+      "objectId": 10,
+      "objectName": "促销活动",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "提升比例",
+          "attributeCode": "Promotion.lift_pct",
+          "dataType": "number",
+          "value": 15.7,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "促销ID",
+          "attributeCode": "Promotion.promotion_id",
+          "dataType": "string",
+          "value": "PROMO2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Promotion.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Promotion_004",
+      "instanceName": "促销活动_004",
+      "objectId": 10,
+      "objectName": "促销活动",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "提升比例",
+          "attributeCode": "Promotion.lift_pct",
+          "dataType": "number",
+          "value": 5.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "促销ID",
+          "attributeCode": "Promotion.promotion_id",
+          "dataType": "string",
+          "value": "PROMO2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Promotion.status",
+          "dataType": "string",
+          "value": "ended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "促销影响 SKU",
+          "targetInstanceId": 12,
+          "targetInstanceName": "库存最小单位_002",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "促销在市场",
+          "targetInstanceId": 2,
+          "targetInstanceName": "市场_002",
+          "targetObjectId": 1,
+          "targetObjectName": "市场",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Inventory_001",
+      "instanceName": "库存快照_001",
+      "objectId": 11,
+      "objectName": "库存快照",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "库存ID",
+          "attributeCode": "Inventory.inventory_id",
+          "dataType": "string",
+          "value": "INV-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "在手库存",
+          "attributeCode": "Inventory.on_hand",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "库存对应 SKU",
+          "targetInstanceId": 12,
+          "targetInstanceName": "库存最小单位_002",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Inventory_002",
+      "instanceName": "库存快照_002",
+      "objectId": 11,
+      "objectName": "库存快照",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "库存ID",
+          "attributeCode": "Inventory.inventory_id",
+          "dataType": "string",
+          "value": "INV-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "在手库存",
+          "attributeCode": "Inventory.on_hand",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "库存对应 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Inventory_003",
+      "instanceName": "库存快照_003",
+      "objectId": 11,
+      "objectName": "库存快照",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "库存ID",
+          "attributeCode": "Inventory.inventory_id",
+          "dataType": "string",
+          "value": "INV-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "在手库存",
+          "attributeCode": "Inventory.on_hand",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "库存对应 SKU",
+          "targetInstanceId": 11,
+          "targetInstanceName": "库存最小单位_001",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Inventory_004",
+      "instanceName": "库存快照_004",
+      "objectId": 11,
+      "objectName": "库存快照",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "库存ID",
+          "attributeCode": "Inventory.inventory_id",
+          "dataType": "string",
+          "value": "INV-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "在手库存",
+          "attributeCode": "Inventory.on_hand",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "库存对应 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Inventory_005",
+      "instanceName": "库存快照_005",
+      "objectId": 11,
+      "objectName": "库存快照",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "库存ID",
+          "attributeCode": "Inventory.inventory_id",
+          "dataType": "string",
+          "value": "INV-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "在手库存",
+          "attributeCode": "Inventory.on_hand",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "库存对应 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Planner_001",
+      "instanceName": "需求规划师_001",
+      "objectId": 12,
+      "objectName": "需求规划师",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Planner.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "计划员ID",
+          "attributeCode": "Planner.planner_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "规划师负责预测",
+          "targetInstanceId": 15,
+          "targetInstanceName": "需求预测_001",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 18,
+          "linkInfo": "规划师负责预测",
+          "targetInstanceId": 16,
+          "targetInstanceName": "需求预测_002",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Planner_002",
+      "instanceName": "需求规划师_002",
+      "objectId": 12,
+      "objectName": "需求规划师",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Planner.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "计划员ID",
+          "attributeCode": "Planner.planner_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "规划师负责预测",
+          "targetInstanceId": 16,
+          "targetInstanceName": "需求预测_002",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Accuracy_001",
+      "instanceName": "预测准确度评估_001",
+      "objectId": 13,
+      "objectName": "预测准确度评估",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "准确率ID",
+          "attributeCode": "Accuracy.accuracy_id",
+          "dataType": "string",
+          "value": "Accuracy_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "MAPE",
+          "attributeCode": "Accuracy.mape",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "准确度对应预测",
+          "targetInstanceId": 15,
+          "targetInstanceName": "需求预测_001",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Accuracy_002",
+      "instanceName": "预测准确度评估_002",
+      "objectId": 13,
+      "objectName": "预测准确度评估",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "准确率ID",
+          "attributeCode": "Accuracy.accuracy_id",
+          "dataType": "string",
+          "value": "Accuracy_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "MAPE",
+          "attributeCode": "Accuracy.mape",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "准确度对应预测",
+          "targetInstanceId": 16,
+          "targetInstanceName": "需求预测_002",
+          "targetObjectId": 6,
+          "targetObjectName": "需求预测",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "SupplyConstraint_001",
+      "instanceName": "供给侧约束_001",
+      "objectId": 14,
+      "objectName": "供给侧约束",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "约束ID",
+          "attributeCode": "SupplyConstraint.constraint_id",
+          "dataType": "string",
+          "value": "SC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "类型",
+          "attributeCode": "SupplyConstraint.kind",
+          "dataType": "string",
+          "value": "capacity",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "SupplyConstraint.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "SupplyConstraint_002",
+      "instanceName": "供给侧约束_002",
+      "objectId": 14,
+      "objectName": "供给侧约束",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "约束ID",
+          "attributeCode": "SupplyConstraint.constraint_id",
+          "dataType": "string",
+          "value": "SC-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "类型",
+          "attributeCode": "SupplyConstraint.kind",
+          "dataType": "string",
+          "value": "lead_time",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "SupplyConstraint.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "约束影响 SKU",
+          "targetInstanceId": 13,
+          "targetInstanceName": "库存最小单位_003",
+          "targetObjectId": 4,
+          "targetObjectName": "库存最小单位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "SupplyConstraint_003",
+      "instanceName": "供给侧约束_003",
+      "objectId": 14,
+      "objectName": "供给侧约束",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "约束ID",
+          "attributeCode": "SupplyConstraint.constraint_id",
+          "dataType": "string",
+          "value": "SC-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "类型",
+          "attributeCode": "SupplyConstraint.kind",
+          "dataType": "string",
+          "value": "supplier",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "状态",
+          "attributeCode": "SupplyConstraint.status",
+          "dataType": "string",
+          "value": "resolved",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 1,
+      "actionName": "接入信号",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "原始需求信号_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 5,
+      "actionName": "取代预测",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "需求预测_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 13,
+      "actionName": "计算准确率",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "预测准确度评估_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 10,
+      "actionName": "结束促销",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "促销活动_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 1,
+      "actionName": "接入信号",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "原始需求信号_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 12,
+      "actionName": "库存快照",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        31
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "库存快照_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 9,
+      "actionName": "启动促销",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "促销活动_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 7,
+      "actionName": "执行计划",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "补货计划_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 10,
+      "actionName": "结束促销",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "促销活动_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 13,
+      "actionName": "计算准确率",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "预测准确度评估_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 11,
+      "actionName": "解决约束",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        40
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "供给侧约束_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 11,
+      "actionName": "解决约束",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        42
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "供给侧约束_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 4,
+      "actionName": "激活预测",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "需求预测_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 12,
+      "actionName": "库存快照",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        35
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "库存快照_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 12,
+      "actionName": "库存快照",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "库存快照_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 8,
+      "actionName": "履行计划",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "补货计划_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 8,
+      "actionName": "履行计划",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "补货计划_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 9,
+      "actionName": "启动促销",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "促销活动_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 12,
+      "actionName": "库存快照",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        34
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "库存快照_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 5,
+      "actionName": "取代预测",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "需求预测_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 1,
+      "actionName": "接入信号",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "原始需求信号_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 12,
+      "actionName": "库存快照",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "库存快照_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 6,
+      "actionName": "审批计划",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "补货计划_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 10,
+      "actionName": "结束促销",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "促销活动_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 7,
+      "actionName": "执行计划",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "需求规划师_002"
+      ],
+      "outputInstanceNames": [
+        "补货计划_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 8,
+      "actionName": "履行计划",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "需求规划师_001"
+      ],
+      "outputInstanceNames": [
+        "补货计划_001"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

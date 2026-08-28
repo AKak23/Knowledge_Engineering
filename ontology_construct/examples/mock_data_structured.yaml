@@ -1,0 +1,57 @@
+version: 1
+
+source:
+  type: postgresql
+  connection:
+    host: 127.0.0.1
+    port: 5432
+    database: mock_data_ontology
+    user: shuaichen
+    schema: public
+
+metadata:
+  tables:
+    meta_tables: meta.meta_tables
+    meta_columns: meta.meta_columns
+    entity_map: meta.meta_entity_map
+    relation_map: meta.meta_relation_map
+  fallback:
+    use_information_schema: true
+    use_pg_comments: true
+    infer_fk_from_constraints: true
+
+construction:
+  mode: hybrid
+  use_meta: true
+  use_information_schema: true
+  use_pg_comments: true
+  use_constraints: true
+  use_sampling: true
+  use_embedding: true
+  use_llm: true
+  class_merge_similarity: 0.88
+  relation_candidate_similarity: 0.82
+  value_overlap_threshold: 0.6
+  min_relation_confidence: 0.7
+
+ontology:
+  name: 设备运行监控结构化数据本体
+  profile: industrial_process
+
+instances:
+  sample:
+    per_entity_table: 50
+    per_reference_table: 80
+    per_quality_table: 50
+  relation_sample:
+    per_relation_type: 100
+  event_sample:
+    per_event_type: 50
+
+llm:
+  enabled: true
+  usage:
+    schema_mapping: true
+    relation_mapping: true
+    schema_polish: true
+    instance_generation: false

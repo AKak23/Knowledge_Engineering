@@ -1,0 +1,45 @@
+你是一个本体架构师。请把多个文本分块抽取出的候选概念，归纳成一个简洁、概括、稳定的概念层本体。只输出合法 JSON。
+
+目标：
+- 输出最多 {max_concepts} 个最终概念。
+- {max_concepts} 是上限，不是目标；如果 10 个或 20 个概念已经足够概括文本，就不要凑满上限。
+- 概念抽象程度偏好：{abstraction_level}。
+- 候选概念证据少于 {min_evidence} 条时，只有在它是重要上位概念或连接多个关系时才保留。
+- 合并同义词、近义词、过细概念和局部表述。
+- 把具体实体、单次事件、编号、日期、数值降格为证据，不要作为最终概念。
+- 关系只允许连接最终概念，不允许新建关系端点。
+- 关系谓词只能从以下词表选择：{relation_vocab}。
+
+用户补充说明：
+{supplemental_prompt}
+
+输出 JSON 格式：
+{
+  "concepts": [
+    {
+      "name": "最终概念名称",
+      "definition": "一句话说明该概念的领域含义",
+      "abstraction_level": "high|medium|low",
+      "aliases": ["被合并的候选名或同义词"],
+      "evidence": ["代表性证据句，最多 5 条"],
+      "should_be_class": true
+    }
+  ],
+  "relations": [
+    {
+      "source": "最终概念名称",
+      "predicate": "包含|属于|导致|依赖|触发|产生|影响|约束|输入|输出|关联",
+      "target": "最终概念名称",
+      "evidence": ["代表性证据句，最多 3 条"],
+      "confidence": 0.0
+    }
+  ]
+}
+
+约束：
+- 不要输出实例层数据。
+- 不要输出 Markdown，不要解释。
+- source 和 target 必须是 concepts 中的最终概念 name 或 aliases。
+
+候选数据：
+{candidate_json}

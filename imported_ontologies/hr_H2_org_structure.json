@@ -1,0 +1,2599 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "人力资源(HR)·hr_H2_org_structure",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=hr_H2_org_structure，graph=hr_H2_org_structure_seed48）：13 个对象类型 / 19 个关系 / 14 个动作 / 25 个实例 / 16 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "法人公司",
+      "objectCode": "Company",
+      "description": "法人公司",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "公司ID",
+          "attributeCode": "Company.company_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "C002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "国家",
+          "attributeCode": "Company.country",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "美国",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Company.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "远航国际集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Company.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "merged",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "事业部",
+      "objectCode": "BusinessUnit",
+      "description": "事业部",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "业务单元ID",
+          "attributeCode": "BusinessUnit.bu_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BU-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "BusinessUnit.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "企业服务事业部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "BusinessUnit.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "deactivated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "部门",
+      "objectCode": "Department",
+      "description": "部门",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "部门ID",
+          "attributeCode": "Department.department_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DEPT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "编制",
+          "attributeCode": "Department.headcount",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Department.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "人力资源部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Department.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "deactivated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "团队",
+      "objectCode": "Team",
+      "description": "团队",
+      "attributes": [
+        {
+          "attributeId": 12,
+          "attributeName": "职能类型",
+          "attributeCode": "Team.function_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "engineering",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Team.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "前端开发团队",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "团队ID",
+          "attributeCode": "Team.team_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "T-ENG-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "员工父类型",
+      "objectCode": "Employee",
+      "description": "员工父类型",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "transferred",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "正式员工",
+      "objectCode": "FullTimeEmployee",
+      "description": "正式员工",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "年假天数",
+          "attributeCode": "FullTimeEmployee.annual_leave_days",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "员工ID",
+          "attributeCode": "FullTimeEmployee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "FullTimeEmployee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "FullTimeEmployee.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "合同制员工",
+      "objectCode": "Contractor",
+      "description": "合同制员工",
+      "attributes": [],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "岗位",
+      "objectCode": "Position",
+      "description": "岗位",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "级别",
+          "attributeCode": "Position.level",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "岗位ID",
+          "attributeCode": "Position.position_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "POS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Position.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "abolished",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "职称",
+          "attributeCode": "Position.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "高级软件工程师",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "办公地点",
+      "objectCode": "Location",
+      "description": "办公地点",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "城市",
+          "attributeCode": "Location.city",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "北京市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "位置ID",
+          "attributeCode": "Location.location_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "LOC001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "成本中心",
+      "objectCode": "CostCenter",
+      "description": "成本中心",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "成本中心ID",
+          "attributeCode": "CostCenter.cc_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CC-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "CostCenter.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "研发成本中心",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "组织变更记录",
+      "objectCode": "OrgChange",
+      "description": "组织变更记录",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "变更ID",
+          "attributeCode": "OrgChange.change_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "类型",
+          "attributeCode": "OrgChange.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "create",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "OrgChange.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "implemented",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "经理（员工子类型）",
+      "objectCode": "Manager",
+      "description": "经理（员工子类型）",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "员工ID",
+          "attributeCode": "Manager.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Manager.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "管理幅度",
+          "attributeCode": "Manager.span_of_control",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "状态",
+          "attributeCode": "Manager.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "编制信息",
+      "objectCode": "Headcount",
+      "description": "编制信息",
+      "attributes": [
+        {
+          "attributeId": 37,
+          "attributeName": "实际数量",
+          "attributeCode": "Headcount.actual_count",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "审批数量",
+          "attributeCode": "Headcount.approved_count",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "编制ID",
+          "attributeCode": "Headcount.hc_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "HC-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "法人公司",
+      "targetObjectId": 2,
+      "targetObjectName": "事业部",
+      "linkInfo": "公司下属事业部",
+      "linkType": "1:N",
+      "description": "company_has_bu",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "事业部",
+      "targetObjectId": 3,
+      "targetObjectName": "部门",
+      "linkInfo": "事业部下属部门",
+      "linkType": "1:N",
+      "description": "bu_has_department",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "部门",
+      "targetObjectId": 4,
+      "targetObjectName": "团队",
+      "linkInfo": "部门下属团队",
+      "linkType": "1:N",
+      "description": "department_has_team",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 4,
+      "sourceObjectName": "团队",
+      "targetObjectId": 5,
+      "targetObjectName": "员工父类型",
+      "linkInfo": "团队成员",
+      "linkType": "1:N",
+      "description": "team_has_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 5,
+      "sourceObjectName": "员工父类型",
+      "targetObjectId": 8,
+      "targetObjectName": "岗位",
+      "linkInfo": "员工任岗位",
+      "linkType": "N:1",
+      "description": "employee_holds_position",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 8,
+      "sourceObjectName": "岗位",
+      "targetObjectId": 3,
+      "targetObjectName": "部门",
+      "linkInfo": "岗位归属部门",
+      "linkType": "N:1",
+      "description": "position_in_department",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 3,
+      "sourceObjectName": "部门",
+      "targetObjectId": 9,
+      "targetObjectName": "办公地点",
+      "linkInfo": "部门办公地点",
+      "linkType": "N:M",
+      "description": "department_at_location",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 4,
+      "sourceObjectName": "团队",
+      "targetObjectId": 9,
+      "targetObjectName": "办公地点",
+      "linkInfo": "团队办公地点",
+      "linkType": "N:1",
+      "description": "team_at_location",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 3,
+      "sourceObjectName": "部门",
+      "targetObjectId": 10,
+      "targetObjectName": "成本中心",
+      "linkInfo": "部门成本中心",
+      "linkType": "N:1",
+      "description": "department_uses_cost_center",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 2,
+      "sourceObjectName": "事业部",
+      "targetObjectId": 10,
+      "targetObjectName": "成本中心",
+      "linkInfo": "事业部成本中心",
+      "linkType": "N:1",
+      "description": "bu_uses_cost_center",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 11,
+      "sourceObjectName": "组织变更记录",
+      "targetObjectId": 3,
+      "targetObjectName": "部门",
+      "linkInfo": "变更影响部门",
+      "linkType": "N:M",
+      "description": "change_targets_department",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 11,
+      "sourceObjectName": "组织变更记录",
+      "targetObjectId": 4,
+      "targetObjectName": "团队",
+      "linkInfo": "变更影响团队",
+      "linkType": "N:M",
+      "description": "change_targets_team",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 13,
+      "sourceObjectName": "编制信息",
+      "targetObjectId": 3,
+      "targetObjectName": "部门",
+      "linkInfo": "编制对应部门",
+      "linkType": "N:1",
+      "description": "headcount_for_department",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 13,
+      "sourceObjectName": "编制信息",
+      "targetObjectId": 8,
+      "targetObjectName": "岗位",
+      "linkInfo": "编制对应岗位",
+      "linkType": "N:1",
+      "description": "headcount_for_position",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 12,
+      "sourceObjectName": "经理（员工子类型）",
+      "targetObjectId": 4,
+      "targetObjectName": "团队",
+      "linkInfo": "经理管辖团队",
+      "linkType": "1:N",
+      "description": "manager_manages_team",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 3,
+      "sourceObjectName": "部门",
+      "targetObjectId": 1,
+      "targetObjectName": "法人公司",
+      "linkInfo": "部门归属公司",
+      "linkType": "N:1",
+      "description": "department_belongs_company",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 6,
+      "sourceObjectName": "正式员工",
+      "targetObjectId": 5,
+      "targetObjectName": "员工父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "FullTimeEmployee is-a Employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 7,
+      "sourceObjectName": "合同制员工",
+      "targetObjectId": 5,
+      "targetObjectName": "员工父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Contractor is-a Employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 12,
+      "sourceObjectName": "经理（员工子类型）",
+      "targetObjectId": 5,
+      "targetObjectName": "员工父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Manager is-a Employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "创建部门",
+      "actionCode": "create_department",
+      "description": "执行者：经理（员工子类型）；对象：部门",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "部门"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "冻结部门",
+      "actionCode": "freeze_department",
+      "description": "执行者：经理（员工子类型）；对象：部门",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "部门"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "停用部门",
+      "actionCode": "deactivate_department",
+      "description": "执行者：经理（员工子类型）；对象：部门",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "部门"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "停用业务单元",
+      "actionCode": "deactivate_bu",
+      "description": "执行者：经理（员工子类型）；对象：事业部",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "事业部"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "启动组织重组",
+      "actionCode": "start_restructuring",
+      "description": "执行者：经理（员工子类型）；对象：事业部",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "事业部"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "冻结岗位",
+      "actionCode": "freeze_position",
+      "description": "执行者：经理（员工子类型）；对象：岗位",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "岗位"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "撤销岗位",
+      "actionCode": "abolish_position",
+      "description": "执行者：经理（员工子类型）；对象：岗位",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "岗位"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "调动员工",
+      "actionCode": "transfer_employee",
+      "description": "执行者：经理（员工子类型）；对象：员工父类型",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "员工父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "员工离职",
+      "actionCode": "leave_employee",
+      "description": "执行者：经理（员工子类型）；对象：员工父类型",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "员工父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "休假返岗",
+      "actionCode": "return_from_leave",
+      "description": "执行者：经理（员工子类型）；对象：员工父类型",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "员工父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "终止员工",
+      "actionCode": "terminate_employee",
+      "description": "执行者：经理（员工子类型）；对象：员工父类型",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "员工父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "审批组织变更",
+      "actionCode": "approve_org_change",
+      "description": "执行者：经理（员工子类型）；对象：组织变更记录",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "组织变更记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "实施组织变更",
+      "actionCode": "implement_org_change",
+      "description": "执行者：经理（员工子类型）；对象：组织变更记录",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "组织变更记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "合并公司",
+      "actionCode": "merge_company",
+      "description": "执行者：经理（员工子类型）；对象：法人公司",
+      "inputObjects": [
+        "经理（员工子类型）"
+      ],
+      "outputObjects": [
+        "法人公司"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Company_002",
+      "instanceName": "法人公司_002",
+      "objectId": 1,
+      "objectName": "法人公司",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "公司ID",
+          "attributeCode": "Company.company_id",
+          "dataType": "string",
+          "value": "C002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "国家",
+          "attributeCode": "Company.country",
+          "dataType": "string",
+          "value": "美国",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Company.name",
+          "dataType": "string",
+          "value": "远航国际集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Company.status",
+          "dataType": "string",
+          "value": "merged",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "公司下属事业部",
+          "targetInstanceId": 2,
+          "targetInstanceName": "事业部_002",
+          "targetObjectId": 2,
+          "targetObjectName": "事业部",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "公司下属事业部",
+          "targetInstanceId": 3,
+          "targetInstanceName": "事业部_003",
+          "targetObjectId": 2,
+          "targetObjectName": "事业部",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "BusinessUnit_002",
+      "instanceName": "事业部_002",
+      "objectId": 2,
+      "objectName": "事业部",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "业务单元ID",
+          "attributeCode": "BusinessUnit.bu_id",
+          "dataType": "string",
+          "value": "BU-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "BusinessUnit.name",
+          "dataType": "string",
+          "value": "企业服务事业部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "BusinessUnit.status",
+          "dataType": "string",
+          "value": "deactivated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "事业部成本中心",
+          "targetInstanceId": 17,
+          "targetInstanceName": "成本中心_001",
+          "targetObjectId": 10,
+          "targetObjectName": "成本中心",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "BusinessUnit_003",
+      "instanceName": "事业部_003",
+      "objectId": 2,
+      "objectName": "事业部",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "业务单元ID",
+          "attributeCode": "BusinessUnit.bu_id",
+          "dataType": "string",
+          "value": "BU-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "名称",
+          "attributeCode": "BusinessUnit.name",
+          "dataType": "string",
+          "value": "数字营销事业部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "BusinessUnit.status",
+          "dataType": "string",
+          "value": "deactivated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "事业部下属部门",
+          "targetInstanceId": 4,
+          "targetInstanceName": "部门_001",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "事业部下属部门",
+          "targetInstanceId": 5,
+          "targetInstanceName": "部门_003",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "事业部成本中心",
+          "targetInstanceId": 18,
+          "targetInstanceName": "成本中心_002",
+          "targetObjectId": 10,
+          "targetObjectName": "成本中心",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Department_001",
+      "instanceName": "部门_001",
+      "objectId": 3,
+      "objectName": "部门",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "部门ID",
+          "attributeCode": "Department.department_id",
+          "dataType": "string",
+          "value": "DEPT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "编制",
+          "attributeCode": "Department.headcount",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Department.name",
+          "dataType": "string",
+          "value": "人力资源部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Department.status",
+          "dataType": "string",
+          "value": "deactivated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "部门下属团队",
+          "targetInstanceId": 8,
+          "targetInstanceName": "团队_005",
+          "targetObjectId": 4,
+          "targetObjectName": "团队",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "部门下属团队",
+          "targetInstanceId": 9,
+          "targetInstanceName": "团队_007",
+          "targetObjectId": 4,
+          "targetObjectName": "团队",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "部门成本中心",
+          "targetInstanceId": 17,
+          "targetInstanceName": "成本中心_001",
+          "targetObjectId": 10,
+          "targetObjectName": "成本中心",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "部门归属公司",
+          "targetInstanceId": 1,
+          "targetInstanceName": "法人公司_002",
+          "targetObjectId": 1,
+          "targetObjectName": "法人公司",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Department_003",
+      "instanceName": "部门_003",
+      "objectId": 3,
+      "objectName": "部门",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "部门ID",
+          "attributeCode": "Department.department_id",
+          "dataType": "string",
+          "value": "DEPT-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "编制",
+          "attributeCode": "Department.headcount",
+          "dataType": "integer",
+          "value": 45,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Department.name",
+          "dataType": "string",
+          "value": "技术开发部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Department.status",
+          "dataType": "string",
+          "value": "deactivated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "部门办公地点",
+          "targetInstanceId": 16,
+          "targetInstanceName": "办公地点_001",
+          "targetObjectId": 9,
+          "targetObjectName": "办公地点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "部门成本中心",
+          "targetInstanceId": 18,
+          "targetInstanceName": "成本中心_002",
+          "targetObjectId": 10,
+          "targetObjectName": "成本中心",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "部门归属公司",
+          "targetInstanceId": 1,
+          "targetInstanceName": "法人公司_002",
+          "targetObjectId": 1,
+          "targetObjectName": "法人公司",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Department_004",
+      "instanceName": "部门_004",
+      "objectId": 3,
+      "objectName": "部门",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "部门ID",
+          "attributeCode": "Department.department_id",
+          "dataType": "string",
+          "value": "DEPT-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "编制",
+          "attributeCode": "Department.headcount",
+          "dataType": "integer",
+          "value": 20,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "Department.name",
+          "dataType": "string",
+          "value": "市场部",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "Department.status",
+          "dataType": "string",
+          "value": "deactivated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 9,
+          "linkInfo": "部门成本中心",
+          "targetInstanceId": 18,
+          "targetInstanceName": "成本中心_002",
+          "targetObjectId": 10,
+          "targetObjectName": "成本中心",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "部门归属公司",
+          "targetInstanceId": 1,
+          "targetInstanceName": "法人公司_002",
+          "targetObjectId": 1,
+          "targetObjectName": "法人公司",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Team_001",
+      "instanceName": "团队_001",
+      "objectId": 4,
+      "objectName": "团队",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "职能类型",
+          "attributeCode": "Team.function_type",
+          "dataType": "string",
+          "value": "engineering",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Team.name",
+          "dataType": "string",
+          "value": "前端开发团队",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "团队ID",
+          "attributeCode": "Team.team_id",
+          "dataType": "string",
+          "value": "T-ENG-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "团队成员",
+          "targetInstanceId": 21,
+          "targetInstanceName": "经理（员工子类型）_002",
+          "targetObjectId": 12,
+          "targetObjectName": "经理（员工子类型）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "团队办公地点",
+          "targetInstanceId": 16,
+          "targetInstanceName": "办公地点_001",
+          "targetObjectId": 9,
+          "targetObjectName": "办公地点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Team_005",
+      "instanceName": "团队_005",
+      "objectId": 4,
+      "objectName": "团队",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "职能类型",
+          "attributeCode": "Team.function_type",
+          "dataType": "string",
+          "value": "support",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Team.name",
+          "dataType": "string",
+          "value": "客户支持中心",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "团队ID",
+          "attributeCode": "Team.team_id",
+          "dataType": "string",
+          "value": "T-SUPP-005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "团队成员",
+          "targetInstanceId": 10,
+          "targetInstanceName": "员工父类型_002",
+          "targetObjectId": 5,
+          "targetObjectName": "员工父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "团队成员",
+          "targetInstanceId": 12,
+          "targetInstanceName": "正式员工_002",
+          "targetObjectId": 6,
+          "targetObjectName": "正式员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "团队办公地点",
+          "targetInstanceId": 16,
+          "targetInstanceName": "办公地点_001",
+          "targetObjectId": 9,
+          "targetObjectName": "办公地点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Team_007",
+      "instanceName": "团队_007",
+      "objectId": 4,
+      "objectName": "团队",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "职能类型",
+          "attributeCode": "Team.function_type",
+          "dataType": "string",
+          "value": "product",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "Team.name",
+          "dataType": "string",
+          "value": "AI产品团队",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "团队ID",
+          "attributeCode": "Team.team_id",
+          "dataType": "string",
+          "value": "T-PROD-007",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "团队成员",
+          "targetInstanceId": 20,
+          "targetInstanceName": "经理（员工子类型）_001",
+          "targetObjectId": 12,
+          "targetObjectName": "经理（员工子类型）",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "团队办公地点",
+          "targetInstanceId": 16,
+          "targetInstanceName": "办公地点_001",
+          "targetObjectId": 9,
+          "targetObjectName": "办公地点",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Employee_002",
+      "instanceName": "员工父类型_002",
+      "objectId": 5,
+      "objectName": "员工父类型",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "EMP002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "transferred",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "员工任岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "FullTimeEmployee_001",
+      "instanceName": "正式员工_001",
+      "objectId": 6,
+      "objectName": "正式员工",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "年假天数",
+          "attributeCode": "FullTimeEmployee.annual_leave_days",
+          "dataType": "integer",
+          "value": 15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "员工ID",
+          "attributeCode": "FullTimeEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "FullTimeEmployee.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "FullTimeEmployee.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "员工任岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "FullTimeEmployee_002",
+      "instanceName": "正式员工_002",
+      "objectId": 6,
+      "objectName": "正式员工",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "年假天数",
+          "attributeCode": "FullTimeEmployee.annual_leave_days",
+          "dataType": "integer",
+          "value": 10,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "员工ID",
+          "attributeCode": "FullTimeEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "FullTimeEmployee.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "FullTimeEmployee.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "员工任岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "FullTimeEmployee_003",
+      "instanceName": "正式员工_003",
+      "objectId": 6,
+      "objectName": "正式员工",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "年假天数",
+          "attributeCode": "FullTimeEmployee.annual_leave_days",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "员工ID",
+          "attributeCode": "FullTimeEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "名称",
+          "attributeCode": "FullTimeEmployee.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "FullTimeEmployee.status",
+          "dataType": "string",
+          "value": "transferred",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "员工任岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Position_001",
+      "instanceName": "岗位_001",
+      "objectId": 8,
+      "objectName": "岗位",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "级别",
+          "attributeCode": "Position.level",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "岗位ID",
+          "attributeCode": "Position.position_id",
+          "dataType": "string",
+          "value": "POS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Position.status",
+          "dataType": "string",
+          "value": "abolished",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "职称",
+          "attributeCode": "Position.title",
+          "dataType": "string",
+          "value": "高级软件工程师",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "岗位归属部门",
+          "targetInstanceId": 5,
+          "targetInstanceName": "部门_003",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Position_002",
+      "instanceName": "岗位_002",
+      "objectId": 8,
+      "objectName": "岗位",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "级别",
+          "attributeCode": "Position.level",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "岗位ID",
+          "attributeCode": "Position.position_id",
+          "dataType": "string",
+          "value": "POS-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "Position.status",
+          "dataType": "string",
+          "value": "abolished",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "职称",
+          "attributeCode": "Position.title",
+          "dataType": "string",
+          "value": "人力资源专员",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "岗位归属部门",
+          "targetInstanceId": 4,
+          "targetInstanceName": "部门_001",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Location_001",
+      "instanceName": "办公地点_001",
+      "objectId": 9,
+      "objectName": "办公地点",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "城市",
+          "attributeCode": "Location.city",
+          "dataType": "string",
+          "value": "北京市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "位置ID",
+          "attributeCode": "Location.location_id",
+          "dataType": "string",
+          "value": "LOC001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "CostCenter_001",
+      "instanceName": "成本中心_001",
+      "objectId": 10,
+      "objectName": "成本中心",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "成本中心ID",
+          "attributeCode": "CostCenter.cc_id",
+          "dataType": "string",
+          "value": "CC-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "CostCenter.name",
+          "dataType": "string",
+          "value": "研发成本中心",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "CostCenter_002",
+      "instanceName": "成本中心_002",
+      "objectId": 10,
+      "objectName": "成本中心",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "成本中心ID",
+          "attributeCode": "CostCenter.cc_id",
+          "dataType": "string",
+          "value": "CC-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "名称",
+          "attributeCode": "CostCenter.name",
+          "dataType": "string",
+          "value": "市场营销成本中心",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "OrgChange_001",
+      "instanceName": "组织变更记录_001",
+      "objectId": 11,
+      "objectName": "组织变更记录",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "变更ID",
+          "attributeCode": "OrgChange.change_id",
+          "dataType": "string",
+          "value": "OC-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "类型",
+          "attributeCode": "OrgChange.kind",
+          "dataType": "string",
+          "value": "create",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "OrgChange.status",
+          "dataType": "string",
+          "value": "implemented",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "变更影响部门",
+          "targetInstanceId": 4,
+          "targetInstanceName": "部门_001",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "变更影响团队",
+          "targetInstanceId": 7,
+          "targetInstanceName": "团队_001",
+          "targetObjectId": 4,
+          "targetObjectName": "团队",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Manager_001",
+      "instanceName": "经理（员工子类型）_001",
+      "objectId": 12,
+      "objectName": "经理（员工子类型）",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "员工ID",
+          "attributeCode": "Manager.employee_id",
+          "dataType": "string",
+          "value": "EMP001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Manager.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "管理幅度",
+          "attributeCode": "Manager.span_of_control",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "状态",
+          "attributeCode": "Manager.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "员工任岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "经理管辖团队",
+          "targetInstanceId": 7,
+          "targetInstanceName": "团队_001",
+          "targetObjectId": 4,
+          "targetObjectName": "团队",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "经理管辖团队",
+          "targetInstanceId": 9,
+          "targetInstanceName": "团队_007",
+          "targetObjectId": 4,
+          "targetObjectName": "团队",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Manager_002",
+      "instanceName": "经理（员工子类型）_002",
+      "objectId": 12,
+      "objectName": "经理（员工子类型）",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "员工ID",
+          "attributeCode": "Manager.employee_id",
+          "dataType": "string",
+          "value": "EMP002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Manager.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "管理幅度",
+          "attributeCode": "Manager.span_of_control",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "状态",
+          "attributeCode": "Manager.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "员工任岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Manager_003",
+      "instanceName": "经理（员工子类型）_003",
+      "objectId": 12,
+      "objectName": "经理（员工子类型）",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "员工ID",
+          "attributeCode": "Manager.employee_id",
+          "dataType": "string",
+          "value": "EMP003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Manager.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "管理幅度",
+          "attributeCode": "Manager.span_of_control",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "状态",
+          "attributeCode": "Manager.status",
+          "dataType": "string",
+          "value": "transferred",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "员工任岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "经理管辖团队",
+          "targetInstanceId": 8,
+          "targetInstanceName": "团队_005",
+          "targetObjectId": 4,
+          "targetObjectName": "团队",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Headcount_002",
+      "instanceName": "编制信息_002",
+      "objectId": 13,
+      "objectName": "编制信息",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "实际数量",
+          "attributeCode": "Headcount.actual_count",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "审批数量",
+          "attributeCode": "Headcount.approved_count",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "编制ID",
+          "attributeCode": "Headcount.hc_id",
+          "dataType": "string",
+          "value": "HC-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "编制对应部门",
+          "targetInstanceId": 5,
+          "targetInstanceName": "部门_003",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "编制对应岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Headcount_003",
+      "instanceName": "编制信息_003",
+      "objectId": 13,
+      "objectName": "编制信息",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "实际数量",
+          "attributeCode": "Headcount.actual_count",
+          "dataType": "integer",
+          "value": 10,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "审批数量",
+          "attributeCode": "Headcount.approved_count",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "编制ID",
+          "attributeCode": "Headcount.hc_id",
+          "dataType": "string",
+          "value": "HC-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "编制对应部门",
+          "targetInstanceId": 4,
+          "targetInstanceName": "部门_001",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "编制对应岗位",
+          "targetInstanceId": 14,
+          "targetInstanceName": "岗位_001",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Headcount_004",
+      "instanceName": "编制信息_004",
+      "objectId": 13,
+      "objectName": "编制信息",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "实际数量",
+          "attributeCode": "Headcount.actual_count",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "审批数量",
+          "attributeCode": "Headcount.approved_count",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 39,
+          "attributeName": "编制ID",
+          "attributeCode": "Headcount.hc_id",
+          "dataType": "string",
+          "value": "HC-2024-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "编制对应部门",
+          "targetInstanceId": 6,
+          "targetInstanceName": "部门_004",
+          "targetObjectId": 3,
+          "targetObjectName": "部门",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "编制对应岗位",
+          "targetInstanceId": 15,
+          "targetInstanceName": "岗位_002",
+          "targetObjectId": 8,
+          "targetObjectName": "岗位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 13,
+      "actionName": "实施组织变更",
+      "inputInstances": [
+        21
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_002"
+      ],
+      "outputInstanceNames": [
+        "组织变更记录_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 11,
+      "actionName": "终止员工",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "经理（员工子类型）_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 11,
+      "actionName": "终止员工",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        11
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "正式员工_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 11,
+      "actionName": "终止员工",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_003"
+      ],
+      "outputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 10,
+      "actionName": "休假返岗",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "正式员工_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 11,
+      "actionName": "终止员工",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_003"
+      ],
+      "outputInstanceNames": [
+        "正式员工_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 2,
+      "actionName": "冻结部门",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "部门_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 4,
+      "actionName": "停用业务单元",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "事业部_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 3,
+      "actionName": "停用部门",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "部门_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 8,
+      "actionName": "调动员工",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_003"
+      ],
+      "outputInstanceNames": [
+        "经理（员工子类型）_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 10,
+      "actionName": "休假返岗",
+      "inputInstances": [
+        21
+      ],
+      "outputInstances": [
+        10
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_002"
+      ],
+      "outputInstanceNames": [
+        "员工父类型_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 8,
+      "actionName": "调动员工",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        10
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "员工父类型_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 7,
+      "actionName": "撤销岗位",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "岗位_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 3,
+      "actionName": "停用部门",
+      "inputInstances": [
+        21
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_002"
+      ],
+      "outputInstanceNames": [
+        "部门_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 7,
+      "actionName": "撤销岗位",
+      "inputInstances": [
+        22
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_003"
+      ],
+      "outputInstanceNames": [
+        "岗位_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 4,
+      "actionName": "停用业务单元",
+      "inputInstances": [
+        20
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "经理（员工子类型）_001"
+      ],
+      "outputInstanceNames": [
+        "事业部_003"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

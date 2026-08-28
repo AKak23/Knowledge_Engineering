@@ -1,0 +1,4939 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "供应链·supply_chain_S3_logistics",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=supply_chain_S3_logistics，graph=supply_chain_S3_logistics_seed45）：14 个对象类型 / 22 个关系 / 15 个动作 / 42 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "物流枢纽",
+      "objectCode": "Hub",
+      "description": "物流枢纽",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "枢纽ID",
+          "attributeCode": "Hub.hub_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Hub_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "枢纽类型",
+          "attributeCode": "Hub.hub_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "origin",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Hub.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东物流枢纽",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Hub.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "运输路线",
+      "objectCode": "Route",
+      "description": "运输路线",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "距离(公里)",
+          "attributeCode": "Route.distance_km",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 1318.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "路线ID",
+          "attributeCode": "Route.route_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "R-2024-BJ-SH",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "Route.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "车辆父类型",
+      "objectCode": "Vehicle",
+      "description": "车辆父类型",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Vehicle.capacity_kg",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 8500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Vehicle.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "车辆ID",
+          "attributeCode": "Vehicle.vehicle_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Vehicle_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "卡车",
+      "objectCode": "Truck",
+      "description": "卡车",
+      "attributes": [
+        {
+          "attributeId": 11,
+          "attributeName": "轴数",
+          "attributeCode": "Truck.axle_count",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Truck.capacity_kg",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 12500.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Truck.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "车辆ID",
+          "attributeCode": "Truck.vehicle_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Truck_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "厢式货车",
+      "objectCode": "Van",
+      "description": "厢式货车",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Van.capacity_kg",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 1250.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "是否冷藏",
+          "attributeCode": "Van.is_refrigerated",
+          "dataType": "boolean",
+          "description": "",
+          "sampleValue": false,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Van.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "车辆ID",
+          "attributeCode": "Van.vehicle_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "VAN-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "运单",
+      "objectCode": "Shipment",
+      "description": "运单",
+      "attributes": [
+        {
+          "attributeId": 19,
+          "attributeName": "发运ID",
+          "attributeCode": "Shipment.shipment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SHIP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "状态",
+          "attributeCode": "Shipment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "delivered",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "重量(公斤)",
+          "attributeCode": "Shipment.weight_kg",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 12.5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "司机",
+      "objectCode": "Driver",
+      "description": "司机",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "司机ID",
+          "attributeCode": "Driver.driver_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "D001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "准驾车型",
+          "attributeCode": "Driver.license_class",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Driver.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "运输行程",
+      "objectCode": "Trip",
+      "description": "运输行程",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "出发时间",
+          "attributeCode": "Trip.departure_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-15T08:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Trip.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "行程ID",
+          "attributeCode": "Trip.trip_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "T2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "客户订单",
+      "objectCode": "Order",
+      "description": "客户订单",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ORD20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "created",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "派送尝试",
+      "objectCode": "DeliveryAttempt",
+      "description": "派送尝试",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "尝试ID",
+          "attributeCode": "DeliveryAttempt.attempt_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "结果",
+          "attributeCode": "DeliveryAttempt.outcome",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "success",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "收件客户",
+      "objectCode": "Customer",
+      "description": "收件客户",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "承运商",
+      "objectCode": "Carrier",
+      "description": "承运商",
+      "attributes": [
+        {
+          "attributeId": 34,
+          "attributeName": "承运商ID",
+          "attributeCode": "Carrier.carrier_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CARR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "名称",
+          "attributeCode": "Carrier.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "迅达物流有限公司",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "运输异常",
+      "objectCode": "Incident",
+      "description": "运输异常",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "Incident.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "delay",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "事件ID",
+          "attributeCode": "Incident.incident_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Incident_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Incident.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 14,
+      "objectName": "运费/附加费",
+      "objectCode": "Fee",
+      "description": "运费/附加费",
+      "attributes": [
+        {
+          "attributeId": 39,
+          "attributeName": "金额",
+          "attributeCode": "Fee.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 285.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "费用ID",
+          "attributeCode": "Fee.fee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Fee_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "状态",
+          "attributeCode": "Fee.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "settled",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 2,
+      "sourceObjectName": "运输路线",
+      "targetObjectId": 1,
+      "targetObjectName": "物流枢纽",
+      "linkInfo": "路线起点枢纽",
+      "linkType": "N:1",
+      "description": "route_from_hub",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "运输路线",
+      "targetObjectId": 1,
+      "targetObjectName": "物流枢纽",
+      "linkInfo": "路线终点枢纽",
+      "linkType": "N:1",
+      "description": "route_to_hub",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 8,
+      "sourceObjectName": "运输行程",
+      "targetObjectId": 2,
+      "targetObjectName": "运输路线",
+      "linkInfo": "行程使用路线",
+      "linkType": "N:1",
+      "description": "trip_uses_route",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 8,
+      "sourceObjectName": "运输行程",
+      "targetObjectId": 3,
+      "targetObjectName": "车辆父类型",
+      "linkInfo": "行程使用车辆",
+      "linkType": "N:1",
+      "description": "trip_uses_vehicle",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 8,
+      "sourceObjectName": "运输行程",
+      "targetObjectId": 7,
+      "targetObjectName": "司机",
+      "linkInfo": "行程司机",
+      "linkType": "N:1",
+      "description": "trip_driver",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 6,
+      "sourceObjectName": "运单",
+      "targetObjectId": 8,
+      "targetObjectName": "运输行程",
+      "linkInfo": "运单装载行程",
+      "linkType": "N:M",
+      "description": "shipment_in_trip",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 6,
+      "sourceObjectName": "运单",
+      "targetObjectId": 1,
+      "targetObjectName": "物流枢纽",
+      "linkInfo": "运单始发枢纽",
+      "linkType": "N:1",
+      "description": "shipment_origin_hub",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 6,
+      "sourceObjectName": "运单",
+      "targetObjectId": 1,
+      "targetObjectName": "物流枢纽",
+      "linkInfo": "运单目的枢纽",
+      "linkType": "N:1",
+      "description": "shipment_dest_hub",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 6,
+      "sourceObjectName": "运单",
+      "targetObjectId": 9,
+      "targetObjectName": "客户订单",
+      "linkInfo": "运单承运订单",
+      "linkType": "N:M",
+      "description": "shipment_for_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 6,
+      "sourceObjectName": "运单",
+      "targetObjectId": 11,
+      "targetObjectName": "收件客户",
+      "linkInfo": "运单收件客户",
+      "linkType": "N:1",
+      "description": "shipment_to_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 6,
+      "sourceObjectName": "运单",
+      "targetObjectId": 12,
+      "targetObjectName": "承运商",
+      "linkInfo": "运单承运商",
+      "linkType": "N:1",
+      "description": "shipment_carrier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 3,
+      "sourceObjectName": "车辆父类型",
+      "targetObjectId": 12,
+      "targetObjectName": "承运商",
+      "linkInfo": "车辆属于承运商",
+      "linkType": "N:1",
+      "description": "vehicle_belongs_carrier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 7,
+      "sourceObjectName": "司机",
+      "targetObjectId": 12,
+      "targetObjectName": "承运商",
+      "linkInfo": "司机属于承运商",
+      "linkType": "N:1",
+      "description": "driver_belongs_carrier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 10,
+      "sourceObjectName": "派送尝试",
+      "targetObjectId": 6,
+      "targetObjectName": "运单",
+      "linkInfo": "派送尝试归属运单",
+      "linkType": "N:1",
+      "description": "attempt_for_shipment",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 10,
+      "sourceObjectName": "派送尝试",
+      "targetObjectId": 7,
+      "targetObjectName": "司机",
+      "linkInfo": "派送由司机执行",
+      "linkType": "N:1",
+      "description": "attempt_by_driver",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 13,
+      "sourceObjectName": "运输异常",
+      "targetObjectId": 6,
+      "targetObjectName": "运单",
+      "linkInfo": "异常涉及运单",
+      "linkType": "N:M",
+      "description": "incident_on_shipment",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 13,
+      "sourceObjectName": "运输异常",
+      "targetObjectId": 8,
+      "targetObjectName": "运输行程",
+      "linkInfo": "异常涉及行程",
+      "linkType": "N:M",
+      "description": "incident_on_trip",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 14,
+      "sourceObjectName": "运费/附加费",
+      "targetObjectId": 6,
+      "targetObjectName": "运单",
+      "linkInfo": "费用关联运单",
+      "linkType": "N:M",
+      "description": "fee_for_shipment",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 14,
+      "sourceObjectName": "运费/附加费",
+      "targetObjectId": 8,
+      "targetObjectName": "运输行程",
+      "linkInfo": "费用关联行程",
+      "linkType": "N:M",
+      "description": "fee_for_trip",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 12,
+      "sourceObjectName": "承运商",
+      "targetObjectId": 2,
+      "targetObjectName": "运输路线",
+      "linkInfo": "承运商承运路线",
+      "linkType": "N:M",
+      "description": "carrier_serves_route",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 4,
+      "sourceObjectName": "卡车",
+      "targetObjectId": 3,
+      "targetObjectName": "车辆父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Truck is-a Vehicle",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 22,
+      "sourceObjectId": 5,
+      "sourceObjectName": "厢式货车",
+      "targetObjectId": 3,
+      "targetObjectName": "车辆父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "Van is-a Vehicle",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "actionCode": "open_hub",
+      "description": "执行者：司机；对象：物流枢纽",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "物流枢纽"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "actionCode": "close_hub",
+      "description": "执行者：司机；对象：物流枢纽",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "物流枢纽"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "装车车辆",
+      "actionCode": "load_vehicle",
+      "description": "执行者：司机；对象：车辆父类型",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "车辆父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "actionCode": "depart_vehicle",
+      "description": "执行者：司机；对象：车辆父类型",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "车辆父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "actionCode": "park_vehicle",
+      "description": "执行者：司机；对象：车辆父类型",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "车辆父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "送修",
+      "actionCode": "send_to_maintenance",
+      "description": "执行者：司机；对象：车辆父类型",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "车辆父类型"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "揽收发运",
+      "actionCode": "pickup_shipment",
+      "description": "执行者：司机；对象：运单",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "运输发运",
+      "actionCode": "transport_shipment",
+      "description": "执行者：司机；对象：运单",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "交付发运",
+      "actionCode": "deliver_shipment",
+      "description": "执行者：司机；对象：运单",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "退回发运",
+      "actionCode": "return_shipment",
+      "description": "执行者：司机；对象：运单",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "标记为丢单",
+      "actionCode": "mark_lost",
+      "description": "执行者：司机；对象：运单",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "开始行程",
+      "actionCode": "start_trip",
+      "description": "执行者：司机；对象：运输行程",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运输行程"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "完成行程",
+      "actionCode": "complete_trip",
+      "description": "执行者：司机；对象：运输行程",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运输行程"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "关闭事件",
+      "actionCode": "close_incident",
+      "description": "执行者：司机；对象：运输异常",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运输异常"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 15,
+      "actionName": "结算费用",
+      "actionCode": "settle_fee",
+      "description": "执行者：司机；对象：运费/附加费",
+      "inputObjects": [
+        "司机"
+      ],
+      "outputObjects": [
+        "运费/附加费"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Hub_001",
+      "instanceName": "物流枢纽_001",
+      "objectId": 1,
+      "objectName": "物流枢纽",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "枢纽ID",
+          "attributeCode": "Hub.hub_id",
+          "dataType": "string",
+          "value": "Hub_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "枢纽类型",
+          "attributeCode": "Hub.hub_type",
+          "dataType": "string",
+          "value": "origin",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Hub.name",
+          "dataType": "string",
+          "value": "华东物流枢纽",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Hub.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Hub_002",
+      "instanceName": "物流枢纽_002",
+      "objectId": 1,
+      "objectName": "物流枢纽",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "枢纽ID",
+          "attributeCode": "Hub.hub_id",
+          "dataType": "string",
+          "value": "Hub_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "枢纽类型",
+          "attributeCode": "Hub.hub_type",
+          "dataType": "string",
+          "value": "transit",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Hub.name",
+          "dataType": "string",
+          "value": "郑州中转中心",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Hub.status",
+          "dataType": "string",
+          "value": "operational",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Hub_003",
+      "instanceName": "物流枢纽_003",
+      "objectId": 1,
+      "objectName": "物流枢纽",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "枢纽ID",
+          "attributeCode": "Hub.hub_id",
+          "dataType": "string",
+          "value": "Hub_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "枢纽类型",
+          "attributeCode": "Hub.hub_type",
+          "dataType": "string",
+          "value": "destination",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Hub.name",
+          "dataType": "string",
+          "value": "广州南沙港枢纽",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Hub.status",
+          "dataType": "string",
+          "value": "operational",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Hub_004",
+      "instanceName": "物流枢纽_004",
+      "objectId": 1,
+      "objectName": "物流枢纽",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "枢纽ID",
+          "attributeCode": "Hub.hub_id",
+          "dataType": "string",
+          "value": "Hub_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "枢纽类型",
+          "attributeCode": "Hub.hub_type",
+          "dataType": "string",
+          "value": "transit",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Hub.name",
+          "dataType": "string",
+          "value": "西安国际港务区",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Hub.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Hub_005",
+      "instanceName": "物流枢纽_005",
+      "objectId": 1,
+      "objectName": "物流枢纽",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "枢纽ID",
+          "attributeCode": "Hub.hub_id",
+          "dataType": "string",
+          "value": "Hub_005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "枢纽类型",
+          "attributeCode": "Hub.hub_type",
+          "dataType": "string",
+          "value": "origin",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Hub.name",
+          "dataType": "string",
+          "value": "哈尔滨冷链枢纽",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "状态",
+          "attributeCode": "Hub.status",
+          "dataType": "string",
+          "value": "operational",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Route_001",
+      "instanceName": "运输路线_001",
+      "objectId": 2,
+      "objectName": "运输路线",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "距离(公里)",
+          "attributeCode": "Route.distance_km",
+          "dataType": "number",
+          "value": 1318.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "路线ID",
+          "attributeCode": "Route.route_id",
+          "dataType": "string",
+          "value": "R-2024-BJ-SH",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "Route.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线起点枢纽",
+          "targetInstanceId": 3,
+          "targetInstanceName": "物流枢纽_003",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "路线终点枢纽",
+          "targetInstanceId": 4,
+          "targetInstanceName": "物流枢纽_004",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Route_002",
+      "instanceName": "运输路线_002",
+      "objectId": 2,
+      "objectName": "运输路线",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "距离(公里)",
+          "attributeCode": "Route.distance_km",
+          "dataType": "number",
+          "value": 142.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "路线ID",
+          "attributeCode": "Route.route_id",
+          "dataType": "string",
+          "value": "R-2024-GZ-SZ",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "Route.status",
+          "dataType": "string",
+          "value": "suspended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线起点枢纽",
+          "targetInstanceId": 3,
+          "targetInstanceName": "物流枢纽_003",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "路线终点枢纽",
+          "targetInstanceId": 1,
+          "targetInstanceName": "物流枢纽_001",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Route_003",
+      "instanceName": "运输路线_003",
+      "objectId": 2,
+      "objectName": "运输路线",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "距离(公里)",
+          "attributeCode": "Route.distance_km",
+          "dataType": "number",
+          "value": 816.7,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "路线ID",
+          "attributeCode": "Route.route_id",
+          "dataType": "string",
+          "value": "R-2024-CQ-KM",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "Route.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线起点枢纽",
+          "targetInstanceId": 3,
+          "targetInstanceName": "物流枢纽_003",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "路线终点枢纽",
+          "targetInstanceId": 1,
+          "targetInstanceName": "物流枢纽_001",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Route_004",
+      "instanceName": "运输路线_004",
+      "objectId": 2,
+      "objectName": "运输路线",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "距离(公里)",
+          "attributeCode": "Route.distance_km",
+          "dataType": "number",
+          "value": 354.9,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "路线ID",
+          "attributeCode": "Route.route_id",
+          "dataType": "string",
+          "value": "R-2024-HF-NJ",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "Route.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线起点枢纽",
+          "targetInstanceId": 3,
+          "targetInstanceName": "物流枢纽_003",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "路线终点枢纽",
+          "targetInstanceId": 3,
+          "targetInstanceName": "物流枢纽_003",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Route_005",
+      "instanceName": "运输路线_005",
+      "objectId": 2,
+      "objectName": "运输路线",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "距离(公里)",
+          "attributeCode": "Route.distance_km",
+          "dataType": "number",
+          "value": 672.1,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "路线ID",
+          "attributeCode": "Route.route_id",
+          "dataType": "string",
+          "value": "R-2024-XA-LZ",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "状态",
+          "attributeCode": "Route.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线起点枢纽",
+          "targetInstanceId": 1,
+          "targetInstanceName": "物流枢纽_001",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "路线终点枢纽",
+          "targetInstanceId": 3,
+          "targetInstanceName": "物流枢纽_003",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Vehicle_001",
+      "instanceName": "车辆父类型_001",
+      "objectId": 3,
+      "objectName": "车辆父类型",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Vehicle.capacity_kg",
+          "dataType": "number",
+          "value": 8500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Vehicle.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "车辆ID",
+          "attributeCode": "Vehicle.vehicle_id",
+          "dataType": "string",
+          "value": "Vehicle_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Vehicle_002",
+      "instanceName": "车辆父类型_002",
+      "objectId": 3,
+      "objectName": "车辆父类型",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Vehicle.capacity_kg",
+          "dataType": "number",
+          "value": 12000.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Vehicle.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "车辆ID",
+          "attributeCode": "Vehicle.vehicle_id",
+          "dataType": "string",
+          "value": "Vehicle_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Vehicle_003",
+      "instanceName": "车辆父类型_003",
+      "objectId": 3,
+      "objectName": "车辆父类型",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Vehicle.capacity_kg",
+          "dataType": "number",
+          "value": 5500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Vehicle.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "车辆ID",
+          "attributeCode": "Vehicle.vehicle_id",
+          "dataType": "string",
+          "value": "Vehicle_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Truck_001",
+      "instanceName": "卡车_001",
+      "objectId": 4,
+      "objectName": "卡车",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "轴数",
+          "attributeCode": "Truck.axle_count",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Truck.capacity_kg",
+          "dataType": "number",
+          "value": 12500.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Truck.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "车辆ID",
+          "attributeCode": "Truck.vehicle_id",
+          "dataType": "string",
+          "value": "Truck_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Truck_002",
+      "instanceName": "卡车_002",
+      "objectId": 4,
+      "objectName": "卡车",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "轴数",
+          "attributeCode": "Truck.axle_count",
+          "dataType": "integer",
+          "value": 2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Truck.capacity_kg",
+          "dataType": "number",
+          "value": 8200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Truck.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "车辆ID",
+          "attributeCode": "Truck.vehicle_id",
+          "dataType": "string",
+          "value": "Truck_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Truck_003",
+      "instanceName": "卡车_003",
+      "objectId": 4,
+      "objectName": "卡车",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "轴数",
+          "attributeCode": "Truck.axle_count",
+          "dataType": "integer",
+          "value": 4,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Truck.capacity_kg",
+          "dataType": "number",
+          "value": 25000.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Truck.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "车辆ID",
+          "attributeCode": "Truck.vehicle_id",
+          "dataType": "string",
+          "value": "Truck_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Truck_004",
+      "instanceName": "卡车_004",
+      "objectId": 4,
+      "objectName": "卡车",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "轴数",
+          "attributeCode": "Truck.axle_count",
+          "dataType": "integer",
+          "value": 3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Truck.capacity_kg",
+          "dataType": "number",
+          "value": 16800.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Truck.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "车辆ID",
+          "attributeCode": "Truck.vehicle_id",
+          "dataType": "string",
+          "value": "Truck_004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Truck_005",
+      "instanceName": "卡车_005",
+      "objectId": 4,
+      "objectName": "卡车",
+      "attributeValues": [
+        {
+          "attributeId": 11,
+          "attributeName": "轴数",
+          "attributeCode": "Truck.axle_count",
+          "dataType": "integer",
+          "value": 2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Truck.capacity_kg",
+          "dataType": "number",
+          "value": 9500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Truck.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "车辆ID",
+          "attributeCode": "Truck.vehicle_id",
+          "dataType": "string",
+          "value": "Truck_005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Van_001",
+      "instanceName": "厢式货车_001",
+      "objectId": 5,
+      "objectName": "厢式货车",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Van.capacity_kg",
+          "dataType": "number",
+          "value": 1250.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "是否冷藏",
+          "attributeCode": "Van.is_refrigerated",
+          "dataType": "boolean",
+          "value": false,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Van.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "车辆ID",
+          "attributeCode": "Van.vehicle_id",
+          "dataType": "string",
+          "value": "VAN-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Van_002",
+      "instanceName": "厢式货车_002",
+      "objectId": 5,
+      "objectName": "厢式货车",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "载重(公斤)",
+          "attributeCode": "Van.capacity_kg",
+          "dataType": "number",
+          "value": 800.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "是否冷藏",
+          "attributeCode": "Van.is_refrigerated",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "Van.status",
+          "dataType": "string",
+          "value": "maintenance",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "车辆ID",
+          "attributeCode": "Van.vehicle_id",
+          "dataType": "string",
+          "value": "VAN-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "车辆属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Shipment_001",
+      "instanceName": "运单_001",
+      "objectId": 6,
+      "objectName": "运单",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "发运ID",
+          "attributeCode": "Shipment.shipment_id",
+          "dataType": "string",
+          "value": "SHIP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "状态",
+          "attributeCode": "Shipment.status",
+          "dataType": "string",
+          "value": "delivered",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "重量(公斤)",
+          "attributeCode": "Shipment.weight_kg",
+          "dataType": "number",
+          "value": 12.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "运单装载行程",
+          "targetInstanceId": 28,
+          "targetInstanceName": "运输行程_002",
+          "targetObjectId": 8,
+          "targetObjectName": "运输行程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "运单始发枢纽",
+          "targetInstanceId": 4,
+          "targetInstanceName": "物流枢纽_004",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "运单目的枢纽",
+          "targetInstanceId": 4,
+          "targetInstanceName": "物流枢纽_004",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "运单收件客户",
+          "targetInstanceId": 37,
+          "targetInstanceName": "收件客户_004",
+          "targetObjectId": 11,
+          "targetObjectName": "收件客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "运单承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Shipment_002",
+      "instanceName": "运单_002",
+      "objectId": 6,
+      "objectName": "运单",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "发运ID",
+          "attributeCode": "Shipment.shipment_id",
+          "dataType": "string",
+          "value": "SHIP2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "状态",
+          "attributeCode": "Shipment.status",
+          "dataType": "string",
+          "value": "delivered",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "重量(公斤)",
+          "attributeCode": "Shipment.weight_kg",
+          "dataType": "number",
+          "value": 8.3,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "运单装载行程",
+          "targetInstanceId": 30,
+          "targetInstanceName": "运输行程_004",
+          "targetObjectId": 8,
+          "targetObjectName": "运输行程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "运单装载行程",
+          "targetInstanceId": 28,
+          "targetInstanceName": "运输行程_002",
+          "targetObjectId": 8,
+          "targetObjectName": "运输行程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "运单始发枢纽",
+          "targetInstanceId": 4,
+          "targetInstanceName": "物流枢纽_004",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "运单目的枢纽",
+          "targetInstanceId": 2,
+          "targetInstanceName": "物流枢纽_002",
+          "targetObjectId": 1,
+          "targetObjectName": "物流枢纽",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "运单承运订单",
+          "targetInstanceId": 31,
+          "targetInstanceName": "客户订单_001",
+          "targetObjectId": 9,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "运单收件客户",
+          "targetInstanceId": 34,
+          "targetInstanceName": "收件客户_001",
+          "targetObjectId": 11,
+          "targetObjectName": "收件客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "运单承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Driver_001",
+      "instanceName": "司机_001",
+      "objectId": 7,
+      "objectName": "司机",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "司机ID",
+          "attributeCode": "Driver.driver_id",
+          "dataType": "string",
+          "value": "D001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "准驾车型",
+          "attributeCode": "Driver.license_class",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Driver.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "司机属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Driver_002",
+      "instanceName": "司机_002",
+      "objectId": 7,
+      "objectName": "司机",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "司机ID",
+          "attributeCode": "Driver.driver_id",
+          "dataType": "string",
+          "value": "D002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "准驾车型",
+          "attributeCode": "Driver.license_class",
+          "dataType": "string",
+          "value": "B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Driver.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "司机属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Driver_003",
+      "instanceName": "司机_003",
+      "objectId": 7,
+      "objectName": "司机",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "司机ID",
+          "attributeCode": "Driver.driver_id",
+          "dataType": "string",
+          "value": "D003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "准驾车型",
+          "attributeCode": "Driver.license_class",
+          "dataType": "string",
+          "value": "C",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Driver.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "司机属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Driver_004",
+      "instanceName": "司机_004",
+      "objectId": 7,
+      "objectName": "司机",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "司机ID",
+          "attributeCode": "Driver.driver_id",
+          "dataType": "string",
+          "value": "D004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "准驾车型",
+          "attributeCode": "Driver.license_class",
+          "dataType": "string",
+          "value": "A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Driver.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "司机属于承运商",
+          "targetInstanceId": 38,
+          "targetInstanceName": "承运商_001",
+          "targetObjectId": 12,
+          "targetObjectName": "承运商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Trip_001",
+      "instanceName": "运输行程_001",
+      "objectId": 8,
+      "objectName": "运输行程",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "出发时间",
+          "attributeCode": "Trip.departure_at",
+          "dataType": "string",
+          "value": "2024-05-15T08:30:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Trip.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "行程ID",
+          "attributeCode": "Trip.trip_id",
+          "dataType": "string",
+          "value": "T2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "行程使用路线",
+          "targetInstanceId": 9,
+          "targetInstanceName": "运输路线_004",
+          "targetObjectId": 2,
+          "targetObjectName": "运输路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "行程使用车辆",
+          "targetInstanceId": 15,
+          "targetInstanceName": "卡车_002",
+          "targetObjectId": 4,
+          "targetObjectName": "卡车",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "行程司机",
+          "targetInstanceId": 25,
+          "targetInstanceName": "司机_003",
+          "targetObjectId": 7,
+          "targetObjectName": "司机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Trip_002",
+      "instanceName": "运输行程_002",
+      "objectId": 8,
+      "objectName": "运输行程",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "出发时间",
+          "attributeCode": "Trip.departure_at",
+          "dataType": "string",
+          "value": "2024-05-15T14:00:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Trip.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "行程ID",
+          "attributeCode": "Trip.trip_id",
+          "dataType": "string",
+          "value": "T2024002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "行程使用路线",
+          "targetInstanceId": 10,
+          "targetInstanceName": "运输路线_005",
+          "targetObjectId": 2,
+          "targetObjectName": "运输路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "行程使用车辆",
+          "targetInstanceId": 20,
+          "targetInstanceName": "厢式货车_002",
+          "targetObjectId": 5,
+          "targetObjectName": "厢式货车",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "行程司机",
+          "targetInstanceId": 24,
+          "targetInstanceName": "司机_002",
+          "targetObjectId": 7,
+          "targetObjectName": "司机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Trip_003",
+      "instanceName": "运输行程_003",
+      "objectId": 8,
+      "objectName": "运输行程",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "出发时间",
+          "attributeCode": "Trip.departure_at",
+          "dataType": "string",
+          "value": "2024-05-14T06:15:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Trip.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "行程ID",
+          "attributeCode": "Trip.trip_id",
+          "dataType": "string",
+          "value": "T2024003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "行程使用路线",
+          "targetInstanceId": 10,
+          "targetInstanceName": "运输路线_005",
+          "targetObjectId": 2,
+          "targetObjectName": "运输路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "行程使用车辆",
+          "targetInstanceId": 11,
+          "targetInstanceName": "车辆父类型_001",
+          "targetObjectId": 3,
+          "targetObjectName": "车辆父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "行程司机",
+          "targetInstanceId": 25,
+          "targetInstanceName": "司机_003",
+          "targetObjectId": 7,
+          "targetObjectName": "司机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Trip_004",
+      "instanceName": "运输行程_004",
+      "objectId": 8,
+      "objectName": "运输行程",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "出发时间",
+          "attributeCode": "Trip.departure_at",
+          "dataType": "string",
+          "value": "2024-05-16T10:00:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Trip.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "行程ID",
+          "attributeCode": "Trip.trip_id",
+          "dataType": "string",
+          "value": "T2024004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "行程使用路线",
+          "targetInstanceId": 10,
+          "targetInstanceName": "运输路线_005",
+          "targetObjectId": 2,
+          "targetObjectName": "运输路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "行程使用车辆",
+          "targetInstanceId": 18,
+          "targetInstanceName": "卡车_005",
+          "targetObjectId": 4,
+          "targetObjectName": "卡车",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "行程司机",
+          "targetInstanceId": 24,
+          "targetInstanceName": "司机_002",
+          "targetObjectId": 7,
+          "targetObjectName": "司机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Order_001",
+      "instanceName": "客户订单_001",
+      "objectId": 9,
+      "objectName": "客户订单",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "created",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Order_002",
+      "instanceName": "客户订单_002",
+      "objectId": 9,
+      "objectName": "客户订单",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD20240002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "shipped",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "DeliveryAttempt_001",
+      "instanceName": "派送尝试_001",
+      "objectId": 10,
+      "objectName": "派送尝试",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "尝试ID",
+          "attributeCode": "DeliveryAttempt.attempt_id",
+          "dataType": "string",
+          "value": "DA-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "结果",
+          "attributeCode": "DeliveryAttempt.outcome",
+          "dataType": "string",
+          "value": "success",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "派送尝试归属运单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "运单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "运单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "派送由司机执行",
+          "targetInstanceId": 25,
+          "targetInstanceName": "司机_003",
+          "targetObjectId": 7,
+          "targetObjectName": "司机",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Customer_001",
+      "instanceName": "收件客户_001",
+      "objectId": 11,
+      "objectName": "收件客户",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Customer_002",
+      "instanceName": "收件客户_002",
+      "objectId": 11,
+      "objectName": "收件客户",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Customer_003",
+      "instanceName": "收件客户_003",
+      "objectId": 11,
+      "objectName": "收件客户",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Customer_004",
+      "instanceName": "收件客户_004",
+      "objectId": 11,
+      "objectName": "收件客户",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Carrier_001",
+      "instanceName": "承运商_001",
+      "objectId": 12,
+      "objectName": "承运商",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "承运商ID",
+          "attributeCode": "Carrier.carrier_id",
+          "dataType": "string",
+          "value": "CARR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "名称",
+          "attributeCode": "Carrier.name",
+          "dataType": "string",
+          "value": "迅达物流有限公司",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 20,
+          "linkInfo": "承运商承运路线",
+          "targetInstanceId": 7,
+          "targetInstanceName": "运输路线_002",
+          "targetObjectId": 2,
+          "targetObjectName": "运输路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 20,
+          "linkInfo": "承运商承运路线",
+          "targetInstanceId": 10,
+          "targetInstanceName": "运输路线_005",
+          "targetObjectId": 2,
+          "targetObjectName": "运输路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Incident_001",
+      "instanceName": "运输异常_001",
+      "objectId": 13,
+      "objectName": "运输异常",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "Incident.category",
+          "dataType": "string",
+          "value": "delay",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "事件ID",
+          "attributeCode": "Incident.incident_id",
+          "dataType": "string",
+          "value": "Incident_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Incident.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "异常涉及行程",
+          "targetInstanceId": 27,
+          "targetInstanceName": "运输行程_001",
+          "targetObjectId": 8,
+          "targetObjectName": "运输行程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Incident_002",
+      "instanceName": "运输异常_002",
+      "objectId": 13,
+      "objectName": "运输异常",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "Incident.category",
+          "dataType": "string",
+          "value": "damage",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "事件ID",
+          "attributeCode": "Incident.incident_id",
+          "dataType": "string",
+          "value": "Incident_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Incident.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "异常涉及运单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "运单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "运单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "异常涉及行程",
+          "targetInstanceId": 27,
+          "targetInstanceName": "运输行程_001",
+          "targetObjectId": 8,
+          "targetObjectName": "运输行程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 41,
+      "instanceCode": "Incident_003",
+      "instanceName": "运输异常_003",
+      "objectId": 13,
+      "objectName": "运输异常",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "类别",
+          "attributeCode": "Incident.category",
+          "dataType": "string",
+          "value": "loss",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "事件ID",
+          "attributeCode": "Incident.incident_id",
+          "dataType": "string",
+          "value": "Incident_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "Incident.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "异常涉及运单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "运单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "运单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "异常涉及行程",
+          "targetInstanceId": 29,
+          "targetInstanceName": "运输行程_003",
+          "targetObjectId": 8,
+          "targetObjectName": "运输行程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 42,
+      "instanceCode": "Fee_001",
+      "instanceName": "运费/附加费_001",
+      "objectId": 14,
+      "objectName": "运费/附加费",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "金额",
+          "attributeCode": "Fee.amount",
+          "dataType": "number",
+          "value": 285.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "费用ID",
+          "attributeCode": "Fee.fee_id",
+          "dataType": "string",
+          "value": "Fee_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "状态",
+          "attributeCode": "Fee.status",
+          "dataType": "string",
+          "value": "settled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "费用关联运单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "运单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "运单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "费用关联行程",
+          "targetInstanceId": 27,
+          "targetInstanceName": "运输行程_001",
+          "targetObjectId": 8,
+          "targetObjectName": "运输行程",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "卡车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 15,
+      "actionName": "结算费用",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        42
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "运费/附加费_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 12,
+      "actionName": "开始行程",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "运输行程_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 3,
+      "actionName": "装车车辆",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 9,
+      "actionName": "交付发运",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "运单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "车辆父类型_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 13,
+      "actionName": "完成行程",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "运输行程_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        11
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "车辆父类型_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 3,
+      "actionName": "装车车辆",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "卡车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 3,
+      "actionName": "装车车辆",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 14,
+      "actionName": "关闭事件",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        40
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "运输异常_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "车辆父类型_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 13,
+      "actionName": "完成行程",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "运输行程_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 3,
+      "actionName": "装车车辆",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 14,
+      "actionName": "关闭事件",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "运输异常_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "厢式货车_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "卡车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 3,
+      "actionName": "装车车辆",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 4,
+      "actionName": "发车车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 5,
+      "actionName": "停放车辆",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "卡车_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 6,
+      "actionName": "送修",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        15
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "卡车_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        23
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_001"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "司机_002"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "司机_003"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 1,
+      "actionName": "开启枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 2,
+      "actionName": "关闭枢纽",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "司机_004"
+      ],
+      "outputInstanceNames": [
+        "物流枢纽_004"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

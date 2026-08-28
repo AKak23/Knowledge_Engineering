@@ -1,0 +1,47 @@
+# Relation direction semantics (§6). Single source of truth for how influence
+# propagates along a relation, independent of the raw edge direction used when
+# modelling the graph. Vendored byte-for-byte into cot_generation.
+#
+# traversal (impact view — how an anomaly at one end reaches the other):
+#   forward  = propagate along the edge  (source anomaly reaches target)
+#   reverse  = propagate against the edge (target anomaly reaches source)
+#   both     = propagate both ways
+#   exclude  = never a propagation carrier (may still appear in RelationSet)
+# The trace view is the whole impact digraph reversed.
+version: 1
+default_traversal: exclude   # unlisted relations do not propagate (conservative)
+rules:
+  - pattern: "^流转到"
+    traversal: forward       # upstream batch anomaly -> downstream station
+  - pattern: "^触发"
+    traversal: forward
+  - pattern: "^生成"
+    traversal: forward
+  - pattern: "^产出"
+    traversal: forward
+  - pattern: "^前置于"
+    traversal: forward
+  - pattern: "^包含"
+    traversal: both          # child fails -> parent affected; parent cancels -> child cancels
+  - pattern: "^属于"
+    traversal: both
+  - pattern: "^处理"
+    traversal: both          # process anomaly -> product; input anomaly -> process
+  - pattern: "^执行于"
+    traversal: reverse       # resource anomaly -> the process that runs on it
+  - pattern: "^使用"
+    traversal: reverse
+  - pattern: "^消耗"
+    traversal: reverse
+  - pattern: "^要求"
+    traversal: reverse
+  - pattern: "^来源于"
+    traversal: reverse
+  - pattern: "^语义关联"
+    traversal: exclude
+  - pattern: "^关联"
+    traversal: exclude       # event attach edges — too weak to carry propagation
+  - pattern: "^同义"
+    traversal: exclude
+  - pattern: "^同批"
+    traversal: exclude

@@ -1,0 +1,249 @@
+chunk:
+  size: 1500
+  overlap: 200
+
+llm:
+  backend: qwen
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: qwen-plus
+  api_key_env: DASHSCOPE_API_KEY
+  temperature: 0.1
+  max_tokens: 6000
+  timeout_seconds: 60
+  max_retries: 3
+  concurrency: 1   #20
+  enable_thinking: false
+
+merge:
+  embedding_backend: qwen
+  embedding_base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  embedding_model: text-embedding-v4
+  embedding_api_key_env: QWEN_EMBEDDING_API_KEY
+  similarity_threshold: 0.92
+  use_llm_synonym_judgment: false
+
+concept:
+  max_candidates_per_chunk: 10
+  max_concepts: 50
+  min_evidence: 1
+  selection_score_threshold: 8.0
+  selection_score_ratio: 0.8
+  abstraction_level: high
+  use_embedding_clustering: false
+  embedding_similarity_threshold: 0.9
+  relation_vocab:
+    - 包含
+    - 属于
+    - 导致
+    - 依赖
+    - 触发
+    - 产生
+    - 影响
+    - 约束
+    - 输入
+    - 输出
+    - 关联
+  candidate_prompt: prompts/extract_concept_candidates.txt
+  generalize_prompt: prompts/generalize_concepts.txt
+  relation_prompt: prompts/build_concept_relations.txt
+  controlled_relation_build: true
+  instance_prompt: prompts/extract_concept_instances.txt
+  chunk_instance_prompt: prompts/extract_chunk_instances.txt
+  instance_relation_prompt: prompts/build_instance_relations.txt
+  # per_chunk = 标准抽取式（按 chunk 抽实例+连边，连通性更好）; per_concept = 旧的按概念分批
+  instance_extraction_mode: per_chunk
+  # 每次实例抽取合并的 chunk 数（>1 把实例阶段调用从 N 降到 N/k 提速）
+  instance_chunk_batch_size: 3
+  # 实例抽取/实例关系构建的独立并发；候选概念抽取仍使用 llm.concurrency。
+  instance_llm_concurrency: 5
+  extract_real_instances: false
+  extract_instance_relations: false
+  max_instances_per_concept: 15
+  instance_batch_size: 3
+  instance_relation_batch_size: 30
+  max_instance_relation_pairs: 800
+  min_relation_pairs_per_instance: 3
+  instance_evidence_per_concept: 10
+  instance_evidence_char_limit: 600
+  # B1: full source-chunk text fed to instance extraction (per concept cap).
+  instance_source_char_limit: 4000
+  # Per-instance source text fed to instance-relation judging.
+  instance_relation_source_char_limit: 1000
+
+refine:
+  enabled: false
+  top_k: 5
+
+output:
+  formats:
+    - json
+
+replay:
+  # 是否记录构建过程回放日志。关闭后新任务不再写 job_events.jsonl，可节省存储。
+  # 已经记录过回放日志的历史任务仍可继续回放。
+  enabled: true
+
+qa_logging:
+  # 是否记录问答/推理日志。开启后写入每个 job 目录下的 qa_events.jsonl。
+  # 日志包含 question、prompt、rawAnswer、parsedAnswer 和推理元信息，用于后续训练数据收集。
+  enabled: true
+
+frontend_build:
+  # 这些值用于前端简化模式下的隐藏构建参数；修改后重启 API 生效。
+  default_profile: default
+  default_backend: jiutian
+  construction_mode: schema-first
+  max_concepts: 50
+  semantic_clustering: true
+  instance_mode: real
+  instance_count: 1
+  qa_context_mode: graph_rag
+  qa_fallback_enabled: true
+  # 留空表示使用 llm 下的默认值；需要临时调优时可改为整数。
+  llm_timeout:
+  llm_retries:
+  llm_concurrency:
+  min_concept_evidence:
+  abstraction_level:
+
+qa:
+  # P6: online default switched to the graph_qa_evidence_v1 subgraph pruning
+  # contract. Revert to the legacy retrieval by removing this line (or setting
+  # graph_rag_v1). The parser tolerates general-model output, so a non-retrained
+  # model works here too.
+  evidence_contract: graph_qa_evidence_v1
+  max_prompt_chars: 24000
+  max_schema_items: 80
+  max_evidence_nodes: 80
+  max_evidence_edges: 120
+  max_paths: 12
+  ppr_alpha: 0.85
+  ppr_iterations: 30
+  hub_penalty_enabled: true
+  include_retrieval_trace: true
+  schema_guided_pruning: true
+  schema_type_bonus: 0.18
+  schema_relation_bonus: 0.22
+
+instance_postprocess:
+  # 构建完成后的实例图兜底：先让 LLM 处理离散实例，再用确定性兜底补连边。
+  enabled: true
+  min_instances: 2
+  max_llm_instances: 80
+  max_anchor_instances: 40
+  max_drop_ratio: 0.25
+  min_link_confidence: 0.55
+  fallback_predicate: 语义关联
+  source_tag: instance_postprocess
+
+instance_builder:
+  # schema-first 完成后独立重建实例层；schema 抽取逻辑不受影响。
+  enabled: true
+  mode: hybrid
+  max_instances_per_type: 200
+  max_log_records_per_file: 2000
+  max_log_records_per_template: 50
+  llm_enabled_for_unresolved: true
+  llm_chunk_batch_size: 2
+  llm_concurrency: 3
+  source_text_char_limit: 4000
+
+action_builder:
+  # 实例图就绪后，从「事件类」实例确定性派生动作（类型层 + 实例层），
+  # 事件对象保持不变。回填 actor/target 两侧 id，保证类↔实例一致。
+  enabled: true
+  event_type_keywords:
+    - 事件
+  actor_predicates:
+    - 输入
+    - 消耗
+    - 使用
+    - 来源于
+    - 执行于
+  target_predicates:
+    - 输出
+    - 产出
+    - 生成
+    - 流转到
+    - 处理
+    - 影响
+  target_type_keywords:
+    - 工序
+    - 工单
+    - 实体
+    - 缺陷
+    - 返工
+    - 产品
+    - 物料
+    - 钢卷
+    - 冲压件
+  name_strip_suffixes:
+    - 事件
+
+ontology_profiles:
+  default:
+    ontology_name: 通用本体
+    ontology_desc: 从长文本中抽取的通用对象、属性、关系和行动本体
+    prompt: prompts/extract_ontology.txt
+  people_relation:
+    ontology_name: 人物关系本体
+    ontology_desc: 面向人物、组织、事件和关系链路的本体
+    prompt: prompts/people_relation_ontology.txt
+  business_process:
+    ontology_name: 业务流程本体
+    ontology_desc: 面向业务对象、流程节点、状态流转和行动的本体
+    prompt: prompts/business_process_ontology.txt
+  industrial_process:
+    ontology_name: 工业制造流程本体
+    ontology_desc: 面向工业制造、汽车制造、机床加工、产线 SOP、MES/设备/质量/物流日志的本体
+    prompt: prompts/extract_ontology.txt
+    domain_prompt: prompts/industrial_process_background.txt
+    relation_vocab:
+      - 包含
+      - 属于
+      - 配置
+      - 使用
+      - 执行
+      - 包含工序
+      - 前置于
+      - 后置于
+      - 消耗
+      - 产出
+      - 要求
+      - 执行于
+      - 发生
+      - 触发
+      - 处理
+      - 影响
+      - 检测
+      - 判定
+      - 来源于
+      - 流转到
+      - 生成
+      - 关联
+  operator_service:
+    ontology_name: 运营商客服营销本体
+    ontology_desc: 面向客户分层、套餐产品、活动权益、客服流程、投诉退费与业务规则的本体
+    prompt: prompts/extract_ontology.txt
+    domain_prompt: prompts/operator_service_background.txt
+    relation_vocab:
+      - 拥有
+      - 属于
+      - 订购
+      - 办理
+      - 参与
+      - 领取
+      - 提出
+      - 包含
+      - 提供
+      - 适用于
+      - 面向
+      - 通过
+      - 受限于
+      - 触发
+      - 服务
+      - 受理
+      - 转接
+      - 发送
+      - 涉及
+      - 互斥

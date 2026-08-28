@@ -1,0 +1,4217 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "智能工厂·factory_F5_process_routing",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=factory_F5_process_routing，graph=factory_F5_process_routing_seed46）：12 个对象类型 / 20 个关系 / 14 个动作 / 36 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "objectCode": "Routing",
+      "description": "工艺路线",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "冲压焊接装配线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RTG-2024-A01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "V1.2",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "工序父类型",
+      "objectCode": "Process",
+      "description": "工序父类型",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Process.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "粗车加工",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "工艺ID",
+          "attributeCode": "Process.process_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "主链工序",
+      "objectCode": "MainProcess",
+      "description": "主链工序",
+      "attributes": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "MainProcess.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "冲压成型",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "工艺ID",
+          "attributeCode": "MainProcess.process_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "序号",
+          "attributeCode": "MainProcess.sequence_no",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 1,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "返工工序",
+      "objectCode": "ReworkProcess",
+      "description": "返工工序",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "ReworkProcess.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "表面划伤返工",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "工艺ID",
+          "attributeCode": "ReworkProcess.process_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触发条件",
+          "attributeCode": "ReworkProcess.trigger_condition",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "质检发现表面划伤深度超过0.05mm",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "并行加工工序",
+      "objectCode": "ParallelProcess",
+      "description": "并行加工工序",
+      "attributes": [
+        {
+          "attributeId": 13,
+          "attributeName": "分支标签",
+          "attributeCode": "ParallelProcess.branch_label",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BRANCH_A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "ParallelProcess.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "钻孔与攻丝并行工序",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "工艺ID",
+          "attributeCode": "ParallelProcess.process_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "生产工单",
+      "objectCode": "WorkOrder",
+      "description": "生产工单",
+      "attributes": [
+        {
+          "attributeId": 16,
+          "attributeName": "数量",
+          "attributeCode": "WorkOrder.qty",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 150,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "WorkOrder.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "工单ID",
+          "attributeCode": "WorkOrder.wo_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "WO-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "工序执行实例",
+      "objectCode": "Operation",
+      "description": "工序执行实例",
+      "attributes": [
+        {
+          "attributeId": 19,
+          "attributeName": "工序ID",
+          "attributeCode": "Operation.operation_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "开始时间",
+          "attributeCode": "Operation.started_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-20T08:15:30Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "Operation.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "done",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "工位设备",
+      "objectCode": "Machine",
+      "description": "工位设备",
+      "attributes": [
+        {
+          "attributeId": 22,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Machine_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "busy",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "操作工",
+      "objectCode": "Operator",
+      "description": "操作工",
+      "attributes": [
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OP001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "工装夹具",
+      "objectCode": "Tool",
+      "description": "工装夹具",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Tool.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "available",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "刀具ID",
+          "attributeCode": "Tool.tool_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "T-2024-A001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "工序质检点",
+      "objectCode": "Inspection",
+      "description": "工序质检点",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "passed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "物料",
+      "objectCode": "Material",
+      "description": "物料",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "不锈钢螺丝",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "工艺路线",
+      "targetObjectId": 2,
+      "targetObjectName": "工序父类型",
+      "linkInfo": "路线包含工序",
+      "linkType": "1:N",
+      "description": "routing_has_process",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 3,
+      "sourceObjectName": "主链工序",
+      "targetObjectId": 3,
+      "targetObjectName": "主链工序",
+      "linkInfo": "主链工序顺序衔接",
+      "linkType": "1:1",
+      "description": "process_next",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 4,
+      "sourceObjectName": "返工工序",
+      "targetObjectId": 3,
+      "targetObjectName": "主链工序",
+      "linkInfo": "返工分支来自主链工序",
+      "linkType": "N:1",
+      "description": "rework_branches_from",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 4,
+      "sourceObjectName": "返工工序",
+      "targetObjectId": 3,
+      "targetObjectName": "主链工序",
+      "linkInfo": "返工完成回到主链工序",
+      "linkType": "N:1",
+      "description": "rework_returns_to",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 5,
+      "sourceObjectName": "并行加工工序",
+      "targetObjectId": 3,
+      "targetObjectName": "主链工序",
+      "linkInfo": "并行分支来源",
+      "linkType": "N:1",
+      "description": "parallel_branches_from",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 5,
+      "sourceObjectName": "并行加工工序",
+      "targetObjectId": 3,
+      "targetObjectName": "主链工序",
+      "linkInfo": "并行分支汇合",
+      "linkType": "N:1",
+      "description": "parallel_merges_to",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 6,
+      "sourceObjectName": "生产工单",
+      "targetObjectId": 1,
+      "targetObjectName": "工艺路线",
+      "linkInfo": "工单使用路线",
+      "linkType": "N:1",
+      "description": "wo_uses_routing",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 7,
+      "sourceObjectName": "工序执行实例",
+      "targetObjectId": 2,
+      "targetObjectName": "工序父类型",
+      "linkInfo": "操作对应工序",
+      "linkType": "N:1",
+      "description": "operation_of_process",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 7,
+      "sourceObjectName": "工序执行实例",
+      "targetObjectId": 6,
+      "targetObjectName": "生产工单",
+      "linkInfo": "操作属于工单",
+      "linkType": "N:1",
+      "description": "operation_in_wo",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 7,
+      "sourceObjectName": "工序执行实例",
+      "targetObjectId": 8,
+      "targetObjectName": "工位设备",
+      "linkInfo": "操作在设备上执行",
+      "linkType": "N:1",
+      "description": "operation_on_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 7,
+      "sourceObjectName": "工序执行实例",
+      "targetObjectId": 9,
+      "targetObjectName": "操作工",
+      "linkInfo": "操作由人执行",
+      "linkType": "N:1",
+      "description": "operation_by_operator",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 7,
+      "sourceObjectName": "工序执行实例",
+      "targetObjectId": 10,
+      "targetObjectName": "工装夹具",
+      "linkInfo": "操作使用工装",
+      "linkType": "N:M",
+      "description": "operation_uses_tool",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 7,
+      "sourceObjectName": "工序执行实例",
+      "targetObjectId": 12,
+      "targetObjectName": "物料",
+      "linkInfo": "操作消耗物料",
+      "linkType": "N:M",
+      "description": "operation_consumes_material",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 2,
+      "sourceObjectName": "工序父类型",
+      "targetObjectId": 8,
+      "targetObjectName": "工位设备",
+      "linkInfo": "工序需要设备能力",
+      "linkType": "N:M",
+      "description": "process_requires_machine",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 2,
+      "sourceObjectName": "工序父类型",
+      "targetObjectId": 10,
+      "targetObjectName": "工装夹具",
+      "linkInfo": "工序需要工装",
+      "linkType": "N:M",
+      "description": "process_requires_tool",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 11,
+      "sourceObjectName": "工序质检点",
+      "targetObjectId": 7,
+      "targetObjectName": "工序执行实例",
+      "linkInfo": "操作后的质检点",
+      "linkType": "1:1",
+      "description": "inspection_after_operation",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 11,
+      "sourceObjectName": "工序质检点",
+      "targetObjectId": 4,
+      "targetObjectName": "返工工序",
+      "linkInfo": "检验失败触发返工",
+      "linkType": "N:M",
+      "description": "inspection_triggers_rework",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 3,
+      "sourceObjectName": "主链工序",
+      "targetObjectId": 2,
+      "targetObjectName": "工序父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "MainProcess is-a Process",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 4,
+      "sourceObjectName": "返工工序",
+      "targetObjectId": 2,
+      "targetObjectName": "工序父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "ReworkProcess is-a Process",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 5,
+      "sourceObjectName": "并行加工工序",
+      "targetObjectId": 2,
+      "targetObjectName": "工序父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "ParallelProcess is-a Process",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "下达工艺路线",
+      "actionCode": "release_routing",
+      "description": "执行者：操作工；对象：工艺路线",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工艺路线"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "弃用工艺路线",
+      "actionCode": "deprecate_routing",
+      "description": "执行者：操作工；对象：工艺路线",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工艺路线"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "开始工单",
+      "actionCode": "start_wo",
+      "description": "执行者：操作工；对象：生产工单",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "生产工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "完成工单",
+      "actionCode": "complete_wo",
+      "description": "执行者：操作工；对象：生产工单",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "生产工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "取消工单",
+      "actionCode": "cancel_wo",
+      "description": "执行者：操作工；对象：生产工单",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "生产工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "开始工序",
+      "actionCode": "start_operation",
+      "description": "执行者：操作工；对象：工序执行实例",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工序执行实例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "完成工序",
+      "actionCode": "finish_operation",
+      "description": "执行者：操作工；对象：工序执行实例",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工序执行实例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "跳过工序",
+      "actionCode": "skip_operation",
+      "description": "执行者：操作工；对象：工序执行实例",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工序执行实例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "占用机床",
+      "actionCode": "occupy_machine",
+      "description": "执行者：操作工；对象：工位设备",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工位设备"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "下达机床",
+      "actionCode": "release_machine",
+      "description": "执行者：操作工；对象：工位设备",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工位设备"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "actionCode": "use_tool",
+      "description": "执行者：操作工；对象：工装夹具",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工装夹具"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "actionCode": "return_tool",
+      "description": "执行者：操作工；对象：工装夹具",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工装夹具"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "通过检验",
+      "actionCode": "pass_inspection",
+      "description": "执行者：操作工；对象：工序质检点",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工序质检点"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "判定失败检验",
+      "actionCode": "fail_inspection",
+      "description": "执行者：操作工；对象：工序质检点",
+      "inputObjects": [
+        "操作工"
+      ],
+      "outputObjects": [
+        "工序质检点"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Routing_001",
+      "instanceName": "工艺路线_001",
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "value": "冲压焊接装配线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "value": "RTG-2024-A01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "value": "V1.2",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 10,
+          "targetInstanceName": "工序父类型_003",
+          "targetObjectId": 2,
+          "targetObjectName": "工序父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Routing_002",
+      "instanceName": "工艺路线_002",
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "value": "精密机加工路线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "value": "RTG-2024-B02",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "value": "V2.0",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 15,
+          "targetInstanceName": "并行加工工序_001",
+          "targetObjectId": 5,
+          "targetObjectName": "并行加工工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Routing_003",
+      "instanceName": "工艺路线_003",
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "value": "表面处理工艺流程",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "value": "RTG-2024-C03",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "value": "V1.0",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 14,
+          "targetInstanceName": "返工工序_002",
+          "targetObjectId": 4,
+          "targetObjectName": "返工工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Routing_004",
+      "instanceName": "工艺路线_004",
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "value": "总装调试路线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "value": "RTG-2024-D04",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "value": "V3.1",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 11,
+          "targetInstanceName": "工序父类型_004",
+          "targetObjectId": 2,
+          "targetObjectName": "工序父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 13,
+          "targetInstanceName": "返工工序_001",
+          "targetObjectId": 4,
+          "targetObjectName": "返工工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 16,
+          "targetInstanceName": "并行加工工序_002",
+          "targetObjectId": 5,
+          "targetObjectName": "并行加工工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Routing_005",
+      "instanceName": "工艺路线_005",
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "value": "电子模块测试路线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "value": "RTG-2024-E05",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "value": "V1.5",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Routing_006",
+      "instanceName": "工艺路线_006",
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "value": "钣金折弯喷涂线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "value": "RTG-2024-F06",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "value": "V2.2",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 8,
+          "targetInstanceName": "工序父类型_001",
+          "targetObjectId": 2,
+          "targetObjectName": "工序父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Routing_007",
+      "instanceName": "工艺路线_007",
+      "objectId": 1,
+      "objectName": "工艺路线",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Routing.name",
+          "dataType": "string",
+          "value": "新能源电池组装路线",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "工艺路线ID",
+          "attributeCode": "Routing.routing_id",
+          "dataType": "string",
+          "value": "RTG-2024-G07",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Routing.status",
+          "dataType": "string",
+          "value": "deprecated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "版本",
+          "attributeCode": "Routing.version",
+          "dataType": "string",
+          "value": "V1.1",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "路线包含工序",
+          "targetInstanceId": 9,
+          "targetInstanceName": "工序父类型_002",
+          "targetObjectId": 2,
+          "targetObjectName": "工序父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Process_001",
+      "instanceName": "工序父类型_001",
+      "objectId": 2,
+      "objectName": "工序父类型",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Process.name",
+          "dataType": "string",
+          "value": "粗车加工",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "工艺ID",
+          "attributeCode": "Process.process_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Process_002",
+      "instanceName": "工序父类型_002",
+      "objectId": 2,
+      "objectName": "工序父类型",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Process.name",
+          "dataType": "string",
+          "value": "热处理",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "工艺ID",
+          "attributeCode": "Process.process_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "工序需要设备能力",
+          "targetInstanceId": 23,
+          "targetInstanceName": "工位设备_002",
+          "targetObjectId": 8,
+          "targetObjectName": "工位设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "工序需要工装",
+          "targetInstanceId": 31,
+          "targetInstanceName": "工装夹具_003",
+          "targetObjectId": 10,
+          "targetObjectName": "工装夹具",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Process_003",
+      "instanceName": "工序父类型_003",
+      "objectId": 2,
+      "objectName": "工序父类型",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Process.name",
+          "dataType": "string",
+          "value": "精铣加工",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "工艺ID",
+          "attributeCode": "Process.process_id",
+          "dataType": "string",
+          "value": "P003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Process_004",
+      "instanceName": "工序父类型_004",
+      "objectId": 2,
+      "objectName": "工序父类型",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "Process.name",
+          "dataType": "string",
+          "value": "表面抛光",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "工艺ID",
+          "attributeCode": "Process.process_id",
+          "dataType": "string",
+          "value": "P004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "MainProcess_001",
+      "instanceName": "主链工序_001",
+      "objectId": 3,
+      "objectName": "主链工序",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "名称",
+          "attributeCode": "MainProcess.name",
+          "dataType": "string",
+          "value": "冲压成型",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "工艺ID",
+          "attributeCode": "MainProcess.process_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "序号",
+          "attributeCode": "MainProcess.sequence_no",
+          "dataType": "integer",
+          "value": 1,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "主链工序顺序衔接",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "ReworkProcess_001",
+      "instanceName": "返工工序_001",
+      "objectId": 4,
+      "objectName": "返工工序",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "ReworkProcess.name",
+          "dataType": "string",
+          "value": "表面划伤返工",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "工艺ID",
+          "attributeCode": "ReworkProcess.process_id",
+          "dataType": "string",
+          "value": "RP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触发条件",
+          "attributeCode": "ReworkProcess.trigger_condition",
+          "dataType": "string",
+          "value": "质检发现表面划伤深度超过0.05mm",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "返工分支来自主链工序",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "返工完成回到主链工序",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "工序需要工装",
+          "targetInstanceId": 33,
+          "targetInstanceName": "工装夹具_005",
+          "targetObjectId": 10,
+          "targetObjectName": "工装夹具",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "ReworkProcess_002",
+      "instanceName": "返工工序_002",
+      "objectId": 4,
+      "objectName": "返工工序",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "名称",
+          "attributeCode": "ReworkProcess.name",
+          "dataType": "string",
+          "value": "尺寸超差返工",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "工艺ID",
+          "attributeCode": "ReworkProcess.process_id",
+          "dataType": "string",
+          "value": "RP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "触发条件",
+          "attributeCode": "ReworkProcess.trigger_condition",
+          "dataType": "string",
+          "value": "关键尺寸公差超出±0.1mm范围",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "返工分支来自主链工序",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "返工完成回到主链工序",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "ParallelProcess_001",
+      "instanceName": "并行加工工序_001",
+      "objectId": 5,
+      "objectName": "并行加工工序",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "分支标签",
+          "attributeCode": "ParallelProcess.branch_label",
+          "dataType": "string",
+          "value": "BRANCH_A",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "ParallelProcess.name",
+          "dataType": "string",
+          "value": "钻孔与攻丝并行工序",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "工艺ID",
+          "attributeCode": "ParallelProcess.process_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "并行分支来源",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "并行分支汇合",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "ParallelProcess_002",
+      "instanceName": "并行加工工序_002",
+      "objectId": 5,
+      "objectName": "并行加工工序",
+      "attributeValues": [
+        {
+          "attributeId": 13,
+          "attributeName": "分支标签",
+          "attributeCode": "ParallelProcess.branch_label",
+          "dataType": "string",
+          "value": "BRANCH_B",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "名称",
+          "attributeCode": "ParallelProcess.name",
+          "dataType": "string",
+          "value": "热处理与表面涂层并行工序",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "工艺ID",
+          "attributeCode": "ParallelProcess.process_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "并行分支来源",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "并行分支汇合",
+          "targetInstanceId": 12,
+          "targetInstanceName": "主链工序_001",
+          "targetObjectId": 3,
+          "targetObjectName": "主链工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "工序需要工装",
+          "targetInstanceId": 30,
+          "targetInstanceName": "工装夹具_002",
+          "targetObjectId": 10,
+          "targetObjectName": "工装夹具",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "WorkOrder_001",
+      "instanceName": "生产工单_001",
+      "objectId": 6,
+      "objectName": "生产工单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "数量",
+          "attributeCode": "WorkOrder.qty",
+          "dataType": "integer",
+          "value": 150,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "WorkOrder.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "工单ID",
+          "attributeCode": "WorkOrder.wo_id",
+          "dataType": "string",
+          "value": "WO-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "工单使用路线",
+          "targetInstanceId": 1,
+          "targetInstanceName": "工艺路线_001",
+          "targetObjectId": 1,
+          "targetObjectName": "工艺路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "WorkOrder_002",
+      "instanceName": "生产工单_002",
+      "objectId": 6,
+      "objectName": "生产工单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "数量",
+          "attributeCode": "WorkOrder.qty",
+          "dataType": "integer",
+          "value": 87,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "WorkOrder.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "工单ID",
+          "attributeCode": "WorkOrder.wo_id",
+          "dataType": "string",
+          "value": "WO-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "工单使用路线",
+          "targetInstanceId": 5,
+          "targetInstanceName": "工艺路线_005",
+          "targetObjectId": 1,
+          "targetObjectName": "工艺路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "WorkOrder_003",
+      "instanceName": "生产工单_003",
+      "objectId": 6,
+      "objectName": "生产工单",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "数量",
+          "attributeCode": "WorkOrder.qty",
+          "dataType": "integer",
+          "value": 200,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "状态",
+          "attributeCode": "WorkOrder.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "工单ID",
+          "attributeCode": "WorkOrder.wo_id",
+          "dataType": "string",
+          "value": "WO-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 7,
+          "linkInfo": "工单使用路线",
+          "targetInstanceId": 3,
+          "targetInstanceName": "工艺路线_003",
+          "targetObjectId": 1,
+          "targetObjectName": "工艺路线",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Operation_001",
+      "instanceName": "工序执行实例_001",
+      "objectId": 7,
+      "objectName": "工序执行实例",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "工序ID",
+          "attributeCode": "Operation.operation_id",
+          "dataType": "string",
+          "value": "OP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "开始时间",
+          "attributeCode": "Operation.started_at",
+          "dataType": "string",
+          "value": "2024-05-20T08:15:30Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "Operation.status",
+          "dataType": "string",
+          "value": "done",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "操作对应工序",
+          "targetInstanceId": 9,
+          "targetInstanceName": "工序父类型_002",
+          "targetObjectId": 2,
+          "targetObjectName": "工序父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "操作属于工单",
+          "targetInstanceId": 18,
+          "targetInstanceName": "生产工单_002",
+          "targetObjectId": 6,
+          "targetObjectName": "生产工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "操作在设备上执行",
+          "targetInstanceId": 22,
+          "targetInstanceName": "工位设备_001",
+          "targetObjectId": 8,
+          "targetObjectName": "工位设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "操作由人执行",
+          "targetInstanceId": 26,
+          "targetInstanceName": "操作工_003",
+          "targetObjectId": 9,
+          "targetObjectName": "操作工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 12,
+          "linkInfo": "操作使用工装",
+          "targetInstanceId": 29,
+          "targetInstanceName": "工装夹具_001",
+          "targetObjectId": 10,
+          "targetObjectName": "工装夹具",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "操作消耗物料",
+          "targetInstanceId": 36,
+          "targetInstanceName": "物料_002",
+          "targetObjectId": 12,
+          "targetObjectName": "物料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Operation_002",
+      "instanceName": "工序执行实例_002",
+      "objectId": 7,
+      "objectName": "工序执行实例",
+      "attributeValues": [
+        {
+          "attributeId": 19,
+          "attributeName": "工序ID",
+          "attributeCode": "Operation.operation_id",
+          "dataType": "string",
+          "value": "OP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "开始时间",
+          "attributeCode": "Operation.started_at",
+          "dataType": "string",
+          "value": "2024-05-20T09:00:00Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "状态",
+          "attributeCode": "Operation.status",
+          "dataType": "string",
+          "value": "skipped",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 8,
+          "linkInfo": "操作对应工序",
+          "targetInstanceId": 13,
+          "targetInstanceName": "返工工序_001",
+          "targetObjectId": 4,
+          "targetObjectName": "返工工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "操作属于工单",
+          "targetInstanceId": 18,
+          "targetInstanceName": "生产工单_002",
+          "targetObjectId": 6,
+          "targetObjectName": "生产工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "操作在设备上执行",
+          "targetInstanceId": 23,
+          "targetInstanceName": "工位设备_002",
+          "targetObjectId": 8,
+          "targetObjectName": "工位设备",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "操作由人执行",
+          "targetInstanceId": 26,
+          "targetInstanceName": "操作工_003",
+          "targetObjectId": 9,
+          "targetObjectName": "操作工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Machine_001",
+      "instanceName": "工位设备_001",
+      "objectId": 8,
+      "objectName": "工位设备",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "value": "Machine_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "busy",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Machine_002",
+      "instanceName": "工位设备_002",
+      "objectId": 8,
+      "objectName": "工位设备",
+      "attributeValues": [
+        {
+          "attributeId": 22,
+          "attributeName": "机床ID",
+          "attributeCode": "Machine.machine_id",
+          "dataType": "string",
+          "value": "Machine_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "Machine.status",
+          "dataType": "string",
+          "value": "idle",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Operator_001",
+      "instanceName": "操作工_001",
+      "objectId": 9,
+      "objectName": "操作工",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OP001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Operator_002",
+      "instanceName": "操作工_002",
+      "objectId": 9,
+      "objectName": "操作工",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OP002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Operator_003",
+      "instanceName": "操作工_003",
+      "objectId": 9,
+      "objectName": "操作工",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OP003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Operator_004",
+      "instanceName": "操作工_004",
+      "objectId": 9,
+      "objectName": "操作工",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OP004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Operator_005",
+      "instanceName": "操作工_005",
+      "objectId": 9,
+      "objectName": "操作工",
+      "attributeValues": [
+        {
+          "attributeId": 24,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OP005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Tool_001",
+      "instanceName": "工装夹具_001",
+      "objectId": 10,
+      "objectName": "工装夹具",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Tool.status",
+          "dataType": "string",
+          "value": "available",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "刀具ID",
+          "attributeCode": "Tool.tool_id",
+          "dataType": "string",
+          "value": "T-2024-A001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Tool_002",
+      "instanceName": "工装夹具_002",
+      "objectId": 10,
+      "objectName": "工装夹具",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Tool.status",
+          "dataType": "string",
+          "value": "in_use",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "刀具ID",
+          "attributeCode": "Tool.tool_id",
+          "dataType": "string",
+          "value": "T-2024-B002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Tool_003",
+      "instanceName": "工装夹具_003",
+      "objectId": 10,
+      "objectName": "工装夹具",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Tool.status",
+          "dataType": "string",
+          "value": "wear_out",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "刀具ID",
+          "attributeCode": "Tool.tool_id",
+          "dataType": "string",
+          "value": "T-2024-C003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Tool_004",
+      "instanceName": "工装夹具_004",
+      "objectId": 10,
+      "objectName": "工装夹具",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Tool.status",
+          "dataType": "string",
+          "value": "available",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "刀具ID",
+          "attributeCode": "Tool.tool_id",
+          "dataType": "string",
+          "value": "T-2024-D004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Tool_005",
+      "instanceName": "工装夹具_005",
+      "objectId": 10,
+      "objectName": "工装夹具",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "Tool.status",
+          "dataType": "string",
+          "value": "available",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "刀具ID",
+          "attributeCode": "Tool.tool_id",
+          "dataType": "string",
+          "value": "T-2024-E005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Inspection_001",
+      "instanceName": "工序质检点_001",
+      "objectId": 11,
+      "objectName": "工序质检点",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "检验ID",
+          "attributeCode": "Inspection.inspection_id",
+          "dataType": "string",
+          "value": "INS-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Inspection.status",
+          "dataType": "string",
+          "value": "passed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "操作后的质检点",
+          "targetInstanceId": 20,
+          "targetInstanceName": "工序执行实例_001",
+          "targetObjectId": 7,
+          "targetObjectName": "工序执行实例",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "检验失败触发返工",
+          "targetInstanceId": 14,
+          "targetInstanceName": "返工工序_002",
+          "targetObjectId": 4,
+          "targetObjectName": "返工工序",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Material_001",
+      "instanceName": "物料_001",
+      "objectId": 12,
+      "objectName": "物料",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "不锈钢螺丝",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Material_002",
+      "instanceName": "物料_002",
+      "objectId": 12,
+      "objectName": "物料",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "物料ID",
+          "attributeCode": "Material.material_id",
+          "dataType": "string",
+          "value": "MAT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "名称",
+          "attributeCode": "Material.name",
+          "dataType": "string",
+          "value": "铝合金板材",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 2,
+      "actionName": "弃用工艺路线",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 13,
+      "actionName": "通过检验",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        34
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工序质检点_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 2,
+      "actionName": "弃用工艺路线",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 1,
+      "actionName": "下达工艺路线",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 7,
+      "actionName": "完成工序",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工序执行实例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 2,
+      "actionName": "弃用工艺路线",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_006"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 5,
+      "actionName": "取消工单",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "生产工单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 2,
+      "actionName": "弃用工艺路线",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        4
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 2,
+      "actionName": "弃用工艺路线",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_007"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 4,
+      "actionName": "完成工单",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "生产工单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工位设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 8,
+      "actionName": "跳过工序",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        21
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工序执行实例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 1,
+      "actionName": "下达工艺路线",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 2,
+      "actionName": "弃用工艺路线",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工艺路线_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工位设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工位设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 11,
+      "actionName": "使用刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        30
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        26
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "操作工_003"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工位设备_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 12,
+      "actionName": "归还刀具",
+      "inputInstances": [
+        27
+      ],
+      "outputInstances": [
+        32
+      ],
+      "inputInstanceNames": [
+        "操作工_004"
+      ],
+      "outputInstanceNames": [
+        "工装夹具_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        25
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_002"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 9,
+      "actionName": "占用机床",
+      "inputInstances": [
+        28
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "操作工_005"
+      ],
+      "outputInstanceNames": [
+        "工位设备_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 10,
+      "actionName": "下达机床",
+      "inputInstances": [
+        24
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "操作工_001"
+      ],
+      "outputInstanceNames": [
+        "工位设备_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

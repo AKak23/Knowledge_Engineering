@@ -1,0 +1,34 @@
+你是一个本体关系建模专家。现在最终概念集合已经确定，请只在这些最终概念之间建立概念层关系。只输出合法 JSON。
+
+目标：
+- 只使用输入中的 final_concepts.name 作为 source 和 target。
+- 不允许新增概念，不允许使用候选概念名作为端点，除非它已经是 final_concepts.name。
+- 关系必须是概念层、稳定、可复用的关系，不要输出一次性事实关系。
+- 关系谓词只能从以下词表选择：{relation_vocab}。
+- 优先保留有候选关系和证据支持的关系；如果多个候选关系表达同一含义，合并成一条。
+- 删除自环关系和没有明确语义的弱关系。
+
+用户补充说明：
+{supplemental_prompt}
+
+输出 JSON 格式：
+{
+  "relations": [
+    {
+      "source": "最终概念名称",
+      "predicate": "包含|属于|导致|依赖|触发|产生|影响|约束|输入|输出|关联",
+      "target": "最终概念名称",
+      "evidence": ["代表性证据句，最多 3 条"],
+      "confidence": 0.0
+    }
+  ]
+}
+
+约束：
+- source 和 target 必须精确等于 final_concepts 中的 name。
+- 不要输出 concepts 字段。
+- 不要输出 Markdown，不要解释。
+- 如果没有足够证据，输出 {"relations": []}。
+
+输入数据：
+{relation_json}

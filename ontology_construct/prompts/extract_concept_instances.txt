@@ -1,0 +1,46 @@
+你是一个本体实例抽取专家。最终概念集合已经确定，请从给定的原文片段(source_text)和证据(evidence)中抽取真实出现过的代表实例。只输出合法 JSON。
+
+目标：
+- 优先依据每个概念的 source_text（原文片段，信息更全），再结合 evidence，抽取其中明确出现的具体实例，不要编造。
+- 尽量穷尽 source_text 中属于该概念的不同真实实例，不要只给一两个；在不编造的前提下尽量多抽。
+- 实例必须归属到 final_concepts.name 中的一个最终概念。
+- 每个概念最多输出 {max_instances_per_concept} 个实例。
+- 适合抽取的实例包括：具体设备、标准、组织、流程节点、文档、系统、故障类型、业务对象、事件名称等。
+- 不要把最终概念本身重复当作实例；例如概念是“设备故障”，不要输出实例“设备故障”。
+- 如果证据中说明了实例之间的关系，请在实例的 links 中输出；关系端点必须使用本次输出的实例 name。
+
+用户补充说明：
+{supplemental_prompt}
+
+输出 JSON 格式：
+{
+  "instances": [
+    {
+      "concept": "最终概念名称",
+      "name": "文本中出现的具体实例名称",
+      "attributes": {
+        "属性名": "属性值"
+      },
+      "links": [
+        {
+          "target": "另一个实例名称",
+          "predicate": "关系名称",
+          "evidence": ["支撑该关系的原文证据句，最多 2 条"],
+          "confidence": 0.0
+        }
+      ],
+      "evidence": ["支撑该实例的原文证据句，最多 2 条"],
+      "confidence": 0.0
+    }
+  ]
+}
+
+约束：
+- concept 必须精确等于 final_concepts 中的 name。
+- 不要输出不在证据里的实例。
+- links.target 必须是本次 instances 数组中某个实例的 name。
+- 不要输出 Markdown，不要解释。
+- 如果没有足够证据，输出 {"instances": []}。
+
+输入数据：
+{instance_json}

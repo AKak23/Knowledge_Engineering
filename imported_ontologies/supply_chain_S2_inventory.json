@@ -1,0 +1,4318 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "供应链·supply_chain_S2_inventory",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=supply_chain_S2_inventory，graph=supply_chain_S2_inventory_seed48）：13 个对象类型 / 19 个关系 / 14 个动作 / 39 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "仓库",
+      "objectCode": "Warehouse",
+      "description": "仓库",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Warehouse.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华东中央仓",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "状态",
+          "attributeCode": "Warehouse.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "frozen",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "仓库ID",
+          "attributeCode": "Warehouse.warehouse_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "WH-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "仓库类型",
+          "attributeCode": "Warehouse.warehouse_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "central",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "库区",
+      "objectCode": "Zone",
+      "description": "库区",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "区域ID",
+          "attributeCode": "Zone.zone_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Z001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "区域类型",
+          "attributeCode": "Zone.zone_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "receiving",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "货位",
+      "objectCode": "Bin",
+      "description": "货位",
+      "attributes": [
+        {
+          "attributeId": 7,
+          "attributeName": "库位ID",
+          "attributeCode": "Bin.bin_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Bin_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "容量",
+          "attributeCode": "Bin.capacity",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 120.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Bin.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "blocked",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "物料父类型",
+      "objectCode": "Item",
+      "description": "物料父类型",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "条目ID",
+          "attributeCode": "Item.item_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "MAT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Item.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "不锈钢螺丝",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "成品",
+      "objectCode": "FinishedGood",
+      "description": "成品",
+      "attributes": [
+        {
+          "attributeId": 12,
+          "attributeName": "条目ID",
+          "attributeCode": "FinishedGood.item_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "FinishedGood.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "智能恒温电水壶",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "SKU",
+          "attributeCode": "FinishedGood.sku",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SKU-EK2024A",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "原材料",
+      "objectCode": "RawMaterial",
+      "description": "原材料",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "等级",
+          "attributeCode": "RawMaterial.grade",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "304",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "条目ID",
+          "attributeCode": "RawMaterial.item_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RM-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "RawMaterial.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "不锈钢卷板",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "库存记录",
+      "objectCode": "StockRecord",
+      "description": "库存记录",
+      "attributes": [
+        {
+          "attributeId": 18,
+          "attributeName": "数量",
+          "attributeCode": "StockRecord.quantity",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 125.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "记录ID",
+          "attributeCode": "StockRecord.record_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SR20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "状态",
+          "attributeCode": "StockRecord.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "consumed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "库存出入库流水",
+      "objectCode": "InventoryMovement",
+      "description": "库存出入库流水",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "类型",
+          "attributeCode": "InventoryMovement.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "inbound",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "库存移动ID",
+          "attributeCode": "InventoryMovement.movement_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "IM20231001001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "发生时间",
+          "attributeCode": "InventoryMovement.occurred_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-10-01T09:15:30Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "InventoryMovement.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "posted",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "盘点单",
+      "objectCode": "CycleCount",
+      "description": "盘点单",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "数量ID",
+          "attributeCode": "CycleCount.count_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "CycleCount.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "reconciled",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "库存预留",
+      "objectCode": "Reservation",
+      "description": "库存预留",
+      "attributes": [
+        {
+          "attributeId": 27,
+          "attributeName": "数量",
+          "attributeCode": "Reservation.qty",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 15.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "预订ID",
+          "attributeCode": "Reservation.reservation_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "RES-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Reservation.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "仓库操作员",
+      "objectCode": "Operator",
+      "description": "仓库操作员",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "OPR2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "供应商",
+      "objectCode": "Supplier",
+      "description": "供应商",
+      "attributes": [
+        {
+          "attributeId": 32,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "华强电子科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "供应商ID",
+          "attributeCode": "Supplier.supplier_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "S001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "出库客户",
+      "objectCode": "Customer",
+      "description": "出库客户",
+      "attributes": [
+        {
+          "attributeId": 34,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "上海宏远物流有限公司",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "仓库",
+      "targetObjectId": 2,
+      "targetObjectName": "库区",
+      "linkInfo": "仓库包含库区",
+      "linkType": "1:N",
+      "description": "warehouse_has_zone",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 2,
+      "sourceObjectName": "库区",
+      "targetObjectId": 3,
+      "targetObjectName": "货位",
+      "linkInfo": "库区包含货位",
+      "linkType": "1:N",
+      "description": "zone_has_bin",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "货位",
+      "targetObjectId": 4,
+      "targetObjectName": "物料父类型",
+      "linkInfo": "货位存放物料",
+      "linkType": "N:M",
+      "description": "bin_holds_item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 7,
+      "sourceObjectName": "库存记录",
+      "targetObjectId": 4,
+      "targetObjectName": "物料父类型",
+      "linkInfo": "库存记录对应物料",
+      "linkType": "N:1",
+      "description": "stock_for_item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 7,
+      "sourceObjectName": "库存记录",
+      "targetObjectId": 3,
+      "targetObjectName": "货位",
+      "linkInfo": "库存记录归属货位",
+      "linkType": "N:1",
+      "description": "stock_at_bin",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 8,
+      "sourceObjectName": "库存出入库流水",
+      "targetObjectId": 4,
+      "targetObjectName": "物料父类型",
+      "linkInfo": "流水对应物料",
+      "linkType": "N:1",
+      "description": "movement_for_item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 8,
+      "sourceObjectName": "库存出入库流水",
+      "targetObjectId": 3,
+      "targetObjectName": "货位",
+      "linkInfo": "流水来源货位",
+      "linkType": "N:1",
+      "description": "movement_from_bin",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 8,
+      "sourceObjectName": "库存出入库流水",
+      "targetObjectId": 3,
+      "targetObjectName": "货位",
+      "linkInfo": "流水目标货位",
+      "linkType": "N:1",
+      "description": "movement_to_bin",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 8,
+      "sourceObjectName": "库存出入库流水",
+      "targetObjectId": 11,
+      "targetObjectName": "仓库操作员",
+      "linkInfo": "流水由操作员执行",
+      "linkType": "N:1",
+      "description": "movement_by_operator",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 8,
+      "sourceObjectName": "库存出入库流水",
+      "targetObjectId": 12,
+      "targetObjectName": "供应商",
+      "linkInfo": "入库来源供应商",
+      "linkType": "N:1",
+      "description": "movement_from_supplier",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 8,
+      "sourceObjectName": "库存出入库流水",
+      "targetObjectId": 13,
+      "targetObjectName": "出库客户",
+      "linkInfo": "出库目标客户",
+      "linkType": "N:1",
+      "description": "movement_to_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 9,
+      "sourceObjectName": "盘点单",
+      "targetObjectId": 2,
+      "targetObjectName": "库区",
+      "linkInfo": "盘点覆盖库区",
+      "linkType": "N:M",
+      "description": "count_covers_zone",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 9,
+      "sourceObjectName": "盘点单",
+      "targetObjectId": 11,
+      "targetObjectName": "仓库操作员",
+      "linkInfo": "盘点负责人",
+      "linkType": "N:1",
+      "description": "count_owner",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 10,
+      "sourceObjectName": "库存预留",
+      "targetObjectId": 4,
+      "targetObjectName": "物料父类型",
+      "linkInfo": "预留物料",
+      "linkType": "N:1",
+      "description": "reservation_for_item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 10,
+      "sourceObjectName": "库存预留",
+      "targetObjectId": 1,
+      "targetObjectName": "仓库",
+      "linkInfo": "预留所在仓库",
+      "linkType": "N:1",
+      "description": "reservation_in_warehouse",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 10,
+      "sourceObjectName": "库存预留",
+      "targetObjectId": 13,
+      "targetObjectName": "出库客户",
+      "linkInfo": "预留服务客户",
+      "linkType": "N:1",
+      "description": "reservation_for_customer",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 11,
+      "sourceObjectName": "仓库操作员",
+      "targetObjectId": 1,
+      "targetObjectName": "仓库",
+      "linkInfo": "操作员归属仓库",
+      "linkType": "N:1",
+      "description": "operator_in_warehouse",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 5,
+      "sourceObjectName": "成品",
+      "targetObjectId": 4,
+      "targetObjectName": "物料父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "FinishedGood is-a Item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 6,
+      "sourceObjectName": "原材料",
+      "targetObjectId": 4,
+      "targetObjectName": "物料父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "RawMaterial is-a Item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "actionCode": "freeze_warehouse",
+      "description": "执行者：仓库操作员；对象：仓库",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "仓库"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "actionCode": "reactivate_warehouse",
+      "description": "执行者：仓库操作员；对象：仓库",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "仓库"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "占用库位",
+      "actionCode": "occupy_bin",
+      "description": "执行者：仓库操作员；对象：货位",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "货位"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "清空库位",
+      "actionCode": "empty_bin",
+      "description": "执行者：仓库操作员；对象：货位",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "货位"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "冻结库位",
+      "actionCode": "block_bin",
+      "description": "执行者：仓库操作员；对象：货位",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "货位"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "过账库存移动",
+      "actionCode": "post_movement",
+      "description": "执行者：仓库操作员；对象：库存出入库流水",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "库存出入库流水"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "取消库存移动",
+      "actionCode": "cancel_movement",
+      "description": "执行者：仓库操作员；对象：库存出入库流水",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "库存出入库流水"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "预留库存",
+      "actionCode": "reserve_stock",
+      "description": "执行者：仓库操作员；对象：库存预留",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "库存预留"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "下达预订",
+      "actionCode": "release_reservation",
+      "description": "执行者：仓库操作员；对象：库存预留",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "库存预留"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "履行预订",
+      "actionCode": "fulfill_reservation",
+      "description": "执行者：仓库操作员；对象：库存预留",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "库存预留"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "开始盘点",
+      "actionCode": "start_count",
+      "description": "执行者：仓库操作员；对象：盘点单",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "盘点单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "盘点对账",
+      "actionCode": "reconcile_count",
+      "description": "执行者：仓库操作员；对象：盘点单",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "盘点单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "消耗库存",
+      "actionCode": "consume_stock",
+      "description": "执行者：仓库操作员；对象：库存记录",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "库存记录"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "过期库存",
+      "actionCode": "expire_stock",
+      "description": "执行者：仓库操作员；对象：库存记录",
+      "inputObjects": [
+        "仓库操作员"
+      ],
+      "outputObjects": [
+        "库存记录"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Warehouse_001",
+      "instanceName": "仓库_001",
+      "objectId": 1,
+      "objectName": "仓库",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "名称",
+          "attributeCode": "Warehouse.name",
+          "dataType": "string",
+          "value": "华东中央仓",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "状态",
+          "attributeCode": "Warehouse.status",
+          "dataType": "string",
+          "value": "frozen",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "仓库ID",
+          "attributeCode": "Warehouse.warehouse_id",
+          "dataType": "string",
+          "value": "WH-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "仓库类型",
+          "attributeCode": "Warehouse.warehouse_type",
+          "dataType": "string",
+          "value": "central",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "仓库包含库区",
+          "targetInstanceId": 2,
+          "targetInstanceName": "库区_001",
+          "targetObjectId": 2,
+          "targetObjectName": "库区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "仓库包含库区",
+          "targetInstanceId": 3,
+          "targetInstanceName": "库区_002",
+          "targetObjectId": 2,
+          "targetObjectName": "库区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "仓库包含库区",
+          "targetInstanceId": 4,
+          "targetInstanceName": "库区_003",
+          "targetObjectId": 2,
+          "targetObjectName": "库区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "仓库包含库区",
+          "targetInstanceId": 5,
+          "targetInstanceName": "库区_004",
+          "targetObjectId": 2,
+          "targetObjectName": "库区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "仓库包含库区",
+          "targetInstanceId": 6,
+          "targetInstanceName": "库区_005",
+          "targetObjectId": 2,
+          "targetObjectName": "库区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "仓库包含库区",
+          "targetInstanceId": 7,
+          "targetInstanceName": "库区_006",
+          "targetObjectId": 2,
+          "targetObjectName": "库区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Zone_001",
+      "instanceName": "库区_001",
+      "objectId": 2,
+      "objectName": "库区",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "区域ID",
+          "attributeCode": "Zone.zone_id",
+          "dataType": "string",
+          "value": "Z001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "区域类型",
+          "attributeCode": "Zone.zone_type",
+          "dataType": "string",
+          "value": "receiving",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "库区包含货位",
+          "targetInstanceId": 8,
+          "targetInstanceName": "货位_001",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Zone_002",
+      "instanceName": "库区_002",
+      "objectId": 2,
+      "objectName": "库区",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "区域ID",
+          "attributeCode": "Zone.zone_id",
+          "dataType": "string",
+          "value": "Z002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "区域类型",
+          "attributeCode": "Zone.zone_type",
+          "dataType": "string",
+          "value": "storage",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "库区包含货位",
+          "targetInstanceId": 9,
+          "targetInstanceName": "货位_002",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "库区包含货位",
+          "targetInstanceId": 12,
+          "targetInstanceName": "货位_005",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Zone_003",
+      "instanceName": "库区_003",
+      "objectId": 2,
+      "objectName": "库区",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "区域ID",
+          "attributeCode": "Zone.zone_id",
+          "dataType": "string",
+          "value": "Z003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "区域类型",
+          "attributeCode": "Zone.zone_type",
+          "dataType": "string",
+          "value": "picking",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Zone_004",
+      "instanceName": "库区_004",
+      "objectId": 2,
+      "objectName": "库区",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "区域ID",
+          "attributeCode": "Zone.zone_id",
+          "dataType": "string",
+          "value": "Z004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "区域类型",
+          "attributeCode": "Zone.zone_type",
+          "dataType": "string",
+          "value": "shipping",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "库区包含货位",
+          "targetInstanceId": 10,
+          "targetInstanceName": "货位_003",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "Zone_005",
+      "instanceName": "库区_005",
+      "objectId": 2,
+      "objectName": "库区",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "区域ID",
+          "attributeCode": "Zone.zone_id",
+          "dataType": "string",
+          "value": "Z005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "区域类型",
+          "attributeCode": "Zone.zone_type",
+          "dataType": "string",
+          "value": "quarantine",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Zone_006",
+      "instanceName": "库区_006",
+      "objectId": 2,
+      "objectName": "库区",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "区域ID",
+          "attributeCode": "Zone.zone_id",
+          "dataType": "string",
+          "value": "Z006",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "区域类型",
+          "attributeCode": "Zone.zone_type",
+          "dataType": "string",
+          "value": "storage",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "库区包含货位",
+          "targetInstanceId": 11,
+          "targetInstanceName": "货位_004",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Bin_001",
+      "instanceName": "货位_001",
+      "objectId": 3,
+      "objectName": "货位",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "库位ID",
+          "attributeCode": "Bin.bin_id",
+          "dataType": "string",
+          "value": "Bin_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "容量",
+          "attributeCode": "Bin.capacity",
+          "dataType": "number",
+          "value": 120.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Bin.status",
+          "dataType": "string",
+          "value": "blocked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Bin_002",
+      "instanceName": "货位_002",
+      "objectId": 3,
+      "objectName": "货位",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "库位ID",
+          "attributeCode": "Bin.bin_id",
+          "dataType": "string",
+          "value": "Bin_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "容量",
+          "attributeCode": "Bin.capacity",
+          "dataType": "number",
+          "value": 95.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Bin.status",
+          "dataType": "string",
+          "value": "blocked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "货位存放物料",
+          "targetInstanceId": 13,
+          "targetInstanceName": "物料父类型_001",
+          "targetObjectId": 4,
+          "targetObjectName": "物料父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Bin_003",
+      "instanceName": "货位_003",
+      "objectId": 3,
+      "objectName": "货位",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "库位ID",
+          "attributeCode": "Bin.bin_id",
+          "dataType": "string",
+          "value": "Bin_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "容量",
+          "attributeCode": "Bin.capacity",
+          "dataType": "number",
+          "value": 150.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Bin.status",
+          "dataType": "string",
+          "value": "blocked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Bin_004",
+      "instanceName": "货位_004",
+      "objectId": 3,
+      "objectName": "货位",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "库位ID",
+          "attributeCode": "Bin.bin_id",
+          "dataType": "string",
+          "value": "Bin_004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "容量",
+          "attributeCode": "Bin.capacity",
+          "dataType": "number",
+          "value": 80.2,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Bin.status",
+          "dataType": "string",
+          "value": "blocked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Bin_005",
+      "instanceName": "货位_005",
+      "objectId": 3,
+      "objectName": "货位",
+      "attributeValues": [
+        {
+          "attributeId": 7,
+          "attributeName": "库位ID",
+          "attributeCode": "Bin.bin_id",
+          "dataType": "string",
+          "value": "Bin_005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "容量",
+          "attributeCode": "Bin.capacity",
+          "dataType": "number",
+          "value": 200.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "Bin.status",
+          "dataType": "string",
+          "value": "blocked",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 3,
+          "linkInfo": "货位存放物料",
+          "targetInstanceId": 17,
+          "targetInstanceName": "成品_003",
+          "targetObjectId": 5,
+          "targetObjectName": "成品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Item_001",
+      "instanceName": "物料父类型_001",
+      "objectId": 4,
+      "objectName": "物料父类型",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "条目ID",
+          "attributeCode": "Item.item_id",
+          "dataType": "string",
+          "value": "MAT-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Item.name",
+          "dataType": "string",
+          "value": "不锈钢螺丝",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Item_002",
+      "instanceName": "物料父类型_002",
+      "objectId": 4,
+      "objectName": "物料父类型",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "条目ID",
+          "attributeCode": "Item.item_id",
+          "dataType": "string",
+          "value": "MAT-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "名称",
+          "attributeCode": "Item.name",
+          "dataType": "string",
+          "value": "ABS塑料外壳",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "FinishedGood_001",
+      "instanceName": "成品_001",
+      "objectId": 5,
+      "objectName": "成品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "条目ID",
+          "attributeCode": "FinishedGood.item_id",
+          "dataType": "string",
+          "value": "FG-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "FinishedGood.name",
+          "dataType": "string",
+          "value": "智能恒温电水壶",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "SKU",
+          "attributeCode": "FinishedGood.sku",
+          "dataType": "string",
+          "value": "SKU-EK2024A",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "FinishedGood_002",
+      "instanceName": "成品_002",
+      "objectId": 5,
+      "objectName": "成品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "条目ID",
+          "attributeCode": "FinishedGood.item_id",
+          "dataType": "string",
+          "value": "FG-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "FinishedGood.name",
+          "dataType": "string",
+          "value": "无线降噪蓝牙耳机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "SKU",
+          "attributeCode": "FinishedGood.sku",
+          "dataType": "string",
+          "value": "SKU-BT2024B",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "FinishedGood_003",
+      "instanceName": "成品_003",
+      "objectId": 5,
+      "objectName": "成品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "条目ID",
+          "attributeCode": "FinishedGood.item_id",
+          "dataType": "string",
+          "value": "FG-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "FinishedGood.name",
+          "dataType": "string",
+          "value": "全自动咖啡机",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "SKU",
+          "attributeCode": "FinishedGood.sku",
+          "dataType": "string",
+          "value": "SKU-CF2024C",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "FinishedGood_004",
+      "instanceName": "成品_004",
+      "objectId": 5,
+      "objectName": "成品",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "条目ID",
+          "attributeCode": "FinishedGood.item_id",
+          "dataType": "string",
+          "value": "FG-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "名称",
+          "attributeCode": "FinishedGood.name",
+          "dataType": "string",
+          "value": "便携式投影仪",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "SKU",
+          "attributeCode": "FinishedGood.sku",
+          "dataType": "string",
+          "value": "SKU-PJ2024D",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "RawMaterial_001",
+      "instanceName": "原材料_001",
+      "objectId": 6,
+      "objectName": "原材料",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "等级",
+          "attributeCode": "RawMaterial.grade",
+          "dataType": "string",
+          "value": "304",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "条目ID",
+          "attributeCode": "RawMaterial.item_id",
+          "dataType": "string",
+          "value": "RM-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "RawMaterial.name",
+          "dataType": "string",
+          "value": "不锈钢卷板",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "RawMaterial_002",
+      "instanceName": "原材料_002",
+      "objectId": 6,
+      "objectName": "原材料",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "等级",
+          "attributeCode": "RawMaterial.grade",
+          "dataType": "string",
+          "value": "PP-H10M",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "条目ID",
+          "attributeCode": "RawMaterial.item_id",
+          "dataType": "string",
+          "value": "RM-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "RawMaterial.name",
+          "dataType": "string",
+          "value": "聚丙烯颗粒",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "RawMaterial_003",
+      "instanceName": "原材料_003",
+      "objectId": 6,
+      "objectName": "原材料",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "等级",
+          "attributeCode": "RawMaterial.grade",
+          "dataType": "string",
+          "value": "Cu-99.99",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "条目ID",
+          "attributeCode": "RawMaterial.item_id",
+          "dataType": "string",
+          "value": "RM-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "RawMaterial.name",
+          "dataType": "string",
+          "value": "铜电解阴极板",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "RawMaterial_004",
+      "instanceName": "原材料_004",
+      "objectId": 6,
+      "objectName": "原材料",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "等级",
+          "attributeCode": "RawMaterial.grade",
+          "dataType": "string",
+          "value": "HDPE-5000S",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "条目ID",
+          "attributeCode": "RawMaterial.item_id",
+          "dataType": "string",
+          "value": "RM-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "RawMaterial.name",
+          "dataType": "string",
+          "value": "高密度聚乙烯",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "RawMaterial_005",
+      "instanceName": "原材料_005",
+      "objectId": 6,
+      "objectName": "原材料",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "等级",
+          "attributeCode": "RawMaterial.grade",
+          "dataType": "string",
+          "value": "SPCC",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "条目ID",
+          "attributeCode": "RawMaterial.item_id",
+          "dataType": "string",
+          "value": "RM-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "名称",
+          "attributeCode": "RawMaterial.name",
+          "dataType": "string",
+          "value": "冷轧碳素钢板",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "StockRecord_001",
+      "instanceName": "库存记录_001",
+      "objectId": 7,
+      "objectName": "库存记录",
+      "attributeValues": [
+        {
+          "attributeId": 18,
+          "attributeName": "数量",
+          "attributeCode": "StockRecord.quantity",
+          "dataType": "number",
+          "value": 125.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "记录ID",
+          "attributeCode": "StockRecord.record_id",
+          "dataType": "string",
+          "value": "SR20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "状态",
+          "attributeCode": "StockRecord.status",
+          "dataType": "string",
+          "value": "consumed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 4,
+          "linkInfo": "库存记录对应物料",
+          "targetInstanceId": 18,
+          "targetInstanceName": "成品_004",
+          "targetObjectId": 5,
+          "targetObjectName": "成品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "库存记录归属货位",
+          "targetInstanceId": 10,
+          "targetInstanceName": "货位_003",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "InventoryMovement_001",
+      "instanceName": "库存出入库流水_001",
+      "objectId": 8,
+      "objectName": "库存出入库流水",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "类型",
+          "attributeCode": "InventoryMovement.kind",
+          "dataType": "string",
+          "value": "inbound",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "库存移动ID",
+          "attributeCode": "InventoryMovement.movement_id",
+          "dataType": "string",
+          "value": "IM20231001001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "发生时间",
+          "attributeCode": "InventoryMovement.occurred_at",
+          "dataType": "string",
+          "value": "2023-10-01T09:15:30Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "状态",
+          "attributeCode": "InventoryMovement.status",
+          "dataType": "string",
+          "value": "posted",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "流水对应物料",
+          "targetInstanceId": 14,
+          "targetInstanceName": "物料父类型_002",
+          "targetObjectId": 4,
+          "targetObjectName": "物料父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "流水来源货位",
+          "targetInstanceId": 9,
+          "targetInstanceName": "货位_002",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "流水目标货位",
+          "targetInstanceId": 10,
+          "targetInstanceName": "货位_003",
+          "targetObjectId": 3,
+          "targetObjectName": "货位",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "流水由操作员执行",
+          "targetInstanceId": 33,
+          "targetInstanceName": "仓库操作员_002",
+          "targetObjectId": 11,
+          "targetObjectName": "仓库操作员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "入库来源供应商",
+          "targetInstanceId": 37,
+          "targetInstanceName": "供应商_003",
+          "targetObjectId": 12,
+          "targetObjectName": "供应商",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "出库目标客户",
+          "targetInstanceId": 38,
+          "targetInstanceName": "出库客户_001",
+          "targetObjectId": 13,
+          "targetObjectName": "出库客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "CycleCount_001",
+      "instanceName": "盘点单_001",
+      "objectId": 9,
+      "objectName": "盘点单",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "数量ID",
+          "attributeCode": "CycleCount.count_id",
+          "dataType": "string",
+          "value": "CC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "CycleCount.status",
+          "dataType": "string",
+          "value": "reconciled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "盘点负责人",
+          "targetInstanceId": 34,
+          "targetInstanceName": "仓库操作员_003",
+          "targetObjectId": 11,
+          "targetObjectName": "仓库操作员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "CycleCount_002",
+      "instanceName": "盘点单_002",
+      "objectId": 9,
+      "objectName": "盘点单",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "数量ID",
+          "attributeCode": "CycleCount.count_id",
+          "dataType": "string",
+          "value": "CC2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "CycleCount.status",
+          "dataType": "string",
+          "value": "reconciled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "盘点负责人",
+          "targetInstanceId": 32,
+          "targetInstanceName": "仓库操作员_001",
+          "targetObjectId": 11,
+          "targetObjectName": "仓库操作员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "CycleCount_003",
+      "instanceName": "盘点单_003",
+      "objectId": 9,
+      "objectName": "盘点单",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "数量ID",
+          "attributeCode": "CycleCount.count_id",
+          "dataType": "string",
+          "value": "CC2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "状态",
+          "attributeCode": "CycleCount.status",
+          "dataType": "string",
+          "value": "reconciled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "盘点覆盖库区",
+          "targetInstanceId": 4,
+          "targetInstanceName": "库区_003",
+          "targetObjectId": 2,
+          "targetObjectName": "库区",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "盘点负责人",
+          "targetInstanceId": 33,
+          "targetInstanceName": "仓库操作员_002",
+          "targetObjectId": 11,
+          "targetObjectName": "仓库操作员",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Reservation_001",
+      "instanceName": "库存预留_001",
+      "objectId": 10,
+      "objectName": "库存预留",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "数量",
+          "attributeCode": "Reservation.qty",
+          "dataType": "number",
+          "value": 15.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "预订ID",
+          "attributeCode": "Reservation.reservation_id",
+          "dataType": "string",
+          "value": "RES-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Reservation.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "预留物料",
+          "targetInstanceId": 23,
+          "targetInstanceName": "原材料_005",
+          "targetObjectId": 6,
+          "targetObjectName": "原材料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "预留所在仓库",
+          "targetInstanceId": 1,
+          "targetInstanceName": "仓库_001",
+          "targetObjectId": 1,
+          "targetObjectName": "仓库",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "预留服务客户",
+          "targetInstanceId": 38,
+          "targetInstanceName": "出库客户_001",
+          "targetObjectId": 13,
+          "targetObjectName": "出库客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Reservation_002",
+      "instanceName": "库存预留_002",
+      "objectId": 10,
+      "objectName": "库存预留",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "数量",
+          "attributeCode": "Reservation.qty",
+          "dataType": "number",
+          "value": 8.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "预订ID",
+          "attributeCode": "Reservation.reservation_id",
+          "dataType": "string",
+          "value": "RES-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Reservation.status",
+          "dataType": "string",
+          "value": "released",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "预留物料",
+          "targetInstanceId": 19,
+          "targetInstanceName": "原材料_001",
+          "targetObjectId": 6,
+          "targetObjectName": "原材料",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "预留所在仓库",
+          "targetInstanceId": 1,
+          "targetInstanceName": "仓库_001",
+          "targetObjectId": 1,
+          "targetObjectName": "仓库",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "预留服务客户",
+          "targetInstanceId": 39,
+          "targetInstanceName": "出库客户_002",
+          "targetObjectId": 13,
+          "targetObjectName": "出库客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Reservation_003",
+      "instanceName": "库存预留_003",
+      "objectId": 10,
+      "objectName": "库存预留",
+      "attributeValues": [
+        {
+          "attributeId": 27,
+          "attributeName": "数量",
+          "attributeCode": "Reservation.qty",
+          "dataType": "number",
+          "value": 22.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "预订ID",
+          "attributeCode": "Reservation.reservation_id",
+          "dataType": "string",
+          "value": "RES-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "状态",
+          "attributeCode": "Reservation.status",
+          "dataType": "string",
+          "value": "fulfilled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "预留物料",
+          "targetInstanceId": 15,
+          "targetInstanceName": "成品_001",
+          "targetObjectId": 5,
+          "targetObjectName": "成品",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "预留所在仓库",
+          "targetInstanceId": 1,
+          "targetInstanceName": "仓库_001",
+          "targetObjectId": 1,
+          "targetObjectName": "仓库",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "预留服务客户",
+          "targetInstanceId": 38,
+          "targetInstanceName": "出库客户_001",
+          "targetObjectId": 13,
+          "targetObjectName": "出库客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Operator_001",
+      "instanceName": "仓库操作员_001",
+      "objectId": 11,
+      "objectName": "仓库操作员",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OPR2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "操作员归属仓库",
+          "targetInstanceId": 1,
+          "targetInstanceName": "仓库_001",
+          "targetObjectId": 1,
+          "targetObjectName": "仓库",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Operator_002",
+      "instanceName": "仓库操作员_002",
+      "objectId": 11,
+      "objectName": "仓库操作员",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OPR2024002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "操作员归属仓库",
+          "targetInstanceId": 1,
+          "targetInstanceName": "仓库_001",
+          "targetObjectId": 1,
+          "targetObjectName": "仓库",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Operator_003",
+      "instanceName": "仓库操作员_003",
+      "objectId": 11,
+      "objectName": "仓库操作员",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "名称",
+          "attributeCode": "Operator.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "操作员ID",
+          "attributeCode": "Operator.operator_id",
+          "dataType": "string",
+          "value": "OPR2024003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 17,
+          "linkInfo": "操作员归属仓库",
+          "targetInstanceId": 1,
+          "targetInstanceName": "仓库_001",
+          "targetObjectId": 1,
+          "targetObjectName": "仓库",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Supplier_001",
+      "instanceName": "供应商_001",
+      "objectId": 12,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "华强电子科技有限公司",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "供应商ID",
+          "attributeCode": "Supplier.supplier_id",
+          "dataType": "string",
+          "value": "S001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Supplier_002",
+      "instanceName": "供应商_002",
+      "objectId": 12,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "宏远精密制造厂",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "供应商ID",
+          "attributeCode": "Supplier.supplier_id",
+          "dataType": "string",
+          "value": "S002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Supplier_003",
+      "instanceName": "供应商_003",
+      "objectId": 12,
+      "objectName": "供应商",
+      "attributeValues": [
+        {
+          "attributeId": 32,
+          "attributeName": "名称",
+          "attributeCode": "Supplier.name",
+          "dataType": "string",
+          "value": "瑞丰物流供应链集团",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "供应商ID",
+          "attributeCode": "Supplier.supplier_id",
+          "dataType": "string",
+          "value": "S003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Customer_001",
+      "instanceName": "出库客户_001",
+      "objectId": 13,
+      "objectName": "出库客户",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "上海宏远物流有限公司",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Customer_002",
+      "instanceName": "出库客户_002",
+      "objectId": 13,
+      "objectName": "出库客户",
+      "attributeValues": [
+        {
+          "attributeId": 34,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "深圳智达供应链管理有限公司",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 5,
+      "actionName": "冻结库位",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        12
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "货位_005"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 13,
+      "actionName": "消耗库存",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "库存记录_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 10,
+      "actionName": "履行预订",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "库存预留_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 5,
+      "actionName": "冻结库位",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        11
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "货位_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 12,
+      "actionName": "盘点对账",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "盘点单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 3,
+      "actionName": "占用库位",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "货位_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 5,
+      "actionName": "冻结库位",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        9
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "货位_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 4,
+      "actionName": "清空库位",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "货位_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 3,
+      "actionName": "占用库位",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "货位_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 4,
+      "actionName": "清空库位",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "货位_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 5,
+      "actionName": "冻结库位",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        8
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "货位_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 11,
+      "actionName": "开始盘点",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "盘点单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 12,
+      "actionName": "盘点对账",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        26
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "盘点单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        34
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_003"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 2,
+      "actionName": "重新激活仓库",
+      "inputInstances": [
+        33
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_002"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 1,
+      "actionName": "冻结仓库",
+      "inputInstances": [
+        32
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "仓库操作员_001"
+      ],
+      "outputInstanceNames": [
+        "仓库_001"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

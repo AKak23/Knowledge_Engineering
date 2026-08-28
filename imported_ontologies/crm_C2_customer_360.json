@@ -1,0 +1,4504 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "客户关系管理(CRM)·crm_C2_customer_360",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=crm_C2_customer_360，graph=crm_C2_customer_360_seed50）：13 个对象类型 / 17 个关系 / 13 个动作 / 40 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "客户（中心节点）",
+      "objectCode": "Customer",
+      "description": "客户（中心节点）",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生命周期阶段",
+          "attributeCode": "Customer.lifecycle_stage",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "churned",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "high_value",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "人员父类型",
+      "objectCode": "Person",
+      "description": "人员父类型",
+      "attributes": [
+        {
+          "attributeId": 5,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "个人客户",
+      "objectCode": "IndividualCustomer",
+      "description": "个人客户",
+      "attributes": [
+        {
+          "attributeId": 6,
+          "attributeName": "性别",
+          "attributeCode": "IndividualCustomer.gender",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "M",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "人员ID",
+          "attributeCode": "IndividualCustomer.person_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "客户画像",
+      "objectCode": "Profile",
+      "description": "客户画像",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "档案ID",
+          "attributeCode": "Profile.profile_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "P001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "RFM评分",
+          "attributeCode": "Profile.rfm_score",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 85,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "沟通偏好",
+      "objectCode": "Preference",
+      "description": "沟通偏好",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "渠道",
+          "attributeCode": "Preference.channel",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "email",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "偏好ID",
+          "attributeCode": "Preference.preference_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Pref-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "客户订单",
+      "objectCode": "Order",
+      "description": "客户订单",
+      "attributes": [
+        {
+          "attributeId": 12,
+          "attributeName": "金额",
+          "attributeCode": "Order.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 299.99,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ORD2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "returned",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "客户服务工单",
+      "objectCode": "Ticket",
+      "description": "客户服务工单",
+      "attributes": [
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "TCK-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "客户互动事件",
+      "objectCode": "Interaction",
+      "description": "客户互动事件",
+      "attributes": [
+        {
+          "attributeId": 17,
+          "attributeName": "渠道",
+          "attributeCode": "Interaction.channel",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "call",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "INT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-05-10T09:23:15Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "情绪",
+          "attributeCode": "Interaction.sentiment",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "positive",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "积分账户",
+      "objectCode": "LoyaltyAccount",
+      "description": "积分账户",
+      "attributes": [
+        {
+          "attributeId": 21,
+          "attributeName": "会员ID",
+          "attributeCode": "LoyaltyAccount.loyalty_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "LA00123456",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "积分余额",
+          "attributeCode": "LoyaltyAccount.points_balance",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 12500,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "LoyaltyAccount.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "frozen",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "层级",
+          "attributeCode": "LoyaltyAccount.tier",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "gold",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "客户地址",
+      "objectCode": "Address",
+      "description": "客户地址",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ADDR_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "北京市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "是否主联系人",
+          "attributeCode": "Address.is_primary",
+          "dataType": "boolean",
+          "description": "",
+          "sampleValue": true,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "订阅服务",
+      "objectCode": "Subscription",
+      "description": "订阅服务",
+      "attributes": [
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Subscription.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "订阅ID",
+          "attributeCode": "Subscription.subscription_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "SUB-2023-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "满意度调研",
+      "objectCode": "Survey",
+      "description": "满意度调研",
+      "attributes": [
+        {
+          "attributeId": 30,
+          "attributeName": "NPS",
+          "attributeCode": "Survey.nps",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Survey.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "responded",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "调研ID",
+          "attributeCode": "Survey.survey_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "S2024001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "客户标签",
+      "objectCode": "Tag",
+      "description": "客户标签",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Tag.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "高价值客户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "标签ID",
+          "attributeCode": "Tag.tag_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "Tag_001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 4,
+      "targetObjectName": "客户画像",
+      "linkInfo": "客户拥有画像",
+      "linkType": "1:1",
+      "description": "customer_has_profile",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 5,
+      "targetObjectName": "沟通偏好",
+      "linkInfo": "客户偏好",
+      "linkType": "1:N",
+      "description": "customer_has_preference",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 6,
+      "targetObjectName": "客户订单",
+      "linkInfo": "客户下单",
+      "linkType": "1:N",
+      "description": "customer_places_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 7,
+      "targetObjectName": "客户服务工单",
+      "linkInfo": "客户开工单",
+      "linkType": "1:N",
+      "description": "customer_opens_ticket",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 8,
+      "targetObjectName": "客户互动事件",
+      "linkInfo": "客户互动",
+      "linkType": "1:N",
+      "description": "customer_has_interaction",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 9,
+      "targetObjectName": "积分账户",
+      "linkInfo": "客户积分账户",
+      "linkType": "1:1",
+      "description": "customer_has_loyalty",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 10,
+      "targetObjectName": "客户地址",
+      "linkInfo": "客户地址",
+      "linkType": "1:N",
+      "description": "customer_has_address",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 11,
+      "targetObjectName": "订阅服务",
+      "linkInfo": "客户订阅",
+      "linkType": "1:N",
+      "description": "customer_has_subscription",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 12,
+      "targetObjectName": "满意度调研",
+      "linkInfo": "客户参与调研",
+      "linkType": "1:N",
+      "description": "customer_responds_survey",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 1,
+      "sourceObjectName": "客户（中心节点）",
+      "targetObjectId": 13,
+      "targetObjectName": "客户标签",
+      "linkInfo": "客户被标签标记",
+      "linkType": "N:M",
+      "description": "customer_tagged",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 3,
+      "sourceObjectName": "个人客户",
+      "targetObjectId": 2,
+      "targetObjectName": "人员父类型",
+      "linkInfo": "个人客户隶属人员",
+      "linkType": "1:1",
+      "description": "individual_is_person",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 8,
+      "sourceObjectName": "客户互动事件",
+      "targetObjectId": 7,
+      "targetObjectName": "客户服务工单",
+      "linkInfo": "互动关联工单",
+      "linkType": "N:1",
+      "description": "interaction_about_ticket",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 8,
+      "sourceObjectName": "客户互动事件",
+      "targetObjectId": 6,
+      "targetObjectName": "客户订单",
+      "linkInfo": "互动关联订单",
+      "linkType": "N:1",
+      "description": "interaction_about_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 11,
+      "sourceObjectName": "订阅服务",
+      "targetObjectId": 6,
+      "targetObjectName": "客户订单",
+      "linkInfo": "订阅生成订单",
+      "linkType": "1:N",
+      "description": "subscription_generates_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 9,
+      "sourceObjectName": "积分账户",
+      "targetObjectId": 6,
+      "targetObjectName": "客户订单",
+      "linkInfo": "订单累计积分",
+      "linkType": "1:N",
+      "description": "loyalty_earns_from_order",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 4,
+      "sourceObjectName": "客户画像",
+      "targetObjectId": 5,
+      "targetObjectName": "沟通偏好",
+      "linkInfo": "画像反映偏好",
+      "linkType": "1:N",
+      "description": "profile_uses_preference",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 3,
+      "sourceObjectName": "个人客户",
+      "targetObjectId": 2,
+      "targetObjectName": "人员父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "IndividualCustomer is-a Person",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "注册客户",
+      "actionCode": "register_customer",
+      "description": "执行者：客户（中心节点）；对象：客户（中心节点）",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "标记为休眠",
+      "actionCode": "mark_dormant",
+      "description": "执行者：客户（中心节点）；对象：客户（中心节点）",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "流失客户",
+      "actionCode": "churn_customer",
+      "description": "执行者：客户（中心节点）；对象：客户（中心节点）",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户（中心节点）"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "支付订单",
+      "actionCode": "pay_order",
+      "description": "执行者：客户（中心节点）；对象：客户订单",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "履行订单",
+      "actionCode": "fulfill_order",
+      "description": "执行者：客户（中心节点）；对象：客户订单",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "退回订单",
+      "actionCode": "return_order",
+      "description": "执行者：客户（中心节点）；对象：客户订单",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户订单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "解决工单",
+      "actionCode": "resolve_ticket",
+      "description": "执行者：客户（中心节点）；对象：客户服务工单",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户服务工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "关闭工单",
+      "actionCode": "close_ticket",
+      "description": "执行者：客户（中心节点）；对象：客户服务工单",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "客户服务工单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "actionCode": "freeze_loyalty",
+      "description": "执行者：客户（中心节点）；对象：积分账户",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "积分账户"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "actionCode": "reactivate_loyalty",
+      "description": "执行者：客户（中心节点）；对象：积分账户",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "积分账户"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "暂停订阅",
+      "actionCode": "pause_subscription",
+      "description": "执行者：客户（中心节点）；对象：订阅服务",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "订阅服务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "取消订阅",
+      "actionCode": "cancel_subscription",
+      "description": "执行者：客户（中心节点）；对象：订阅服务",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "订阅服务"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "回复调研",
+      "actionCode": "respond_survey",
+      "description": "执行者：客户（中心节点）；对象：满意度调研",
+      "inputObjects": [
+        "客户（中心节点）"
+      ],
+      "outputObjects": [
+        "满意度调研"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Customer_001",
+      "instanceName": "客户（中心节点）_001",
+      "objectId": 1,
+      "objectName": "客户（中心节点）",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生命周期阶段",
+          "attributeCode": "Customer.lifecycle_stage",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "high_value",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户拥有画像",
+          "targetInstanceId": 11,
+          "targetInstanceName": "客户画像_003",
+          "targetObjectId": 4,
+          "targetObjectName": "客户画像",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户偏好",
+          "targetInstanceId": 14,
+          "targetInstanceName": "沟通偏好_002",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户偏好",
+          "targetInstanceId": 15,
+          "targetInstanceName": "沟通偏好_003",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "客户订单_004",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "客户开工单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "客户服务工单_002",
+          "targetObjectId": 7,
+          "targetObjectName": "客户服务工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "客户互动",
+          "targetInstanceId": 24,
+          "targetInstanceName": "客户互动事件_001",
+          "targetObjectId": 8,
+          "targetObjectName": "客户互动事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "客户互动",
+          "targetInstanceId": 25,
+          "targetInstanceName": "客户互动事件_002",
+          "targetObjectId": 8,
+          "targetObjectName": "客户互动事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "客户互动",
+          "targetInstanceId": 27,
+          "targetInstanceName": "客户互动事件_004",
+          "targetObjectId": 8,
+          "targetObjectName": "客户互动事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "客户积分账户",
+          "targetInstanceId": 29,
+          "targetInstanceName": "积分账户_002",
+          "targetObjectId": 9,
+          "targetObjectName": "积分账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "客户地址",
+          "targetInstanceId": 31,
+          "targetInstanceName": "客户地址_002",
+          "targetObjectId": 10,
+          "targetObjectName": "客户地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "客户地址",
+          "targetInstanceId": 32,
+          "targetInstanceName": "客户地址_003",
+          "targetObjectId": 10,
+          "targetObjectName": "客户地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "客户订阅",
+          "targetInstanceId": 33,
+          "targetInstanceName": "订阅服务_001",
+          "targetObjectId": 11,
+          "targetObjectName": "订阅服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "客户参与调研",
+          "targetInstanceId": 35,
+          "targetInstanceName": "满意度调研_001",
+          "targetObjectId": 12,
+          "targetObjectName": "满意度调研",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "客户参与调研",
+          "targetInstanceId": 36,
+          "targetInstanceName": "满意度调研_002",
+          "targetObjectId": 12,
+          "targetObjectName": "满意度调研",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "客户被标签标记",
+          "targetInstanceId": 38,
+          "targetInstanceName": "客户标签_001",
+          "targetObjectId": 13,
+          "targetObjectName": "客户标签",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Customer_002",
+      "instanceName": "客户（中心节点）_002",
+      "objectId": 1,
+      "objectName": "客户（中心节点）",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "生命周期阶段",
+          "attributeCode": "Customer.lifecycle_stage",
+          "dataType": "string",
+          "value": "churned",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "分群",
+          "attributeCode": "Customer.segment",
+          "dataType": "string",
+          "value": "at_risk",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户拥有画像",
+          "targetInstanceId": 12,
+          "targetInstanceName": "客户画像_004",
+          "targetObjectId": 4,
+          "targetObjectName": "客户画像",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户偏好",
+          "targetInstanceId": 13,
+          "targetInstanceName": "沟通偏好_001",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户偏好",
+          "targetInstanceId": 16,
+          "targetInstanceName": "沟通偏好_004",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "客户偏好",
+          "targetInstanceId": 17,
+          "targetInstanceName": "沟通偏好_005",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下单",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户订单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下单",
+          "targetInstanceId": 19,
+          "targetInstanceName": "客户订单_002",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "客户下单",
+          "targetInstanceId": 20,
+          "targetInstanceName": "客户订单_003",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "客户开工单",
+          "targetInstanceId": 22,
+          "targetInstanceName": "客户服务工单_001",
+          "targetObjectId": 7,
+          "targetObjectName": "客户服务工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "客户开工单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "客户服务工单_002",
+          "targetObjectId": 7,
+          "targetObjectName": "客户服务工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "客户互动",
+          "targetInstanceId": 26,
+          "targetInstanceName": "客户互动事件_003",
+          "targetObjectId": 8,
+          "targetObjectName": "客户互动事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "客户互动",
+          "targetInstanceId": 27,
+          "targetInstanceName": "客户互动事件_004",
+          "targetObjectId": 8,
+          "targetObjectName": "客户互动事件",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 6,
+          "linkInfo": "客户积分账户",
+          "targetInstanceId": 28,
+          "targetInstanceName": "积分账户_001",
+          "targetObjectId": 9,
+          "targetObjectName": "积分账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "客户地址",
+          "targetInstanceId": 30,
+          "targetInstanceName": "客户地址_001",
+          "targetObjectId": 10,
+          "targetObjectName": "客户地址",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "客户订阅",
+          "targetInstanceId": 33,
+          "targetInstanceName": "订阅服务_001",
+          "targetObjectId": 11,
+          "targetObjectName": "订阅服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "客户订阅",
+          "targetInstanceId": 34,
+          "targetInstanceName": "订阅服务_002",
+          "targetObjectId": 11,
+          "targetObjectName": "订阅服务",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "客户参与调研",
+          "targetInstanceId": 37,
+          "targetInstanceName": "满意度调研_003",
+          "targetObjectId": 12,
+          "targetObjectName": "满意度调研",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "客户参与调研",
+          "targetInstanceId": 35,
+          "targetInstanceName": "满意度调研_001",
+          "targetObjectId": 12,
+          "targetObjectName": "满意度调研",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 10,
+          "linkInfo": "客户被标签标记",
+          "targetInstanceId": 38,
+          "targetInstanceName": "客户标签_001",
+          "targetObjectId": 13,
+          "targetObjectName": "客户标签",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Person_001",
+      "instanceName": "人员父类型_001",
+      "objectId": 2,
+      "objectName": "人员父类型",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "value": "P2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Person_002",
+      "instanceName": "人员父类型_002",
+      "objectId": 2,
+      "objectName": "人员父类型",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "value": "P2024002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "Person_003",
+      "instanceName": "人员父类型_003",
+      "objectId": 2,
+      "objectName": "人员父类型",
+      "attributeValues": [
+        {
+          "attributeId": 5,
+          "attributeName": "人员ID",
+          "attributeCode": "Person.person_id",
+          "dataType": "string",
+          "value": "P2024003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "IndividualCustomer_001",
+      "instanceName": "个人客户_001",
+      "objectId": 3,
+      "objectName": "个人客户",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "性别",
+          "attributeCode": "IndividualCustomer.gender",
+          "dataType": "string",
+          "value": "M",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "人员ID",
+          "attributeCode": "IndividualCustomer.person_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "IndividualCustomer_002",
+      "instanceName": "个人客户_002",
+      "objectId": 3,
+      "objectName": "个人客户",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "性别",
+          "attributeCode": "IndividualCustomer.gender",
+          "dataType": "string",
+          "value": "F",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "人员ID",
+          "attributeCode": "IndividualCustomer.person_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "个人客户隶属人员",
+          "targetInstanceId": 8,
+          "targetInstanceName": "个人客户_003",
+          "targetObjectId": 3,
+          "targetObjectName": "个人客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "IndividualCustomer_003",
+      "instanceName": "个人客户_003",
+      "objectId": 3,
+      "objectName": "个人客户",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "性别",
+          "attributeCode": "IndividualCustomer.gender",
+          "dataType": "string",
+          "value": "U",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "人员ID",
+          "attributeCode": "IndividualCustomer.person_id",
+          "dataType": "string",
+          "value": "P003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 11,
+          "linkInfo": "个人客户隶属人员",
+          "targetInstanceId": 7,
+          "targetInstanceName": "个人客户_002",
+          "targetObjectId": 3,
+          "targetObjectName": "个人客户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "Profile_001",
+      "instanceName": "客户画像_001",
+      "objectId": 4,
+      "objectName": "客户画像",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "档案ID",
+          "attributeCode": "Profile.profile_id",
+          "dataType": "string",
+          "value": "P001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "RFM评分",
+          "attributeCode": "Profile.rfm_score",
+          "dataType": "integer",
+          "value": 85,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "画像反映偏好",
+          "targetInstanceId": 14,
+          "targetInstanceName": "沟通偏好_002",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "画像反映偏好",
+          "targetInstanceId": 15,
+          "targetInstanceName": "沟通偏好_003",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "画像反映偏好",
+          "targetInstanceId": 16,
+          "targetInstanceName": "沟通偏好_004",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "Profile_002",
+      "instanceName": "客户画像_002",
+      "objectId": 4,
+      "objectName": "客户画像",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "档案ID",
+          "attributeCode": "Profile.profile_id",
+          "dataType": "string",
+          "value": "P002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "RFM评分",
+          "attributeCode": "Profile.rfm_score",
+          "dataType": "integer",
+          "value": 92,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "画像反映偏好",
+          "targetInstanceId": 13,
+          "targetInstanceName": "沟通偏好_001",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "画像反映偏好",
+          "targetInstanceId": 17,
+          "targetInstanceName": "沟通偏好_005",
+          "targetObjectId": 5,
+          "targetObjectName": "沟通偏好",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "Profile_003",
+      "instanceName": "客户画像_003",
+      "objectId": 4,
+      "objectName": "客户画像",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "档案ID",
+          "attributeCode": "Profile.profile_id",
+          "dataType": "string",
+          "value": "P003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "RFM评分",
+          "attributeCode": "Profile.rfm_score",
+          "dataType": "integer",
+          "value": 67,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "Profile_004",
+      "instanceName": "客户画像_004",
+      "objectId": 4,
+      "objectName": "客户画像",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "档案ID",
+          "attributeCode": "Profile.profile_id",
+          "dataType": "string",
+          "value": "P004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "RFM评分",
+          "attributeCode": "Profile.rfm_score",
+          "dataType": "integer",
+          "value": 78,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Preference_001",
+      "instanceName": "沟通偏好_001",
+      "objectId": 5,
+      "objectName": "沟通偏好",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "渠道",
+          "attributeCode": "Preference.channel",
+          "dataType": "string",
+          "value": "email",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "偏好ID",
+          "attributeCode": "Preference.preference_id",
+          "dataType": "string",
+          "value": "Pref-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Preference_002",
+      "instanceName": "沟通偏好_002",
+      "objectId": 5,
+      "objectName": "沟通偏好",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "渠道",
+          "attributeCode": "Preference.channel",
+          "dataType": "string",
+          "value": "sms",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "偏好ID",
+          "attributeCode": "Preference.preference_id",
+          "dataType": "string",
+          "value": "Pref-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Preference_003",
+      "instanceName": "沟通偏好_003",
+      "objectId": 5,
+      "objectName": "沟通偏好",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "渠道",
+          "attributeCode": "Preference.channel",
+          "dataType": "string",
+          "value": "app",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "偏好ID",
+          "attributeCode": "Preference.preference_id",
+          "dataType": "string",
+          "value": "Pref-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Preference_004",
+      "instanceName": "沟通偏好_004",
+      "objectId": 5,
+      "objectName": "沟通偏好",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "渠道",
+          "attributeCode": "Preference.channel",
+          "dataType": "string",
+          "value": "phone",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "偏好ID",
+          "attributeCode": "Preference.preference_id",
+          "dataType": "string",
+          "value": "Pref-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Preference_005",
+      "instanceName": "沟通偏好_005",
+      "objectId": 5,
+      "objectName": "沟通偏好",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "渠道",
+          "attributeCode": "Preference.channel",
+          "dataType": "string",
+          "value": "email",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "偏好ID",
+          "attributeCode": "Preference.preference_id",
+          "dataType": "string",
+          "value": "Pref-005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Order_001",
+      "instanceName": "客户订单_001",
+      "objectId": 6,
+      "objectName": "客户订单",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "金额",
+          "attributeCode": "Order.amount",
+          "dataType": "number",
+          "value": 299.99,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "returned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Order_002",
+      "instanceName": "客户订单_002",
+      "objectId": 6,
+      "objectName": "客户订单",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "金额",
+          "attributeCode": "Order.amount",
+          "dataType": "number",
+          "value": 158.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "returned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Order_003",
+      "instanceName": "客户订单_003",
+      "objectId": 6,
+      "objectName": "客户订单",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "金额",
+          "attributeCode": "Order.amount",
+          "dataType": "number",
+          "value": 89.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "returned",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Order_004",
+      "instanceName": "客户订单_004",
+      "objectId": 6,
+      "objectName": "客户订单",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "金额",
+          "attributeCode": "Order.amount",
+          "dataType": "number",
+          "value": 599.99,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "订单ID",
+          "attributeCode": "Order.order_id",
+          "dataType": "string",
+          "value": "ORD2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Order.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Ticket_001",
+      "instanceName": "客户服务工单_001",
+      "objectId": 7,
+      "objectName": "客户服务工单",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "value": "TCK-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Ticket_002",
+      "instanceName": "客户服务工单_002",
+      "objectId": 7,
+      "objectName": "客户服务工单",
+      "attributeValues": [
+        {
+          "attributeId": 15,
+          "attributeName": "状态",
+          "attributeCode": "Ticket.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 16,
+          "attributeName": "工单ID",
+          "attributeCode": "Ticket.ticket_id",
+          "dataType": "string",
+          "value": "TCK-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Interaction_001",
+      "instanceName": "客户互动事件_001",
+      "objectId": 8,
+      "objectName": "客户互动事件",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "渠道",
+          "attributeCode": "Interaction.channel",
+          "dataType": "string",
+          "value": "call",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "value": "INT-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-10T09:23:15Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "情绪",
+          "attributeCode": "Interaction.sentiment",
+          "dataType": "string",
+          "value": "positive",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "互动关联工单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "客户服务工单_002",
+          "targetObjectId": 7,
+          "targetObjectName": "客户服务工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "互动关联订单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "客户订单_004",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Interaction_002",
+      "instanceName": "客户互动事件_002",
+      "objectId": 8,
+      "objectName": "客户互动事件",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "渠道",
+          "attributeCode": "Interaction.channel",
+          "dataType": "string",
+          "value": "email",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "value": "INT-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-11T14:47:33Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "情绪",
+          "attributeCode": "Interaction.sentiment",
+          "dataType": "string",
+          "value": "neutral",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "互动关联工单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "客户服务工单_002",
+          "targetObjectId": 7,
+          "targetObjectName": "客户服务工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "互动关联订单",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户订单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Interaction_003",
+      "instanceName": "客户互动事件_003",
+      "objectId": 8,
+      "objectName": "客户互动事件",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "渠道",
+          "attributeCode": "Interaction.channel",
+          "dataType": "string",
+          "value": "chat",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "value": "INT-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-12T11:05:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "情绪",
+          "attributeCode": "Interaction.sentiment",
+          "dataType": "string",
+          "value": "negative",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "互动关联工单",
+          "targetInstanceId": 23,
+          "targetInstanceName": "客户服务工单_002",
+          "targetObjectId": 7,
+          "targetObjectName": "客户服务工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "互动关联订单",
+          "targetInstanceId": 20,
+          "targetInstanceName": "客户订单_003",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Interaction_004",
+      "instanceName": "客户互动事件_004",
+      "objectId": 8,
+      "objectName": "客户互动事件",
+      "attributeValues": [
+        {
+          "attributeId": 17,
+          "attributeName": "渠道",
+          "attributeCode": "Interaction.channel",
+          "dataType": "string",
+          "value": "app",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "互动ID",
+          "attributeCode": "Interaction.interaction_id",
+          "dataType": "string",
+          "value": "INT-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "发生时间",
+          "attributeCode": "Interaction.occurred_at",
+          "dataType": "string",
+          "value": "2024-05-13T16:18:40Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 20,
+          "attributeName": "情绪",
+          "attributeCode": "Interaction.sentiment",
+          "dataType": "string",
+          "value": "positive",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "互动关联工单",
+          "targetInstanceId": 22,
+          "targetInstanceName": "客户服务工单_001",
+          "targetObjectId": 7,
+          "targetObjectName": "客户服务工单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "互动关联订单",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户订单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "LoyaltyAccount_001",
+      "instanceName": "积分账户_001",
+      "objectId": 9,
+      "objectName": "积分账户",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "会员ID",
+          "attributeCode": "LoyaltyAccount.loyalty_id",
+          "dataType": "string",
+          "value": "LA00123456",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "积分余额",
+          "attributeCode": "LoyaltyAccount.points_balance",
+          "dataType": "integer",
+          "value": 12500,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "LoyaltyAccount.status",
+          "dataType": "string",
+          "value": "frozen",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "层级",
+          "attributeCode": "LoyaltyAccount.tier",
+          "dataType": "string",
+          "value": "gold",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "订单累计积分",
+          "targetInstanceId": 20,
+          "targetInstanceName": "客户订单_003",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "订单累计积分",
+          "targetInstanceId": 21,
+          "targetInstanceName": "客户订单_004",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "LoyaltyAccount_002",
+      "instanceName": "积分账户_002",
+      "objectId": 9,
+      "objectName": "积分账户",
+      "attributeValues": [
+        {
+          "attributeId": 21,
+          "attributeName": "会员ID",
+          "attributeCode": "LoyaltyAccount.loyalty_id",
+          "dataType": "string",
+          "value": "LA00278901",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "积分余额",
+          "attributeCode": "LoyaltyAccount.points_balance",
+          "dataType": "integer",
+          "value": 3200,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "状态",
+          "attributeCode": "LoyaltyAccount.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "层级",
+          "attributeCode": "LoyaltyAccount.tier",
+          "dataType": "string",
+          "value": "silver",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "订单累计积分",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户订单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "订单累计积分",
+          "targetInstanceId": 19,
+          "targetInstanceName": "客户订单_002",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "订单累计积分",
+          "targetInstanceId": 21,
+          "targetInstanceName": "客户订单_004",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Address_001",
+      "instanceName": "客户地址_001",
+      "objectId": 10,
+      "objectName": "客户地址",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "value": "ADDR_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "value": "北京市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "是否主联系人",
+          "attributeCode": "Address.is_primary",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "Address_002",
+      "instanceName": "客户地址_002",
+      "objectId": 10,
+      "objectName": "客户地址",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "value": "ADDR_002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "value": "上海市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "是否主联系人",
+          "attributeCode": "Address.is_primary",
+          "dataType": "boolean",
+          "value": false,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Address_003",
+      "instanceName": "客户地址_003",
+      "objectId": 10,
+      "objectName": "客户地址",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "地址ID",
+          "attributeCode": "Address.address_id",
+          "dataType": "string",
+          "value": "ADDR_003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 26,
+          "attributeName": "城市",
+          "attributeCode": "Address.city",
+          "dataType": "string",
+          "value": "广州市",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "是否主联系人",
+          "attributeCode": "Address.is_primary",
+          "dataType": "boolean",
+          "value": true,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Subscription_001",
+      "instanceName": "订阅服务_001",
+      "objectId": 11,
+      "objectName": "订阅服务",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Subscription.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "订阅ID",
+          "attributeCode": "Subscription.subscription_id",
+          "dataType": "string",
+          "value": "SUB-2023-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "订阅生成订单",
+          "targetInstanceId": 18,
+          "targetInstanceName": "客户订单_001",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "订阅生成订单",
+          "targetInstanceId": 19,
+          "targetInstanceName": "客户订单_002",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 14,
+          "linkInfo": "订阅生成订单",
+          "targetInstanceId": 21,
+          "targetInstanceName": "客户订单_004",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Subscription_002",
+      "instanceName": "订阅服务_002",
+      "objectId": 11,
+      "objectName": "订阅服务",
+      "attributeValues": [
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Subscription.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "订阅ID",
+          "attributeCode": "Subscription.subscription_id",
+          "dataType": "string",
+          "value": "SUB-2023-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "订阅生成订单",
+          "targetInstanceId": 20,
+          "targetInstanceName": "客户订单_003",
+          "targetObjectId": 6,
+          "targetObjectName": "客户订单",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Survey_001",
+      "instanceName": "满意度调研_001",
+      "objectId": 12,
+      "objectName": "满意度调研",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "NPS",
+          "attributeCode": "Survey.nps",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Survey.status",
+          "dataType": "string",
+          "value": "responded",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "调研ID",
+          "attributeCode": "Survey.survey_id",
+          "dataType": "string",
+          "value": "S2024001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Survey_002",
+      "instanceName": "满意度调研_002",
+      "objectId": 12,
+      "objectName": "满意度调研",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "NPS",
+          "attributeCode": "Survey.nps",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Survey.status",
+          "dataType": "string",
+          "value": "responded",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "调研ID",
+          "attributeCode": "Survey.survey_id",
+          "dataType": "string",
+          "value": "S2024002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Survey_003",
+      "instanceName": "满意度调研_003",
+      "objectId": 12,
+      "objectName": "满意度调研",
+      "attributeValues": [
+        {
+          "attributeId": 30,
+          "attributeName": "NPS",
+          "attributeCode": "Survey.nps",
+          "dataType": "integer",
+          "value": 9,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 31,
+          "attributeName": "状态",
+          "attributeCode": "Survey.status",
+          "dataType": "string",
+          "value": "expired",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "调研ID",
+          "attributeCode": "Survey.survey_id",
+          "dataType": "string",
+          "value": "S2024003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Tag_001",
+      "instanceName": "客户标签_001",
+      "objectId": 13,
+      "objectName": "客户标签",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Tag.name",
+          "dataType": "string",
+          "value": "高价值客户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "标签ID",
+          "attributeCode": "Tag.tag_id",
+          "dataType": "string",
+          "value": "Tag_001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Tag_002",
+      "instanceName": "客户标签_002",
+      "objectId": 13,
+      "objectName": "客户标签",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Tag.name",
+          "dataType": "string",
+          "value": "新注册用户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "标签ID",
+          "attributeCode": "Tag.tag_id",
+          "dataType": "string",
+          "value": "Tag_002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 40,
+      "instanceCode": "Tag_003",
+      "instanceName": "客户标签_003",
+      "objectId": 13,
+      "objectName": "客户标签",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Tag.name",
+          "dataType": "string",
+          "value": "活跃用户",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "标签ID",
+          "attributeCode": "Tag.tag_id",
+          "dataType": "string",
+          "value": "Tag_003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 7,
+      "actionName": "解决工单",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "客户服务工单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 11,
+      "actionName": "暂停订阅",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "订阅服务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 13,
+      "actionName": "回复调研",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        36
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "满意度调研_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 6,
+      "actionName": "退回订单",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "客户订单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 3,
+      "actionName": "流失客户",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 4,
+      "actionName": "支付订单",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "客户订单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 7,
+      "actionName": "解决工单",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "客户服务工单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 5,
+      "actionName": "履行订单",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "客户订单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 12,
+      "actionName": "取消订阅",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        33
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "订阅服务_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 12,
+      "actionName": "取消订阅",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        34
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "订阅服务_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 5,
+      "actionName": "履行订单",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "客户订单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 8,
+      "actionName": "关闭工单",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "客户服务工单_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 6,
+      "actionName": "退回订单",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "客户订单_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 3,
+      "actionName": "流失客户",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 8,
+      "actionName": "关闭工单",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "客户服务工单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 6,
+      "actionName": "退回订单",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "客户订单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 9,
+      "actionName": "冻结会员",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_001"
+      ],
+      "outputInstanceNames": [
+        "积分账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 10,
+      "actionName": "重新激活会员",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        29
+      ],
+      "inputInstanceNames": [
+        "客户（中心节点）_002"
+      ],
+      "outputInstanceNames": [
+        "积分账户_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

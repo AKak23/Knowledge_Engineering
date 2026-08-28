@@ -1,0 +1,4779 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "电信·telecom_T3_billing",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=telecom_T3_billing，graph=telecom_T3_billing_seed43）：13 个对象类型 / 18 个关系 / 13 个动作 / 39 个实例 / 100 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "计费账户",
+      "objectCode": "Account",
+      "description": "计费账户",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "ACC2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "prepaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 150.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "信用额度",
+          "attributeCode": "Account.credit_limit",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "计费账期",
+      "objectCode": "BillingCycle",
+      "description": "计费账期",
+      "attributes": [
+        {
+          "attributeId": 6,
+          "attributeName": "周期ID",
+          "attributeCode": "BillingCycle.cycle_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CYC2024Q3",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "BillingCycle.end_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-09-30",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "BillingCycle.start_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-07-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "BillingCycle.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closing",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "账户某账期的账单",
+      "objectCode": "Bill",
+      "description": "账户某账期的账单",
+      "attributes": [
+        {
+          "attributeId": 10,
+          "attributeName": "账单ID",
+          "attributeCode": "Bill.bill_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BILL202409001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "截止日期",
+          "attributeCode": "Bill.due_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-09-25",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "签发日期",
+          "attributeCode": "Bill.issue_date",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-09-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Bill.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "paid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "税额",
+          "attributeCode": "Bill.tax_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 16.95,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "总金额",
+          "attributeCode": "Bill.total_amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 186.5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "账单中的单项费用",
+      "objectCode": "BillItem",
+      "description": "账单中的单项费用",
+      "attributes": [
+        {
+          "attributeId": 16,
+          "attributeName": "金额",
+          "attributeCode": "BillItem.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 88.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "类别",
+          "attributeCode": "BillItem.category",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "base_fee",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "描述文本",
+          "attributeCode": "BillItem.description_text",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "月租费",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "条目ID",
+          "attributeCode": "BillItem.item_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BI-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "原始使用量记录",
+      "objectCode": "UsageRecord",
+      "description": "原始使用量记录",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "发生时间",
+          "attributeCode": "UsageRecord.occurred_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2023-10-05T08:23:12Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "数量",
+          "attributeCode": "UsageRecord.quantity",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 3.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "记录ID",
+          "attributeCode": "UsageRecord.record_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "UR-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "服务类型",
+          "attributeCode": "UsageRecord.service_type",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "voice",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "单位",
+          "attributeCode": "UsageRecord.unit",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "minute",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "账单项的抽象父类，用于建立 继承 层次",
+      "objectCode": "BillItemBase",
+      "description": "账单项的抽象父类，用于建立 is-a 层次",
+      "attributes": [
+        {
+          "attributeId": 25,
+          "attributeName": "条目ID",
+          "attributeCode": "BillItemBase.item_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "BI-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "对账单的一次支付",
+      "objectCode": "Payment",
+      "description": "对账单的一次支付",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 128.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "方法",
+          "attributeCode": "Payment.method",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "alipay",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "支付时间",
+          "attributeCode": "Payment.paid_at",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-03-15T09:23:41Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PAY20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "refunded",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "应用到账单的优惠",
+      "objectCode": "Discount",
+      "description": "应用到账单的优惠",
+      "attributes": [
+        {
+          "attributeId": 31,
+          "attributeName": "金额",
+          "attributeCode": "Discount.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 15.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DISC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Discount.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "新用户首月立减",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "生效起始",
+          "attributeCode": "Discount.valid_from",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-01-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "有效截止",
+          "attributeCode": "Discount.valid_to",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024-01-31",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "资费方案父类型",
+      "objectCode": "Tariff",
+      "description": "资费方案父类型",
+      "attributes": [
+        {
+          "attributeId": 36,
+          "attributeName": "币种",
+          "attributeCode": "Tariff.currency",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "名称",
+          "attributeCode": "Tariff.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "畅享流量套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "资费ID",
+          "attributeCode": "Tariff.tariff_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "TAR-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "语音资费",
+      "objectCode": "VoiceTariff",
+      "description": "语音资费",
+      "attributes": [
+        {
+          "attributeId": 39,
+          "attributeName": "币种",
+          "attributeCode": "VoiceTariff.currency",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "名称",
+          "attributeCode": "VoiceTariff.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "畅聊国内语音套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "每分钟费率",
+          "attributeCode": "VoiceTariff.rate_per_minute",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "资费ID",
+          "attributeCode": "VoiceTariff.tariff_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "VT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "数据流量资费",
+      "objectCode": "DataTariff",
+      "description": "数据流量资费",
+      "attributes": [
+        {
+          "attributeId": 43,
+          "attributeName": "币种",
+          "attributeCode": "DataTariff.currency",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "DataTariff.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "畅享流量包",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "每MB费率",
+          "attributeCode": "DataTariff.rate_per_mb",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 0.05,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "资费ID",
+          "attributeCode": "DataTariff.tariff_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "账户归属客户",
+      "objectCode": "Customer",
+      "description": "账户归属客户",
+      "attributes": [
+        {
+          "attributeId": 47,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "账单对应的发票",
+      "objectCode": "Invoice",
+      "description": "账单对应的发票",
+      "attributes": [
+        {
+          "attributeId": 49,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 128.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 50,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FP20230001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "issued",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 12,
+      "sourceObjectName": "账户归属客户",
+      "targetObjectId": 1,
+      "targetObjectName": "计费账户",
+      "linkInfo": "客户拥有账户",
+      "linkType": "1:N",
+      "description": "owns_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 3,
+      "sourceObjectName": "账户某账期的账单",
+      "targetObjectId": 2,
+      "targetObjectName": "计费账期",
+      "linkInfo": "账单归属账期",
+      "linkType": "N:1",
+      "description": "billed_in_cycle",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 3,
+      "sourceObjectName": "账户某账期的账单",
+      "targetObjectId": 1,
+      "targetObjectName": "计费账户",
+      "linkInfo": "账单归属账户",
+      "linkType": "N:1",
+      "description": "bill_for_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 3,
+      "sourceObjectName": "账户某账期的账单",
+      "targetObjectId": 4,
+      "targetObjectName": "账单中的单项费用",
+      "linkInfo": "账单包含账单项",
+      "linkType": "1:N",
+      "description": "contains_item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 4,
+      "sourceObjectName": "账单中的单项费用",
+      "targetObjectId": 5,
+      "targetObjectName": "原始使用量记录",
+      "linkInfo": "账单项由用量记录聚合",
+      "linkType": "1:N",
+      "description": "item_from_usage",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 5,
+      "sourceObjectName": "原始使用量记录",
+      "targetObjectId": 1,
+      "targetObjectName": "计费账户",
+      "linkInfo": "用量记录归属账户",
+      "linkType": "N:1",
+      "description": "usage_under_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 5,
+      "sourceObjectName": "原始使用量记录",
+      "targetObjectId": 9,
+      "targetObjectName": "资费方案父类型",
+      "linkInfo": "用量记录按资费计费",
+      "linkType": "N:1",
+      "description": "rated_by_tariff",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 3,
+      "sourceObjectName": "账户某账期的账单",
+      "targetObjectId": 8,
+      "targetObjectName": "应用到账单的优惠",
+      "linkInfo": "账单适用优惠",
+      "linkType": "N:M",
+      "description": "applies_discount",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 3,
+      "sourceObjectName": "账户某账期的账单",
+      "targetObjectId": 7,
+      "targetObjectName": "对账单的一次支付",
+      "linkInfo": "账单的支付记录",
+      "linkType": "1:N",
+      "description": "paid_by",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 7,
+      "sourceObjectName": "对账单的一次支付",
+      "targetObjectId": 1,
+      "targetObjectName": "计费账户",
+      "linkInfo": "支付来源账户",
+      "linkType": "N:1",
+      "description": "payment_from_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 3,
+      "sourceObjectName": "账户某账期的账单",
+      "targetObjectId": 13,
+      "targetObjectName": "账单对应的发票",
+      "linkInfo": "账单对应发票",
+      "linkType": "1:1",
+      "description": "issued_invoice",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 1,
+      "sourceObjectName": "计费账户",
+      "targetObjectId": 9,
+      "targetObjectName": "资费方案父类型",
+      "linkInfo": "账户订阅资费",
+      "linkType": "N:M",
+      "description": "account_uses_tariff",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 2,
+      "sourceObjectName": "计费账期",
+      "targetObjectId": 1,
+      "targetObjectName": "计费账户",
+      "linkInfo": "账期适用账户",
+      "linkType": "N:M",
+      "description": "cycle_for_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 6,
+      "sourceObjectName": "账单项的抽象父类，用于建立 继承 层次",
+      "targetObjectId": 4,
+      "targetObjectName": "账单中的单项费用",
+      "linkInfo": "账单项基类指向具体账单项",
+      "linkType": "1:1",
+      "description": "item_base_for_item",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 8,
+      "sourceObjectName": "应用到账单的优惠",
+      "targetObjectId": 1,
+      "targetObjectName": "计费账户",
+      "linkInfo": "账户可享优惠",
+      "linkType": "N:M",
+      "description": "discount_under_account",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 12,
+      "sourceObjectName": "账户归属客户",
+      "targetObjectId": 13,
+      "targetObjectName": "账单对应的发票",
+      "linkInfo": "客户名下发票",
+      "linkType": "1:N",
+      "description": "customer_invoiced",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 10,
+      "sourceObjectName": "语音资费",
+      "targetObjectId": 9,
+      "targetObjectName": "资费方案父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "VoiceTariff is-a Tariff",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 11,
+      "sourceObjectName": "数据流量资费",
+      "targetObjectId": 9,
+      "targetObjectName": "资费方案父类型",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "DataTariff is-a Tariff",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "开启账期",
+      "actionCode": "open_billing_cycle",
+      "description": "执行者：计费账户；对象：计费账期",
+      "inputObjects": [
+        "计费账户"
+      ],
+      "outputObjects": [
+        "计费账期"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "actionCode": "close_billing_cycle",
+      "description": "执行者：计费账户；对象：计费账期",
+      "inputObjects": [
+        "计费账户"
+      ],
+      "outputObjects": [
+        "计费账期"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "终结账期",
+      "actionCode": "finalize_billing_cycle",
+      "description": "执行者：计费账户；对象：计费账期",
+      "inputObjects": [
+        "计费账户"
+      ],
+      "outputObjects": [
+        "计费账期"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "签发账单",
+      "actionCode": "issue_bill",
+      "description": "执行者：计费账户；对象：账户某账期的账单",
+      "inputObjects": [
+        "计费账户"
+      ],
+      "outputObjects": [
+        "账户某账期的账单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "支付账单",
+      "actionCode": "pay_bill",
+      "description": "执行者：账户归属客户；对象：账户某账期的账单",
+      "inputObjects": [
+        "账户归属客户"
+      ],
+      "outputObjects": [
+        "账户某账期的账单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "标记为逾期",
+      "actionCode": "mark_overdue",
+      "description": "执行者：计费账户；对象：账户某账期的账单",
+      "inputObjects": [
+        "计费账户"
+      ],
+      "outputObjects": [
+        "账户某账期的账单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "作废账单",
+      "actionCode": "void_bill",
+      "description": "执行者：账户归属客户；对象：账户某账期的账单",
+      "inputObjects": [
+        "账户归属客户"
+      ],
+      "outputObjects": [
+        "账户某账期的账单"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "退款支付",
+      "actionCode": "refund_payment",
+      "description": "执行者：账户归属客户；对象：对账单的一次支付",
+      "inputObjects": [
+        "账户归属客户"
+      ],
+      "outputObjects": [
+        "对账单的一次支付"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "判定失败支付",
+      "actionCode": "fail_payment",
+      "description": "执行者：计费账户；对象：对账单的一次支付",
+      "inputObjects": [
+        "计费账户"
+      ],
+      "outputObjects": [
+        "对账单的一次支付"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "完成支付",
+      "actionCode": "complete_payment",
+      "description": "执行者：计费账户；对象：对账单的一次支付",
+      "inputObjects": [
+        "计费账户"
+      ],
+      "outputObjects": [
+        "对账单的一次支付"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "actionCode": "suspend_account",
+      "description": "执行者：账户归属客户；对象：计费账户",
+      "inputObjects": [
+        "账户归属客户"
+      ],
+      "outputObjects": [
+        "计费账户"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "actionCode": "resume_account",
+      "description": "执行者：账户归属客户；对象：计费账户",
+      "inputObjects": [
+        "账户归属客户"
+      ],
+      "outputObjects": [
+        "计费账户"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "签发发票",
+      "actionCode": "issue_invoice",
+      "description": "执行者：账户归属客户；对象：账单对应的发票",
+      "inputObjects": [
+        "账户归属客户"
+      ],
+      "outputObjects": [
+        "账单对应的发票"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Account_001",
+      "instanceName": "计费账户_001",
+      "objectId": 1,
+      "objectName": "计费账户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2023001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "value": "prepaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "value": 150.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "信用额度",
+          "attributeCode": "Account.credit_limit",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "账户订阅资费",
+          "targetInstanceId": 29,
+          "targetInstanceName": "资费方案父类型_006",
+          "targetObjectId": 9,
+          "targetObjectName": "资费方案父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Account_002",
+      "instanceName": "计费账户_002",
+      "objectId": 1,
+      "objectName": "计费账户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2023002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "value": "postpaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "value": -23.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "信用额度",
+          "attributeCode": "Account.credit_limit",
+          "dataType": "number",
+          "value": 500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "账户订阅资费",
+          "targetInstanceId": 26,
+          "targetInstanceName": "资费方案父类型_003",
+          "targetObjectId": 9,
+          "targetObjectName": "资费方案父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Account_003",
+      "instanceName": "计费账户_003",
+      "objectId": 1,
+      "objectName": "计费账户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2023003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "value": "postpaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "信用额度",
+          "attributeCode": "Account.credit_limit",
+          "dataType": "number",
+          "value": 300.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "value": "suspended",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Account_004",
+      "instanceName": "计费账户_004",
+      "objectId": 1,
+      "objectName": "计费账户",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "账户ID",
+          "attributeCode": "Account.account_id",
+          "dataType": "string",
+          "value": "ACC2023004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "账户类型",
+          "attributeCode": "Account.account_type",
+          "dataType": "string",
+          "value": "prepaid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "余额",
+          "attributeCode": "Account.balance",
+          "dataType": "number",
+          "value": 89.99,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 4,
+          "attributeName": "信用额度",
+          "attributeCode": "Account.credit_limit",
+          "dataType": "number",
+          "value": 0.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "状态",
+          "attributeCode": "Account.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "BillingCycle_001",
+      "instanceName": "计费账期_001",
+      "objectId": 2,
+      "objectName": "计费账期",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "周期ID",
+          "attributeCode": "BillingCycle.cycle_id",
+          "dataType": "string",
+          "value": "CYC2024Q3",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "BillingCycle.end_date",
+          "dataType": "string",
+          "value": "2024-09-30",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "BillingCycle.start_date",
+          "dataType": "string",
+          "value": "2024-07-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "BillingCycle.status",
+          "dataType": "string",
+          "value": "closing",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "账期适用账户",
+          "targetInstanceId": 3,
+          "targetInstanceName": "计费账户_003",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "BillingCycle_002",
+      "instanceName": "计费账期_002",
+      "objectId": 2,
+      "objectName": "计费账期",
+      "attributeValues": [
+        {
+          "attributeId": 6,
+          "attributeName": "周期ID",
+          "attributeCode": "BillingCycle.cycle_id",
+          "dataType": "string",
+          "value": "CYC2024Q4",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "结束日期",
+          "attributeCode": "BillingCycle.end_date",
+          "dataType": "string",
+          "value": "2024-12-31",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 8,
+          "attributeName": "开始日期",
+          "attributeCode": "BillingCycle.start_date",
+          "dataType": "string",
+          "value": "2024-10-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "状态",
+          "attributeCode": "BillingCycle.status",
+          "dataType": "string",
+          "value": "open",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "Bill_001",
+      "instanceName": "账户某账期的账单_001",
+      "objectId": 3,
+      "objectName": "账户某账期的账单",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "账单ID",
+          "attributeCode": "Bill.bill_id",
+          "dataType": "string",
+          "value": "BILL202409001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "截止日期",
+          "attributeCode": "Bill.due_date",
+          "dataType": "string",
+          "value": "2024-09-25",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "签发日期",
+          "attributeCode": "Bill.issue_date",
+          "dataType": "string",
+          "value": "2024-09-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Bill.status",
+          "dataType": "string",
+          "value": "paid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "税额",
+          "attributeCode": "Bill.tax_amount",
+          "dataType": "number",
+          "value": 16.95,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "总金额",
+          "attributeCode": "Bill.total_amount",
+          "dataType": "number",
+          "value": 186.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "账单归属账期",
+          "targetInstanceId": 5,
+          "targetInstanceName": "计费账期_001",
+          "targetObjectId": 2,
+          "targetObjectName": "计费账期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "账单归属账户",
+          "targetInstanceId": 2,
+          "targetInstanceName": "计费账户_002",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "账单包含账单项",
+          "targetInstanceId": 9,
+          "targetInstanceName": "账单中的单项费用_001",
+          "targetObjectId": 4,
+          "targetObjectName": "账单中的单项费用",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "账单适用优惠",
+          "targetInstanceId": 21,
+          "targetInstanceName": "应用到账单的优惠_002",
+          "targetObjectId": 8,
+          "targetObjectName": "应用到账单的优惠",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "账单的支付记录",
+          "targetInstanceId": 16,
+          "targetInstanceName": "对账单的一次支付_001",
+          "targetObjectId": 7,
+          "targetObjectName": "对账单的一次支付",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "账单的支付记录",
+          "targetInstanceId": 17,
+          "targetInstanceName": "对账单的一次支付_002",
+          "targetObjectId": 7,
+          "targetObjectName": "对账单的一次支付",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "账单对应发票",
+          "targetInstanceId": 38,
+          "targetInstanceName": "账单对应的发票_001",
+          "targetObjectId": 13,
+          "targetObjectName": "账单对应的发票",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "Bill_002",
+      "instanceName": "账户某账期的账单_002",
+      "objectId": 3,
+      "objectName": "账户某账期的账单",
+      "attributeValues": [
+        {
+          "attributeId": 10,
+          "attributeName": "账单ID",
+          "attributeCode": "Bill.bill_id",
+          "dataType": "string",
+          "value": "BILL202409002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "截止日期",
+          "attributeCode": "Bill.due_date",
+          "dataType": "string",
+          "value": "2024-09-26",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 12,
+          "attributeName": "签发日期",
+          "attributeCode": "Bill.issue_date",
+          "dataType": "string",
+          "value": "2024-09-02",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "状态",
+          "attributeCode": "Bill.status",
+          "dataType": "string",
+          "value": "paid",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "税额",
+          "attributeCode": "Bill.tax_amount",
+          "dataType": "number",
+          "value": 21.35,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "总金额",
+          "attributeCode": "Bill.total_amount",
+          "dataType": "number",
+          "value": 234.8,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 2,
+          "linkInfo": "账单归属账期",
+          "targetInstanceId": 5,
+          "targetInstanceName": "计费账期_001",
+          "targetObjectId": 2,
+          "targetObjectName": "计费账期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "账单归属账户",
+          "targetInstanceId": 4,
+          "targetInstanceName": "计费账户_004",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "账单的支付记录",
+          "targetInstanceId": 18,
+          "targetInstanceName": "对账单的一次支付_003",
+          "targetObjectId": 7,
+          "targetObjectName": "对账单的一次支付",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "账单的支付记录",
+          "targetInstanceId": 19,
+          "targetInstanceName": "对账单的一次支付_004",
+          "targetObjectId": 7,
+          "targetObjectName": "对账单的一次支付",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "账单对应发票",
+          "targetInstanceId": 39,
+          "targetInstanceName": "账单对应的发票_002",
+          "targetObjectId": 13,
+          "targetObjectName": "账单对应的发票",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "BillItem_001",
+      "instanceName": "账单中的单项费用_001",
+      "objectId": 4,
+      "objectName": "账单中的单项费用",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "金额",
+          "attributeCode": "BillItem.amount",
+          "dataType": "number",
+          "value": 88.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "类别",
+          "attributeCode": "BillItem.category",
+          "dataType": "string",
+          "value": "base_fee",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "描述文本",
+          "attributeCode": "BillItem.description_text",
+          "dataType": "string",
+          "value": "月租费",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "条目ID",
+          "attributeCode": "BillItem.item_id",
+          "dataType": "string",
+          "value": "BI-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 5,
+          "linkInfo": "账单项由用量记录聚合",
+          "targetInstanceId": 10,
+          "targetInstanceName": "原始使用量记录_001",
+          "targetObjectId": 5,
+          "targetObjectName": "原始使用量记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "账单项由用量记录聚合",
+          "targetInstanceId": 11,
+          "targetInstanceName": "原始使用量记录_002",
+          "targetObjectId": 5,
+          "targetObjectName": "原始使用量记录",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "UsageRecord_001",
+      "instanceName": "原始使用量记录_001",
+      "objectId": 5,
+      "objectName": "原始使用量记录",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "发生时间",
+          "attributeCode": "UsageRecord.occurred_at",
+          "dataType": "string",
+          "value": "2023-10-05T08:23:12Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "数量",
+          "attributeCode": "UsageRecord.quantity",
+          "dataType": "number",
+          "value": 3.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "记录ID",
+          "attributeCode": "UsageRecord.record_id",
+          "dataType": "string",
+          "value": "UR-2023-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "服务类型",
+          "attributeCode": "UsageRecord.service_type",
+          "dataType": "string",
+          "value": "voice",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "单位",
+          "attributeCode": "UsageRecord.unit",
+          "dataType": "string",
+          "value": "minute",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "用量记录归属账户",
+          "targetInstanceId": 2,
+          "targetInstanceName": "计费账户_002",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "用量记录按资费计费",
+          "targetInstanceId": 25,
+          "targetInstanceName": "资费方案父类型_002",
+          "targetObjectId": 9,
+          "targetObjectName": "资费方案父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "UsageRecord_002",
+      "instanceName": "原始使用量记录_002",
+      "objectId": 5,
+      "objectName": "原始使用量记录",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "发生时间",
+          "attributeCode": "UsageRecord.occurred_at",
+          "dataType": "string",
+          "value": "2023-10-05T14:47:33Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "数量",
+          "attributeCode": "UsageRecord.quantity",
+          "dataType": "number",
+          "value": 128.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "记录ID",
+          "attributeCode": "UsageRecord.record_id",
+          "dataType": "string",
+          "value": "UR-2023-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 23,
+          "attributeName": "服务类型",
+          "attributeCode": "UsageRecord.service_type",
+          "dataType": "string",
+          "value": "data",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "单位",
+          "attributeCode": "UsageRecord.unit",
+          "dataType": "string",
+          "value": "MB",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "用量记录归属账户",
+          "targetInstanceId": 4,
+          "targetInstanceName": "计费账户_004",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "用量记录按资费计费",
+          "targetInstanceId": 24,
+          "targetInstanceName": "资费方案父类型_001",
+          "targetObjectId": 9,
+          "targetObjectName": "资费方案父类型",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "BillItemBase_001",
+      "instanceName": "账单项的抽象父类，用于建立 继承 层次_001",
+      "objectId": 6,
+      "objectName": "账单项的抽象父类，用于建立 继承 层次",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "条目ID",
+          "attributeCode": "BillItemBase.item_id",
+          "dataType": "string",
+          "value": "BI-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "BillItemBase_002",
+      "instanceName": "账单项的抽象父类，用于建立 继承 层次_002",
+      "objectId": 6,
+      "objectName": "账单项的抽象父类，用于建立 继承 层次",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "条目ID",
+          "attributeCode": "BillItemBase.item_id",
+          "dataType": "string",
+          "value": "BI-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "BillItemBase_003",
+      "instanceName": "账单项的抽象父类，用于建立 继承 层次_003",
+      "objectId": 6,
+      "objectName": "账单项的抽象父类，用于建立 继承 层次",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "条目ID",
+          "attributeCode": "BillItemBase.item_id",
+          "dataType": "string",
+          "value": "BI-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "账单项基类指向具体账单项",
+          "targetInstanceId": 9,
+          "targetInstanceName": "账单中的单项费用_001",
+          "targetObjectId": 4,
+          "targetObjectName": "账单中的单项费用",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "BillItemBase_004",
+      "instanceName": "账单项的抽象父类，用于建立 继承 层次_004",
+      "objectId": 6,
+      "objectName": "账单项的抽象父类，用于建立 继承 层次",
+      "attributeValues": [
+        {
+          "attributeId": 25,
+          "attributeName": "条目ID",
+          "attributeCode": "BillItemBase.item_id",
+          "dataType": "string",
+          "value": "BI-2024-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Payment_001",
+      "instanceName": "对账单的一次支付_001",
+      "objectId": 7,
+      "objectName": "对账单的一次支付",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "value": 128.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "方法",
+          "attributeCode": "Payment.method",
+          "dataType": "string",
+          "value": "alipay",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "支付时间",
+          "attributeCode": "Payment.paid_at",
+          "dataType": "string",
+          "value": "2024-03-15T09:23:41Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "value": "PAY20240001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "value": "refunded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "支付来源账户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "计费账户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Payment_002",
+      "instanceName": "对账单的一次支付_002",
+      "objectId": 7,
+      "objectName": "对账单的一次支付",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "value": 365.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "方法",
+          "attributeCode": "Payment.method",
+          "dataType": "string",
+          "value": "wechat",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "支付时间",
+          "attributeCode": "Payment.paid_at",
+          "dataType": "string",
+          "value": "2024-03-16T14:07:22Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "value": "PAY20240002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "value": "refunded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "支付来源账户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "计费账户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "Payment_003",
+      "instanceName": "对账单的一次支付_003",
+      "objectId": 7,
+      "objectName": "对账单的一次支付",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "value": 99.99,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "方法",
+          "attributeCode": "Payment.method",
+          "dataType": "string",
+          "value": "bank",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "支付时间",
+          "attributeCode": "Payment.paid_at",
+          "dataType": "string",
+          "value": "2024-03-17T11:15:03Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "value": "PAY20240003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "value": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "支付来源账户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "计费账户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "Payment_004",
+      "instanceName": "对账单的一次支付_004",
+      "objectId": 7,
+      "objectName": "对账单的一次支付",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "金额",
+          "attributeCode": "Payment.amount",
+          "dataType": "number",
+          "value": 500.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "方法",
+          "attributeCode": "Payment.method",
+          "dataType": "string",
+          "value": "cash",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "支付时间",
+          "attributeCode": "Payment.paid_at",
+          "dataType": "string",
+          "value": "2024-03-18T16:40:18Z",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 29,
+          "attributeName": "支付ID",
+          "attributeCode": "Payment.payment_id",
+          "dataType": "string",
+          "value": "PAY20240004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "状态",
+          "attributeCode": "Payment.status",
+          "dataType": "string",
+          "value": "failed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "支付来源账户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "计费账户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "Discount_001",
+      "instanceName": "应用到账单的优惠_001",
+      "objectId": 8,
+      "objectName": "应用到账单的优惠",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "金额",
+          "attributeCode": "Discount.amount",
+          "dataType": "number",
+          "value": 15.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "value": "DISC2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Discount.name",
+          "dataType": "string",
+          "value": "新用户首月立减",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "生效起始",
+          "attributeCode": "Discount.valid_from",
+          "dataType": "string",
+          "value": "2024-01-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "有效截止",
+          "attributeCode": "Discount.valid_to",
+          "dataType": "string",
+          "value": "2024-01-31",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 15,
+          "linkInfo": "账户可享优惠",
+          "targetInstanceId": 1,
+          "targetInstanceName": "计费账户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Discount_002",
+      "instanceName": "应用到账单的优惠_002",
+      "objectId": 8,
+      "objectName": "应用到账单的优惠",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "金额",
+          "attributeCode": "Discount.amount",
+          "dataType": "number",
+          "value": 8.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "value": "DISC2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Discount.name",
+          "dataType": "string",
+          "value": "暑期流量包折扣",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "生效起始",
+          "attributeCode": "Discount.valid_from",
+          "dataType": "string",
+          "value": "2024-07-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "有效截止",
+          "attributeCode": "Discount.valid_to",
+          "dataType": "string",
+          "value": "2024-08-31",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Discount_003",
+      "instanceName": "应用到账单的优惠_003",
+      "objectId": 8,
+      "objectName": "应用到账单的优惠",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "金额",
+          "attributeCode": "Discount.amount",
+          "dataType": "number",
+          "value": 22.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "value": "DISC2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Discount.name",
+          "dataType": "string",
+          "value": "家庭套餐成员优惠",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "生效起始",
+          "attributeCode": "Discount.valid_from",
+          "dataType": "string",
+          "value": "2024-03-15",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "有效截止",
+          "attributeCode": "Discount.valid_to",
+          "dataType": "string",
+          "value": "2024-12-31",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Discount_004",
+      "instanceName": "应用到账单的优惠_004",
+      "objectId": 8,
+      "objectName": "应用到账单的优惠",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "金额",
+          "attributeCode": "Discount.amount",
+          "dataType": "number",
+          "value": 30.0,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "折扣ID",
+          "attributeCode": "Discount.discount_id",
+          "dataType": "string",
+          "value": "DISC2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 33,
+          "attributeName": "名称",
+          "attributeCode": "Discount.name",
+          "dataType": "string",
+          "value": "老用户续约返现",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "生效起始",
+          "attributeCode": "Discount.valid_from",
+          "dataType": "string",
+          "value": "2024-05-01",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 35,
+          "attributeName": "有效截止",
+          "attributeCode": "Discount.valid_to",
+          "dataType": "string",
+          "value": "2024-10-31",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Tariff_001",
+      "instanceName": "资费方案父类型_001",
+      "objectId": 9,
+      "objectName": "资费方案父类型",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "币种",
+          "attributeCode": "Tariff.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "名称",
+          "attributeCode": "Tariff.name",
+          "dataType": "string",
+          "value": "畅享流量套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "资费ID",
+          "attributeCode": "Tariff.tariff_id",
+          "dataType": "string",
+          "value": "TAR-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Tariff_002",
+      "instanceName": "资费方案父类型_002",
+      "objectId": 9,
+      "objectName": "资费方案父类型",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "币种",
+          "attributeCode": "Tariff.currency",
+          "dataType": "string",
+          "value": "USD",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "名称",
+          "attributeCode": "Tariff.name",
+          "dataType": "string",
+          "value": "国际漫游包",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "资费ID",
+          "attributeCode": "Tariff.tariff_id",
+          "dataType": "string",
+          "value": "TAR-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Tariff_003",
+      "instanceName": "资费方案父类型_003",
+      "objectId": 9,
+      "objectName": "资费方案父类型",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "币种",
+          "attributeCode": "Tariff.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "名称",
+          "attributeCode": "Tariff.name",
+          "dataType": "string",
+          "value": "校园优惠套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "资费ID",
+          "attributeCode": "Tariff.tariff_id",
+          "dataType": "string",
+          "value": "TAR-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Tariff_004",
+      "instanceName": "资费方案父类型_004",
+      "objectId": 9,
+      "objectName": "资费方案父类型",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "币种",
+          "attributeCode": "Tariff.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "名称",
+          "attributeCode": "Tariff.name",
+          "dataType": "string",
+          "value": "5G尊享套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "资费ID",
+          "attributeCode": "Tariff.tariff_id",
+          "dataType": "string",
+          "value": "TAR-2024-004",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Tariff_005",
+      "instanceName": "资费方案父类型_005",
+      "objectId": 9,
+      "objectName": "资费方案父类型",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "币种",
+          "attributeCode": "Tariff.currency",
+          "dataType": "string",
+          "value": "USD",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "名称",
+          "attributeCode": "Tariff.name",
+          "dataType": "string",
+          "value": "企业专线资费",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "资费ID",
+          "attributeCode": "Tariff.tariff_id",
+          "dataType": "string",
+          "value": "TAR-2024-005",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Tariff_006",
+      "instanceName": "资费方案父类型_006",
+      "objectId": 9,
+      "objectName": "资费方案父类型",
+      "attributeValues": [
+        {
+          "attributeId": 36,
+          "attributeName": "币种",
+          "attributeCode": "Tariff.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 37,
+          "attributeName": "名称",
+          "attributeCode": "Tariff.name",
+          "dataType": "string",
+          "value": "家庭融合套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "资费ID",
+          "attributeCode": "Tariff.tariff_id",
+          "dataType": "string",
+          "value": "TAR-2024-006",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "VoiceTariff_001",
+      "instanceName": "语音资费_001",
+      "objectId": 10,
+      "objectName": "语音资费",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "币种",
+          "attributeCode": "VoiceTariff.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "名称",
+          "attributeCode": "VoiceTariff.name",
+          "dataType": "string",
+          "value": "畅聊国内语音套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "每分钟费率",
+          "attributeCode": "VoiceTariff.rate_per_minute",
+          "dataType": "number",
+          "value": 0.15,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "资费ID",
+          "attributeCode": "VoiceTariff.tariff_id",
+          "dataType": "string",
+          "value": "VT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "VoiceTariff_002",
+      "instanceName": "语音资费_002",
+      "objectId": 10,
+      "objectName": "语音资费",
+      "attributeValues": [
+        {
+          "attributeId": 39,
+          "attributeName": "币种",
+          "attributeCode": "VoiceTariff.currency",
+          "dataType": "string",
+          "value": "USD",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 40,
+          "attributeName": "名称",
+          "attributeCode": "VoiceTariff.name",
+          "dataType": "string",
+          "value": "国际长途优惠资费",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 41,
+          "attributeName": "每分钟费率",
+          "attributeCode": "VoiceTariff.rate_per_minute",
+          "dataType": "number",
+          "value": 0.09,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 42,
+          "attributeName": "资费ID",
+          "attributeCode": "VoiceTariff.tariff_id",
+          "dataType": "string",
+          "value": "VT-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "DataTariff_001",
+      "instanceName": "数据流量资费_001",
+      "objectId": 11,
+      "objectName": "数据流量资费",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "币种",
+          "attributeCode": "DataTariff.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "DataTariff.name",
+          "dataType": "string",
+          "value": "畅享流量包",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "每MB费率",
+          "attributeCode": "DataTariff.rate_per_mb",
+          "dataType": "number",
+          "value": 0.05,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "资费ID",
+          "attributeCode": "DataTariff.tariff_id",
+          "dataType": "string",
+          "value": "DT-2024-001",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "DataTariff_002",
+      "instanceName": "数据流量资费_002",
+      "objectId": 11,
+      "objectName": "数据流量资费",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "币种",
+          "attributeCode": "DataTariff.currency",
+          "dataType": "string",
+          "value": "USD",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "DataTariff.name",
+          "dataType": "string",
+          "value": "国际漫游数据套餐",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "每MB费率",
+          "attributeCode": "DataTariff.rate_per_mb",
+          "dataType": "number",
+          "value": 0.12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "资费ID",
+          "attributeCode": "DataTariff.tariff_id",
+          "dataType": "string",
+          "value": "DT-2024-002",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "DataTariff_003",
+      "instanceName": "数据流量资费_003",
+      "objectId": 11,
+      "objectName": "数据流量资费",
+      "attributeValues": [
+        {
+          "attributeId": 43,
+          "attributeName": "币种",
+          "attributeCode": "DataTariff.currency",
+          "dataType": "string",
+          "value": "CNY",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 44,
+          "attributeName": "名称",
+          "attributeCode": "DataTariff.name",
+          "dataType": "string",
+          "value": "校园专属流量卡",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 45,
+          "attributeName": "每MB费率",
+          "attributeCode": "DataTariff.rate_per_mb",
+          "dataType": "number",
+          "value": 0.03,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 46,
+          "attributeName": "资费ID",
+          "attributeCode": "DataTariff.tariff_id",
+          "dataType": "string",
+          "value": "DT-2024-003",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Customer_001",
+      "instanceName": "账户归属客户_001",
+      "objectId": 12,
+      "objectName": "账户归属客户",
+      "attributeValues": [
+        {
+          "attributeId": 47,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 1,
+          "targetInstanceName": "计费账户_001",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 2,
+          "targetInstanceName": "计费账户_002",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 1,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 3,
+          "targetInstanceName": "计费账户_003",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "Customer_002",
+      "instanceName": "账户归属客户_002",
+      "objectId": 12,
+      "objectName": "账户归属客户",
+      "attributeValues": [
+        {
+          "attributeId": 47,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "客户拥有账户",
+          "targetInstanceId": 4,
+          "targetInstanceName": "计费账户_004",
+          "targetObjectId": 1,
+          "targetObjectName": "计费账户",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "客户名下发票",
+          "targetInstanceId": 38,
+          "targetInstanceName": "账单对应的发票_001",
+          "targetObjectId": 13,
+          "targetObjectName": "账单对应的发票",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 16,
+          "linkInfo": "客户名下发票",
+          "targetInstanceId": 39,
+          "targetInstanceName": "账单对应的发票_002",
+          "targetObjectId": 13,
+          "targetObjectName": "账单对应的发票",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "Customer_003",
+      "instanceName": "账户归属客户_003",
+      "objectId": 12,
+      "objectName": "账户归属客户",
+      "attributeValues": [
+        {
+          "attributeId": 47,
+          "attributeName": "客户ID",
+          "attributeCode": "Customer.customer_id",
+          "dataType": "string",
+          "value": "CUST2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 48,
+          "attributeName": "名称",
+          "attributeCode": "Customer.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "Invoice_001",
+      "instanceName": "账单对应的发票_001",
+      "objectId": 13,
+      "objectName": "账单对应的发票",
+      "attributeValues": [
+        {
+          "attributeId": 49,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "value": 128.5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 50,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "value": "FP20230001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "value": "issued",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "Invoice_002",
+      "instanceName": "账单对应的发票_002",
+      "objectId": 13,
+      "objectName": "账单对应的发票",
+      "attributeValues": [
+        {
+          "attributeId": 49,
+          "attributeName": "金额",
+          "attributeCode": "Invoice.amount",
+          "dataType": "number",
+          "value": 96.75,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 50,
+          "attributeName": "发票ID",
+          "attributeCode": "Invoice.invoice_id",
+          "dataType": "string",
+          "value": "FP20230002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 51,
+          "attributeName": "状态",
+          "attributeCode": "Invoice.status",
+          "dataType": "string",
+          "value": "issued",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 5,
+      "actionName": "支付账单",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        7
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "账户某账期的账单_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        4
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_004"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 8,
+      "actionName": "退款支付",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "对账单的一次支付_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        4
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_004"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 8,
+      "actionName": "退款支付",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        17
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "对账单的一次支付_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 9,
+      "actionName": "判定失败支付",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        18
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "对账单的一次支付_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 13,
+      "actionName": "签发发票",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        39
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "账单对应的发票_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 24,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 25,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 26,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 27,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 28,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 29,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 30,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 31,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 32,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 33,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 34,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 35,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 36,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 37,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        4
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_004"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 38,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 39,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 40,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 41,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 42,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 43,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 44,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        4
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_004"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 45,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 46,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 47,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 48,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 49,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 50,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 51,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 52,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 53,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 54,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 55,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 56,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        4
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_004"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 57,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 58,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 59,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 60,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 61,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 62,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 63,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 64,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 65,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 66,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 67,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 68,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 69,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 70,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 71,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 72,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 73,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 74,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 75,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 76,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 77,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 78,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 79,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 80,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 81,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 82,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 83,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 84,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 85,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 86,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 87,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 88,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 89,
+      "actionId": 3,
+      "actionName": "终结账期",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 90,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 91,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        6
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 92,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 93,
+      "actionId": 1,
+      "actionName": "开启账期",
+      "inputInstances": [
+        3
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 94,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 95,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        35
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 96,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 97,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        1
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 98,
+      "actionId": 11,
+      "actionName": "暂停账户",
+      "inputInstances": [
+        37
+      ],
+      "outputInstances": [
+        3
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_003"
+      ],
+      "outputInstanceNames": [
+        "计费账户_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 99,
+      "actionId": 2,
+      "actionName": "关闭账期",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        5
+      ],
+      "inputInstanceNames": [
+        "计费账户_001"
+      ],
+      "outputInstanceNames": [
+        "计费账期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 100,
+      "actionId": 12,
+      "actionName": "恢复账户",
+      "inputInstances": [
+        36
+      ],
+      "outputInstances": [
+        2
+      ],
+      "inputInstanceNames": [
+        "账户归属客户_002"
+      ],
+      "outputInstanceNames": [
+        "计费账户_002"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}

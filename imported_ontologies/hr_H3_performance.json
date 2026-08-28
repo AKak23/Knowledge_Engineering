@@ -1,0 +1,3498 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "人力资源(HR)·hr_H3_performance",
+    "ontologyDesc": "从 qwen_eval 评测集抽取（schema=hr_H3_performance，graph=hr_H3_performance_seed45）：13 个对象类型 / 21 个关系 / 14 个动作 / 39 个实例 / 23 个动作调用。",
+    "profile": "default",
+    "createdAt": "2026-06-01T10:10:28Z",
+    "updatedAt": "2026-06-01T10:10:28Z"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "被考核员工",
+      "objectCode": "Employee",
+      "description": "被考核员工",
+      "attributes": [
+        {
+          "attributeId": 1,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "E001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 2,
+      "objectName": "个人贡献者",
+      "objectCode": "ICEmployee",
+      "description": "个人贡献者",
+      "attributes": [
+        {
+          "attributeId": 4,
+          "attributeName": "员工ID",
+          "attributeCode": "ICEmployee.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "ICEmployee.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "ICEmployee.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "方向",
+          "attributeCode": "ICEmployee.track",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "engineering",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 3,
+      "objectName": "人员经理",
+      "objectCode": "PeopleManager",
+      "description": "人员经理",
+      "attributes": [
+        {
+          "attributeId": 8,
+          "attributeName": "员工ID",
+          "attributeCode": "PeopleManager.employee_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "EMP001001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "PeopleManager.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "管理幅度",
+          "attributeCode": "PeopleManager.span_of_control",
+          "dataType": "integer",
+          "description": "",
+          "sampleValue": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "PeopleManager.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 4,
+      "objectName": "绩效目标",
+      "objectCode": "Goal",
+      "description": "绩效目标",
+      "attributes": [
+        {
+          "attributeId": 12,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "GOAL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "类型",
+          "attributeCode": "Goal.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "kpi",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "职称",
+          "attributeCode": "Goal.title",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "提升客户满意度至95%",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 5,
+      "objectName": "关键结果",
+      "objectCode": "KeyResult",
+      "description": "关键结果",
+      "attributes": [
+        {
+          "attributeId": 16,
+          "attributeName": "实际值",
+          "attributeCode": "KeyResult.actual_value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 92.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "关键结果ID",
+          "attributeCode": "KeyResult.kr_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "KR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "指标",
+          "attributeCode": "KeyResult.metric",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "客户满意度得分",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "目标值",
+          "attributeCode": "KeyResult.target_value",
+          "dataType": "number",
+          "description": "",
+          "sampleValue": 95.5,
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 6,
+      "objectName": "考核周期",
+      "objectCode": "ReviewCycle",
+      "description": "考核周期",
+      "attributes": [
+        {
+          "attributeId": 20,
+          "attributeName": "周期ID",
+          "attributeCode": "ReviewCycle.cycle_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CYC-2024-Q3",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "期间",
+          "attributeCode": "ReviewCycle.period",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "2024年第三季度绩效考核",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "状态",
+          "attributeCode": "ReviewCycle.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 7,
+      "objectName": "绩效评审",
+      "objectCode": "Review",
+      "description": "绩效评审",
+      "attributes": [
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Review.rating",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "meets",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "评估ID",
+          "attributeCode": "Review.review_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "R001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "Review.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "released",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 8,
+      "objectName": "360 反馈",
+      "objectCode": "Feedback",
+      "description": "360 反馈",
+      "attributes": [
+        {
+          "attributeId": 26,
+          "attributeName": "反馈ID",
+          "attributeCode": "Feedback.feedback_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "FBK-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "类型",
+          "attributeCode": "Feedback.kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "peer",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Feedback.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "shared",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 9,
+      "objectName": "评分人",
+      "objectCode": "Rater",
+      "description": "评分人",
+      "attributes": [
+        {
+          "attributeId": 29,
+          "attributeName": "评价人ID",
+          "attributeCode": "Rater.rater_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "R001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "关系类型",
+          "attributeCode": "Rater.relation_kind",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "manager",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 10,
+      "objectName": "评级校准会",
+      "objectCode": "CalibrationSession",
+      "description": "评级校准会",
+      "attributes": [
+        {
+          "attributeId": 31,
+          "attributeName": "会话ID",
+          "attributeCode": "CalibrationSession.session_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CalibrationSession_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "CalibrationSession.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "scheduled",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 11,
+      "objectName": "能力项",
+      "objectCode": "Competency",
+      "description": "能力项",
+      "attributes": [
+        {
+          "attributeId": 33,
+          "attributeName": "胜任力ID",
+          "attributeCode": "Competency.competency_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "CPT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Competency.name",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "沟通协调能力",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 12,
+      "objectName": "发展计划",
+      "objectCode": "DevelopmentPlan",
+      "description": "发展计划",
+      "attributes": [
+        {
+          "attributeId": 35,
+          "attributeName": "计划ID",
+          "attributeCode": "DevelopmentPlan.plan_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "DP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "状态",
+          "attributeCode": "DevelopmentPlan.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "active",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    },
+    {
+      "objectId": 13,
+      "objectName": "绩效改进案例",
+      "objectCode": "PIPCase",
+      "description": "绩效改进案例",
+      "attributes": [
+        {
+          "attributeId": 37,
+          "attributeName": "案例ID",
+          "attributeCode": "PIPCase.case_id",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "PIP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "PIPCase.status",
+          "dataType": "string",
+          "description": "",
+          "sampleValue": "succeeded",
+          "sourceChunks": []
+        }
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "links": [
+    {
+      "linkId": 1,
+      "sourceObjectId": 4,
+      "sourceObjectName": "绩效目标",
+      "targetObjectId": 1,
+      "targetObjectName": "被考核员工",
+      "linkInfo": "目标归属员工",
+      "linkType": "N:1",
+      "description": "goal_owned_by_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 2,
+      "sourceObjectId": 4,
+      "sourceObjectName": "绩效目标",
+      "targetObjectId": 6,
+      "targetObjectName": "考核周期",
+      "linkInfo": "目标属于周期",
+      "linkType": "N:1",
+      "description": "goal_in_cycle",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 3,
+      "sourceObjectId": 4,
+      "sourceObjectName": "绩效目标",
+      "targetObjectId": 5,
+      "targetObjectName": "关键结果",
+      "linkInfo": "目标包含关键结果",
+      "linkType": "1:N",
+      "description": "goal_has_kr",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 4,
+      "sourceObjectId": 4,
+      "sourceObjectName": "绩效目标",
+      "targetObjectId": 4,
+      "targetObjectName": "绩效目标",
+      "linkInfo": "目标对齐（横向）",
+      "linkType": "N:M",
+      "description": "goal_aligned_with_goal",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 5,
+      "sourceObjectId": 4,
+      "sourceObjectName": "绩效目标",
+      "targetObjectId": 11,
+      "targetObjectName": "能力项",
+      "linkInfo": "目标支撑能力",
+      "linkType": "N:M",
+      "description": "goal_supports_competency",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 6,
+      "sourceObjectId": 7,
+      "sourceObjectName": "绩效评审",
+      "targetObjectId": 1,
+      "targetObjectName": "被考核员工",
+      "linkInfo": "评审对应员工",
+      "linkType": "N:1",
+      "description": "review_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 7,
+      "sourceObjectId": 7,
+      "sourceObjectName": "绩效评审",
+      "targetObjectId": 6,
+      "targetObjectName": "考核周期",
+      "linkInfo": "评审属于周期",
+      "linkType": "N:1",
+      "description": "review_in_cycle",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 8,
+      "sourceObjectId": 7,
+      "sourceObjectName": "绩效评审",
+      "targetObjectId": 4,
+      "targetObjectName": "绩效目标",
+      "linkInfo": "评审覆盖目标",
+      "linkType": "N:M",
+      "description": "review_covers_goal",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 9,
+      "sourceObjectId": 7,
+      "sourceObjectName": "绩效评审",
+      "targetObjectId": 11,
+      "targetObjectName": "能力项",
+      "linkInfo": "评审评估能力",
+      "linkType": "N:M",
+      "description": "review_evaluates_competency",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 10,
+      "sourceObjectId": 8,
+      "sourceObjectName": "360 反馈",
+      "targetObjectId": 7,
+      "targetObjectName": "绩效评审",
+      "linkInfo": "反馈对应评审",
+      "linkType": "N:1",
+      "description": "feedback_for_review",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 11,
+      "sourceObjectId": 8,
+      "sourceObjectName": "360 反馈",
+      "targetObjectId": 9,
+      "targetObjectName": "评分人",
+      "linkInfo": "反馈来自评分人",
+      "linkType": "N:1",
+      "description": "feedback_from_rater",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 12,
+      "sourceObjectId": 9,
+      "sourceObjectName": "评分人",
+      "targetObjectId": 1,
+      "targetObjectName": "被考核员工",
+      "linkInfo": "评分人对应员工",
+      "linkType": "N:1",
+      "description": "rater_is_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 13,
+      "sourceObjectId": 3,
+      "sourceObjectName": "人员经理",
+      "targetObjectId": 7,
+      "targetObjectName": "绩效评审",
+      "linkInfo": "经理审阅评审",
+      "linkType": "1:N",
+      "description": "manager_oversees_review",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 14,
+      "sourceObjectId": 10,
+      "sourceObjectName": "评级校准会",
+      "targetObjectId": 7,
+      "targetObjectName": "绩效评审",
+      "linkInfo": "校准会覆盖评审",
+      "linkType": "N:M",
+      "description": "calibration_covers_review",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 15,
+      "sourceObjectId": 10,
+      "sourceObjectName": "评级校准会",
+      "targetObjectId": 3,
+      "targetObjectName": "人员经理",
+      "linkInfo": "经理参加校准会",
+      "linkType": "N:M",
+      "description": "calibration_attended_by_manager",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 16,
+      "sourceObjectId": 12,
+      "sourceObjectName": "发展计划",
+      "targetObjectId": 1,
+      "targetObjectName": "被考核员工",
+      "linkInfo": "发展计划归属员工",
+      "linkType": "N:1",
+      "description": "dev_plan_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 17,
+      "sourceObjectId": 12,
+      "sourceObjectName": "发展计划",
+      "targetObjectId": 11,
+      "targetObjectName": "能力项",
+      "linkInfo": "发展计划针对能力",
+      "linkType": "N:M",
+      "description": "dev_plan_addresses_competency",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 18,
+      "sourceObjectId": 13,
+      "sourceObjectName": "绩效改进案例",
+      "targetObjectId": 1,
+      "targetObjectName": "被考核员工",
+      "linkInfo": "改进案例对应员工",
+      "linkType": "N:1",
+      "description": "pip_for_employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 19,
+      "sourceObjectId": 13,
+      "sourceObjectName": "绩效改进案例",
+      "targetObjectId": 7,
+      "targetObjectName": "绩效评审",
+      "linkInfo": "改进案例由评审触发",
+      "linkType": "N:1",
+      "description": "pip_triggered_by_review",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 20,
+      "sourceObjectId": 2,
+      "sourceObjectName": "个人贡献者",
+      "targetObjectId": 1,
+      "targetObjectName": "被考核员工",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "ICEmployee is-a Employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    },
+    {
+      "linkId": 21,
+      "sourceObjectId": 3,
+      "sourceObjectName": "人员经理",
+      "targetObjectId": 1,
+      "targetObjectName": "被考核员工",
+      "linkInfo": "是一种",
+      "linkType": "is-a",
+      "description": "PeopleManager is-a Employee",
+      "confidence": 1.0,
+      "sourceChunks": []
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "开启周期",
+      "actionCode": "open_cycle",
+      "description": "执行者：人员经理；对象：考核周期",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "考核周期"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 2,
+      "actionName": "校准周期",
+      "actionCode": "calibrate_cycle",
+      "description": "执行者：人员经理；对象：考核周期",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "考核周期"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 3,
+      "actionName": "关闭周期",
+      "actionCode": "close_cycle",
+      "description": "执行者：人员经理；对象：考核周期",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "考核周期"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 4,
+      "actionName": "确认目标",
+      "actionCode": "commit_goal",
+      "description": "执行者：被考核员工；对象：绩效目标",
+      "inputObjects": [
+        "被考核员工"
+      ],
+      "outputObjects": [
+        "绩效目标"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 5,
+      "actionName": "开始目标",
+      "actionCode": "start_goal",
+      "description": "执行者：被考核员工；对象：绩效目标",
+      "inputObjects": [
+        "被考核员工"
+      ],
+      "outputObjects": [
+        "绩效目标"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 6,
+      "actionName": "完成目标",
+      "actionCode": "complete_goal",
+      "description": "执行者：被考核员工；对象：绩效目标",
+      "inputObjects": [
+        "被考核员工"
+      ],
+      "outputObjects": [
+        "绩效目标"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 7,
+      "actionName": "取消目标",
+      "actionCode": "cancel_goal",
+      "description": "执行者：被考核员工；对象：绩效目标",
+      "inputObjects": [
+        "被考核员工"
+      ],
+      "outputObjects": [
+        "绩效目标"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 8,
+      "actionName": "提交评估",
+      "actionCode": "submit_review",
+      "description": "执行者：人员经理；对象：绩效评审",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "绩效评审"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 9,
+      "actionName": "校准评估",
+      "actionCode": "calibrate_review",
+      "description": "执行者：人员经理；对象：绩效评审",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "绩效评审"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 10,
+      "actionName": "下达评估",
+      "actionCode": "release_review",
+      "description": "执行者：人员经理；对象：绩效评审",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "绩效评审"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 11,
+      "actionName": "提交反馈",
+      "actionCode": "submit_feedback",
+      "description": "执行者：评分人；对象：360 反馈",
+      "inputObjects": [
+        "评分人"
+      ],
+      "outputObjects": [
+        "360 反馈"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 12,
+      "actionName": "分享反馈",
+      "actionCode": "share_feedback",
+      "description": "执行者：人员经理；对象：360 反馈",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "360 反馈"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 13,
+      "actionName": "启动绩效改进",
+      "actionCode": "open_pip",
+      "description": "执行者：人员经理；对象：绩效改进案例",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "绩效改进案例"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "actionId": 14,
+      "actionName": "结束绩效改进",
+      "actionCode": "conclude_pip",
+      "description": "执行者：人员经理；对象：绩效改进案例",
+      "inputObjects": [
+        "人员经理"
+      ],
+      "outputObjects": [
+        "绩效改进案例"
+      ],
+      "sourceChunks": []
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "Employee_001",
+      "instanceName": "被考核员工_001",
+      "objectId": 1,
+      "objectName": "被考核员工",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "E001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "Employee_002",
+      "instanceName": "被考核员工_002",
+      "objectId": 1,
+      "objectName": "被考核员工",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "E002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "on_leave",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "Employee_003",
+      "instanceName": "被考核员工_003",
+      "objectId": 1,
+      "objectName": "被考核员工",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "E003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "Employee_004",
+      "instanceName": "被考核员工_004",
+      "objectId": 1,
+      "objectName": "被考核员工",
+      "attributeValues": [
+        {
+          "attributeId": 1,
+          "attributeName": "员工ID",
+          "attributeCode": "Employee.employee_id",
+          "dataType": "string",
+          "value": "E004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 2,
+          "attributeName": "名称",
+          "attributeCode": "Employee.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 3,
+          "attributeName": "状态",
+          "attributeCode": "Employee.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "ICEmployee_001",
+      "instanceName": "个人贡献者_001",
+      "objectId": 2,
+      "objectName": "个人贡献者",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "员工ID",
+          "attributeCode": "ICEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "ICEmployee.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "ICEmployee.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "方向",
+          "attributeCode": "ICEmployee.track",
+          "dataType": "string",
+          "value": "engineering",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "ICEmployee_002",
+      "instanceName": "个人贡献者_002",
+      "objectId": 2,
+      "objectName": "个人贡献者",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "员工ID",
+          "attributeCode": "ICEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "ICEmployee.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "ICEmployee.status",
+          "dataType": "string",
+          "value": "on_leave",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "方向",
+          "attributeCode": "ICEmployee.track",
+          "dataType": "string",
+          "value": "design",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "ICEmployee_003",
+      "instanceName": "个人贡献者_003",
+      "objectId": 2,
+      "objectName": "个人贡献者",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "员工ID",
+          "attributeCode": "ICEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "ICEmployee.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "ICEmployee.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "方向",
+          "attributeCode": "ICEmployee.track",
+          "dataType": "string",
+          "value": "research",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "ICEmployee_004",
+      "instanceName": "个人贡献者_004",
+      "objectId": 2,
+      "objectName": "个人贡献者",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "员工ID",
+          "attributeCode": "ICEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "ICEmployee.name",
+          "dataType": "string",
+          "value": "陈静",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "ICEmployee.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "方向",
+          "attributeCode": "ICEmployee.track",
+          "dataType": "string",
+          "value": "ops",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "ICEmployee_005",
+      "instanceName": "个人贡献者_005",
+      "objectId": 2,
+      "objectName": "个人贡献者",
+      "attributeValues": [
+        {
+          "attributeId": 4,
+          "attributeName": "员工ID",
+          "attributeCode": "ICEmployee.employee_id",
+          "dataType": "string",
+          "value": "EMP2024005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 5,
+          "attributeName": "名称",
+          "attributeCode": "ICEmployee.name",
+          "dataType": "string",
+          "value": "刘洋",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 6,
+          "attributeName": "状态",
+          "attributeCode": "ICEmployee.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 7,
+          "attributeName": "方向",
+          "attributeCode": "ICEmployee.track",
+          "dataType": "string",
+          "value": "engineering",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "PeopleManager_001",
+      "instanceName": "人员经理_001",
+      "objectId": 3,
+      "objectName": "人员经理",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "员工ID",
+          "attributeCode": "PeopleManager.employee_id",
+          "dataType": "string",
+          "value": "EMP001001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "PeopleManager.name",
+          "dataType": "string",
+          "value": "张伟",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "管理幅度",
+          "attributeCode": "PeopleManager.span_of_control",
+          "dataType": "integer",
+          "value": 8,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "PeopleManager.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "经理审阅评审",
+          "targetInstanceId": 23,
+          "targetInstanceName": "绩效评审_003",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "PeopleManager_002",
+      "instanceName": "人员经理_002",
+      "objectId": 3,
+      "objectName": "人员经理",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "员工ID",
+          "attributeCode": "PeopleManager.employee_id",
+          "dataType": "string",
+          "value": "EMP001002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "PeopleManager.name",
+          "dataType": "string",
+          "value": "李娜",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "管理幅度",
+          "attributeCode": "PeopleManager.span_of_control",
+          "dataType": "integer",
+          "value": 12,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "PeopleManager.status",
+          "dataType": "string",
+          "value": "on_leave",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "经理审阅评审",
+          "targetInstanceId": 22,
+          "targetInstanceName": "绩效评审_002",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 13,
+          "linkInfo": "经理审阅评审",
+          "targetInstanceId": 24,
+          "targetInstanceName": "绩效评审_004",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "PeopleManager_003",
+      "instanceName": "人员经理_003",
+      "objectId": 3,
+      "objectName": "人员经理",
+      "attributeValues": [
+        {
+          "attributeId": 8,
+          "attributeName": "员工ID",
+          "attributeCode": "PeopleManager.employee_id",
+          "dataType": "string",
+          "value": "EMP001003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 9,
+          "attributeName": "名称",
+          "attributeCode": "PeopleManager.name",
+          "dataType": "string",
+          "value": "王强",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 10,
+          "attributeName": "管理幅度",
+          "attributeCode": "PeopleManager.span_of_control",
+          "dataType": "integer",
+          "value": 5,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 11,
+          "attributeName": "状态",
+          "attributeCode": "PeopleManager.status",
+          "dataType": "string",
+          "value": "terminated",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 13,
+          "linkInfo": "经理审阅评审",
+          "targetInstanceId": 21,
+          "targetInstanceName": "绩效评审_001",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "Goal_001",
+      "instanceName": "绩效目标_001",
+      "objectId": 4,
+      "objectName": "绩效目标",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "类型",
+          "attributeCode": "Goal.kind",
+          "dataType": "string",
+          "value": "kpi",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "职称",
+          "attributeCode": "Goal.title",
+          "dataType": "string",
+          "value": "提升客户满意度至95%",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "目标归属员工",
+          "targetInstanceId": 1,
+          "targetInstanceName": "被考核员工_001",
+          "targetObjectId": 1,
+          "targetObjectName": "被考核员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "目标属于周期",
+          "targetInstanceId": 20,
+          "targetInstanceName": "考核周期_002",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "目标支撑能力",
+          "targetInstanceId": 32,
+          "targetInstanceName": "能力项_001",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "Goal_002",
+      "instanceName": "绩效目标_002",
+      "objectId": 4,
+      "objectName": "绩效目标",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "类型",
+          "attributeCode": "Goal.kind",
+          "dataType": "string",
+          "value": "okr",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "职称",
+          "attributeCode": "Goal.title",
+          "dataType": "string",
+          "value": "完成年度OKR：打造高效协作文化",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "目标归属员工",
+          "targetInstanceId": 3,
+          "targetInstanceName": "被考核员工_003",
+          "targetObjectId": 1,
+          "targetObjectName": "被考核员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "目标属于周期",
+          "targetInstanceId": 19,
+          "targetInstanceName": "考核周期_001",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 15,
+          "targetInstanceName": "绩效目标_003",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 13,
+          "targetInstanceName": "绩效目标_001",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 16,
+          "targetInstanceName": "绩效目标_004",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "目标支撑能力",
+          "targetInstanceId": 33,
+          "targetInstanceName": "能力项_002",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "Goal_003",
+      "instanceName": "绩效目标_003",
+      "objectId": 4,
+      "objectName": "绩效目标",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "类型",
+          "attributeCode": "Goal.kind",
+          "dataType": "string",
+          "value": "project",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "职称",
+          "attributeCode": "Goal.title",
+          "dataType": "string",
+          "value": "上线新员工培训系统V2.0",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "目标归属员工",
+          "targetInstanceId": 6,
+          "targetInstanceName": "个人贡献者_002",
+          "targetObjectId": 2,
+          "targetObjectName": "个人贡献者",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "目标属于周期",
+          "targetInstanceId": 20,
+          "targetInstanceName": "考核周期_002",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 3,
+          "linkInfo": "目标包含关键结果",
+          "targetInstanceId": 18,
+          "targetInstanceName": "关键结果_001",
+          "targetObjectId": 5,
+          "targetObjectName": "关键结果",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 14,
+          "targetInstanceName": "绩效目标_002",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "目标支撑能力",
+          "targetInstanceId": 34,
+          "targetInstanceName": "能力项_003",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "Goal_004",
+      "instanceName": "绩效目标_004",
+      "objectId": 4,
+      "objectName": "绩效目标",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "类型",
+          "attributeCode": "Goal.kind",
+          "dataType": "string",
+          "value": "kpi",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "completed",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "职称",
+          "attributeCode": "Goal.title",
+          "dataType": "string",
+          "value": "优化绩效评估流程，缩短周期30%",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "目标归属员工",
+          "targetInstanceId": 5,
+          "targetInstanceName": "个人贡献者_001",
+          "targetObjectId": 2,
+          "targetObjectName": "个人贡献者",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "目标属于周期",
+          "targetInstanceId": 19,
+          "targetInstanceName": "考核周期_001",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 15,
+          "targetInstanceName": "绩效目标_003",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 16,
+          "targetInstanceName": "绩效目标_004",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "目标支撑能力",
+          "targetInstanceId": 33,
+          "targetInstanceName": "能力项_002",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 17,
+      "instanceCode": "Goal_005",
+      "instanceName": "绩效目标_005",
+      "objectId": 4,
+      "objectName": "绩效目标",
+      "attributeValues": [
+        {
+          "attributeId": 12,
+          "attributeName": "目标ID",
+          "attributeCode": "Goal.goal_id",
+          "dataType": "string",
+          "value": "GOAL-2024-005",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 13,
+          "attributeName": "类型",
+          "attributeCode": "Goal.kind",
+          "dataType": "string",
+          "value": "okr",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 14,
+          "attributeName": "状态",
+          "attributeCode": "Goal.status",
+          "dataType": "string",
+          "value": "cancelled",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 15,
+          "attributeName": "职称",
+          "attributeCode": "Goal.title",
+          "dataType": "string",
+          "value": "Q3达成销售目标1200万元",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 1,
+          "linkInfo": "目标归属员工",
+          "targetInstanceId": 6,
+          "targetInstanceName": "个人贡献者_002",
+          "targetObjectId": 2,
+          "targetObjectName": "个人贡献者",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 2,
+          "linkInfo": "目标属于周期",
+          "targetInstanceId": 19,
+          "targetInstanceName": "考核周期_001",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 17,
+          "targetInstanceName": "绩效目标_005",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 15,
+          "targetInstanceName": "绩效目标_003",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 13,
+          "targetInstanceName": "绩效目标_001",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 4,
+          "linkInfo": "目标对齐（横向）",
+          "targetInstanceId": 16,
+          "targetInstanceName": "绩效目标_004",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "目标支撑能力",
+          "targetInstanceId": 35,
+          "targetInstanceName": "能力项_004",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "目标支撑能力",
+          "targetInstanceId": 32,
+          "targetInstanceName": "能力项_001",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 5,
+          "linkInfo": "目标支撑能力",
+          "targetInstanceId": 34,
+          "targetInstanceName": "能力项_003",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 18,
+      "instanceCode": "KeyResult_001",
+      "instanceName": "关键结果_001",
+      "objectId": 5,
+      "objectName": "关键结果",
+      "attributeValues": [
+        {
+          "attributeId": 16,
+          "attributeName": "实际值",
+          "attributeCode": "KeyResult.actual_value",
+          "dataType": "number",
+          "value": 92.3,
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 17,
+          "attributeName": "关键结果ID",
+          "attributeCode": "KeyResult.kr_id",
+          "dataType": "string",
+          "value": "KR-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 18,
+          "attributeName": "指标",
+          "attributeCode": "KeyResult.metric",
+          "dataType": "string",
+          "value": "客户满意度得分",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 19,
+          "attributeName": "目标值",
+          "attributeCode": "KeyResult.target_value",
+          "dataType": "number",
+          "value": 95.5,
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 19,
+      "instanceCode": "ReviewCycle_001",
+      "instanceName": "考核周期_001",
+      "objectId": 6,
+      "objectName": "考核周期",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "周期ID",
+          "attributeCode": "ReviewCycle.cycle_id",
+          "dataType": "string",
+          "value": "CYC-2024-Q3",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "期间",
+          "attributeCode": "ReviewCycle.period",
+          "dataType": "string",
+          "value": "2024年第三季度绩效考核",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "状态",
+          "attributeCode": "ReviewCycle.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 20,
+      "instanceCode": "ReviewCycle_002",
+      "instanceName": "考核周期_002",
+      "objectId": 6,
+      "objectName": "考核周期",
+      "attributeValues": [
+        {
+          "attributeId": 20,
+          "attributeName": "周期ID",
+          "attributeCode": "ReviewCycle.cycle_id",
+          "dataType": "string",
+          "value": "CYC-2024-Q4",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 21,
+          "attributeName": "期间",
+          "attributeCode": "ReviewCycle.period",
+          "dataType": "string",
+          "value": "2024年第四季度绩效考核",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 22,
+          "attributeName": "状态",
+          "attributeCode": "ReviewCycle.status",
+          "dataType": "string",
+          "value": "closed",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 21,
+      "instanceCode": "Review_001",
+      "instanceName": "绩效评审_001",
+      "objectId": 7,
+      "objectName": "绩效评审",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Review.rating",
+          "dataType": "string",
+          "value": "meets",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "评估ID",
+          "attributeCode": "Review.review_id",
+          "dataType": "string",
+          "value": "R001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "Review.status",
+          "dataType": "string",
+          "value": "released",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "评审对应员工",
+          "targetInstanceId": 1,
+          "targetInstanceName": "被考核员工_001",
+          "targetObjectId": 1,
+          "targetObjectName": "被考核员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "评审属于周期",
+          "targetInstanceId": 20,
+          "targetInstanceName": "考核周期_002",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "评审覆盖目标",
+          "targetInstanceId": 14,
+          "targetInstanceName": "绩效目标_002",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "评审覆盖目标",
+          "targetInstanceId": 17,
+          "targetInstanceName": "绩效目标_005",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "评审评估能力",
+          "targetInstanceId": 33,
+          "targetInstanceName": "能力项_002",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "评审评估能力",
+          "targetInstanceId": 32,
+          "targetInstanceName": "能力项_001",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 22,
+      "instanceCode": "Review_002",
+      "instanceName": "绩效评审_002",
+      "objectId": 7,
+      "objectName": "绩效评审",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Review.rating",
+          "dataType": "string",
+          "value": "exceeds",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "评估ID",
+          "attributeCode": "Review.review_id",
+          "dataType": "string",
+          "value": "R002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "Review.status",
+          "dataType": "string",
+          "value": "released",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "评审对应员工",
+          "targetInstanceId": 10,
+          "targetInstanceName": "人员经理_001",
+          "targetObjectId": 3,
+          "targetObjectName": "人员经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "评审属于周期",
+          "targetInstanceId": 19,
+          "targetInstanceName": "考核周期_001",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "评审覆盖目标",
+          "targetInstanceId": 17,
+          "targetInstanceName": "绩效目标_005",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "评审覆盖目标",
+          "targetInstanceId": 16,
+          "targetInstanceName": "绩效目标_004",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "评审评估能力",
+          "targetInstanceId": 32,
+          "targetInstanceName": "能力项_001",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "评审评估能力",
+          "targetInstanceId": 35,
+          "targetInstanceName": "能力项_004",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 23,
+      "instanceCode": "Review_003",
+      "instanceName": "绩效评审_003",
+      "objectId": 7,
+      "objectName": "绩效评审",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Review.rating",
+          "dataType": "string",
+          "value": "below",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "评估ID",
+          "attributeCode": "Review.review_id",
+          "dataType": "string",
+          "value": "R003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "Review.status",
+          "dataType": "string",
+          "value": "released",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "评审对应员工",
+          "targetInstanceId": 5,
+          "targetInstanceName": "个人贡献者_001",
+          "targetObjectId": 2,
+          "targetObjectName": "个人贡献者",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "评审属于周期",
+          "targetInstanceId": 19,
+          "targetInstanceName": "考核周期_001",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "评审覆盖目标",
+          "targetInstanceId": 16,
+          "targetInstanceName": "绩效目标_004",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "评审覆盖目标",
+          "targetInstanceId": 15,
+          "targetInstanceName": "绩效目标_003",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 24,
+      "instanceCode": "Review_004",
+      "instanceName": "绩效评审_004",
+      "objectId": 7,
+      "objectName": "绩效评审",
+      "attributeValues": [
+        {
+          "attributeId": 23,
+          "attributeName": "评分",
+          "attributeCode": "Review.rating",
+          "dataType": "string",
+          "value": "outstanding",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 24,
+          "attributeName": "评估ID",
+          "attributeCode": "Review.review_id",
+          "dataType": "string",
+          "value": "R004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 25,
+          "attributeName": "状态",
+          "attributeCode": "Review.status",
+          "dataType": "string",
+          "value": "released",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 6,
+          "linkInfo": "评审对应员工",
+          "targetInstanceId": 1,
+          "targetInstanceName": "被考核员工_001",
+          "targetObjectId": 1,
+          "targetObjectName": "被考核员工",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 7,
+          "linkInfo": "评审属于周期",
+          "targetInstanceId": 20,
+          "targetInstanceName": "考核周期_002",
+          "targetObjectId": 6,
+          "targetObjectName": "考核周期",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 8,
+          "linkInfo": "评审覆盖目标",
+          "targetInstanceId": 14,
+          "targetInstanceName": "绩效目标_002",
+          "targetObjectId": 4,
+          "targetObjectName": "绩效目标",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 9,
+          "linkInfo": "评审评估能力",
+          "targetInstanceId": 35,
+          "targetInstanceName": "能力项_004",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 25,
+      "instanceCode": "Feedback_001",
+      "instanceName": "360 反馈_001",
+      "objectId": 8,
+      "objectName": "360 反馈",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "反馈ID",
+          "attributeCode": "Feedback.feedback_id",
+          "dataType": "string",
+          "value": "FBK-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "类型",
+          "attributeCode": "Feedback.kind",
+          "dataType": "string",
+          "value": "peer",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Feedback.status",
+          "dataType": "string",
+          "value": "shared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "反馈对应评审",
+          "targetInstanceId": 23,
+          "targetInstanceName": "绩效评审_003",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "反馈来自评分人",
+          "targetInstanceId": 29,
+          "targetInstanceName": "评分人_001",
+          "targetObjectId": 9,
+          "targetObjectName": "评分人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 26,
+      "instanceCode": "Feedback_002",
+      "instanceName": "360 反馈_002",
+      "objectId": 8,
+      "objectName": "360 反馈",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "反馈ID",
+          "attributeCode": "Feedback.feedback_id",
+          "dataType": "string",
+          "value": "FBK-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "类型",
+          "attributeCode": "Feedback.kind",
+          "dataType": "string",
+          "value": "manager",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Feedback.status",
+          "dataType": "string",
+          "value": "shared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "反馈对应评审",
+          "targetInstanceId": 24,
+          "targetInstanceName": "绩效评审_004",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "反馈来自评分人",
+          "targetInstanceId": 29,
+          "targetInstanceName": "评分人_001",
+          "targetObjectId": 9,
+          "targetObjectName": "评分人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 27,
+      "instanceCode": "Feedback_003",
+      "instanceName": "360 反馈_003",
+      "objectId": 8,
+      "objectName": "360 反馈",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "反馈ID",
+          "attributeCode": "Feedback.feedback_id",
+          "dataType": "string",
+          "value": "FBK-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "类型",
+          "attributeCode": "Feedback.kind",
+          "dataType": "string",
+          "value": "self",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Feedback.status",
+          "dataType": "string",
+          "value": "shared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "反馈对应评审",
+          "targetInstanceId": 24,
+          "targetInstanceName": "绩效评审_004",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "反馈来自评分人",
+          "targetInstanceId": 29,
+          "targetInstanceName": "评分人_001",
+          "targetObjectId": 9,
+          "targetObjectName": "评分人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 28,
+      "instanceCode": "Feedback_004",
+      "instanceName": "360 反馈_004",
+      "objectId": 8,
+      "objectName": "360 反馈",
+      "attributeValues": [
+        {
+          "attributeId": 26,
+          "attributeName": "反馈ID",
+          "attributeCode": "Feedback.feedback_id",
+          "dataType": "string",
+          "value": "FBK-2024-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 27,
+          "attributeName": "类型",
+          "attributeCode": "Feedback.kind",
+          "dataType": "string",
+          "value": "upward",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 28,
+          "attributeName": "状态",
+          "attributeCode": "Feedback.status",
+          "dataType": "string",
+          "value": "shared",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 10,
+          "linkInfo": "反馈对应评审",
+          "targetInstanceId": 24,
+          "targetInstanceName": "绩效评审_004",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 11,
+          "linkInfo": "反馈来自评分人",
+          "targetInstanceId": 30,
+          "targetInstanceName": "评分人_002",
+          "targetObjectId": 9,
+          "targetObjectName": "评分人",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 29,
+      "instanceCode": "Rater_001",
+      "instanceName": "评分人_001",
+      "objectId": 9,
+      "objectName": "评分人",
+      "attributeValues": [
+        {
+          "attributeId": 29,
+          "attributeName": "评价人ID",
+          "attributeCode": "Rater.rater_id",
+          "dataType": "string",
+          "value": "R001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "关系类型",
+          "attributeCode": "Rater.relation_kind",
+          "dataType": "string",
+          "value": "manager",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "评分人对应员工",
+          "targetInstanceId": 10,
+          "targetInstanceName": "人员经理_001",
+          "targetObjectId": 3,
+          "targetObjectName": "人员经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 30,
+      "instanceCode": "Rater_002",
+      "instanceName": "评分人_002",
+      "objectId": 9,
+      "objectName": "评分人",
+      "attributeValues": [
+        {
+          "attributeId": 29,
+          "attributeName": "评价人ID",
+          "attributeCode": "Rater.rater_id",
+          "dataType": "string",
+          "value": "R002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 30,
+          "attributeName": "关系类型",
+          "attributeCode": "Rater.relation_kind",
+          "dataType": "string",
+          "value": "peer",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 12,
+          "linkInfo": "评分人对应员工",
+          "targetInstanceId": 11,
+          "targetInstanceName": "人员经理_002",
+          "targetObjectId": 3,
+          "targetObjectName": "人员经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 31,
+      "instanceCode": "CalibrationSession_001",
+      "instanceName": "评级校准会_001",
+      "objectId": 10,
+      "objectName": "评级校准会",
+      "attributeValues": [
+        {
+          "attributeId": 31,
+          "attributeName": "会话ID",
+          "attributeCode": "CalibrationSession.session_id",
+          "dataType": "string",
+          "value": "CalibrationSession_001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 32,
+          "attributeName": "状态",
+          "attributeCode": "CalibrationSession.status",
+          "dataType": "string",
+          "value": "scheduled",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 14,
+          "linkInfo": "校准会覆盖评审",
+          "targetInstanceId": 24,
+          "targetInstanceName": "绩效评审_004",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 15,
+          "linkInfo": "经理参加校准会",
+          "targetInstanceId": 12,
+          "targetInstanceName": "人员经理_003",
+          "targetObjectId": 3,
+          "targetObjectName": "人员经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 32,
+      "instanceCode": "Competency_001",
+      "instanceName": "能力项_001",
+      "objectId": 11,
+      "objectName": "能力项",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "胜任力ID",
+          "attributeCode": "Competency.competency_id",
+          "dataType": "string",
+          "value": "CPT-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Competency.name",
+          "dataType": "string",
+          "value": "沟通协调能力",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 33,
+      "instanceCode": "Competency_002",
+      "instanceName": "能力项_002",
+      "objectId": 11,
+      "objectName": "能力项",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "胜任力ID",
+          "attributeCode": "Competency.competency_id",
+          "dataType": "string",
+          "value": "CPT-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Competency.name",
+          "dataType": "string",
+          "value": "项目管理能力",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 34,
+      "instanceCode": "Competency_003",
+      "instanceName": "能力项_003",
+      "objectId": 11,
+      "objectName": "能力项",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "胜任力ID",
+          "attributeCode": "Competency.competency_id",
+          "dataType": "string",
+          "value": "CPT-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Competency.name",
+          "dataType": "string",
+          "value": "数据分析能力",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 35,
+      "instanceCode": "Competency_004",
+      "instanceName": "能力项_004",
+      "objectId": 11,
+      "objectName": "能力项",
+      "attributeValues": [
+        {
+          "attributeId": 33,
+          "attributeName": "胜任力ID",
+          "attributeCode": "Competency.competency_id",
+          "dataType": "string",
+          "value": "CPT-004",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 34,
+          "attributeName": "名称",
+          "attributeCode": "Competency.name",
+          "dataType": "string",
+          "value": "团队领导能力",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 36,
+      "instanceCode": "DevelopmentPlan_001",
+      "instanceName": "发展计划_001",
+      "objectId": 12,
+      "objectName": "发展计划",
+      "attributeValues": [
+        {
+          "attributeId": 35,
+          "attributeName": "计划ID",
+          "attributeCode": "DevelopmentPlan.plan_id",
+          "dataType": "string",
+          "value": "DP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 36,
+          "attributeName": "状态",
+          "attributeCode": "DevelopmentPlan.status",
+          "dataType": "string",
+          "value": "active",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 16,
+          "linkInfo": "发展计划归属员工",
+          "targetInstanceId": 7,
+          "targetInstanceName": "个人贡献者_003",
+          "targetObjectId": 2,
+          "targetObjectName": "个人贡献者",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 17,
+          "linkInfo": "发展计划针对能力",
+          "targetInstanceId": 35,
+          "targetInstanceName": "能力项_004",
+          "targetObjectId": 11,
+          "targetObjectName": "能力项",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 37,
+      "instanceCode": "PIPCase_001",
+      "instanceName": "绩效改进案例_001",
+      "objectId": 13,
+      "objectName": "绩效改进案例",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "案例ID",
+          "attributeCode": "PIPCase.case_id",
+          "dataType": "string",
+          "value": "PIP-2024-001",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "PIPCase.status",
+          "dataType": "string",
+          "value": "succeeded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "改进案例对应员工",
+          "targetInstanceId": 11,
+          "targetInstanceName": "人员经理_002",
+          "targetObjectId": 3,
+          "targetObjectName": "人员经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "改进案例由评审触发",
+          "targetInstanceId": 21,
+          "targetInstanceName": "绩效评审_001",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 38,
+      "instanceCode": "PIPCase_002",
+      "instanceName": "绩效改进案例_002",
+      "objectId": 13,
+      "objectName": "绩效改进案例",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "案例ID",
+          "attributeCode": "PIPCase.case_id",
+          "dataType": "string",
+          "value": "PIP-2024-002",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "PIPCase.status",
+          "dataType": "string",
+          "value": "succeeded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "改进案例对应员工",
+          "targetInstanceId": 10,
+          "targetInstanceName": "人员经理_001",
+          "targetObjectId": 3,
+          "targetObjectName": "人员经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "改进案例由评审触发",
+          "targetInstanceId": 22,
+          "targetInstanceName": "绩效评审_002",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    },
+    {
+      "instanceId": 39,
+      "instanceCode": "PIPCase_003",
+      "instanceName": "绩效改进案例_003",
+      "objectId": 13,
+      "objectName": "绩效改进案例",
+      "attributeValues": [
+        {
+          "attributeId": 37,
+          "attributeName": "案例ID",
+          "attributeCode": "PIPCase.case_id",
+          "dataType": "string",
+          "value": "PIP-2024-003",
+          "sourceChunks": []
+        },
+        {
+          "attributeId": 38,
+          "attributeName": "状态",
+          "attributeCode": "PIPCase.status",
+          "dataType": "string",
+          "value": "succeeded",
+          "sourceChunks": []
+        }
+      ],
+      "linkValues": [
+        {
+          "linkId": 18,
+          "linkInfo": "改进案例对应员工",
+          "targetInstanceId": 11,
+          "targetInstanceName": "人员经理_002",
+          "targetObjectId": 3,
+          "targetObjectName": "人员经理",
+          "confidence": 1.0,
+          "sourceChunks": []
+        },
+        {
+          "linkId": 19,
+          "linkInfo": "改进案例由评审触发",
+          "targetInstanceId": 22,
+          "targetInstanceName": "绩效评审_002",
+          "targetObjectId": 7,
+          "targetObjectName": "绩效评审",
+          "confidence": 1.0,
+          "sourceChunks": []
+        }
+      ],
+      "generated": false,
+      "sourceChunks": []
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 6,
+      "actionName": "完成目标",
+      "inputInstances": [
+        7
+      ],
+      "outputInstances": [
+        13
+      ],
+      "inputInstanceNames": [
+        "个人贡献者_003"
+      ],
+      "outputInstanceNames": [
+        "绩效目标_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 2,
+      "actionId": 7,
+      "actionName": "取消目标",
+      "inputInstances": [
+        2
+      ],
+      "outputInstances": [
+        14
+      ],
+      "inputInstanceNames": [
+        "被考核员工_002"
+      ],
+      "outputInstanceNames": [
+        "绩效目标_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 3,
+      "actionId": 1,
+      "actionName": "开启周期",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "人员经理_001"
+      ],
+      "outputInstanceNames": [
+        "考核周期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 4,
+      "actionId": 2,
+      "actionName": "校准周期",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "人员经理_001"
+      ],
+      "outputInstanceNames": [
+        "考核周期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 5,
+      "actionId": 3,
+      "actionName": "关闭周期",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        19
+      ],
+      "inputInstanceNames": [
+        "人员经理_002"
+      ],
+      "outputInstanceNames": [
+        "考核周期_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 6,
+      "actionId": 2,
+      "actionName": "校准周期",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "人员经理_003"
+      ],
+      "outputInstanceNames": [
+        "考核周期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 7,
+      "actionId": 8,
+      "actionName": "提交评估",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "人员经理_002"
+      ],
+      "outputInstanceNames": [
+        "绩效评审_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 8,
+      "actionId": 9,
+      "actionName": "校准评估",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "人员经理_001"
+      ],
+      "outputInstanceNames": [
+        "绩效评审_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 9,
+      "actionId": 12,
+      "actionName": "分享反馈",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        25
+      ],
+      "inputInstanceNames": [
+        "人员经理_001"
+      ],
+      "outputInstanceNames": [
+        "360 反馈_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 10,
+      "actionId": 12,
+      "actionName": "分享反馈",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        28
+      ],
+      "inputInstanceNames": [
+        "人员经理_001"
+      ],
+      "outputInstanceNames": [
+        "360 反馈_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 11,
+      "actionId": 3,
+      "actionName": "关闭周期",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        20
+      ],
+      "inputInstanceNames": [
+        "人员经理_001"
+      ],
+      "outputInstanceNames": [
+        "考核周期_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 12,
+      "actionId": 10,
+      "actionName": "下达评估",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        22
+      ],
+      "inputInstanceNames": [
+        "人员经理_002"
+      ],
+      "outputInstanceNames": [
+        "绩效评审_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 13,
+      "actionId": 14,
+      "actionName": "结束绩效改进",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        38
+      ],
+      "inputInstanceNames": [
+        "人员经理_002"
+      ],
+      "outputInstanceNames": [
+        "绩效改进案例_002"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 14,
+      "actionId": 4,
+      "actionName": "确认目标",
+      "inputInstances": [
+        1
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "被考核员工_001"
+      ],
+      "outputInstanceNames": [
+        "绩效目标_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 15,
+      "actionId": 9,
+      "actionName": "校准评估",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "人员经理_002"
+      ],
+      "outputInstanceNames": [
+        "绩效评审_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 16,
+      "actionId": 10,
+      "actionName": "下达评估",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        24
+      ],
+      "inputInstanceNames": [
+        "人员经理_003"
+      ],
+      "outputInstanceNames": [
+        "绩效评审_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 17,
+      "actionId": 13,
+      "actionName": "启动绩效改进",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        37
+      ],
+      "inputInstanceNames": [
+        "人员经理_003"
+      ],
+      "outputInstanceNames": [
+        "绩效改进案例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 18,
+      "actionId": 14,
+      "actionName": "结束绩效改进",
+      "inputInstances": [
+        12
+      ],
+      "outputInstances": [
+        37
+      ],
+      "inputInstanceNames": [
+        "人员经理_003"
+      ],
+      "outputInstanceNames": [
+        "绩效改进案例_001"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 19,
+      "actionId": 5,
+      "actionName": "开始目标",
+      "inputInstances": [
+        8
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "个人贡献者_004"
+      ],
+      "outputInstanceNames": [
+        "绩效目标_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 20,
+      "actionId": 10,
+      "actionName": "下达评估",
+      "inputInstances": [
+        10
+      ],
+      "outputInstances": [
+        23
+      ],
+      "inputInstanceNames": [
+        "人员经理_001"
+      ],
+      "outputInstanceNames": [
+        "绩效评审_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 21,
+      "actionId": 6,
+      "actionName": "完成目标",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        16
+      ],
+      "inputInstanceNames": [
+        "人员经理_002"
+      ],
+      "outputInstanceNames": [
+        "绩效目标_004"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 22,
+      "actionId": 11,
+      "actionName": "提交反馈",
+      "inputInstances": [
+        29
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "评分人_001"
+      ],
+      "outputInstanceNames": [
+        "360 反馈_003"
+      ],
+      "sourceChunks": []
+    },
+    {
+      "invocationId": 23,
+      "actionId": 12,
+      "actionName": "分享反馈",
+      "inputInstances": [
+        11
+      ],
+      "outputInstances": [
+        27
+      ],
+      "inputInstanceNames": [
+        "人员经理_002"
+      ],
+      "outputInstanceNames": [
+        "360 反馈_003"
+      ],
+      "sourceChunks": []
+    }
+  ]
+}
