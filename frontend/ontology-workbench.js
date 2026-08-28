@@ -639,7 +639,7 @@
       bindDraftNodeInteractions(element, node);
       workbenchDom.canvasNodes.appendChild(element);
     });
-    window.requestAnimationFrame(renderCanvasEdges);
+    window.requestAnimationFrame(() => renderCanvasEdges());
     buildWorkbenchLegend();
     renderRuleList();
   }

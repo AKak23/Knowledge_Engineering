@@ -920,7 +920,7 @@ button,input,select{font:inherit}
   pointer-events:auto;
 }
 .instance2dNode:hover,.instance2dNode.selected,.instance2dNode.rule-match{transform:scale(calc(var(--instance-zoom,1) * 1.34));box-shadow:0 0 16px color-mix(in srgb,var(--node-color) 78%,transparent);z-index:5}
-.instance2dNode.dragging{cursor:grabbing;z-index:6}
+.instance2dNode.dragging{cursor:grabbing;z-index:6;transition:none}
 .instance2dNode.rule-related:not(.rule-match){box-shadow:0 0 13px color-mix(in srgb,var(--node-color) 58%,transparent);z-index:4}
 .instance2dNode.dimmed{opacity:.1}
 .instance2dNodeContent{
