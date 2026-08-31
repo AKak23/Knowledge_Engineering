@@ -15,7 +15,7 @@ const REPLAY_MAX_STEPS = 1200;
 const DEFAULT_BUILD_OPTIONS = {
   replayEnabled: true,
   defaultProfile: 'default',
-  defaultBackend: 'jiutian',
+  defaultBackend: 'deepseek',
   constructionMode: 'schema-first',
   maxConcepts: 50,
   semanticClustering: true,
@@ -82,6 +82,7 @@ const els = {
   jobMeta: document.getElementById('jobMeta'),
   progressWrap: document.getElementById('progressWrap'),
   progressBar: document.getElementById('progressBar'),
+  buildStageLog: document.getElementById('buildStageLog'),
   suggestions: document.getElementById('suggestions'),
   msgs: document.getElementById('msgs'),
   form: document.getElementById('form'),
@@ -1475,6 +1476,7 @@ async function replayExistingJob(jobId){
         events.length,
         sameStageCount,
       );
+      renderBuildStageLog(state);
       if (state.status === 'failed'){
         setStatus('历史构建回放到失败状态', 'bad');
       }else{
@@ -1603,6 +1605,10 @@ async function startBuild(files){
   els.q.placeholder = '正在构建本体，请稍候';
   els.progressWrap.classList.add('show');
   els.progressBar.style.width = '1%';
+  renderBuildStageLog({
+    stage: '上传构建文档',
+    stageHistory: [{stage:'上传构建文档', hint:'正在把所选文档提交到后端。', timestamp:new Date().toISOString()}]
+  });
   els.jobMeta.textContent = `正在上传 ${formatFileSelection(files).replace('已选择 ', '')}...`;
   setStatus('构建任务提交中', 'warn');
   renderGraph({ontology:{}, nodes:[], edges:[]});
@@ -1712,7 +1718,7 @@ async function pollCompareJob(slot, fileName){
     if (!res.ok) throw new Error(await responseError(res));
     const state = await res.json();
     const progress = state.progress || {};
-    const percent = Number(progress.percent || 0);
+    const percent = Number(progress.overallPercent ?? progress.percent ?? 0);
     slot.progress = Math.max(0, Math.min(100, percent));
     updateCompareProgress();
     const stage = state.stage ? ` · ${state.stage}` : '';
@@ -1766,6 +1772,10 @@ async function uploadStructuredConfig(file){
   form.append('file', file);
 
   try{
+    renderBuildStageLog({
+      stage: '上传结构化配置',
+      stageHistory: [{stage:'上传结构化配置', hint:'正在校验并提交 YAML 配置。', timestamp:new Date().toISOString()}]
+    });
     const res = await fetch(apiUrl('/ontology/structured-configs'), {method:'POST', body:form});
     if (!res.ok) throw new Error(await responseError(res));
     const data = await res.json();
@@ -1836,9 +1846,10 @@ async function pollJob(jobId, fileName){
     if (!res.ok) throw new Error(await responseError(res));
     const state = await res.json();
     const progress = state.progress || {};
-    const percent = Number(progress.percent || 0);
+    const percent = Number(progress.overallPercent ?? progress.percent ?? 0);
     els.progressBar.style.width = `${Math.max(4, percent)}%`;
     els.jobMeta.textContent = buildProgressText(fileName, state, progress);
+    renderBuildStageLog(state);
     if (state.status === 'completed'){
       els.progressBar.style.width = '100%';
       await loadGraph(jobId);
@@ -1872,12 +1883,17 @@ async function pollJob(jobId, fileName){
 }
 
 function buildProgressText(fileName, state, progress){
+  const overallPercent = Number(progress.overallPercent ?? progress.percent ?? 0);
   const lines = [
     `文档：${formatJobDocumentLabel(fileName, state)}`,
     `状态：${statusLabel(state.status)}`,
+    `总体进度：${Math.max(0, Math.min(100, overallPercent)).toFixed(0)}%`,
     `进度：${formatChunkProgress(progress)}`
   ];
   if (state.stage) lines.push(`阶段：${state.stage}`);
+  if (state.stageHint) lines.push(`说明：${state.stageHint}`);
+  const embedding = formatEmbeddingStatus(state);
+  if (embedding) lines.push(`向量聚类：${embedding}`);
   if (Array.isArray(state.qualityWarnings) && state.qualityWarnings.length){
     lines.push(`质量：${state.qualityWarnings.join('；')}`);
   }
@@ -1890,6 +1906,56 @@ function buildProgressText(fileName, state, progress){
   const resultStats = formatResultStats(state);
   if (resultStats) lines.push(`统计：${resultStats}`);
   return lines.join('\n');
+}
+
+function renderBuildStageLog(state){
+  if (!els.buildStageLog) return;
+  const history = Array.isArray(state?.stageHistory) ? state.stageHistory : [];
+  const items = history.length
+    ? history.slice(-20)
+    : (state?.stage ? [{stage:state.stage, hint:state.stageHint || '', timestamp:state.stageUpdatedAt || ''}] : []);
+  els.buildStageLog.replaceChildren();
+  els.buildStageLog.hidden = !items.length;
+  items.forEach((item, index) => {
+    const row = document.createElement('div');
+    const isCurrent = index === items.length - 1 && state?.status !== 'completed';
+    const isFailed = isCurrent && state?.status === 'failed';
+    row.className = `buildStageItem${isCurrent ? ' current' : ''}${isFailed ? ' failed' : ''}`;
+    const time = document.createElement('span');
+    time.className = 'buildStageTime';
+    time.textContent = formatStageTime(item.timestamp);
+    const mark = document.createElement('span');
+    mark.className = 'buildStageMark';
+    mark.textContent = isFailed ? '×' : (isCurrent ? '●' : '✓');
+    const label = document.createElement('span');
+    label.textContent = String(item.stage || '处理中');
+    row.append(time, mark, label);
+    if (item.hint){
+      const hint = document.createElement('span');
+      hint.className = 'buildStageHint';
+      hint.textContent = String(item.hint);
+      row.appendChild(hint);
+    }
+    els.buildStageLog.appendChild(row);
+  });
+  els.buildStageLog.scrollTop = els.buildStageLog.scrollHeight;
+}
+
+function formatStageTime(value){
+  if (!value) return '--:--:--';
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime())
+    ? '--:--:--'
+    : parsed.toLocaleTimeString('zh-CN', {hour12:false});
+}
+
+function formatEmbeddingStatus(state){
+  const status = String(state.embeddingStatus || '');
+  if (!status) return '';
+  const model = state.embeddingModel || '未指定模型';
+  if (status === 'enabled') return `已启用 ${model}`;
+  if (status === 'skipped') return `已跳过 ${model}（${state.embeddingWarning || '未配置 key'}）`;
+  return `未启用（${model}）`;
 }
 
 function buildReplayProgressText(fileName, state, progress, step, total, sameStageCount){
@@ -1940,6 +2006,7 @@ function stageTaskLabel(stage){
   const value = String(stage || '');
   if (!value) return '';
   if (value.includes('加载配置')) return '读取构建配置';
+  if (value.toLowerCase().includes('embedding')) return '候选概念向量化与语义聚类';
   if (value.includes('分块')) return '文本清洗、文档分块';
   if (value.includes('候选概念抽取')) return '候选概念抽取';
   if (value.includes('schema') || value.includes('概念')) return '本体类型、属性、关系构建';

@@ -19,6 +19,25 @@ def test_create_qwen_embedding_client_requires_env_key(monkeypatch) -> None:
         )
 
 
+def test_create_qwen_embedding_client_uses_runtime_model_override(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "ontology_construct.embedding.client.load_project_env",
+        lambda: None,
+    )
+    monkeypatch.setenv("QWEN_EMBEDDING_API_KEY", "embedding-key")
+    monkeypatch.setenv("QWEN_EMBEDDING_MODEL", "qwen3.7-text-embedding")
+    monkeypatch.setenv(
+        "QWEN_EMBEDDING_BASE_URL",
+        "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    )
+
+    client = create_embedding_client(MergeConfig(embedding_model="legacy-model"))
+
+    assert isinstance(client, OpenAICompatibleEmbeddingClient)
+    assert client.config.embedding_model == "qwen3.7-text-embedding"
+    assert client.config.embedding_base_url.endswith("/compatible-mode/v1")
+
+
 async def _embed_with_mock_transport() -> list[list[float]]:
     config = MergeConfig(
         embedding_base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",

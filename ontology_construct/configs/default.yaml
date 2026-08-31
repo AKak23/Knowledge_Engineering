@@ -17,7 +17,7 @@ llm:
 merge:
   embedding_backend: qwen
   embedding_base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
-  embedding_model: text-embedding-v4
+  embedding_model: qwen3.7-text-embedding
   embedding_api_key_env: QWEN_EMBEDDING_API_KEY
   similarity_threshold: 0.92
   use_llm_synonym_judgment: false
@@ -93,7 +93,7 @@ qa_logging:
 frontend_build:
   # 这些值用于前端简化模式下的隐藏构建参数；修改后重启 API 生效。
   default_profile: default
-  default_backend: jiutian
+  default_backend: deepseek
   construction_mode: schema-first
   max_concepts: 50
   semantic_clustering: true

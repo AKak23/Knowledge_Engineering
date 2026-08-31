@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1280,initial-scale=1">
 <title>OntoMind · 本体大模型</title>
-<link rel="stylesheet" href="frontend/app.css?v=20260828-edge-drag-fix-v14">
+<link rel="stylesheet" href="frontend/app.css?v=20260831-embedding-progress-v1">
 </head>
 <body>
 <div class="app" id="appRoot" data-page="main">
@@ -179,22 +179,16 @@
         <label class="backendField">
           <span>本体构建模型</span>
           <select id="backendSelect">
-            <option value="jiutian" selected>九天LOM</option>
-            <option value="jiutian-35b">九天大模型-35B</option>
             <option value="qwen-plus">Qwen-Plus</option>
-            <option value="qwen-32b">Qwen-32B</option>
-            <option value="deepseek">DeepSeek-V4</option>
+            <option value="deepseek" selected>DeepSeek-V4</option>
             <option value="kimi">Kimi K3</option>
           </select>
         </label>
         <label class="qaBackendField">
           <span>问答推理模型</span>
           <select id="qaBackendSelect">
-            <option value="jiutian" selected>九天LOM</option>
-            <option value="jiutian-35b">九天大模型-35B</option>
             <option value="qwen-plus">Qwen-Plus</option>
-            <option value="qwen-32b">Qwen-32B</option>
-            <option value="deepseek">DeepSeek-V4</option>
+            <option value="deepseek" selected>DeepSeek-V4</option>
             <option value="kimi">Kimi K3</option>
           </select>
         </label>
@@ -254,6 +248,7 @@
         </section>
         <div class="jobMeta" id="jobMeta"></div>
         <div class="progress" id="progressWrap"><div id="progressBar"></div></div>
+        <div class="buildStageLog" id="buildStageLog" aria-live="polite" hidden></div>
         <div class="compareModelSet" hidden aria-hidden="true">
           <select id="compareBackend0"><option value="jiutian" selected>九天LOM</option></select>
           <select id="compareBackend1"><option value="jiutian-35b" selected>九天大模型-35B</option></select>
@@ -326,7 +321,7 @@
 <script src="https://unpkg.com/three@0.152.0/build/three.min.js"></script>
 <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
 <script src="frontend/mock-ontology.js?v=20260827-industrial-v2"></script>
-<script src="frontend/app.js?v=20260828-workflow-v4"></script>
+<script src="frontend/app.js?v=20260831-embedding-progress-v1"></script>
 <script src="frontend/ontology-workbench.js?v=20260828-edge-drag-fix-v14"></script>
 </body>
 </html>

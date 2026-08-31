@@ -74,6 +74,19 @@ def create_embedding_client(config: MergeConfig) -> EmbeddingClient:
     if not api_key:
         raise RuntimeError(
             "Missing embedding API key environment variable. "
-            f"Tried: {', '.join(api_key_envs)}"
+            f"Tried: {', '.join(api_key_envs)}. "
+            "Set QWEN_EMBEDDING_API_KEY in ontology_construct/.env."
         )
-    return OpenAICompatibleEmbeddingClient(config, api_key)
+    runtime_config = config.model_copy(
+        update={
+            "embedding_base_url": os.environ.get(
+                "QWEN_EMBEDDING_BASE_URL",
+                config.embedding_base_url,
+            ),
+            "embedding_model": os.environ.get(
+                "QWEN_EMBEDDING_MODEL",
+                config.embedding_model,
+            ),
+        }
+    )
+    return OpenAICompatibleEmbeddingClient(runtime_config, api_key)

@@ -69,7 +69,7 @@ ontology_construct/
 │   ├── models/               # 全局本体数据模型
 │   │   └── ontology.py       #    Entity / Triple / OntologyInstance
 │   ├── llm/                  # LLM 客户端（DeepSeek / Qwen / 九天等）
-│   ├── embedding/            # Embedding 客户端（Qwen text-embedding-v4）
+│   ├── embedding/            # Embedding 客户端（Qwen qwen3.7-text-embedding）
 │   ├── merger/               # 实体归并与去重
 │   ├── config.py             # YAML 配置加载与验证
 │   ├── api.py                # FastAPI 服务
@@ -316,7 +316,7 @@ def normalize_name(name: str) -> str:
 async def _merge_semantic_accumulators(self, accumulators):
     # 1. 为每个 accumulator 生成嵌入文本
     texts = [_embedding_text(accumulators[key]) for key in keys]
-    # 2. 调用 embedding API（Qwen text-embedding-v4）
+    # 2. 调用 embedding API（Qwen qwen3.7-text-embedding）
     vectors = await self.embedding_client.embed_texts(texts)
     # 3. 基于余弦相似度的 Union-Find 聚类
     for left, right in pairs:
@@ -762,7 +762,7 @@ concept:
 
 merge:
   embedding_backend: "qwen"
-  embedding_model: "text-embedding-v4"
+  embedding_model: "qwen3.7-text-embedding"
   similarity_threshold: 0.92
 
 ontology_profiles:

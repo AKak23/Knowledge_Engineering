@@ -33,7 +33,7 @@ class LLMConfig(BaseModel):
 class MergeConfig(BaseModel):
     embedding_backend: str = "qwen"
     embedding_base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
-    embedding_model: str = "text-embedding-v4"
+    embedding_model: str = "qwen3.7-text-embedding"
     embedding_api_key_env: str = "QWEN_EMBEDDING_API_KEY"
     similarity_threshold: float = Field(default=0.92, ge=0, le=1)
     use_llm_synonym_judgment: bool = False
@@ -125,7 +125,7 @@ class QALoggingConfig(BaseModel):
 
 class FrontendBuildConfig(BaseModel):
     default_profile: str = "default"
-    default_backend: str = "jiutian"
+    default_backend: str = "deepseek"
     construction_mode: str = "schema-first"
     max_concepts: int = Field(default=50, gt=0)
     semantic_clustering: bool = False
@@ -364,7 +364,9 @@ def load_env_file(path: Path | str) -> None:
             continue
         key, value = line.split("=", 1)
         key = key.strip()
-        if not key or key in os.environ:
+        # A blank exported variable should not mask a real value in the local
+        # .env file.  Non-empty process variables still take precedence.
+        if not key or (key in os.environ and os.environ[key]):
             continue
         os.environ[key] = _parse_env_value(value.strip())
 

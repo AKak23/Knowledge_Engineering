@@ -87,6 +87,8 @@ DEEPSEEK_API_KEY=你的 DeepSeek Key
 DEEPSEEK_API_KEY_2=第二个 DeepSeek Key（可选）
 MOONSHOT_API_KEY=你的 Kimi Key
 QWEN_EMBEDDING_API_KEY=你的 Qwen Embedding Key
+QWEN_EMBEDDING_MODEL=qwen3.7-text-embedding
+QWEN_EMBEDDING_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 ```
 
 `.env` 已被 `.gitignore` 忽略，不要提交。
@@ -138,7 +140,7 @@ uv run pytest -q
 uv run ontology-construct-api --host 127.0.0.1 --port 8000
 ```
 
-浏览器打开 `http://127.0.0.1:8000`，在顶部选择已配置密钥的构建模型，然后点击“新建本体”→“选择构建文档”→“开始构建本体”。若没有配置 Qwen embedding key，请把 `configs/default.yaml` 的 `frontend_build.semantic_clustering` 设为 `false` 后重启服务。
+浏览器打开 `http://127.0.0.1:8000`，在顶部选择已配置密钥的构建模型，然后点击“新建本体”→“选择构建文档”→“开始构建本体”。DeepSeek 用于文本理解和本体抽取；语义聚类单独使用 Qwen embedding，默认模型为 `qwen3.7-text-embedding`。若没有配置 embedding key，非结构化文档构建会自动跳过语义聚类并继续运行，任务状态中会记录降级原因。
 
 也可用下面的请求明确关闭 embedding、采用标准抽取做后端烟雾测试；把 `kimi` 换成实际可用的 provider：
 
@@ -404,6 +406,8 @@ qa_logging:
 | `DASHSCOPE_API_KEY` | Qwen 文本抽取默认 key |
 | `QWEN_API_KEY` | Qwen 备用 key |
 | `QWEN_EMBEDDING_API_KEY` | Qwen embedding key |
+| `QWEN_EMBEDDING_MODEL` | 覆盖 embedding 模型，默认 `qwen3.7-text-embedding` |
+| `QWEN_EMBEDDING_BASE_URL` | 覆盖 embedding endpoint |
 | `DEEPSEEK_API_KEY` / `DEEPSEEK_API_KEY_2..5` | DeepSeek 主/备用 key，失败后按顺序切换 |
 | `DEEPSEEK_BASE_URL` / `DEEPSEEK_MODEL` | 覆盖 DeepSeek endpoint 和模型 |
 | `MOONSHOT_API_KEY` / `KIMI_API_KEY` | Kimi key，前者为官方变量名 |
@@ -443,11 +447,12 @@ PGUSER=shuaichen
 PGPASSWORD=
 ```
 
-默认 hybrid 构建需要 LLM 和 embedding key；缺少环境变量时任务会失败并在 job status 中显示缺失的 key。Qwen/DashScope 可配置：
+结构化 hybrid 构建需要 LLM 和 embedding key；非结构化文档构建缺少 embedding key 时会跳过语义聚类并在 job status 中记录原因。Qwen/DashScope 可配置：
 
 ```bash
 DASHSCOPE_API_KEY=你的 DashScope key
 QWEN_EMBEDDING_API_KEY=你的 embedding key
+QWEN_EMBEDDING_MODEL=qwen3.7-text-embedding
 ```
 
 示例：

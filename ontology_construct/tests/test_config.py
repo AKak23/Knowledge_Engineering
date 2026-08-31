@@ -12,7 +12,7 @@ def test_load_default_config() -> None:
     assert config.llm.api_key_env == "DASHSCOPE_API_KEY"
     assert config.llm.enable_thinking is False
     assert config.merge.embedding_backend == "qwen"
-    assert config.merge.embedding_model == "text-embedding-v4"
+    assert config.merge.embedding_model == "qwen3.7-text-embedding"
     assert config.merge.embedding_api_key_env == "QWEN_EMBEDDING_API_KEY"
     assert config.replay.enabled is True
     assert config.qa_logging.enabled is True
@@ -41,7 +41,7 @@ def test_load_default_config() -> None:
     assert config.concept.instance_llm_concurrency == 5
     assert config.concept.instance_relation_prompt == "prompts/build_instance_relations.txt"
     assert config.frontend_build.default_profile == "default"
-    assert config.frontend_build.default_backend == "jiutian"
+    assert config.frontend_build.default_backend == "deepseek"
     assert config.frontend_build.construction_mode == "schema-first"
     assert config.frontend_build.max_concepts == 50
     assert config.frontend_build.semantic_clustering is True
@@ -129,3 +129,13 @@ def test_load_env_file_does_not_override_existing_env(tmp_path, monkeypatch) -> 
     load_env_file(env_path)
 
     assert __import__("os").environ["DEEPSEEK_API_KEY"] == "from-shell"
+
+
+def test_load_env_file_fills_blank_existing_env(tmp_path, monkeypatch) -> None:
+    env_path = tmp_path / ".env"
+    env_path.write_text("QWEN_EMBEDDING_API_KEY=from-file", encoding="utf-8")
+    monkeypatch.setenv("QWEN_EMBEDDING_API_KEY", "")
+
+    load_env_file(env_path)
+
+    assert __import__("os").environ["QWEN_EMBEDDING_API_KEY"] == "from-file"

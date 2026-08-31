@@ -128,6 +128,7 @@ def _event_state(state: dict[str, object]) -> dict[str, object]:
         "stage",
         "stageHint",
         "stageUpdatedAt",
+        "stageHistory",
         "profile",
         "inputNames",
         "constructionMode",
@@ -167,6 +168,10 @@ def _event_state(state: dict[str, object]) -> dict[str, object]:
         "qualityCoveredEntities",
         "qualityUncoveredEntities",
         "qualityQuarantinedEntities",
+        "embeddingStatus",
+        "embeddingBackend",
+        "embeddingModel",
+        "embeddingWarning",
     }
     return {key: value for key, value in state.items() if key in allowed_keys}
 
@@ -191,8 +196,23 @@ class JobStore:
     def update(self, job_id: str, updates: dict[str, object]) -> None:
         with self._lock:
             state = self.read(job_id, missing_ok=True)
+            previous_stage = str(state.get("stage") or "")
             state.update(updates)
             state["jobId"] = job_id
+            current_stage = str(updates.get("stage") or "")
+            if current_stage and current_stage != previous_stage:
+                history = list(state.get("stageHistory") or [])
+                history.append(
+                    {
+                        "stage": current_stage,
+                        "hint": str(updates.get("stageHint") or ""),
+                        "timestamp": str(
+                            updates.get("stageUpdatedAt")
+                            or datetime.now(UTC).isoformat()
+                        ),
+                    }
+                )
+                state["stageHistory"] = history[-50:]
             target = self.job_dir(job_id) / "job.json"
             # Write atomically: a concurrent reader (e.g. the /status endpoint,
             # which reads without the lock) must never observe a truncated or
@@ -495,7 +515,9 @@ def create_app():
             state = store.read(job_id)
         except FileNotFoundError as exc:
             raise HTTPException(status_code=404, detail="Job not found") from exc
-        state["progress"] = _read_progress(store.job_dir(job_id))
+        progress = _read_progress(store.job_dir(job_id))
+        progress["overallPercent"] = _overall_build_percent(state, progress)
+        state["progress"] = progress
         store.append_event(job_id, state)
         return state
 
@@ -508,7 +530,9 @@ def create_app():
         events = store.read_events(job_id)
         if not events:
             fallback = dict(state)
-            fallback["progress"] = _read_progress(store.job_dir(job_id))
+            progress = _read_progress(store.job_dir(job_id))
+            progress["overallPercent"] = _overall_build_percent(fallback, progress)
+            fallback["progress"] = progress
             events = [
                 {
                     "timestamp": datetime.now(UTC).isoformat(),
@@ -705,6 +729,23 @@ def _run_job(
             config.concept.extract_instance_relations = False
         profile_config = config.get_profile(profile)
         _apply_profile_overrides(config, profile_config)
+        embedding_requested = bool(
+            use_embedding or config.concept.use_embedding_clustering
+        )
+        if embedding_requested:
+            update_stage("检查 embedding 语义聚类")
+        use_embedding = _prepare_optional_embedding(
+            store=store,
+            job_id=job_id,
+            config=config,
+            requested=embedding_requested,
+        )
+        if embedding_requested:
+            update_stage(
+                "Embedding 语义聚类已启用"
+                if use_embedding
+                else "Embedding 语义聚类已跳过"
+            )
         effective_supplemental = _compose_supplemental(
             profile_config, supplemental_prompt
         )
@@ -1280,6 +1321,10 @@ def _stage_status(stage: str) -> dict[str, object]:
 
 
 def _stage_hint(stage: str) -> str:
+    if "embedding" in stage.lower():
+        if "跳过" in stage:
+            return "未找到可用 embedding key，已降级为名称和证据驱动的确定性聚类。"
+        return "正在检查或调用文本向量模型，用于合并语义相近的候选概念。"
     if "实例" in stage:
         return (
             "实例阶段会读取原始输入并生成实例、属性和实例关系；"
@@ -1298,6 +1343,92 @@ def _stage_hint(stage: str) -> str:
     if "格式化" in stage:
         return "正在生成前端图谱、问答和导出使用的标准结果文件。"
     return ""
+
+
+def _prepare_optional_embedding(
+    *,
+    store: JobStore,
+    job_id: str,
+    config: Any,
+    requested: bool,
+) -> bool:
+    if not requested:
+        store.update(
+            job_id,
+            {
+                "embeddingStatus": "disabled",
+                "embeddingBackend": config.merge.embedding_backend,
+                "embeddingModel": config.merge.embedding_model,
+            },
+        )
+        return False
+    try:
+        client = create_embedding_client(config.merge)
+    except (RuntimeError, ValueError) as exc:
+        config.concept.use_embedding_clustering = False
+        store.update(
+            job_id,
+            {
+                "embeddingStatus": "skipped",
+                "embeddingBackend": config.merge.embedding_backend,
+                "embeddingModel": config.merge.embedding_model,
+                "embeddingWarning": str(exc),
+            },
+        )
+        return False
+    runtime_config = getattr(client, "config", config.merge)
+    store.update(
+        job_id,
+        {
+            "embeddingStatus": "enabled",
+            "embeddingBackend": runtime_config.embedding_backend,
+            "embeddingModel": runtime_config.embedding_model,
+            "embeddingWarning": "",
+        },
+    )
+    config.merge = runtime_config
+    config.concept.use_embedding_clustering = True
+    return True
+
+
+def _overall_build_percent(
+    state: dict[str, object],
+    chunk_progress: dict[str, int | float],
+) -> float:
+    status = str(state.get("status") or "")
+    if status == "completed":
+        return 100.0
+    stage = str(state.get("stage") or "")
+    chunk_percent = float(chunk_progress.get("percent") or 0)
+    if "加载配置" in stage:
+        return 3.0
+    if "embedding" in stage.lower():
+        return 6.0
+    if "分块" in stage:
+        return 9.0
+    if "候选概念抽取" in stage or "chunk 本体抽取" in stage:
+        return round(10.0 + chunk_percent * 0.25, 2)
+    if "聚类" in stage or "初筛" in stage:
+        return 38.0
+    if "全局概念" in stage:
+        return 47.0
+    if "概念关系" in stage or "合并局部" in stage:
+        return 57.0
+    if "真实实例" in stage or "独立实例" in stage:
+        return 70.0
+    if "实例关系" in stage or "实例连通性" in stage:
+        return 82.0
+    if "动作" in stage:
+        return 89.0
+    if "质量" in stage:
+        return 94.0
+    if "格式化" in stage or "写出" in stage:
+        return 98.0
+    if "完成" in stage:
+        return 100.0
+    if status == "failed":
+        return min(99.0, max(4.0, chunk_percent))
+    return min(34.0, max(1.0, chunk_percent * 0.25))
 
 
 def _read_progress(job_dir: Path) -> dict[str, int | float]:

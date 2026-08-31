@@ -473,6 +473,16 @@ button,input,select{font:inherit}
 .progress{display:none;height:4px;margin-top:8px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
 .progress.show{display:block}
 .progress div{height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .25s}
+.buildStageLog{max-height:180px;margin-top:9px;padding:8px 10px;overflow:auto;border:1px solid var(--line);border-radius:9px;background:rgba(4,11,25,.48);font-size:11px;line-height:1.45}
+.buildStageLog[hidden]{display:none}
+.buildStageItem{display:grid;grid-template-columns:58px 14px minmax(0,1fr);gap:5px;padding:3px 0;color:var(--mute)}
+.buildStageItem.current{color:#fff}
+.buildStageItem.failed{color:#ff9aa8}
+.buildStageTime{font-variant-numeric:tabular-nums;color:#7582a3}
+.buildStageMark{color:#6e7b9e}
+.buildStageItem.current .buildStageMark{color:var(--acc2)}
+.buildStageItem.failed .buildStageMark{color:#ff6b7d}
+.buildStageHint{grid-column:3;color:#7f8dac}
 .ontologyBuildWorkflow{display:flex;flex-direction:column;gap:14px}
 .ontologyBuildWorkflow[hidden]{display:none!important}
 .ontologyDescriptionField{margin:0}

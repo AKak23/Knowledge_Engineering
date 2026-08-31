@@ -290,6 +290,8 @@ ontology_construct/configs/default.yaml
 | `DASHSCOPE_API_KEY` | Qwen / DashScope 默认 key |
 | `QWEN_API_KEY` | Qwen 备用 key |
 | `QWEN_EMBEDDING_API_KEY` | Qwen embedding key |
+| `QWEN_EMBEDDING_MODEL` | 覆盖 embedding 模型，默认 `qwen3.7-text-embedding` |
+| `QWEN_EMBEDDING_BASE_URL` | 覆盖 embedding endpoint |
 | `JIUTIAN_API_KEY` | 九天网关 key |
 | `DEEPSEEK_API_KEY` / `DEEPSEEK_API_KEY_2..5` | DeepSeek 主/备用 key，失败后按顺序切换 |
 | `DEEPSEEK_BASE_URL` / `DEEPSEEK_MODEL` | 覆盖 DeepSeek endpoint 和模型 |

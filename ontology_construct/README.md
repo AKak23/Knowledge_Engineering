@@ -91,6 +91,8 @@ DEEPSEEK_API_KEY_2=...
 MOONSHOT_API_KEY=...
 DASHSCOPE_API_KEY=...
 QWEN_EMBEDDING_API_KEY=...
+QWEN_EMBEDDING_MODEL=qwen3.7-text-embedding
+QWEN_EMBEDDING_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 ```
 
 DeepSeek 可配置 `DEEPSEEK_API_KEY` 以及 `_2` 至 `_5` 五个顺序密钥；鉴权、余额/权限、限流或服务端错误时客户端会切换到下一把，并优先复用最近成功的密钥。Kimi 使用 `MOONSHOT_API_KEY`（也兼容 `KIMI_API_KEY`），默认 endpoint 为 `https://api.moonshot.cn/v1`，默认模型为 `kimi-k3`。
@@ -125,11 +127,12 @@ PGUSER=shuaichen
 PGPASSWORD=
 ```
 
-默认 hybrid 构建需要 LLM 和 embedding key；缺少环境变量时任务会失败并在 job status 中显示缺失项。Qwen/DashScope 可配置：
+结构化 hybrid 构建需要 LLM 和 embedding key；非结构化文档构建缺少 embedding key 时会跳过语义聚类并在 job status 中记录原因。Qwen/DashScope 可配置：
 
 ```bash
 DASHSCOPE_API_KEY=...
 QWEN_EMBEDDING_API_KEY=...
+QWEN_EMBEDDING_MODEL=qwen3.7-text-embedding
 ```
 
 构建会额外输出 `database_profile.json`、`structured_candidates.json`、`structured_mapping.json`。LLM 不逐行生成实例；实例按 YAML 中的采样限额从数据库行批量生成。
@@ -242,8 +245,10 @@ scripts/deepseek_smoke.sh
 
 在 `schema-first` / 概念优先模式下，`--use-embedding` 会在概念聚类阶段调用
 Qwen OpenAI-compatible embeddings，将名称不同但语义相近的候选概念合并；默认
-embedding 模型为 `text-embedding-v4`，默认相似度阈值为 `0.9`。API key 查找
-顺序为 `QWEN_EMBEDDING_API_KEY`、`DASHSCOPE_API_KEY`、`QWEN_API_KEY`。
+embedding 模型为 `qwen3.7-text-embedding`，默认相似度阈值为 `0.9`。API key 查找
+顺序为 `QWEN_EMBEDDING_API_KEY`、`DASHSCOPE_API_KEY`、`QWEN_API_KEY`。可通过
+`QWEN_EMBEDDING_MODEL` 和 `QWEN_EMBEDDING_BASE_URL` 覆盖模型与 endpoint；缺少
+key 时，API 文档构建会跳过语义聚类而不是让整个任务失败。
 
 继续导出标准 JSON：
 

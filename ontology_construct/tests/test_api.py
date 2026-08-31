@@ -146,7 +146,7 @@ def test_api_profiles_include_frontend_build_defaults(tmp_path, monkeypatch) -> 
     assert response.status_code == 200
     defaults = response.json()["buildDefaults"]
     assert defaults["defaultProfile"] == "default"
-    assert defaults["defaultBackend"] == "jiutian"
+    assert defaults["defaultBackend"] == "deepseek"
     assert defaults["constructionMode"] == "schema-first"
     assert defaults["replayEnabled"] is True
     assert defaults["maxConcepts"] == 50
@@ -163,10 +163,60 @@ def test_job_store_can_disable_replay_events(tmp_path) -> None:
 
     job_id = store.create()
     store.update(job_id, {"status": "running", "stage": "测试阶段"})
+    store.update(job_id, {"status": "running", "stage": "下一阶段"})
     store.append_event(job_id, {"status": "completed"})
 
-    assert store.read(job_id)["stage"] == "测试阶段"
+    state = store.read(job_id)
+    assert state["stage"] == "下一阶段"
+    assert [item["stage"] for item in state["stageHistory"]] == [
+        "测试阶段",
+        "下一阶段",
+    ]
     assert not (store.job_dir(job_id) / "job_events.jsonl").exists()
+
+
+def test_optional_embedding_missing_key_degrades_instead_of_failing(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    store = api_module.JobStore(root=tmp_path / "api_jobs", replay_enabled=False)
+    job_id = store.create()
+    config = api_module.load_config()
+    monkeypatch.setattr(
+        api_module,
+        "create_embedding_client",
+        lambda _config: (_ for _ in ()).throw(RuntimeError("missing key")),
+    )
+
+    enabled = api_module._prepare_optional_embedding(
+        store=store,
+        job_id=job_id,
+        config=config,
+        requested=True,
+    )
+
+    state = store.read(job_id)
+    assert enabled is False
+    assert state["embeddingStatus"] == "skipped"
+    assert state["embeddingWarning"] == "missing key"
+    assert config.concept.use_embedding_clustering is False
+
+
+def test_overall_progress_advances_after_chunk_extraction() -> None:
+    chunk_progress = {"percent": 100}
+
+    assert api_module._overall_build_percent(
+        {"status": "running", "stage": "候选概念抽取"},
+        chunk_progress,
+    ) == 35.0
+    assert api_module._overall_build_percent(
+        {"status": "running", "stage": "独立实例抽取"},
+        chunk_progress,
+    ) == 70.0
+    assert api_module._overall_build_percent(
+        {"status": "completed", "stage": "已完成"},
+        chunk_progress,
+    ) == 100.0
 
 
 def test_api_builds_schema_first_mock_job(tmp_path, monkeypatch) -> None:
