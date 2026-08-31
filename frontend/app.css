@@ -616,6 +616,7 @@ button,input,select{font:inherit}
 /* Ontology workbench ------------------------------------------------------ */
 .left[data-workbench-view="canvas"] #graph,
 .left[data-workbench-view="instance2d"] #graph{visibility:hidden;pointer-events:none}
+.left[data-workbench-view="canvas3d"] #graph,
 .left[data-workbench-view="instance3d"] #graph{visibility:visible;pointer-events:auto}
 .app[data-page="compare"] .ontologyCanvas2d,
 .app[data-page="compare"] .ontologyInstance2d,

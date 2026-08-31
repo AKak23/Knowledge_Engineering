@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1280,initial-scale=1">
 <title>OntoMind · 本体大模型</title>
-<link rel="stylesheet" href="frontend/app.css?v=20260831-embedding-progress-v1">
+<link rel="stylesheet" href="frontend/app.css?v=20260831-canvas3d-layout-v18">
 </head>
 <body>
 <div class="app" id="appRoot" data-page="main">
@@ -124,6 +124,7 @@
     <div class="toolbar">
       <div class="viewSwitch" role="group" aria-label="图谱视图">
         <button class="viewOption active" id="viewSchema" type="button">本体画布</button>
+        <button class="viewOption" id="viewCanvas3d" type="button">本体画布 3D</button>
         <button class="viewOption" id="viewInstance" type="button">本体实例 2D</button>
         <button class="viewOption" id="viewInstance3d" type="button">本体实例 3D</button>
       </div>
@@ -249,12 +250,12 @@
         <div class="jobMeta" id="jobMeta"></div>
         <div class="progress" id="progressWrap"><div id="progressBar"></div></div>
         <div class="buildStageLog" id="buildStageLog" aria-live="polite" hidden></div>
-        <div class="compareModelSet" hidden aria-hidden="true">
-          <select id="compareBackend0"><option value="jiutian" selected>九天LOM</option></select>
-          <select id="compareBackend1"><option value="jiutian-35b" selected>九天大模型-35B</option></select>
-          <select id="compareBackend2"><option value="qwen-32b" selected>Qwen-32B</option></select>
-        </div>
       </section>
+      <div class="compareModelSet" hidden aria-hidden="true">
+        <select id="compareBackend0"><option value="jiutian" selected>九天LOM</option></select>
+        <select id="compareBackend1"><option value="jiutian-35b" selected>九天大模型-35B</option></select>
+        <select id="compareBackend2"><option value="qwen-32b" selected>Qwen-32B</option></select>
+      </div>
     </div>
 
     <div class="suggestions" id="suggestions"></div>
@@ -321,7 +322,7 @@
 <script src="https://unpkg.com/three@0.152.0/build/three.min.js"></script>
 <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
 <script src="frontend/mock-ontology.js?v=20260827-industrial-v2"></script>
-<script src="frontend/app.js?v=20260831-embedding-progress-v1"></script>
-<script src="frontend/ontology-workbench.js?v=20260828-edge-drag-fix-v14"></script>
+<script src="frontend/app.js?v=20260831-canvas3d-layout-v18"></script>
+<script src="frontend/ontology-workbench.js?v=20260831-canvas3d-layout-v18"></script>
 </body>
 </html>

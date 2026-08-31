@@ -11,7 +11,7 @@
   const CANVAS_ZOOM_STEP = .15;
   const VIEWPORT_PAN_PADDING_X = 520;
   const VIEWPORT_PAN_PADDING_Y = 420;
-  const LABEL_LAYOUT_VERSION = 'anchored-labels-v5';
+  const LABEL_LAYOUT_VERSION = 'readable-edges-v8';
 
   const workbenchDom = {
     left: document.querySelector('.left'),
@@ -49,6 +49,7 @@
     canvasZoomValue: document.getElementById('canvasZoomValue'),
     canvasZoomIn: document.getElementById('canvasZoomIn'),
     viewCanvas: document.getElementById('viewSchema'),
+    viewCanvas3d: document.getElementById('viewCanvas3d'),
     viewInstance2d: document.getElementById('viewInstance'),
     viewInstance3d: document.getElementById('viewInstance3d')
   };
@@ -79,6 +80,7 @@
   let instanceZoom = 1;
   let pendingBuildMeta = null;
   let canvasLayoutNeedsSpread = true;
+  let canvasViewportNeedsFit = false;
 
   const legacyResetHandler = els.btnReset.onclick;
   const legacyRotateHandler = els.btnRotate.onclick;
@@ -150,79 +152,186 @@
     }));
   }
 
-  function spreadNodePositionsForLabels(nodes,edges=[]){
-    if (nodes.length < 2) return nodes;
-    const state = nodes.map((node,index) => ({
-      node,
-      index,
-      x:Number(node.position?.x || 0),
-      y:Number(node.position?.y || 0)
-    }));
-    const reservedWidth = 244;
-    const reservedHeight = 142;
-    for (let iteration = 0; iteration < 140; iteration += 1){
-      let moved = false;
+  function segmentCrosses(a,b,c,d){
+    const orient = (p,q,r) => (q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x);
+    const abC = orient(a,b,c);
+    const abD = orient(a,b,d);
+    const cdA = orient(c,d,a);
+    const cdB = orient(c,d,b);
+    if ([abC,abD,cdA,cdB].some(value => Math.abs(value) < .001)) return false;
+    return (abC > 0) !== (abD > 0) && (cdA > 0) !== (cdB > 0);
+  }
+
+  function pointSegmentDistance(point,start,end){
+    const dx = end.x - start.x;
+    const dy = end.y - start.y;
+    const lengthSquared = dx * dx + dy * dy;
+    if (!lengthSquared) return Math.hypot(point.x - start.x,point.y - start.y);
+    const ratio = Math.max(0,Math.min(1,((point.x - start.x) * dx + (point.y - start.y) * dy) / lengthSquared));
+    return Math.hypot(point.x - (start.x + dx * ratio),point.y - (start.y + dy * ratio));
+  }
+
+  function canvasLayoutScore(state,links){
+    let score = 0;
+    const kindRank = {object:0,rule:1,action:2};
+    const xs = state.map(item => item.x);
+    const minX = Math.min(...xs);
+    const spanX = Math.max(1,Math.max(...xs) - minX);
+    const degrees = state.map(() => 0);
+    links.forEach(link => {
+      degrees[link.source] += 1;
+      degrees[link.target] += 1;
+      const source = state[link.source];
+      const target = state[link.target];
+      const distance = Math.hypot(target.x - source.x,target.y - source.y);
+      score += distance * 5;
+      const sourceRank = kindRank[source.kind] ?? 0;
+      const targetRank = kindRank[target.kind] ?? 0;
+      if (targetRank > sourceRank) score += Math.max(0,source.x + 150 - target.x) * 180;
+    });
+    state.forEach((item,index) => {
+      const anchor = item.kind === 'rule' ? .68 : (item.kind === 'action' ? .9 : .3);
+      score += Math.abs((item.x - minX) / spanX - anchor) * (degrees[index] + 1) * 4200;
+    });
+    const overlapArea = (a,b,padding=5) => {
+      const width = Math.min(a.right,b.right) - Math.max(a.left,b.left) + padding * 2;
+      const height = Math.min(a.bottom,b.bottom) - Math.max(a.top,b.top) + padding * 2;
+      return width > 0 && height > 0 ? width * height : 0;
+    };
+    const nodeBoxes = state.map(item => centeredBox(item.x,item.y + 30,194,96));
+    const edgeBoxes = links.map(link => {
+      const source = state[link.source];
+      const target = state[link.target];
+      return centeredBox((source.x + target.x) / 2,(source.y + target.y) / 2,link.width,link.height);
+    });
+    for (let left = 0; left < nodeBoxes.length; left += 1){
+      for (let right = left + 1; right < nodeBoxes.length; right += 1) score += overlapArea(nodeBoxes[left],nodeBoxes[right],7) * 900;
+    }
+    edgeBoxes.forEach(edgeBox => {
+      nodeBoxes.forEach(nodeBox => {score += overlapArea(edgeBox,nodeBox,6) * 760;});
+    });
+    for (let left = 0; left < edgeBoxes.length; left += 1){
+      for (let right = left + 1; right < edgeBoxes.length; right += 1) score += overlapArea(edgeBoxes[left],edgeBoxes[right],6) * 680;
+    }
+    for (let left = 0; left < links.length; left += 1){
+      const first = links[left];
+      const firstSource = state[first.source];
+      const firstTarget = state[first.target];
+      state.forEach((node,nodeIndex) => {
+        if (nodeIndex === first.source || nodeIndex === first.target) return;
+        const distance = pointSegmentDistance(node,firstSource,firstTarget);
+        if (distance < 88) score += (88 - distance) * 180000;
+      });
+      for (let right = left + 1; right < links.length; right += 1){
+        const second = links[right];
+        if ([first.source,first.target].includes(second.source) || [first.source,first.target].includes(second.target)) continue;
+        if (segmentCrosses(firstSource,firstTarget,state[second.source],state[second.target])) score += 50000000;
+      }
+    }
+    return score;
+  }
+
+  function improveCanvasLayoutBySwapping(state,links,passLimit){
+    let currentScore = canvasLayoutScore(state,links);
+    for (let pass = 0; pass < passLimit; pass += 1){
+      let improved = false;
       for (let left = 0; left < state.length; left += 1){
         for (let right = left + 1; right < state.length; right += 1){
-          const a = state[left];
-          const b = state[right];
-          const aSize = NODE_SIZES[a.node.kind] || [26,26];
-          const bSize = NODE_SIZES[b.node.kind] || [26,26];
-          const dx = (b.x + bSize[0] / 2) - (a.x + aSize[0] / 2);
-          const dy = (b.y + 44) - (a.y + 44);
-          const overlapX = reservedWidth - Math.abs(dx);
-          const overlapY = reservedHeight - Math.abs(dy);
-          if (overlapX <= 0 || overlapY <= 0) continue;
-          moved = true;
-          const direction = ((stableLayoutHash(`${a.node.id}:${b.node.id}`) & 1) ? 1 : -1);
-          if (overlapX / reservedWidth < overlapY / reservedHeight){
-            const push = overlapX / 2 + 2;
-            const sign = dx === 0 ? direction : Math.sign(dx);
-            a.x -= sign * push;
-            b.x += sign * push;
+          const leftPoint = {x:state[left].x,y:state[left].y};
+          state[left].x = state[right].x;
+          state[left].y = state[right].y;
+          state[right].x = leftPoint.x;
+          state[right].y = leftPoint.y;
+          const nextScore = canvasLayoutScore(state,links);
+          if (nextScore + .01 < currentScore){
+            currentScore = nextScore;
+            improved = true;
           }else{
-            const push = overlapY / 2 + 2;
-            const sign = dy === 0 ? direction : Math.sign(dy);
-            a.y -= sign * push;
-            b.y += sign * push;
+            const rightPoint = {x:state[right].x,y:state[right].y};
+            state[right].x = state[left].x;
+            state[right].y = state[left].y;
+            state[left].x = rightPoint.x;
+            state[left].y = rightPoint.y;
           }
         }
       }
-      if (!moved) break;
+      if (!improved) break;
     }
-    const centeredState = state.map(item => ({
-      id:String(item.node.id),
-      x:item.x + (NODE_SIZES[item.node.kind]?.[0] || 26) / 2,
-      y:item.y + (NODE_SIZES[item.node.kind]?.[1] || 26) / 2
-    }));
-    const indexById = Object.fromEntries(centeredState.map((item,index) => [item.id,index]));
-    const anchoredLinks = edges.map(edge => ({
+  }
+
+  function optimizeCanvasNodeCenters(nodes,edges){
+    const nodeCount = nodes.length;
+    const columns = Math.max(2,Math.ceil(Math.sqrt(nodeCount * 1.45)));
+    const rows = Math.ceil(nodeCount / columns);
+    const gapX = 286;
+    const gapY = 174;
+    const slots = [];
+    for (let row = 0; row < rows; row += 1){
+      const rowCount = Math.min(columns,nodeCount - row * columns);
+      const offset = (columns - rowCount) * gapX / 2;
+      for (let column = 0; column < rowCount; column += 1){
+        slots.push({x:176 + offset + column * gapX,y:144 + row * gapY});
+      }
+    }
+    const degreeById = Object.fromEntries(nodes.map(node => [String(node.id),0]));
+    edges.forEach(edge => {
+      if (degreeById[String(edge.source)] !== undefined) degreeById[String(edge.source)] += 1;
+      if (degreeById[String(edge.target)] !== undefined) degreeById[String(edge.target)] += 1;
+    });
+    const kindRank = {object:0,rule:1,action:2};
+    const ordered = [...nodes].sort((left,right) => {
+      const rankDelta = (kindRank[left.kind] ?? 0) - (kindRank[right.kind] ?? 0);
+      if (rankDelta) return rankDelta;
+      const degreeDelta = degreeById[String(right.id)] - degreeById[String(left.id)];
+      return degreeDelta || String(left.id).localeCompare(String(right.id));
+    });
+    const maxX = Math.max(...slots.map(slot => slot.x));
+    const minX = Math.min(...slots.map(slot => slot.x));
+    const centerX = (minX + maxX) / 2;
+    const available = [...slots];
+    const state = [];
+    ordered.forEach(node => {
+      const anchor = node.kind === 'rule' ? .68 : (node.kind === 'action' ? .9 : .3);
+      const targetX = minX + (maxX - minX) * anchor;
+      available.sort((left,right) => {
+        const leftCost = Math.abs(left.x - targetX) * 5 + Math.abs(left.x - centerX) / (degreeById[String(node.id)] + 1);
+        const rightCost = Math.abs(right.x - targetX) * 5 + Math.abs(right.x - centerX) / (degreeById[String(node.id)] + 1);
+        return leftCost - rightCost || left.y - right.y || left.x - right.x;
+      });
+      const slot = available.shift();
+      state.push({id:String(node.id),kind:node.kind,x:slot.x,y:slot.y});
+    });
+    const indexById = Object.fromEntries(state.map((item,index) => [item.id,index]));
+    const links = edges.map(edge => ({
       source:indexById[String(edge.source)],
       target:indexById[String(edge.target)],
       width:Math.max(54,String(edge.label || '关系').length * 13 + 18),
       height:24,
       id:String(edge.id || `${edge.source}:${edge.target}`)
     })).filter(link => Number.isInteger(link.source) && Number.isInteger(link.target) && link.source !== link.target);
+    const passes = nodeCount > 48 ? 2 : 8;
+    improveCanvasLayoutBySwapping(state,links,passes);
+    return {state,links};
+  }
+
+  function spreadNodePositionsForLabels(nodes,edges=[]){
+    if (nodes.length < 2) return nodes;
+    const {state:centeredState,links:anchoredLinks} = optimizeCanvasNodeCenters(nodes,edges);
     relaxAnchoredLabelCollisions(centeredState,anchoredLinks,{
       nodeWidth:194,
       nodeHeight:96,
       nodeOffsetY:30,
-      minX:163,
+      minX:150,
       maxX:Number.POSITIVE_INFINITY,
-      minY:131,
+      minY:118,
       maxY:Number.POSITIVE_INFINITY
     });
-    centeredState.forEach((center,index) => {
-      const size = NODE_SIZES[state[index].node.kind] || [26,26];
-      state[index].x = center.x - size[0] / 2;
-      state[index].y = center.y - size[1] / 2;
-    });
-    const minX = Math.min(...state.map(item => item.x));
-    const minY = Math.min(...state.map(item => item.y));
-    const shiftX = Math.max(0,150 - minX);
-    const shiftY = Math.max(0,118 - minY);
-    state.forEach(item => {
-      item.node.position = {x:item.x + shiftX,y:item.y + shiftY};
+    improveCanvasLayoutBySwapping(centeredState,anchoredLinks,nodes.length > 48 ? 1 : 5);
+    const centerById = Object.fromEntries(centeredState.map(item => [item.id,item]));
+    nodes.forEach(node => {
+      const center = centerById[String(node.id)];
+      const size = NODE_SIZES[node.kind] || [26,26];
+      node.position = {x:center.x - size[0] / 2,y:center.y - size[1] / 2};
     });
     return nodes;
   }
@@ -456,6 +565,7 @@
       matchedInstanceNodeIds = new Set();
       highlightedInstanceEdgeKeys = new Set();
       canvasZoom = 1;
+      canvasViewportNeedsFit = true;
       persistWorkingCopy();
       window.requestAnimationFrame(() => centerCanvasViewport({behavior:'auto'}));
     }
@@ -468,9 +578,12 @@
 
   function syncWorkbenchHeader(){
     if (isComparePage()) return;
-    const viewLabel = workbenchView === 'canvas' ? '本体画布' : (workbenchView === 'instance2d' ? '本体实例 2D' : '本体实例 3D');
-    const count = workbenchView === 'canvas' ? workbenchDraft.nodes.length : (instanceGraph.nodes || []).length;
-    const edgeCount = workbenchView === 'canvas' ? workbenchDraft.edges.length : (instanceGraph.edges || []).length;
+    const canvasView = workbenchView === 'canvas' || workbenchView === 'canvas3d';
+    const viewLabel = workbenchView === 'canvas'
+      ? '本体画布'
+      : (workbenchView === 'canvas3d' ? '本体画布 3D' : (workbenchView === 'instance2d' ? '本体实例 2D' : '本体实例 3D'));
+    const count = canvasView ? workbenchDraft.nodes.length : (instanceGraph.nodes || []).length;
+    const edgeCount = canvasView ? workbenchDraft.edges.length : (instanceGraph.edges || []).length;
     const hasOntology = Boolean(workbenchDraft.id || workbenchDraft.sourceJobId || workbenchDraft.nodes.length || workbenchDraft.dirty);
     const ontologyLabel = hasOntology ? (workbenchDraft.name || '未命名本体') : '尚未加载本体';
     els.ontologyName.textContent = `${ontologyLabel} · ${viewLabel}（${count} 节点 / ${edgeCount} 关系）`;
@@ -481,20 +594,25 @@
     if (compareMode){
       workbenchDom.viewCanvas.textContent = '本体层';
       workbenchDom.viewInstance2d.textContent = '实例层';
+      workbenchDom.viewCanvas3d.hidden = true;
       workbenchDom.viewInstance3d.hidden = true;
       return;
     }
     workbenchDom.viewCanvas.textContent = '本体画布';
+    workbenchDom.viewCanvas3d.textContent = '本体画布 3D';
     workbenchDom.viewInstance2d.textContent = '本体实例 2D';
     workbenchDom.viewInstance3d.textContent = '本体实例 3D';
+    workbenchDom.viewCanvas3d.hidden = false;
     workbenchDom.viewInstance3d.hidden = false;
     workbenchDom.left.dataset.workbenchView = workbenchView;
     workbenchDom.left.classList.toggle('node-descriptions-on',showNodeDescriptions);
     workbenchDom.canvas.hidden = workbenchView !== 'canvas';
     workbenchDom.instance.hidden = workbenchView !== 'instance2d';
     workbenchDom.viewCanvas.classList.toggle('active', workbenchView === 'canvas');
+    workbenchDom.viewCanvas3d.classList.toggle('active', workbenchView === 'canvas3d');
     workbenchDom.viewInstance2d.classList.toggle('active', workbenchView === 'instance2d');
     workbenchDom.viewInstance3d.classList.toggle('active', workbenchView === 'instance3d');
+    workbenchDom.viewCanvas3d.disabled = false;
     workbenchDom.viewInstance2d.disabled = false;
     workbenchDom.viewInstance3d.disabled = false;
     workbenchDom.toolbar.querySelectorAll('[data-workbench-command="new-object"],[data-workbench-command="new-relation"],[data-workbench-command="new-rule"],[data-workbench-command="new-action"]').forEach(button => {
@@ -510,11 +628,11 @@
     }
     const saveButton = workbenchDom.toolbar.querySelector('[data-workbench-command="save"]');
     saveButton?.classList.toggle('dirty', Boolean(workbenchDraft.dirty));
-    els.btnRotate.disabled = workbenchView !== 'instance3d';
+    els.btnRotate.disabled = workbenchView !== 'canvas3d' && workbenchView !== 'instance3d';
     els.btnLabels.disabled = false;
     els.btnLabels.textContent = `节点描述：${showNodeDescriptions ? '开' : '关'}`;
     els.btnLabels.classList.toggle('active',showNodeDescriptions);
-    if (workbenchDom.rulePanel) workbenchDom.rulePanel.hidden = workbenchView === 'canvas';
+    if (workbenchDom.rulePanel) workbenchDom.rulePanel.hidden = workbenchView === 'canvas' || workbenchView === 'canvas3d';
     if (workbenchDom.canvasLegendPanel) workbenchDom.canvasLegendPanel.hidden = workbenchView !== 'canvas';
     const active2dZoom = workbenchView === 'instance2d' ? instanceZoom : canvasZoom;
     const has2dZoom = workbenchView === 'canvas' || workbenchView === 'instance2d';
@@ -540,14 +658,15 @@
       else await switchGraphView('instance');
       return;
     }
-    if (!['canvas','instance2d','instance3d'].includes(nextView)) return;
+    if (!['canvas','canvas3d','instance2d','instance3d'].includes(nextView)) return;
     workbenchView = nextView;
     cancelRelationMode(false);
     hideInfo();
     syncWorkbenchControls();
-    if (nextView === 'canvas'){
+    if (nextView === 'canvas' || nextView === 'canvas3d'){
       if (currentJobId && currentGraphView !== 'schema') await switchGraphView('schema');
-      renderCanvas();
+      if (nextView === 'canvas') renderCanvas();
+      else renderCanvas3d();
     }else{
       if (currentJobId && currentGraphView !== 'instance') await switchGraphView('instance');
       if (nextView === 'instance2d') renderInstance2d();
@@ -611,6 +730,23 @@
     return {minX,minY,maxX,maxY};
   }
 
+  function canvasReadableBounds(){
+    if (!workbenchDraft.nodes.length) return canvasGraphBounds();
+    const minX = Math.min(...workbenchDraft.nodes.map(node => Number(node.position?.x || 0) - 88));
+    const minY = Math.min(...workbenchDraft.nodes.map(node => Number(node.position?.y || 0) - 18));
+    const maxX = Math.max(...workbenchDraft.nodes.map(node => Number(node.position?.x || 0) + 114));
+    const maxY = Math.max(...workbenchDraft.nodes.map(node => Number(node.position?.y || 0) + 92));
+    return {minX,minY,maxX,maxY,width:maxX - minX,height:maxY - minY};
+  }
+
+  function fittedCanvasZoom(){
+    const bounds = canvasReadableBounds();
+    const availableWidth = Math.max(360,(workbenchDom.canvas.clientWidth || 1040) - 110);
+    const availableHeight = Math.max(260,(workbenchDom.canvas.clientHeight || 720) - 170);
+    const zoom = Math.min(1,availableWidth / Math.max(1,bounds.width),availableHeight / Math.max(1,bounds.height)) * .96;
+    return Math.min(1,Math.max(.35,zoom));
+  }
+
   function canvasViewportFocus(){
     return {
       x:Math.max(workbenchDom.canvas.clientWidth / 2,Math.min(workbenchDom.canvas.clientWidth - 120,460)),
@@ -644,6 +780,10 @@
 
   function renderCanvas(){
     spreadCanvasForDescriptions();
+    if (canvasViewportNeedsFit){
+      canvasZoom = fittedCanvasZoom();
+      canvasViewportNeedsFit = false;
+    }
     const metrics = syncCanvasStageExtent();
     workbenchDom.canvasNodes.innerHTML = '';
     workbenchDom.canvasEmpty.hidden = workbenchDraft.nodes.length > 0;
@@ -811,6 +951,8 @@
       const group = document.createElementNS(SVG_NS,'g');
       group.setAttribute('class', `ontologyEdgeGroup ${canvasRelationClass(source,target)}${selectedDraftEdgeId === edge.id ? ' selected' : ''}${ruleRelated ? ' rule-related' : ''}${ruleDimmed ? ' dimmed' : ''}`);
       group.dataset.edgeId = edge.id;
+      group.dataset.sourceId = edge.source;
+      group.dataset.targetId = edge.target;
       const line = document.createElementNS(SVG_NS,'line');
       line.setAttribute('class','ontologyEdgeLine');
       line.setAttribute('x1',String(start.x));
@@ -1044,6 +1186,64 @@
     applyHighlight({nodes:[...highlightedInstanceNodeIds],edges,fit:true});
   }
 
+  function draftGraphFor3d(){
+    const nodes = workbenchDraft.nodes.map(node => {
+      const codeLabel = node.kind === 'rule' ? '规则编码' : (node.kind === 'action' ? '行动编码' : '对象编码');
+      const attrs = {
+        [codeLabel]:node.details?.code || node.id,
+        说明:node.details?.description || '',
+        状态:node.details?.status || 'draft'
+      };
+      if (node.kind === 'object'){
+        (node.details?.attributes || []).forEach(attribute => {
+          if (attribute.name) attrs[attribute.name] = attribute.value ?? '';
+        });
+        attrs['实例数量'] = node.details?.instanceCount || node.details?.instanceIds?.length || 0;
+      }
+      if (node.details?.sourceChunks?.length) attrs['来源分块'] = node.details.sourceChunks.join('、');
+      return {
+        id:node.id,
+        label:node.label,
+        type:KIND_LABELS[node.kind] || '本体元素',
+        attrs,
+        workbench:{kind:node.kind,position:{...node.position},details:{...node.details}}
+      };
+    });
+    const edges = workbenchDraft.edges.map(edge => ({
+      id:edge.id,
+      source:edge.source,
+      target:edge.target,
+      rel:edge.label || '关联',
+      workbench:{
+        cardinality:edge.cardinality || 'N:N',
+        description:edge.description || '',
+        dataMapping:edge.dataMapping || '',
+        origin:edge.origin || 'manual'
+      }
+    }));
+    return {
+      ontology:{
+        ontologyId:workbenchDraft.id || workbenchDraft.sourceJobId || 'workbench-draft',
+        ontologyName:workbenchDraft.name || '未命名本体',
+        ontologyDesc:workbenchDraft.description || '',
+        graphView:'schema',
+        availableViews:['schema','instance'],
+        workbench3d:true
+      },
+      nodes,
+      edges
+    };
+  }
+
+  function renderCanvas3d(){
+    if (typeof renderGraph !== 'function') return;
+    renderGraph(draftGraphFor3d());
+    syncLegacyLabelState();
+    window.setTimeout(() => {
+      if (typeof resizeGraphs === 'function') resizeGraphs();
+    },30);
+  }
+
   function syncLegacyLabelState(){
     try{
       if (typeof showAllLabels !== 'undefined' && showAllLabels !== showNodeDescriptions) legacyLabelsHandler?.();
@@ -1055,7 +1255,7 @@
   function toggleNodeDescriptions(){
     showNodeDescriptions = !showNodeDescriptions;
     workbenchDom.left.classList.toggle('node-descriptions-on',showNodeDescriptions);
-    if (workbenchView === 'instance3d') syncLegacyLabelState();
+    if (workbenchView === 'canvas3d' || workbenchView === 'instance3d') syncLegacyLabelState();
     syncWorkbenchControls();
   }
 
@@ -2293,6 +2493,7 @@
     handleToolbarCommand(button.dataset.workbenchCommand);
   });
   workbenchDom.viewCanvas.onclick = () => switchWorkbenchView('canvas');
+  workbenchDom.viewCanvas3d.onclick = () => switchWorkbenchView('canvas3d');
   workbenchDom.viewInstance2d.onclick = () => switchWorkbenchView('instance2d');
   workbenchDom.viewInstance3d.onclick = () => switchWorkbenchView('instance3d');
   if (workbenchDom.canvasZoomOut) workbenchDom.canvasZoomOut.onclick = () => workbenchView === 'instance2d'
@@ -2392,6 +2593,9 @@
   window.addEventListener('lom:ontology-replay-started', () => {
     if (modalContext?.type === 'new-ontology') closeModal();
   });
+  window.addEventListener('lom:ontology-build-completed', () => {
+    if (modalContext?.type === 'new-ontology') closeModal();
+  });
   window.addEventListener('lom:page-changed', () => syncWorkbenchControls());
   window.addEventListener('resize', () => {
     if (workbenchView === 'canvas') renderCanvas();
@@ -2404,7 +2608,7 @@
     else if (workbenchView === 'instance2d') resetInstanceViewport();
     else legacyResetHandler?.();
   };
-  els.btnRotate.onclick = () => workbenchView === 'instance3d' && legacyRotateHandler?.();
+  els.btnRotate.onclick = () => (workbenchView === 'canvas3d' || workbenchView === 'instance3d') && legacyRotateHandler?.();
   els.btnLabels.onclick = () => {
     if (isComparePage()) return legacyLabelsHandler?.();
     toggleNodeDescriptions();

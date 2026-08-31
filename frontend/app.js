@@ -1853,6 +1853,7 @@ async function pollJob(jobId, fileName){
     if (state.status === 'completed'){
       els.progressBar.style.width = '100%';
       await loadGraph(jobId);
+      window.dispatchEvent(new CustomEvent('lom:ontology-build-completed', {detail:{jobId}}));
       setUploadControlsDisabled(false);
       setBuildOptionsDisabled(false);
       els.send.disabled = false;
