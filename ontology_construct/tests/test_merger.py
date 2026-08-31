@@ -16,6 +16,8 @@ from ontology_construct.models import (
     LocalOntology,
     OntologyAction,
     OntologyInstance,
+    OntologyRule,
+    RuleCondition,
     Triple,
 )
 
@@ -272,6 +274,83 @@ def test_ontology_merger_remaps_instance_links_and_invocations() -> None:
     invocation = merged.action_invocations[0]
     assert invocation.input_instance_ids == [zhangsan.id]
     assert invocation.output_instance_ids == [order.id]
+
+
+def test_ontology_merger_remaps_rules_and_action_triggers() -> None:
+    local_a = LocalOntology(
+        chunk_id="chunk_0001",
+        entities=[Entity(id="e1", name="设备")],
+        rules=[
+            OntologyRule(
+                id="r1",
+                name="高温冷却规则",
+                scope_entity_id="e1",
+                conditions=[
+                    RuleCondition(
+                        id="c1",
+                        field="温度",
+                        operator=">",
+                        value=30,
+                        value_type="number",
+                    )
+                ],
+                confidence=0.8,
+                source_chunks=["chunk_0001"],
+            )
+        ],
+        actions=[
+            OntologyAction(
+                id="a1",
+                name="启动水冷",
+                input_entity_ids=["e1"],
+                target_entity_ids=["e1"],
+                trigger_rule_ids=["r1"],
+                source_chunks=["chunk_0001"],
+            )
+        ],
+    )
+    local_b = LocalOntology(
+        chunk_id="chunk_0002",
+        entities=[Entity(id="x1", name="设备")],
+        rules=[
+            OntologyRule(
+                id="policy_1",
+                name="高温冷却规则",
+                scope_entity_id="x1",
+                conditions=[
+                    RuleCondition(
+                        id="other",
+                        field="温度",
+                        operator=">",
+                        value=30,
+                        value_type="number",
+                    )
+                ],
+                confidence=0.98,
+                source_chunks=["chunk_0002"],
+            )
+        ],
+        actions=[
+            OntologyAction(
+                id="a2",
+                name="启动水冷",
+                input_entity_ids=["x1"],
+                target_entity_ids=["x1"],
+                trigger_rule_ids=["policy_1"],
+                source_chunks=["chunk_0002"],
+            )
+        ],
+    )
+
+    merged = OntologyMerger().merge([local_a, local_b])
+
+    assert len(merged.rules) == 1
+    assert merged.rules[0].scope_entity_id == "g000001"
+    assert merged.rules[0].source_chunks == ["chunk_0001", "chunk_0002"]
+    assert merged.rules[0].confidence == 0.98
+    assert len(merged.actions) == 1
+    assert merged.actions[0].trigger_rule_ids == [merged.rules[0].id]
+    assert merged.actions[0].target_entity_ids == ["g000001"]
 
 
 def test_merge_entity_groups_remerges_instances_after_class_collapse() -> None:

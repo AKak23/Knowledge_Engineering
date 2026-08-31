@@ -3,6 +3,7 @@ from ontology_construct.models import (
     GlobalOntology,
     LocalOntology,
     OntologyInstance,
+    RuleCondition,
     Triple,
 )
 from ontology_construct.storage import load_json_model, save_json_model
@@ -82,3 +83,12 @@ def test_ontology_instance_marks_legacy_unbound_payload() -> None:
     instance = OntologyInstance.model_validate(legacy)
 
     assert instance.is_unbound is True
+
+
+def test_rule_condition_requires_value_except_for_null_operators() -> None:
+    with pytest.raises(ValueError, match="requires value"):
+        RuleCondition(id="c1", field="温度", operator=">")
+
+    condition = RuleCondition(id="c2", field="告警码", operator="为空")
+
+    assert condition.value is None

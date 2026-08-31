@@ -499,6 +499,10 @@ def _create_kimi_client(config: LLMConfig) -> OpenAICompatibleChatClient:
             "base_url": os.environ.get("KIMI_BASE_URL", KIMI_DEFAULT_BASE_URL),
             "model": os.environ.get("KIMI_MODEL", KIMI_DEFAULT_MODEL),
             "api_key_env": api_key_env,
+            # Kimi K3 currently requires temperature=1. Keep a dedicated
+            # override so the global extraction temperature can remain low
+            # for providers that support deterministic sampling.
+            "temperature": float(os.environ.get("KIMI_TEMPERATURE", "1")),
             "enable_thinking": None,
             "extra_body": extra_body or None,
         }
@@ -545,7 +549,7 @@ def _is_failover_error(error: RuntimeError) -> bool:
     cause = error.__cause__
     if isinstance(cause, httpx.HTTPStatusError):
         status = cause.response.status_code
-        return status in {401, 402, 403, 408, 409, 429} or status >= 500
+        return status in {401, 402, 403, 408, 429} or status >= 500
     return isinstance(
         cause,
         (httpx.HTTPError, KeyError, IndexError, OSError),

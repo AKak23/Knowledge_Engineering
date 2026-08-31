@@ -539,6 +539,12 @@ def build_command(
                 backend=backend,
                 output_dir=output_dir,
             )
+            global_ontology, _action_stats = _apply_action_builder(
+                global_ontology=global_ontology,
+                config=config,
+                profile_config=profile_config,
+                output_dir=output_dir,
+            )
             _save_build_outputs(
                 global_ontology=global_ontology,
                 output_dir=output_dir,

@@ -190,6 +190,52 @@ def test_parse_local_ontology_accepts_actions_and_instances() -> None:
     assert ontology.action_invocations[0].output_instance_ids == ["i2"]
 
 
+def test_parse_local_ontology_extracts_structured_rules_and_triggered_actions() -> None:
+    raw = """
+    {
+      "entities": [{"id": "e1", "name": "设备"}],
+      "triples": [],
+      "rules": [
+        {
+          "id": "r1",
+          "name": "高温冷却规则",
+          "scope": "设备",
+          "logic": "and",
+          "conditions": [
+            {"id": "c1", "field": "温度", "operator": "≥", "value": 30, "value_type": "number"}
+          ],
+          "confidence": 0.96
+        }
+      ],
+      "actions": [
+        {
+          "id": "a1",
+          "name": "启动水冷",
+          "inputs": ["设备"],
+          "targets": ["e1"],
+          "trigger_rules": ["高温冷却规则"],
+          "action_type": "control",
+          "executor": "plc.start_water_cooling",
+          "action_plan": "启动水冷"
+        }
+      ]
+    }
+    """
+
+    ontology = parse_local_ontology(raw, "chunk_0001")
+
+    assert len(ontology.rules) == 1
+    rule = ontology.rules[0]
+    assert rule.scope_entity_id == "e1"
+    assert rule.logic == "AND"
+    assert rule.conditions[0].operator == ">="
+    assert rule.conditions[0].value == 30
+    action = ontology.actions[0]
+    assert action.trigger_rule_ids == ["r1"]
+    assert action.target_entity_ids == ["e1"]
+    assert action.executor == "plc.start_water_cooling"
+
+
 def test_parse_local_ontology_skips_name_index_on_collision() -> None:
     # Two instances share the name "张三" but belong to different classes.
     # The third instance references "张三" by name in its link_values — without

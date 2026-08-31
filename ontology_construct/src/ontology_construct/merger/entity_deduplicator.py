@@ -104,9 +104,24 @@ def merge_entity_groups(
                     action.output_entity_ids,
                     canonical_by_id,
                 ),
+                "target_entity_ids": _remap_ids(
+                    action.target_entity_ids,
+                    canonical_by_id,
+                ),
             }
         )
         for action in ontology.actions
+    ]
+    remapped_rules = [
+        rule.model_copy(
+            update={
+                "scope_entity_id": canonical_by_id.get(
+                    rule.scope_entity_id,
+                    rule.scope_entity_id,
+                )
+            }
+        )
+        for rule in ontology.rules
     ]
     remapped_instances = [
         instance.model_copy(
@@ -123,6 +138,7 @@ def merge_entity_groups(
     return GlobalOntology.from_entities_and_triples(
         list(merged_entities.values()),
         deduped_triples,
+        rules=remapped_rules,
         actions=remapped_actions,
         instances=merged_instances,
         action_invocations=remapped_invocations,

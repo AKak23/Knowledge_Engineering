@@ -1288,6 +1288,7 @@ def _merge_formatted_ontology_records(records: list[Any]) -> dict[str, Any]:
         "ontology": None,
         "objects": [],
         "links": [],
+        "rules": [],
         "actions": [],
         "instances": [],
         "actionInvocations": [],
@@ -1315,6 +1316,7 @@ def _merge_section_record(merged: dict[str, Any], record: dict[str, Any]) -> boo
         "ontology",
         "objects",
         "links",
+        "rules",
         "actions",
         "instances",
         "actionInvocations",
@@ -1361,6 +1363,10 @@ def _ontology_jsonl_section(value: str) -> str | None:
         "objects": "objects",
         "link": "links",
         "links": "links",
+        "rule": "rules",
+        "rules": "rules",
+        "businessrule": "rules",
+        "businessrules": "rules",
         "action": "actions",
         "actions": "actions",
         "instance": "instances",
@@ -1378,6 +1384,8 @@ def _infer_ontology_item_section(record: dict[str, Any]) -> str | None:
         return "objects"
     if "linkId" in record and "sourceObjectId" in record and "targetObjectId" in record:
         return "links"
+    if "ruleId" in record and "ruleName" in record:
+        return "rules"
     if "actionId" in record and "actionName" in record:
         return "actions"
     if "instanceId" in record and "instanceName" in record:
@@ -1455,6 +1463,7 @@ def _job_summary(job_dir: Path) -> dict[str, object] | None:
         "extractRealInstances": state.get("extractRealInstances"),
         "objectCount": len(result.get("objects") or []),
         "linkCount": len(result.get("links") or []),
+        "ruleCount": len(result.get("rules") or []),
         "instanceCount": len(instances),
         "instanceLinkCount": instance_links,
         "hasCanonical": (job_dir / "schema.json").exists() and (job_dir / "graph.json").exists(),

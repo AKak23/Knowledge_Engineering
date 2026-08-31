@@ -8,9 +8,12 @@ from pydantic import ValidationError
 
 from ontology_construct.concept.models import (
     ChunkConceptCandidates,
+    ConceptActionCandidate,
     ConceptCandidate,
     ConceptInstanceCandidate,
+    ConceptRuleCandidate,
     RelationCandidate,
+    RuleConditionCandidate,
 )
 
 
@@ -64,13 +67,159 @@ def parse_concept_candidates(
         if isinstance(instance_items, list)
         else []
     )
+    rule_items = _first_present(data, ["rules", "business_rules", "policies"]) or []
+    action_items = _first_present(data, ["actions", "operations"]) or []
+    rules = (
+        _parse_rule_items(rule_items, alias_to_name, concept_names)
+        if isinstance(rule_items, list)
+        else []
+    )
+    actions = (
+        _parse_action_items(action_items, alias_to_name, concept_names, rules)
+        if isinstance(action_items, list)
+        else []
+    )
     return ChunkConceptCandidates(
         chunk_id=chunk_id,
         concepts=concepts,
         relations=relations,
         instances=instances,
+        rules=rules,
+        actions=actions,
         raw_response=raw_response,
     )
+
+
+def _parse_rule_items(
+    rule_items: list[Any],
+    alias_to_name: dict[str, str],
+    concept_names: set[str],
+) -> list[ConceptRuleCandidate]:
+    rules: list[ConceptRuleCandidate] = []
+    for index, item in enumerate(rule_items, start=1):
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name") or item.get("rule_name") or "").strip()
+        scope = str(
+            item.get("scope")
+            or item.get("scope_object")
+            or item.get("scopeObject")
+            or item.get("object")
+            or ""
+        ).strip()
+        scope = alias_to_name.get(scope, scope)
+        if not name or scope not in concept_names:
+            continue
+        conditions = _parse_rule_conditions(item.get("conditions") or [])
+        if not conditions:
+            continue
+        logic = str(item.get("logic") or "AND").strip().upper()
+        if logic not in {"AND", "OR"}:
+            logic = "AND"
+        try:
+            rules.append(
+                ConceptRuleCandidate(
+                    id=str(item.get("id") or item.get("rule_id") or f"r{index}"),
+                    name=name,
+                    description=str(item.get("description") or item.get("desc") or ""),
+                    scope=scope,
+                    logic=logic,
+                    conditions=conditions,
+                    evidence=_parse_strings(item.get("evidence", [])),
+                    confidence=float(item.get("confidence", 1.0)),
+                )
+            )
+        except (TypeError, ValueError, ValidationError):
+            continue
+    return rules
+
+
+def _parse_rule_conditions(items: Any) -> list[RuleConditionCandidate]:
+    if not isinstance(items, list):
+        return []
+    conditions: list[RuleConditionCandidate] = []
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            continue
+        field = str(
+            item.get("field")
+            or item.get("attribute")
+            or item.get("property")
+            or ""
+        ).strip()
+        operator = _normalize_rule_operator(
+            str(item.get("operator") or item.get("op") or "")
+        )
+        if not field or operator is None:
+            continue
+        value = item.get("value")
+        if value is None and operator not in {"为空", "不为空"}:
+            continue
+        raw_value_type = item.get("value_type") or item.get("valueType")
+        value_type = _normalize_value_type(raw_value_type, value)
+        try:
+            conditions.append(
+                RuleConditionCandidate(
+                    id=str(item.get("id") or item.get("condition_id") or f"c{index}"),
+                    field=field,
+                    operator=operator,
+                    value=value,
+                    value_type=value_type,
+                )
+            )
+        except (TypeError, ValueError, ValidationError):
+            continue
+    return conditions
+
+
+def _parse_action_items(
+    action_items: list[Any],
+    alias_to_name: dict[str, str],
+    concept_names: set[str],
+    rules: list[ConceptRuleCandidate],
+) -> list[ConceptActionCandidate]:
+    rule_refs = {rule.id for rule in rules} | {rule.name for rule in rules}
+    actions: list[ConceptActionCandidate] = []
+    for index, item in enumerate(action_items, start=1):
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name") or item.get("action_name") or "").strip()
+        if not name:
+            continue
+
+        def concept_refs(*keys: str) -> list[str]:
+            payload = _first_present(item, list(keys))
+            values = _parse_strings(payload or [])
+            resolved = [alias_to_name.get(value, value) for value in values]
+            return list(dict.fromkeys(value for value in resolved if value in concept_names))
+
+        trigger_payload = _first_present(
+            item,
+            ["trigger_rules", "triggerRules", "trigger_rule", "triggerRule"],
+        )
+        trigger_rules = [
+            value for value in _parse_strings(trigger_payload or []) if value in rule_refs
+        ]
+        try:
+            actions.append(
+                ConceptActionCandidate(
+                    id=str(item.get("id") or item.get("action_id") or f"a{index}"),
+                    name=name,
+                    description=str(item.get("description") or item.get("desc") or ""),
+                    inputs=concept_refs("inputs", "input_objects", "inputObjects"),
+                    outputs=concept_refs("outputs", "output_objects", "outputObjects"),
+                    targets=concept_refs("targets", "target_objects", "targetObjects", "target"),
+                    trigger_rules=trigger_rules,
+                    action_type=str(item.get("action_type") or item.get("actionType") or "ontology"),
+                    executor=str(item.get("executor") or ""),
+                    action_plan=str(item.get("action_plan") or item.get("actionPlan") or ""),
+                    feedback=str(item.get("feedback") or ""),
+                    evidence=_parse_strings(item.get("evidence", [])),
+                )
+            )
+        except (TypeError, ValueError, ValidationError):
+            continue
+    return actions
 
 
 def parse_controlled_relations(
@@ -265,6 +414,65 @@ def _closest_vocab(predicate: str, relation_vocab: list[str]) -> str:
         if item in predicate or predicate in item:
             return item
     return "关联" if "关联" in relation_vocab else relation_vocab[0]
+
+
+def _normalize_rule_operator(value: str) -> str | None:
+    normalized = value.strip().lower().replace(" ", "")
+    aliases = {
+        "为空": "为空",
+        "isnull": "为空",
+        "null": "为空",
+        "不为空": "不为空",
+        "notnull": "不为空",
+        "isnotnull": "不为空",
+        "包含": "包含",
+        "contains": "包含",
+        "不包含": "不包含",
+        "notcontains": "不包含",
+        "=": "=",
+        "==": "=",
+        "eq": "=",
+        "!=": "!=",
+        "≠": "!=",
+        "ne": "!=",
+        ">": ">",
+        "gt": ">",
+        ">=": ">=",
+        "≥": ">=",
+        "gte": ">=",
+        "<": "<",
+        "lt": "<",
+        "<=": "<=",
+        "≤": "<=",
+        "lte": "<=",
+    }
+    return aliases.get(normalized)
+
+
+def _normalize_value_type(value_type: Any, value: Any) -> str:
+    normalized = str(value_type or "").strip().lower()
+    aliases = {
+        "str": "string",
+        "string": "string",
+        "text": "string",
+        "int": "integer",
+        "integer": "integer",
+        "float": "number",
+        "double": "number",
+        "decimal": "number",
+        "number": "number",
+        "bool": "boolean",
+        "boolean": "boolean",
+    }
+    if normalized in aliases:
+        return aliases[normalized]
+    if isinstance(value, bool):
+        return "boolean"
+    if isinstance(value, int):
+        return "integer"
+    if isinstance(value, float):
+        return "number"
+    return "string"
 
 
 def _parse_strings(value: Any) -> list[str]:

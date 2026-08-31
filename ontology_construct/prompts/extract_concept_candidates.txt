@@ -1,4 +1,4 @@
-你是一个本体建模专家。请从下面文本中抽取“概括性概念候选”和“概念之间的候选关系”，只输出合法 JSON。
+你是一个本体建模专家。请从下面文本中抽取概念、关系、结构化业务规则和规则对应的行动，只输出合法 JSON。
 
 目标：
 - 构建简洁的概念层本体，不要构建事实流水账。
@@ -31,11 +31,45 @@
       "evidence": ["支撑关系的短证据句，最多 2 条"],
       "confidence": 0.0
     }
+  ],
+  "rules": [
+    {
+      "id": "r1",
+      "name": "高温冷却规则",
+      "description": "温度超过阈值时需要冷却",
+      "scope": "设备",
+      "logic": "AND",
+      "conditions": [
+        {"id": "c1", "field": "温度", "operator": ">", "value": 30, "value_type": "number"}
+      ],
+      "evidence": ["支撑该规则的短证据句"],
+      "confidence": 0.0
+    }
+  ],
+  "actions": [
+    {
+      "id": "a1",
+      "name": "启动水冷",
+      "description": "启动设备水冷系统",
+      "inputs": ["设备"],
+      "outputs": [],
+      "targets": ["设备"],
+      "trigger_rules": ["r1"],
+      "action_type": "control",
+      "executor": "",
+      "action_plan": "启动水冷",
+      "feedback": "",
+      "evidence": ["支撑该行动的短证据句"]
+    }
   ]
 }
 
 约束：
 - source 和 target 必须引用 concepts 中已经输出的 name 或 aliases。
+- rules 只抽取文本明确表达的“如果/当/若条件成立，则……”判定；scope 必须引用 concepts 中的 name 或 aliases。
+- 规则条件只使用结构化字段，operator 只能是：为空、不为空、包含、不包含、=、!=、>、>=、<、<=。
+- actions 只抽取与规则结果对应的业务行动；inputs/outputs/targets 引用 concepts，trigger_rules 引用本次输出的规则 id 或 name。
+- 每个 chunk 最多输出 5 个 rules 和 5 个 actions；没有明确规则时输出空数组，不得猜测阈值。
 - 如果文本只提供具体实例，请把它们概括为类型后输出。
 - 如果信息不足，输出空数组。
 - 不要输出 Markdown，不要解释。

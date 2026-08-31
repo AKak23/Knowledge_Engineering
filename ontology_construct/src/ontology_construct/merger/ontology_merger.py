@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import json
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -16,6 +17,7 @@ from ontology_construct.models import (
     LocalOntology,
     OntologyAction,
     OntologyInstance,
+    OntologyRule,
     Triple,
 )
 
@@ -44,8 +46,14 @@ class OntologyMerger:
                 local_to_global[(local.chunk_id, entity.id)] = global_id
 
         triples = self._merge_triples(local_ontologies, local_to_global)
+        rules, local_to_global_rule = self._merge_rules(
+            local_ontologies,
+            local_to_global,
+        )
         actions, action_name_canonical = self._merge_actions(
-            local_ontologies, local_to_global
+            local_ontologies,
+            local_to_global,
+            local_to_global_rule,
         )
         instances, local_to_global_instance = self._merge_instances(
             local_ontologies, local_to_global
@@ -59,6 +67,7 @@ class OntologyMerger:
         return GlobalOntology.from_entities_and_triples(
             entities,
             triples,
+            rules=rules,
             actions=actions,
             instances=instances,
             action_invocations=action_invocations,
@@ -144,10 +153,65 @@ class OntologyMerger:
                 )
         return list(triples_by_key.values())
 
+    def _merge_rules(
+        self,
+        local_ontologies: list[LocalOntology],
+        local_to_global: dict[tuple[str, str], str],
+    ) -> tuple[list[OntologyRule], dict[tuple[str, str], str]]:
+        rules_by_key: dict[tuple[object, ...], OntologyRule] = {}
+        local_to_global_rule: dict[tuple[str, str], str] = {}
+        for local in local_ontologies:
+            for rule in local.rules:
+                scope_id = local_to_global.get((local.chunk_id, rule.scope_entity_id))
+                if not scope_id:
+                    continue
+                condition_key = tuple(
+                    (
+                        condition.field,
+                        condition.operator,
+                        json.dumps(
+                            condition.value,
+                            ensure_ascii=False,
+                            sort_keys=True,
+                            default=str,
+                        ),
+                        condition.value_type,
+                    )
+                    for condition in rule.conditions
+                )
+                key = (
+                    normalize_name(rule.name),
+                    scope_id,
+                    rule.logic,
+                    condition_key,
+                )
+                existing = rules_by_key.get(key)
+                if existing is None:
+                    existing = rule.model_copy(
+                        update={
+                            "id": f"rule_{len(rules_by_key) + 1:06d}",
+                            "scope_entity_id": scope_id,
+                        }
+                    )
+                    rules_by_key[key] = existing
+                else:
+                    existing.confidence = max(existing.confidence, rule.confidence)
+                    existing.source_chunks = _dedupe(
+                        [*existing.source_chunks, *rule.source_chunks]
+                    )
+                    if not existing.description and rule.description:
+                        existing.description = rule.description
+                local_to_global_rule[(local.chunk_id, rule.id)] = existing.id
+                local_to_global_rule[(local.chunk_id, normalize_name(rule.name))] = (
+                    existing.id
+                )
+        return list(rules_by_key.values()), local_to_global_rule
+
     def _merge_actions(
         self,
         local_ontologies: list[LocalOntology],
         local_to_global: dict[tuple[str, str], str],
+        local_to_global_rule: dict[tuple[str, str], str],
     ) -> tuple[list[OntologyAction], dict[str, str]]:
         actions_by_key: dict[tuple[object, ...], OntologyAction] = {}
         # Maps every variant spelling seen in local actions back to the
@@ -166,16 +230,38 @@ class OntologyMerger:
                     local.chunk_id,
                     local_to_global,
                 )
+                target_ids = _remap_ids(
+                    action.target_entity_ids,
+                    local.chunk_id,
+                    local_to_global,
+                )
+                trigger_rule_ids = _dedupe(
+                    [
+                        global_id
+                        for rule_id in action.trigger_rule_ids
+                        if (
+                            global_id := local_to_global_rule.get(
+                                (local.chunk_id, rule_id)
+                            )
+                            or local_to_global_rule.get(
+                                (local.chunk_id, normalize_name(rule_id))
+                            )
+                        )
+                    ]
+                )
                 key = (
                     normalize_name(action.name),
                     tuple(input_ids),
                     tuple(output_ids),
+                    tuple(target_ids),
                 )
                 updated = action.model_copy(
                     update={
                         "id": f"act_{len(actions_by_key) + 1:06d}",
                         "input_entity_ids": input_ids,
                         "output_entity_ids": output_ids,
+                        "trigger_rule_ids": trigger_rule_ids,
+                        "target_entity_ids": target_ids,
                     }
                 )
                 if key not in actions_by_key:
@@ -188,6 +274,15 @@ class OntologyMerger:
                     [*existing.source_chunks, *updated.source_chunks]
                 )
                 existing.attributes = {**updated.attributes, **existing.attributes}
+                existing.trigger_rule_ids = _dedupe(
+                    [*existing.trigger_rule_ids, *updated.trigger_rule_ids]
+                )
+                if not existing.executor and updated.executor:
+                    existing.executor = updated.executor
+                if not existing.action_plan and updated.action_plan:
+                    existing.action_plan = updated.action_plan
+                if not existing.feedback and updated.feedback:
+                    existing.feedback = updated.feedback
                 canonical_by_raw_name.setdefault(action.name, existing.name)
         return list(actions_by_key.values()), canonical_by_raw_name
 

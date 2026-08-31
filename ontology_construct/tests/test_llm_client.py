@@ -60,6 +60,7 @@ def test_create_kimi_client_uses_openai_compatible_config(monkeypatch) -> None:
     monkeypatch.setenv("MOONSHOT_API_KEY", "kimi-key")
     monkeypatch.delenv("KIMI_API_KEY", raising=False)
     monkeypatch.setenv("KIMI_REASONING_EFFORT", "low")
+    monkeypatch.delenv("KIMI_TEMPERATURE", raising=False)
 
     client = create_llm_client(LLMConfig(), "kimi")
 
@@ -68,6 +69,7 @@ def test_create_kimi_client_uses_openai_compatible_config(monkeypatch) -> None:
     assert client.config.base_url == "https://api.moonshot.cn/v1"
     assert client.config.model == "kimi-k3"
     assert client.config.api_key_env == "MOONSHOT_API_KEY"
+    assert client.config.temperature == 1
     assert client.config.enable_thinking is None
     assert client.config.extra_body == {"reasoning_effort": "low"}
 

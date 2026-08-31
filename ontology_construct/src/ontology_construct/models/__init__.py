@@ -9,6 +9,10 @@ from ontology_construct.models.ontology import (
     LocalOntology,
     OntologyAction,
     OntologyInstance,
+    OntologyRule,
+    RuleCondition,
+    RuleLogic,
+    RuleOperator,
     Triple,
 )
 
@@ -23,5 +27,9 @@ __all__ = [
     "LocalOntology",
     "OntologyAction",
     "OntologyInstance",
+    "OntologyRule",
+    "RuleCondition",
+    "RuleLogic",
+    "RuleOperator",
     "Triple",
 ]

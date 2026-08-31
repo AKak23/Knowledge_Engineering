@@ -5,6 +5,8 @@ from ontology_construct.output.formatted_ontology import (
     FormattedLink,
     FormattedObject,
     FormattedOntology,
+    FormattedRule,
+    FormattedRuleCondition,
     OntologyMetadata,
     format_global_ontology,
 )
@@ -36,6 +38,8 @@ __all__ = [
     "FormattedLink",
     "FormattedObject",
     "FormattedOntology",
+    "FormattedRule",
+    "FormattedRuleCondition",
     "LinkInstance",
     "LinkType",
     "ObjectInstance",

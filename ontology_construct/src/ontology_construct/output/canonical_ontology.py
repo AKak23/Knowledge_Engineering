@@ -541,6 +541,7 @@ def _build_action_types(
     actor_by_action, target_by_action = _action_participant_types(
         ontology, name_by_entity_id
     )
+    rule_by_id = {rule.id: rule for rule in ontology.rules}
     action_types: list[ActionType] = []
     seen: set[str] = set()
     for action in ontology.actions:
@@ -553,6 +554,15 @@ def _build_action_types(
         ) or actor_by_action.get(action.name, "")
         target_type = (
             next(
+                (
+                    name_by_entity_id[eid]
+                    for eid in action.target_entity_ids
+                    if eid in name_by_entity_id
+                ),
+                "",
+            )
+            or
+            next(
                 (name_by_entity_id[eid] for eid in action.output_entity_ids if eid in name_by_entity_id),
                 "",
             )
@@ -564,6 +574,23 @@ def _build_action_types(
                 name=action.name,
                 actor_type=actor_type,
                 target_type=target_type,
+                pre_conditions=[
+                    {
+                        "rule_id": rule.id,
+                        "name": rule.name,
+                        "scope_type": name_by_entity_id.get(
+                            rule.scope_entity_id,
+                            "",
+                        ),
+                        "logic": rule.logic,
+                        "conditions": [
+                            condition.model_dump(mode="json")
+                            for condition in rule.conditions
+                        ],
+                    }
+                    for rule_id in action.trigger_rule_ids
+                    if (rule := rule_by_id.get(rule_id)) is not None
+                ],
                 description=action.description,
             )
         )

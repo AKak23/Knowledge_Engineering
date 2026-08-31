@@ -6,7 +6,10 @@ from ontology_construct.models import (
     Entity,
     GlobalOntology,
     InstanceLinkValue,
+    OntologyAction,
     OntologyInstance,
+    OntologyRule,
+    RuleCondition,
     Triple,
 )
 from ontology_construct.output import format_global_ontology
@@ -55,6 +58,82 @@ def _formatted():
         ontology_name="测试本体",
         ontology_desc="",
     )
+
+
+def test_schema_graph_exposes_rule_and_action_workbench_nodes() -> None:
+    ontology = GlobalOntology.from_entities_and_triples(
+        [Entity(id="e1", name="设备", source_chunks=["chunk_0001"])],
+        triples=[],
+        rules=[
+            OntologyRule(
+                id="r1",
+                name="高温冷却规则",
+                scope_entity_id="e1",
+                conditions=[
+                    RuleCondition(
+                        id="c1",
+                        field="温度",
+                        operator=">",
+                        value=30,
+                        value_type="number",
+                    )
+                ],
+                source_chunks=["chunk_0001"],
+            )
+        ],
+        actions=[
+            OntologyAction(
+                id="a1",
+                name="启动水冷",
+                target_entity_ids=["e1"],
+                trigger_rule_ids=["r1"],
+                source_chunks=["chunk_0001"],
+            )
+        ],
+        instances=[
+            OntologyInstance(
+                id="i1",
+                name="冷却设备01",
+                class_id="e1",
+                source_chunks=["chunk_0001"],
+            )
+        ],
+    )
+    formatted = format_global_ontology(
+        ontology,
+        ontology_name="设备本体",
+        ontology_desc="",
+    )
+
+    graph = formatted_ontology_to_graph(formatted, view="schema")
+
+    nodes = {node.id: node for node in graph.nodes}
+    assert nodes["obj:1"].workbench["details"]["sourceChunks"] == ["chunk_0001"]
+    assert nodes["obj:1"].workbench["details"]["instanceIds"] == [1]
+    assert nodes["obj:1"].workbench["details"]["instanceCount"] == 1
+    assert nodes["rule:1"].workbench["details"]["scopeObjectId"] == "obj:1"
+    assert nodes["rule:1"].workbench["details"]["conditions"][0]["field"] == "温度"
+    assert nodes["rule:1"].workbench["details"]["sourceChunks"] == ["chunk_0001"]
+    assert nodes["action:1"].workbench["details"]["triggerRuleId"] == "rule:1"
+    assert nodes["action:1"].workbench["details"]["sourceChunks"] == ["chunk_0001"]
+    assert {(edge.source, edge.target, edge.rel) for edge in graph.edges} == {
+        ("obj:1", "rule:1", "适用规则"),
+        ("rule:1", "action:1", "触发"),
+        ("action:1", "obj:1", "作用于"),
+    }
+
+
+def test_schema_graph_backfills_instance_references_for_legacy_payload() -> None:
+    payload = _formatted().model_dump(mode="json")
+    for item in payload["objects"]:
+        item.pop("instanceIds", None)
+        item.pop("instanceCount", None)
+
+    graph = formatted_ontology_to_graph(payload, view="schema")
+
+    nodes = {node.id: node for node in graph.nodes}
+    assert nodes["obj:1"].workbench["details"]["instanceIds"] == [1]
+    assert nodes["obj:2"].workbench["details"]["instanceIds"] == [2]
 
 
 def _formatted_contracts():

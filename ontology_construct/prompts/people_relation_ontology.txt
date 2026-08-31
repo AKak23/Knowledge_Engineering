@@ -8,7 +8,8 @@
    - 每个 instance 必须有 class 字段指向所属对象类型的 entity id。
    - attribute_values 列出该实例的具体属性值，每项 {name, value}。
    - link_values 列出该实例与其他实例之间的具体关联，每项 {predicate, target}，target 使用其他 instance 的 id 或 name。
-4. actions 表示行动定义（类层），例如 任命、加入、离职、合作、投资、发布。
+4. rules 表示文本明确的判定规则；scope 引用 entity id，logic 为 AND/OR，条件使用结构化 field/operator/value，不得猜测规则。
+5. actions 表示行动定义（类层），例如 任命、加入、离职、合作、投资、发布；若由规则触发，用 trigger_rules 引用规则 id。
 5. action_invocations 表示具体的一次行动发生，inputs/outputs 引用具体 instance。
 6. 保留多跳关系链路，不要强行整理成单中心结构。
 
@@ -21,6 +22,7 @@
   "triples": [
     {"subject": "e1", "predicate": "任职于", "object": "e2", "object_type": "entity", "confidence": 0.9}
   ],
+  "rules": [],
   "actions": [
     {"id": "a1", "name": "任命", "description": "组织任命人物担任职位", "inputs": ["e2", "e1"], "outputs": ["e1"]}
   ],
@@ -45,7 +47,7 @@
   ]
 }
 
-如果没有可抽取信息，输出 {"entities": [], "triples": [], "actions": [], "instances": [], "action_invocations": []}。
+如果没有可抽取信息，输出 {"entities": [], "triples": [], "rules": [], "actions": [], "instances": [], "action_invocations": []}。
 
 文本：
 {chunk_text}

@@ -122,6 +122,46 @@ uv run ontology-construct-api --host 0.0.0.0 --port 8000
 7. 如已有 `formatted_ontology.json/jsonl`，可点击“上传已有本体”直接导入。
 8. 如需要登记结构化数据源配置，可点击“上传结构化配置”上传 YAML。当前只保存配置，暂不执行数据库连接和抽取。
 
+## 第二阶段联调测试
+
+仓库提供了包含对象、实例、规则和行动的测试文档：
+
+```text
+ontology_construct/tests/fixtures/phase2_cooling_system.txt
+```
+
+默认 chunk 配置会把它拆成两个分块。先运行完整回归并启动服务：
+
+```bash
+cd ontology_construct
+uv run pytest -q
+uv run ontology-construct-api --host 127.0.0.1 --port 8000
+```
+
+浏览器打开 `http://127.0.0.1:8000`，在顶部选择已配置密钥的构建模型，然后点击“新建本体”→“选择构建文档”→“开始构建本体”。若没有配置 Qwen embedding key，请把 `configs/default.yaml` 的 `frontend_build.semantic_clustering` 设为 `false` 后重启服务。
+
+也可用下面的请求明确关闭 embedding、采用标准抽取做后端烟雾测试；把 `kimi` 换成实际可用的 provider：
+
+```bash
+curl -X POST http://127.0.0.1:8000/ontology/jobs \
+  -F files=@tests/fixtures/phase2_cooling_system.txt \
+  -F profile=industrial_process \
+  -F backend=kimi \
+  -F construction_mode=standard \
+  -F instance_count=1 \
+  -F use_embedding=false
+```
+
+取得 `jobId` 后检查：
+
+```bash
+curl http://127.0.0.1:8000/ontology/jobs/<jobId>/status
+curl 'http://127.0.0.1:8000/ontology/jobs/<jobId>/graph?view=schema'
+curl 'http://127.0.0.1:8000/ontology/jobs/<jobId>/graph?view=instance'
+```
+
+验收时在“新建本体”的历史结果中加载该任务：本体画布应同时出现对象、规则和行动；点击对象应看到 `关联实例` 与 `来源分块`；切换“本体实例 3D”应看到独立实例节点和实例关系。
+
 ## API 接口
 
 默认服务地址：`http://127.0.0.1:8000`

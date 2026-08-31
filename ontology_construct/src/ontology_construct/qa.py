@@ -36,6 +36,7 @@ class GraphNode(BaseModel):
     label: str
     type: str
     attrs: dict[str, Any] = Field(default_factory=dict)
+    workbench: dict[str, Any] = Field(default_factory=dict)
 
 
 class GraphEdge(BaseModel):
@@ -103,19 +104,26 @@ def formatted_ontology_to_graph(
     metadata = data.get("ontology") or {}
     objects = data.get("objects") or []
     links = data.get("links") or []
+    rules = data.get("rules") or []
+    actions = data.get("actions") or []
     instances = data.get("instances") or []
+    objects = _objects_with_instance_references(objects, instances)
 
     if view == "schema":
         return _schema_graph(
             _graph_metadata(metadata, "schema", bool(instances)),
             objects,
             links,
+            rules,
+            actions,
         )
     if view == "instance" and not instances:
         return _schema_graph(
             _graph_metadata(metadata, "schema", False),
             objects,
             links,
+            rules,
+            actions,
         )
     if view == "instance" or instances:
         return _instance_graph(
@@ -126,7 +134,45 @@ def formatted_ontology_to_graph(
         _graph_metadata(metadata, "schema", False),
         objects,
         links,
+        rules,
+        actions,
     )
+
+
+def _objects_with_instance_references(
+    objects: list[dict[str, Any]],
+    instances: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Backfill object-to-instance mappings for legacy/imported formatted JSON."""
+    instance_ids_by_object_id: dict[Any, list[Any]] = {}
+    instance_ids_by_object_name: dict[str, list[Any]] = {}
+    for instance in instances:
+        instance_id = instance.get("instanceId")
+        if instance_id is None:
+            continue
+        object_id = instance.get("objectId")
+        if object_id is not None:
+            instance_ids_by_object_id.setdefault(object_id, []).append(instance_id)
+        object_name = instance.get("objectName")
+        if object_name:
+            instance_ids_by_object_name.setdefault(str(object_name), []).append(instance_id)
+
+    enriched: list[dict[str, Any]] = []
+    for item in objects:
+        derived_ids = instance_ids_by_object_id.get(item.get("objectId"), [])
+        if not derived_ids and item.get("objectName"):
+            derived_ids = instance_ids_by_object_name.get(str(item["objectName"]), [])
+        instance_ids = list(
+            dict.fromkeys([*(item.get("instanceIds") or []), *derived_ids])
+        )
+        enriched.append(
+            {
+                **item,
+                "instanceIds": instance_ids,
+                "instanceCount": len(instance_ids),
+            }
+        )
+    return enriched
 
 
 async def answer_question(
@@ -481,6 +527,8 @@ def _schema_graph(
     metadata: dict[str, Any],
     objects: list[dict[str, Any]],
     links: list[dict[str, Any]],
+    rules: list[dict[str, Any]] | None = None,
+    actions: list[dict[str, Any]] | None = None,
 ) -> GraphData:
     nodes: list[GraphNode] = []
     edges: list[GraphEdge] = []
@@ -506,6 +554,18 @@ def _schema_graph(
                 label=str(item.get("objectName") or node_id),
                 type=str(item.get("objectName") or "Object"),
                 attrs={k: v for k, v in attrs.items() if v not in (None, "")},
+                workbench={
+                    "kind": "object",
+                    "origin": "auto",
+                    "details": {
+                        "code": item.get("objectCode") or node_id,
+                        "description": item.get("description") or "",
+                        "status": "draft",
+                        "sourceChunks": item.get("sourceChunks") or [],
+                        "instanceIds": item.get("instanceIds") or [],
+                        "instanceCount": item.get("instanceCount") or 0,
+                    },
+                },
             )
         )
 
@@ -520,6 +580,111 @@ def _schema_graph(
                     rel=str(link.get("linkInfo") or "related_to"),
                 )
             )
+
+    id_by_rule_id: dict[int, str] = {}
+    for item in rules or []:
+        rule_id = item.get("ruleId")
+        if rule_id is None:
+            continue
+        node_id = f"rule:{rule_id}"
+        id_by_rule_id[int(rule_id)] = node_id
+        scope_id = id_by_object_id.get(item.get("scopeObjectId"))
+        nodes.append(
+            GraphNode(
+                id=node_id,
+                label=str(item.get("ruleName") or node_id),
+                type="Rule",
+                attrs={
+                    "规则编码": item.get("ruleCode"),
+                    "说明": item.get("description"),
+                    "__workbenchKind": "rule",
+                },
+                workbench={
+                    "kind": "rule",
+                    "origin": "auto",
+                    "details": {
+                        "code": item.get("ruleCode") or node_id,
+                        "description": item.get("description") or "",
+                        "status": "draft",
+                        "logic": item.get("logic") or "AND",
+                        "scopeObjectId": scope_id or "",
+                        "sourceChunks": item.get("sourceChunks") or [],
+                        "conditions": [
+                            {
+                                "id": condition.get("conditionId"),
+                                "field": condition.get("field"),
+                                "operator": condition.get("operator"),
+                                "value": condition.get("value"),
+                                "valueType": condition.get("valueType") or "string",
+                            }
+                            for condition in item.get("conditions") or []
+                        ],
+                    },
+                },
+            )
+        )
+        if scope_id:
+            edges.append(GraphEdge(source=scope_id, target=node_id, rel="适用规则"))
+
+    for item in actions or []:
+        action_id = item.get("actionId")
+        if action_id is None:
+            continue
+        node_id = f"action:{action_id}"
+        trigger_rule_ids = [
+            id_by_rule_id[rule_id]
+            for rule_id in item.get("triggerRuleIds") or []
+            if rule_id in id_by_rule_id
+        ]
+        target_ids = [
+            id_by_object_id[object_id]
+            for object_id in item.get("targetObjectIds") or []
+            if object_id in id_by_object_id
+        ]
+        if not target_ids:
+            target_ids = [
+                object_node_id
+                for name in item.get("targetObjects") or []
+                for object_item in objects
+                if object_item.get("objectName") == name
+                if (
+                    object_node_id := id_by_object_id.get(object_item.get("objectId"))
+                )
+            ]
+        nodes.append(
+            GraphNode(
+                id=node_id,
+                label=str(item.get("actionName") or node_id),
+                type="Action",
+                attrs={
+                    "行动编码": item.get("actionCode"),
+                    "说明": item.get("description"),
+                    "__workbenchKind": "action",
+                },
+                workbench={
+                    "kind": "action",
+                    "origin": "auto",
+                    "details": {
+                        "code": item.get("actionCode") or node_id,
+                        "description": item.get("description") or "",
+                        "status": "draft",
+                        "actionType": item.get("actionType") or "ontology",
+                        "triggerRuleId": trigger_rule_ids[0] if trigger_rule_ids else "",
+                        "targetObjectId": target_ids[0] if target_ids else "",
+                        "executor": item.get("executor") or "",
+                        "actionPlan": item.get("actionPlan") or "",
+                        "feedback": item.get("feedback") or "",
+                        "sourceChunks": item.get("sourceChunks") or [],
+                        "inputObjects": item.get("inputObjects") or [],
+                        "outputObjects": item.get("outputObjects") or [],
+                    },
+                },
+            )
+        )
+        for rule_node_id in trigger_rule_ids:
+            edges.append(GraphEdge(source=rule_node_id, target=node_id, rel="触发"))
+        for target_id in target_ids:
+            edges.append(GraphEdge(source=node_id, target=target_id, rel="作用于"))
 
     return GraphData(ontology=metadata, nodes=nodes, edges=edges)
 
@@ -602,6 +767,7 @@ def _render_direct_qa_prompt(
         "ontology": data.get("ontology") or {},
         "objects": data.get("objects") or [],
         "links": data.get("links") or [],
+        "rules": data.get("rules") or [],
         "actions": data.get("actions") or [],
     }
     graph = {

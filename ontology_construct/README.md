@@ -185,9 +185,10 @@ QWEN_EMBEDDING_API_KEY=...
 | 顶层字段 | 说明 |
 |---|---|
 | `ontology` | 元数据（名称、描述、profile、时间戳） |
-| `objects` | 对象类型表，每项含 `attributes`（类的属性 schema，含 `dataType` 和 `sampleValue`） |
+| `objects` | 对象类型表，每项含 `attributes`（类的属性 schema）以及反向实例索引 `instanceIds`/`instanceCount` |
 | `links` | 对象类型之间的链接 schema |
-| `actions` | 行动定义（类层） |
+| `rules` | 结构化业务规则，含作用对象、AND/OR 条件、来源与对应行动 ID |
+| `actions` | 行动定义（类层），含 `triggerRuleIds`、目标对象和 executor/计划/反馈字段 |
 | `instances` | 具体实例，含 `attributeValues`（对齐类的属性，含 `attributeId`）和 `linkValues`（实例间关系，含 `linkId`、`targetInstanceId`） |
 | `actionInvocations` | 具体行动调用，引用类层 `actionId`，`inputInstances` / `outputInstances` 指向具体实例 ID |
 
@@ -195,8 +196,9 @@ QWEN_EMBEDDING_API_KEY=...
 
 类 vs 实例的语义：
 - `objects[*].attributes[*]` 是「类的属性定义」（金额是什么、是 number），实例的具体属性值在 `instances[*].attributeValues` 里，并通过 `attributeId` 回指 schema。
+- `instances[*].objectId` 是实例所属类的真值，`objects[*].instanceIds` 是用于画布点开对象时快速查询的反向索引。
 - `links` 描述「类之间存在某种关系」，`instances[*].linkValues` 描述「这个实例与那个实例有这条关系」，并通过 `linkId` 回指 schema。如果实例间出现了类层未声明的关系，formatter 会自动反推一条 `FormattedLink` 补齐 schema。
-- `actions` 描述行动定义，`actionInvocations` 描述「Alice 在 ... 执行了 ... 作用于 ...」，并通过 `actionId` 回指 schema。
+- `rules` 与普通三元组分开；`actions[*].triggerRuleIds` 回指触发规则，`actionInvocations` 描述「Alice 在 ... 执行了 ... 作用于 ...」并回指类层行动。
 
 DeepSeek 小样本 smoke test：
 

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 from dataclasses import dataclass, field
+import json
 from typing import Any, Callable, TypeVar
 
 from ontology_construct.concept.models import (
@@ -39,7 +40,10 @@ from ontology_construct.models import (
     GlobalOntology,
     InstanceAttributeValue,
     InstanceLinkValue,
+    OntologyAction,
     OntologyInstance,
+    OntologyRule,
+    RuleCondition,
     Triple,
 )
 
@@ -155,7 +159,12 @@ class ConceptGeneralizer:
                 controlled_relations=False,
                 extract_instances=True,
             )
-        return await self._artifacts_from_candidates(parsed)
+        artifacts = await self._artifacts_from_candidates(parsed)
+        artifacts.ontology = self._attach_candidate_rules_and_actions(
+            artifacts.ontology,
+            chunks,
+        )
+        return artifacts
 
     async def _deterministic_artifacts(
         self,
@@ -444,7 +453,154 @@ class ConceptGeneralizer:
             triples,
             instances=instances,
         )
+        ontology = self._attach_candidate_rules_and_actions(ontology, chunks)
         return ontology, relation_report, instance_report
+
+    def _attach_candidate_rules_and_actions(
+        self,
+        ontology: GlobalOntology,
+        chunks: list[ChunkConceptCandidates],
+    ) -> GlobalOntology:
+        """Bind chunk-level rule/action candidates to final concept ids.
+
+        Candidate extraction uses concept names while the final schema uses
+        consolidated ids.  This pass resolves names/aliases after global
+        generalization and keeps business rules separate from normal triples.
+        """
+        entity_id_by_name: dict[str, str] = {}
+        for entity in ontology.entities.values():
+            for name in [entity.name, *entity.aliases]:
+                normalized = normalize_name(name)
+                if normalized:
+                    entity_id_by_name.setdefault(normalized, entity.id)
+
+        rules_by_key: dict[tuple[object, ...], OntologyRule] = {}
+        rule_id_by_local_ref: dict[tuple[str, str], str] = {}
+        for existing in ontology.rules:
+            key = _rule_semantic_key(existing)
+            rules_by_key[key] = existing.model_copy()
+
+        for chunk in chunks:
+            for candidate in chunk.rules:
+                scope_id = _candidate_entity_id(candidate.scope, entity_id_by_name)
+                if not scope_id:
+                    continue
+                conditions = [
+                    RuleCondition(
+                        id=condition.id,
+                        field=condition.field,
+                        operator=condition.operator,
+                        value=condition.value,
+                        value_type=condition.value_type,
+                    )
+                    for condition in candidate.conditions
+                ]
+                rule = OntologyRule(
+                    id="pending",
+                    name=candidate.name,
+                    description=candidate.description,
+                    scope_entity_id=scope_id,
+                    logic=candidate.logic,
+                    conditions=conditions,
+                    confidence=candidate.confidence,
+                    source_chunks=[chunk.chunk_id],
+                )
+                key = _rule_semantic_key(rule)
+                existing = rules_by_key.get(key)
+                if existing is None:
+                    existing = rule.model_copy(
+                        update={"id": f"rule_{len(rules_by_key) + 1:06d}"}
+                    )
+                    rules_by_key[key] = existing
+                else:
+                    existing.confidence = max(
+                        existing.confidence,
+                        candidate.confidence,
+                    )
+                    existing.source_chunks = _dedupe(
+                        [*existing.source_chunks, chunk.chunk_id]
+                    )
+                    if not existing.description and candidate.description:
+                        existing.description = candidate.description
+                rule_id_by_local_ref[(chunk.chunk_id, candidate.id)] = existing.id
+                rule_id_by_local_ref[
+                    (chunk.chunk_id, normalize_name(candidate.name))
+                ] = existing.id
+
+        actions_by_key: dict[tuple[object, ...], OntologyAction] = {}
+        for existing in ontology.actions:
+            key = (
+                normalize_name(existing.name),
+                tuple(existing.input_entity_ids),
+                tuple(existing.output_entity_ids),
+                tuple(existing.target_entity_ids),
+            )
+            actions_by_key[key] = existing.model_copy()
+
+        for chunk in chunks:
+            for candidate in chunk.actions:
+                inputs = _candidate_entity_ids(candidate.inputs, entity_id_by_name)
+                outputs = _candidate_entity_ids(candidate.outputs, entity_id_by_name)
+                targets = _candidate_entity_ids(candidate.targets, entity_id_by_name)
+                trigger_rule_ids = _dedupe(
+                    [
+                        rule_id
+                        for reference in candidate.trigger_rules
+                        if (
+                            rule_id := rule_id_by_local_ref.get(
+                                (chunk.chunk_id, reference)
+                            )
+                            or rule_id_by_local_ref.get(
+                                (chunk.chunk_id, normalize_name(reference))
+                            )
+                        )
+                    ]
+                )
+                key = (
+                    normalize_name(candidate.name),
+                    tuple(inputs),
+                    tuple(outputs),
+                    tuple(targets),
+                )
+                existing = actions_by_key.get(key)
+                if existing is None:
+                    existing = OntologyAction(
+                        id=f"act_{len(actions_by_key) + 1:06d}",
+                        name=candidate.name,
+                        description=candidate.description,
+                        input_entity_ids=inputs,
+                        output_entity_ids=outputs,
+                        trigger_rule_ids=trigger_rule_ids,
+                        target_entity_ids=targets,
+                        action_type=candidate.action_type,
+                        executor=candidate.executor,
+                        action_plan=candidate.action_plan,
+                        feedback=candidate.feedback,
+                        source_chunks=[chunk.chunk_id],
+                    )
+                    actions_by_key[key] = existing
+                    continue
+                existing.trigger_rule_ids = _dedupe(
+                    [*existing.trigger_rule_ids, *trigger_rule_ids]
+                )
+                existing.source_chunks = _dedupe(
+                    [*existing.source_chunks, chunk.chunk_id]
+                )
+                if not existing.description and candidate.description:
+                    existing.description = candidate.description
+                if not existing.executor and candidate.executor:
+                    existing.executor = candidate.executor
+                if not existing.action_plan and candidate.action_plan:
+                    existing.action_plan = candidate.action_plan
+                if not existing.feedback and candidate.feedback:
+                    existing.feedback = candidate.feedback
+
+        return ontology.model_copy(
+            update={
+                "rules": list(rules_by_key.values()),
+                "actions": list(actions_by_key.values()),
+            }
+        )
 
     def _concept_key(
         self,
@@ -1544,6 +1700,59 @@ class ConceptGeneralizer:
 
 def _dedupe(values: list[str]) -> list[str]:
     return list(dict.fromkeys(value for value in values if value))
+
+
+def _rule_semantic_key(rule: OntologyRule) -> tuple[object, ...]:
+    return (
+        normalize_name(rule.name),
+        rule.scope_entity_id,
+        rule.logic,
+        tuple(
+            (
+                condition.field,
+                condition.operator,
+                json.dumps(
+                    condition.value,
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    default=str,
+                ),
+                condition.value_type,
+            )
+            for condition in rule.conditions
+        ),
+    )
+
+
+def _candidate_entity_ids(
+    names: list[str],
+    entity_id_by_name: dict[str, str],
+) -> list[str]:
+    return _dedupe(
+        [
+            entity_id
+            for name in names
+            if (entity_id := _candidate_entity_id(name, entity_id_by_name))
+        ]
+    )
+
+
+def _candidate_entity_id(
+    name: str,
+    entity_id_by_name: dict[str, str],
+) -> str | None:
+    normalized = normalize_name(name)
+    if not normalized:
+        return None
+    exact = entity_id_by_name.get(normalized)
+    if exact:
+        return exact
+    matches = {
+        entity_id
+        for candidate_name, entity_id in entity_id_by_name.items()
+        if normalized in candidate_name or candidate_name in normalized
+    }
+    return next(iter(matches)) if len(matches) == 1 else None
 
 
 def _instance_relation_pair_key(

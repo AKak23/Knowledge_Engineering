@@ -263,7 +263,8 @@
     const common = {
       code:String(provided.code || attrs['对象编码'] || attrs['规则编码'] || attrs['行动编码'] || attrs.code || node.id),
       description:String(provided.description || attrs['说明'] || attrs.description || ''),
-      status:String(provided.status || 'draft')
+      status:String(provided.status || 'draft'),
+      sourceChunks:Array.isArray(provided.sourceChunks) ? provided.sourceChunks.map(String) : []
     };
     if (kind === 'object'){
       const autoAttributes = Object.entries(attrs)
@@ -272,7 +273,9 @@
       return {
         ...common,
         attributes:Array.isArray(provided.attributes) ? provided.attributes.map(item => ({...item})) : autoAttributes,
-        dataBindings:Array.isArray(provided.dataBindings) ? provided.dataBindings.map(item => ({...item})) : []
+        dataBindings:Array.isArray(provided.dataBindings) ? provided.dataBindings.map(item => ({...item})) : [],
+        instanceIds:Array.isArray(provided.instanceIds) ? [...provided.instanceIds] : [],
+        instanceCount:Number(provided.instanceCount ?? provided.instanceIds?.length ?? 0) || 0
       };
     }
     if (kind === 'rule'){
@@ -340,6 +343,28 @@
       dirty:false,
       savedAt:jobId ? new Date().toISOString() : null
     });
+  }
+
+  function refreshDraftProvenanceFromSchema(data){
+    const schemaNodeById = Object.fromEntries((data?.nodes || []).map(node => [String(node.id),node]));
+    let changed = false;
+    workbenchDraft.nodes.forEach(node => {
+      const sourceDetails = schemaNodeById[node.id]?.workbench?.details;
+      if (!sourceDetails) return;
+      const nextSourceChunks = Array.isArray(sourceDetails.sourceChunks) ? sourceDetails.sourceChunks.map(String) : [];
+      if (JSON.stringify(node.details?.sourceChunks || []) !== JSON.stringify(nextSourceChunks)){
+        node.details = {...node.details,sourceChunks:nextSourceChunks};
+        changed = true;
+      }
+      if (node.kind !== 'object') return;
+      const nextInstanceIds = Array.isArray(sourceDetails.instanceIds) ? [...sourceDetails.instanceIds] : [];
+      const nextInstanceCount = Number(sourceDetails.instanceCount ?? nextInstanceIds.length) || 0;
+      if (JSON.stringify(node.details?.instanceIds || []) !== JSON.stringify(nextInstanceIds) || Number(node.details?.instanceCount || 0) !== nextInstanceCount){
+        node.details = {...node.details,instanceIds:nextInstanceIds,instanceCount:nextInstanceCount};
+        changed = true;
+      }
+    });
+    if (changed) persistWorkingCopy();
   }
 
   function generatedNodePosition(kind, index, total){
@@ -434,6 +459,7 @@
       persistWorkingCopy();
       window.requestAnimationFrame(() => centerCanvasViewport({behavior:'auto'}));
     }
+    if (graphHasNodes && workbenchDraft.sourceJobId === jobId) refreshDraftProvenanceFromSchema(data);
     renderCanvas();
     syncWorkbenchHeader();
     syncWorkbenchControls();
@@ -646,8 +672,9 @@
 
   function nodeMetaText(node){
     if (node.kind === 'object'){
-      const bindings = node.details?.dataBindings?.length || 0;
-      return `${node.origin === 'auto' ? '自动识别' : '人工创建'} · ${bindings} 个数据挂载`;
+      const instances = node.details?.instanceCount || node.details?.instanceIds?.length || 0;
+      const chunks = node.details?.sourceChunks?.length || 0;
+      return `${instances} 个实例 · ${chunks} 个来源分块`;
     }
     if (node.kind === 'rule') return `${node.details?.conditions?.length || 0} 个条件 · ${node.details?.logic || 'AND'}`;
     return node.details?.actionType === 'api' ? 'API 行动' : (node.details?.actionType === 'task' ? '任务行动' : '业务行动');
@@ -1508,10 +1535,10 @@
     const inbound = workbenchDraft.edges.filter(edge => edge.target === node.id);
     const detail = node.details || {};
     const attrs = node.kind === 'object'
-      ? {'来源':originLabel(node.origin),'对象编码':detail.code || '—','对象属性':detail.attributes?.length || 0,'数据挂载':detail.dataBindings?.length || 0,'状态':statusLabel(detail.status)}
+      ? {'来源':originLabel(node.origin),'对象编码':detail.code || '—','对象属性':detail.attributes?.length || 0,'关联实例数':detail.instanceCount || detail.instanceIds?.length || 0,'关联实例':instanceReferences(detail.instanceIds),'来源分块数':detail.sourceChunks?.length || 0,'来源分块':detail.sourceChunks || [],'数据挂载':detail.dataBindings?.length || 0,'状态':statusLabel(detail.status)}
       : (node.kind === 'rule'
-        ? {'来源':originLabel(node.origin),'规则编码':detail.code || '—','条件逻辑':detail.logic || 'AND','条件数量':detail.conditions?.length || 0,'状态':statusLabel(detail.status)}
-        : {'来源':originLabel(node.origin),'行动编码':detail.code || '—','行动类型':actionTypeLabel(detail.actionType),'触发规则':nodeLabel(detail.triggerRuleId) || '未配置','状态':statusLabel(detail.status)});
+        ? {'来源':originLabel(node.origin),'规则编码':detail.code || '—','条件逻辑':detail.logic || 'AND','条件数量':detail.conditions?.length || 0,'来源分块':detail.sourceChunks || [],'状态':statusLabel(detail.status)}
+        : {'来源':originLabel(node.origin),'行动编码':detail.code || '—','行动类型':actionTypeLabel(detail.actionType),'触发规则':nodeLabel(detail.triggerRuleId) || '未配置','来源分块':detail.sourceChunks || [],'状态':statusLabel(detail.status)});
     populateInfoCard({badge:KIND_LABELS[node.kind],color:KIND_COLORS[node.kind],title:node.label,sub:`${node.id} · ${outbound.length} 条出向 / ${inbound.length} 条入向`,attrs,outbound,inbound});
   }
 
@@ -1593,6 +1620,10 @@
 
   function actionTypeLabel(type){
     return ({api:'API 调用',task:'调度任务',manual:'人工行动',ontology:'本体行动'})[type] || '业务行动';
+  }
+
+  function instanceReferences(instanceIds){
+    return Array.isArray(instanceIds) ? instanceIds.map(id => `inst:${id}`) : [];
   }
 
   function draftNode(id){return workbenchDraft.nodes.find(node => node.id === id) || null;}
@@ -1849,6 +1880,8 @@
     const detail = node.details || {};
     const attributes = detail.attributes || [];
     const bindings = detail.dataBindings || [];
+    const sourceChunks = detail.sourceChunks || [];
+    const instanceIds = instanceReferences(detail.instanceIds);
     openModal({
       context:{type:'node',nodeId:node.id,kind:'object',isNew},kicker:'OBJECT CONFIGURATION',title:'对象配置',subtitle:'维护对象定义、属性以及自动或人工数据挂载',deletable:!isNew,
       body:`<section class="workbenchSection"><div class="workbenchFormGrid">
@@ -1858,6 +1891,7 @@
         ${readOnlyFieldHtml('创建来源',originLabel(node.origin))}
         ${textareaFieldHtml('对象描述','description',detail.description || '','full')}
       </div></section>
+      ${provenanceSectionHtml(sourceChunks,instanceIds)}
       <section class="workbenchSection"><div class="workbenchSectionTitle"><div><span>对象属性</span><p>属性可来自 LOM 自动识别，也可由用户补充和修正。</p></div><button type="button" data-add-row="attribute">＋ 添加属性</button></div>
         <div class="workbenchRows" data-row-list="attribute">${attributes.length ? attributes.map(attributeRowHtml).join('') : emptyRowsHtml('尚未配置对象属性')}</div>
       </section>
@@ -1882,6 +1916,7 @@
         ${readOnlyFieldHtml('创建来源',originLabel(node.origin))}
         ${textareaFieldHtml('规则说明','description',detail.description || '','full')}
       </div></section>
+      ${provenanceSectionHtml(detail.sourceChunks || [])}
       <section class="workbenchSection"><div class="workbenchSectionTitle"><div><span>判定条件</span><p>条件采用结构化字段保存，不直接保存自由 SQL。</p></div><button type="button" data-add-row="condition">＋ 添加条件</button></div>
         <div class="workbenchRows" data-row-list="condition">${conditions.length ? conditions.map(conditionRowHtml).join('') : emptyRowsHtml('尚未配置判定条件')}</div>
       </section>
@@ -1908,7 +1943,8 @@
         ${textareaFieldHtml('行动计划','actionPlan',detail.actionPlan || '','full')}
         ${textareaFieldHtml('反馈回流说明','feedback',detail.feedback || '','full')}
         ${textareaFieldHtml('行动描述','description',detail.description || '','full')}
-      </div></section>`
+      </div></section>
+      ${provenanceSectionHtml(detail.sourceChunks || [])}`
     });
   }
 
@@ -1985,6 +2021,19 @@
 
   function readOnlyFieldHtml(label,value){
     return `<label class="workbenchField"><span>${escapeHtml(label)}</span><div class="workbenchReadOnly">${escapeHtml(String(value ?? ''))}</div></label>`;
+  }
+
+  function provenanceSectionHtml(sourceChunks=[],instanceIds=[]){
+    const sourceItems = sourceChunks.length ? sourceChunks.map(item => `<span class="workbenchPill">${escapeHtml(String(item))}</span>`).join('') : '<span class="workbenchPill">暂无来源分块</span>';
+    const instanceItems = instanceIds.length ? instanceIds.map(item => `<span class="workbenchPill">${escapeHtml(String(item))}</span>`).join('') : '<span class="workbenchPill">暂无关联实例</span>';
+    return `<section class="workbenchSection"><div class="workbenchSectionTitle"><div><span>来源追溯</span><p>自动保留构建该节点的 chunk；对象同时关联实例层节点。</p></div></div>
+      <div class="workbenchFormGrid">
+        ${readOnlyFieldHtml('来源分块数',sourceChunks.length)}
+        ${readOnlyFieldHtml('关联实例数',instanceIds.length)}
+      </div>
+      <div class="workbenchSectionTitle"><div><span>Chunk ID</span></div></div><div class="workbenchPills">${sourceItems}</div>
+      ${instanceIds.length ? `<div class="workbenchSectionTitle"><div><span>实例节点 ID</span></div></div><div class="workbenchPills">${instanceItems}</div>` : ''}
+    </section>`;
   }
 
   function statusOptions(){return [['draft','草稿'],['review','待审核'],['published','已发布'],['disabled','已停用']];}

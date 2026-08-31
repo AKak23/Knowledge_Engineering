@@ -41,6 +41,8 @@ class FormattedObject(BaseModel):
     objectCode: str
     description: str = ""
     attributes: list[FormattedAttribute] = Field(default_factory=list)
+    instanceIds: list[int] = Field(default_factory=list)
+    instanceCount: int = 0
     sourceChunks: list[str] = Field(default_factory=list)
 
 
@@ -62,8 +64,41 @@ class FormattedAction(BaseModel):
     actionName: str
     actionCode: str
     description: str = ""
+    inputObjectIds: list[int] = Field(default_factory=list)
     inputObjects: list[str] = Field(default_factory=list)
+    outputObjectIds: list[int] = Field(default_factory=list)
     outputObjects: list[str] = Field(default_factory=list)
+    triggerRuleIds: list[int] = Field(default_factory=list)
+    triggerRules: list[str] = Field(default_factory=list)
+    targetObjectIds: list[int] = Field(default_factory=list)
+    targetObjects: list[str] = Field(default_factory=list)
+    actionType: str = "ontology"
+    executor: str = ""
+    actionPlan: str = ""
+    feedback: str = ""
+    sourceChunks: list[str] = Field(default_factory=list)
+
+
+class FormattedRuleCondition(BaseModel):
+    conditionId: str
+    field: str
+    operator: str
+    value: Any = None
+    valueType: str = "string"
+
+
+class FormattedRule(BaseModel):
+    ruleId: int
+    ruleName: str
+    ruleCode: str
+    description: str = ""
+    scopeObjectId: int
+    scopeObjectName: str
+    logic: str = "AND"
+    conditions: list[FormattedRuleCondition] = Field(default_factory=list)
+    actionIds: list[int] = Field(default_factory=list)
+    actionNames: list[str] = Field(default_factory=list)
+    confidence: float = 1.0
     sourceChunks: list[str] = Field(default_factory=list)
 
 
@@ -114,6 +149,7 @@ class FormattedOntology(BaseModel):
     ontology: OntologyMetadata
     objects: list[FormattedObject] = Field(default_factory=list)
     links: list[FormattedLink] = Field(default_factory=list)
+    rules: list[FormattedRule] = Field(default_factory=list)
     actions: list[FormattedAction] = Field(default_factory=list)
     instances: list[FormattedInstance] = Field(default_factory=list)
     actionInvocations: list[FormattedActionInvocation] = Field(default_factory=list)
@@ -175,8 +211,20 @@ def format_global_ontology(
     link_lookup: dict[tuple[int, str, int], FormattedLink] = {
         (link.sourceObjectId, link.linkInfo, link.targetObjectId): link for link in links
     }
-    actions = _format_actions(ontology, object_name_by_entity_id)
+    rules, rule_id_by_global, rule_name_by_global = _format_rules(
+        ontology,
+        object_id_by_entity_id,
+        object_name_by_entity_id,
+    )
+    actions = _format_actions(
+        ontology,
+        object_id_by_entity_id,
+        object_name_by_entity_id,
+        rule_id_by_global,
+        rule_name_by_global,
+    )
     action_id_by_name = {action.actionName: action.actionId for action in actions}
+    _attach_actions_to_rules(rules, actions)
 
     used_instance_codes: set[str] = set()
     formatted_instances, instance_id_by_global = _format_instances(
@@ -197,6 +245,7 @@ def format_global_ontology(
             used_instance_codes=used_instance_codes,
         )
     )
+    _attach_instances_to_objects(objects, formatted_instances)
 
     invocations = _format_action_invocations(
         ontology.action_invocations,
@@ -215,6 +264,7 @@ def format_global_ontology(
         ),
         objects=objects,
         links=links,
+        rules=rules,
         actions=actions,
         instances=formatted_instances,
         actionInvocations=invocations,
@@ -403,9 +453,55 @@ def _augment_links_from_instances(
             )
 
 
+def _format_rules(
+    ontology: GlobalOntology,
+    object_id_by_entity_id: dict[str, int],
+    object_name_by_entity_id: dict[str, str],
+) -> tuple[list[FormattedRule], dict[str, int], dict[str, str]]:
+    rules: list[FormattedRule] = []
+    rule_id_by_global: dict[str, int] = {}
+    rule_name_by_global: dict[str, str] = {}
+    used_codes: set[str] = set()
+    for rule in ontology.rules:
+        scope_object_id = object_id_by_entity_id.get(rule.scope_entity_id)
+        scope_object_name = object_name_by_entity_id.get(rule.scope_entity_id)
+        if scope_object_id is None or scope_object_name is None:
+            continue
+        rule_id = len(rules) + 1
+        rules.append(
+            FormattedRule(
+                ruleId=rule_id,
+                ruleName=rule.name,
+                ruleCode=_unique_code(rule.name, rule_id, used_codes),
+                description=rule.description,
+                scopeObjectId=scope_object_id,
+                scopeObjectName=scope_object_name,
+                logic=rule.logic,
+                conditions=[
+                    FormattedRuleCondition(
+                        conditionId=condition.id,
+                        field=condition.field,
+                        operator=condition.operator,
+                        value=condition.value,
+                        valueType=condition.value_type,
+                    )
+                    for condition in rule.conditions
+                ],
+                confidence=rule.confidence,
+                sourceChunks=rule.source_chunks,
+            )
+        )
+        rule_id_by_global[rule.id] = rule_id
+        rule_name_by_global[rule.id] = rule.name
+    return rules, rule_id_by_global, rule_name_by_global
+
+
 def _format_actions(
     ontology: GlobalOntology,
+    object_id_by_entity_id: dict[str, int],
     object_name_by_entity_id: dict[str, str],
+    rule_id_by_global: dict[str, int],
+    rule_name_by_global: dict[str, str],
 ) -> list[FormattedAction]:
     actions: list[FormattedAction] = []
     used_codes: set[str] = set()
@@ -417,20 +513,84 @@ def _format_actions(
                 actionName=action.name,
                 actionCode=_unique_code(action.name, action_id, used_codes),
                 description=action.description,
+                inputObjectIds=[
+                    object_id_by_entity_id[entity_id]
+                    for entity_id in action.input_entity_ids
+                    if entity_id in object_id_by_entity_id
+                ],
                 inputObjects=[
                     object_name_by_entity_id[entity_id]
                     for entity_id in action.input_entity_ids
                     if entity_id in object_name_by_entity_id
+                ],
+                outputObjectIds=[
+                    object_id_by_entity_id[entity_id]
+                    for entity_id in action.output_entity_ids
+                    if entity_id in object_id_by_entity_id
                 ],
                 outputObjects=[
                     object_name_by_entity_id[entity_id]
                     for entity_id in action.output_entity_ids
                     if entity_id in object_name_by_entity_id
                 ],
+                triggerRuleIds=[
+                    rule_id_by_global[rule_id]
+                    for rule_id in action.trigger_rule_ids
+                    if rule_id in rule_id_by_global
+                ],
+                triggerRules=[
+                    rule_name_by_global[rule_id]
+                    for rule_id in action.trigger_rule_ids
+                    if rule_id in rule_name_by_global
+                ],
+                targetObjectIds=[
+                    object_id_by_entity_id[entity_id]
+                    for entity_id in action.target_entity_ids
+                    if entity_id in object_id_by_entity_id
+                ],
+                targetObjects=[
+                    object_name_by_entity_id[entity_id]
+                    for entity_id in action.target_entity_ids
+                    if entity_id in object_name_by_entity_id
+                ],
+                actionType=action.action_type,
+                executor=action.executor,
+                actionPlan=action.action_plan,
+                feedback=action.feedback,
                 sourceChunks=action.source_chunks,
             )
         )
     return actions
+
+
+def _attach_actions_to_rules(
+    rules: list[FormattedRule],
+    actions: list[FormattedAction],
+) -> None:
+    rule_by_id = {rule.ruleId: rule for rule in rules}
+    for action in actions:
+        for rule_id in action.triggerRuleIds:
+            rule = rule_by_id.get(rule_id)
+            if rule is None:
+                continue
+            if action.actionId not in rule.actionIds:
+                rule.actionIds.append(action.actionId)
+            if action.actionName not in rule.actionNames:
+                rule.actionNames.append(action.actionName)
+
+
+def _attach_instances_to_objects(
+    objects: list[FormattedObject],
+    instances: list[FormattedInstance],
+) -> None:
+    object_by_id = {item.objectId: item for item in objects}
+    for instance in instances:
+        item = object_by_id.get(instance.objectId)
+        if item is None:
+            continue
+        item.instanceIds.append(instance.instanceId)
+    for item in objects:
+        item.instanceCount = len(item.instanceIds)
 
 
 def _format_instances(

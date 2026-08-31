@@ -17,6 +17,8 @@ from ontology_construct.models import (
     LocalOntology,
     OntologyAction,
     OntologyInstance,
+    OntologyRule,
+    RuleCondition,
     Triple,
 )
 
@@ -35,6 +37,7 @@ def parse_local_ontology(raw_response: str, chunk_id: str) -> LocalOntology:
     triple_items = (
         _first_present(data, ["triples", "relations", "relationships", "edges"]) or []
     )
+    rule_items = _first_present(data, ["rules", "business_rules", "policies"]) or []
     action_items = _first_present(data, ["actions", "action", "operations"]) or []
     instance_items = _first_present(data, ["instances", "individuals", "examples"]) or []
     invocation_items = (
@@ -48,6 +51,8 @@ def parse_local_ontology(raw_response: str, chunk_id: str) -> LocalOntology:
         raise OntologyParseError("entities must be a list")
     if not isinstance(triple_items, list):
         raise OntologyParseError("triples must be a list")
+    if not isinstance(rule_items, list):
+        raise OntologyParseError("rules must be a list")
     if not isinstance(action_items, list):
         raise OntologyParseError("actions must be a list")
     if not isinstance(instance_items, list):
@@ -67,10 +72,28 @@ def parse_local_ontology(raw_response: str, chunk_id: str) -> LocalOntology:
         if triple is not None
     ]
     triples_dropped = len(triple_items) - len(triples)
+    rules = [
+        rule
+        for rule in (
+            _parse_rule(item, chunk_id, entity_ids, entity_name_to_id, index)
+            for index, item in enumerate(rule_items, start=1)
+        )
+        if rule is not None
+    ]
+    rules_dropped = len(rule_items) - len(rules)
+    rule_ids = {rule.id for rule in rules}
+    rule_name_to_id = {rule.name: rule.id for rule in rules}
     actions = [
         action
         for action in (
-            _parse_action(item, chunk_id, entity_ids, entity_name_to_id)
+            _parse_action(
+                item,
+                chunk_id,
+                entity_ids,
+                entity_name_to_id,
+                rule_ids,
+                rule_name_to_id,
+            )
             for item in action_items
         )
         if action is not None
@@ -140,14 +163,19 @@ def parse_local_ontology(raw_response: str, chunk_id: str) -> LocalOntology:
     invocations_dropped = len(invocation_items) - len(invocations)
 
     dropped_total = (
-        triples_dropped + actions_dropped + instances_dropped + invocations_dropped
+        triples_dropped
+        + rules_dropped
+        + actions_dropped
+        + instances_dropped
+        + invocations_dropped
     )
     if dropped_total:
         logger.warning(
-            "parser dropped %d items for %s (triples=%d, actions=%d, instances=%d, invocations=%d)",
+            "parser dropped %d items for %s (triples=%d, rules=%d, actions=%d, instances=%d, invocations=%d)",
             dropped_total,
             chunk_id,
             triples_dropped,
+            rules_dropped,
             actions_dropped,
             instances_dropped,
             invocations_dropped,
@@ -158,6 +186,7 @@ def parse_local_ontology(raw_response: str, chunk_id: str) -> LocalOntology:
             chunk_id=chunk_id,
             entities=entities,
             triples=triples,
+            rules=rules,
             actions=actions,
             instances=instances,
             action_invocations=invocations,
@@ -308,11 +337,89 @@ def _parse_triple(
     return None
 
 
+def _parse_rule(
+    item: Any,
+    chunk_id: str,
+    entity_ids: set[str],
+    entity_name_to_id: dict[str, str],
+    fallback_index: int,
+) -> OntologyRule | None:
+    if not isinstance(item, dict):
+        return None
+    name = str(item.get("name") or item.get("rule_name") or item.get("ruleName") or "").strip()
+    scope_payload = _first_present(
+        item,
+        ["scope_entity_id", "scopeEntityId", "scope", "scope_object", "scopeObject", "object"],
+    )
+    scope_id = _resolve_entity_reference(
+        scope_payload,
+        entity_ids,
+        entity_name_to_id,
+    )
+    if not name or not scope_id:
+        return None
+    conditions = _parse_rule_conditions(item.get("conditions"))
+    if not conditions:
+        return None
+    logic = str(item.get("logic") or "AND").strip().upper()
+    if logic not in {"AND", "OR"}:
+        logic = "AND"
+    try:
+        return OntologyRule(
+            id=str(item.get("id") or item.get("rule_id") or f"r{fallback_index}"),
+            name=name,
+            description=str(item.get("description") or item.get("desc") or ""),
+            scope_entity_id=scope_id,
+            logic=logic,
+            conditions=conditions,
+            confidence=float(item.get("confidence", 1.0)),
+            source_chunks=[chunk_id],
+        )
+    except (TypeError, ValueError, ValidationError):
+        return None
+
+
+def _parse_rule_conditions(payload: Any) -> list[RuleCondition]:
+    if not isinstance(payload, list):
+        return []
+    conditions: list[RuleCondition] = []
+    for index, item in enumerate(payload, start=1):
+        if not isinstance(item, dict):
+            continue
+        field = str(
+            item.get("field") or item.get("attribute") or item.get("property") or ""
+        ).strip()
+        operator = _normalize_rule_operator(
+            str(item.get("operator") or item.get("op") or "")
+        )
+        value = item.get("value")
+        if not field or operator is None:
+            continue
+        try:
+            conditions.append(
+                RuleCondition(
+                    id=str(item.get("id") or item.get("condition_id") or f"c{index}"),
+                    field=field,
+                    operator=operator,
+                    value=value,
+                    value_type=_normalize_value_type(
+                        item.get("value_type") or item.get("valueType"),
+                        value,
+                    ),
+                )
+            )
+        except (TypeError, ValueError, ValidationError):
+            continue
+    return conditions
+
+
 def _parse_action(
     item: dict[str, Any],
     chunk_id: str,
     entity_ids: set[str],
     entity_name_to_id: dict[str, str],
+    rule_ids: set[str],
+    rule_name_to_id: dict[str, str],
 ) -> OntologyAction | None:
     if not isinstance(item, dict):
         return None
@@ -333,6 +440,14 @@ def _parse_action(
         item,
         ["outputs", "output_entities", "outputEntityIds", "outputObjects"],
     )
+    target_payload = _first_present(
+        item,
+        ["targets", "target_entities", "targetEntityIds", "targetObjects", "target"],
+    )
+    trigger_payload = _first_present(
+        item,
+        ["trigger_rules", "triggerRules", "trigger_rule_ids", "triggerRuleIds", "trigger_rule", "triggerRule"],
+    )
 
     try:
         return OntologyAction(
@@ -349,6 +464,20 @@ def _parse_action(
                 entity_ids,
                 entity_name_to_id,
             ),
+            trigger_rule_ids=_resolve_rule_references(
+                trigger_payload,
+                rule_ids,
+                rule_name_to_id,
+            ),
+            target_entity_ids=_resolve_entity_references(
+                target_payload,
+                entity_ids,
+                entity_name_to_id,
+            ),
+            action_type=str(item.get("action_type") or item.get("actionType") or "ontology"),
+            executor=str(item.get("executor") or ""),
+            action_plan=str(item.get("action_plan") or item.get("actionPlan") or ""),
+            feedback=str(item.get("feedback") or ""),
             attributes=_parse_attributes(item.get("attributes", {})),
             source_chunks=[chunk_id],
         )
@@ -636,6 +765,27 @@ def _resolve_entity_references(
     return list(dict.fromkeys(resolved))
 
 
+def _resolve_rule_references(
+    value: Any,
+    rule_ids: set[str],
+    rule_name_to_id: dict[str, str],
+) -> list[str]:
+    if value is None:
+        return []
+    candidates = value if isinstance(value, list) else [value]
+    resolved: list[str] = []
+    for candidate in candidates:
+        candidate_text = str(candidate).strip()
+        rule_id = (
+            candidate_text
+            if candidate_text in rule_ids
+            else rule_name_to_id.get(candidate_text)
+        )
+        if rule_id:
+            resolved.append(rule_id)
+    return list(dict.fromkeys(resolved))
+
+
 def _resolve_instance_reference(
     value: Any,
     instance_ids: set[str],
@@ -717,6 +867,57 @@ def _normalize_object_kind(value: str) -> str:
     if normalized in {"literal", "attribute", "value"}:
         return "literal"
     return normalized
+
+
+def _normalize_rule_operator(value: str) -> str | None:
+    normalized = value.strip().lower().replace(" ", "")
+    aliases = {
+        "为空": "为空",
+        "isnull": "为空",
+        "null": "为空",
+        "不为空": "不为空",
+        "notnull": "不为空",
+        "isnotnull": "不为空",
+        "包含": "包含",
+        "contains": "包含",
+        "不包含": "不包含",
+        "notcontains": "不包含",
+        "=": "=",
+        "==": "=",
+        "eq": "=",
+        "!=": "!=",
+        "≠": "!=",
+        "ne": "!=",
+        ">": ">",
+        "gt": ">",
+        ">=": ">=",
+        "≥": ">=",
+        "gte": ">=",
+        "<": "<",
+        "lt": "<",
+        "<=": "<=",
+        "≤": "<=",
+        "lte": "<=",
+    }
+    return aliases.get(normalized)
+
+
+def _normalize_value_type(value_type: Any, value: Any) -> str:
+    normalized = str(value_type or "").strip().lower()
+    aliases = {
+        "str": "string",
+        "string": "string",
+        "text": "string",
+        "int": "integer",
+        "integer": "integer",
+        "float": "number",
+        "double": "number",
+        "decimal": "number",
+        "number": "number",
+        "bool": "boolean",
+        "boolean": "boolean",
+    }
+    return aliases.get(normalized) or _infer_data_type(value)
 
 
 def _parse_aliases(value: Any) -> list[str]:

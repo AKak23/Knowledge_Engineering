@@ -8,6 +8,19 @@ from pydantic import BaseModel, Field, field_validator, model_validator
 
 ObjectKind = Literal["entity", "literal"]
 DataType = Literal["string", "integer", "number", "boolean"]
+RuleLogic = Literal["AND", "OR"]
+RuleOperator = Literal[
+    "为空",
+    "不为空",
+    "包含",
+    "不包含",
+    "=",
+    "!=",
+    ">",
+    ">=",
+    "<",
+    "<=",
+]
 
 
 class Entity(BaseModel):
@@ -54,16 +67,58 @@ class Triple(BaseModel):
         return self
 
 
+class RuleCondition(BaseModel):
+    id: str = Field(min_length=1)
+    field: str = Field(min_length=1)
+    operator: RuleOperator
+    value: str | int | float | bool | None = None
+    value_type: DataType = "string"
+
+    @model_validator(mode="after")
+    def validate_value(self) -> "RuleCondition":
+        if self.operator not in {"为空", "不为空"} and self.value is None:
+            raise ValueError("rule condition requires value for this operator")
+        return self
+
+
+class OntologyRule(BaseModel):
+    id: str = Field(min_length=1)
+    name: str = Field(min_length=1)
+    description: str = ""
+    scope_entity_id: str = Field(min_length=1)
+    logic: RuleLogic = "AND"
+    conditions: list[RuleCondition] = Field(default_factory=list)
+    confidence: float = Field(default=1.0, ge=0, le=1)
+    source_chunks: list[str] = Field(default_factory=list)
+
+    @field_validator("source_chunks")
+    @classmethod
+    def deduplicate_source_chunks(cls, values: list[str]) -> list[str]:
+        return list(dict.fromkeys(value for value in values if value))
+
+
 class OntologyAction(BaseModel):
     id: str = Field(min_length=1)
     name: str = Field(min_length=1)
     description: str = ""
     input_entity_ids: list[str] = Field(default_factory=list)
     output_entity_ids: list[str] = Field(default_factory=list)
+    trigger_rule_ids: list[str] = Field(default_factory=list)
+    target_entity_ids: list[str] = Field(default_factory=list)
+    action_type: str = "ontology"
+    executor: str = ""
+    action_plan: str = ""
+    feedback: str = ""
     attributes: dict[str, Any] = Field(default_factory=dict)
     source_chunks: list[str] = Field(default_factory=list)
 
-    @field_validator("input_entity_ids", "output_entity_ids", "source_chunks")
+    @field_validator(
+        "input_entity_ids",
+        "output_entity_ids",
+        "trigger_rule_ids",
+        "target_entity_ids",
+        "source_chunks",
+    )
     @classmethod
     def deduplicate_strings(cls, values: list[str]) -> list[str]:
         return list(dict.fromkeys(value for value in values if value))
@@ -169,6 +224,7 @@ class LocalOntology(BaseModel):
     chunk_id: str
     entities: list[Entity] = Field(default_factory=list)
     triples: list[Triple] = Field(default_factory=list)
+    rules: list[OntologyRule] = Field(default_factory=list)
     actions: list[OntologyAction] = Field(default_factory=list)
     instances: list[OntologyInstance] = Field(default_factory=list)
     action_invocations: list[ActionInvocation] = Field(default_factory=list)
@@ -178,6 +234,7 @@ class LocalOntology(BaseModel):
 class GlobalOntology(BaseModel):
     entities: dict[str, Entity] = Field(default_factory=dict)
     triples: list[Triple] = Field(default_factory=list)
+    rules: list[OntologyRule] = Field(default_factory=list)
     actions: list[OntologyAction] = Field(default_factory=list)
     instances: list[OntologyInstance] = Field(default_factory=list)
     action_invocations: list[ActionInvocation] = Field(default_factory=list)
@@ -191,6 +248,7 @@ class GlobalOntology(BaseModel):
         actions: list[OntologyAction] | None = None,
         instances: list[OntologyInstance] | None = None,
         action_invocations: list[ActionInvocation] | None = None,
+        rules: list[OntologyRule] | None = None,
     ) -> "GlobalOntology":
         entity_map = {entity.id: entity for entity in entities}
         name_to_id: dict[str, str] = {}
@@ -201,6 +259,7 @@ class GlobalOntology(BaseModel):
         return cls(
             entities=entity_map,
             triples=triples,
+            rules=rules or [],
             actions=actions or [],
             instances=instances or [],
             action_invocations=action_invocations or [],

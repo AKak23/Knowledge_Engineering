@@ -6,6 +6,8 @@ from ontology_construct.models import (
     InstanceLinkValue,
     OntologyAction,
     OntologyInstance,
+    OntologyRule,
+    RuleCondition,
     Triple,
 )
 from ontology_construct.output import build_canonical_ontology
@@ -139,6 +141,50 @@ def test_action_types_resolve_actor_and_target() -> None:
     assert action.name == "创建订单"
     assert action.actor_type == "用户"
     assert action.target_type == "订单"
+
+
+def test_action_type_carries_linked_business_rule_as_precondition() -> None:
+    ontology = GlobalOntology.from_entities_and_triples(
+        [Entity(id="g1", name="设备")],
+        triples=[],
+        rules=[
+            OntologyRule(
+                id="r1",
+                name="高温冷却规则",
+                scope_entity_id="g1",
+                conditions=[
+                    RuleCondition(
+                        id="c1",
+                        field="温度",
+                        operator=">",
+                        value=30,
+                        value_type="number",
+                    )
+                ],
+            )
+        ],
+        actions=[
+            OntologyAction(
+                id="a1",
+                name="启动水冷",
+                input_entity_ids=["g1"],
+                target_entity_ids=["g1"],
+                trigger_rule_ids=["r1"],
+            )
+        ],
+    )
+
+    schema = build_canonical_ontology(
+        ontology,
+        schema_id="device_control",
+        scenario="factory",
+        sub_scenario="cooling",
+    ).schema_def
+
+    action = schema.action_types[0]
+    assert action.target_type == "设备"
+    assert action.pre_conditions[0]["rule_id"] == "r1"
+    assert action.pre_conditions[0]["conditions"][0]["field"] == "温度"
 
 
 def test_graph_layer_objects_links_actions() -> None:

@@ -2,7 +2,7 @@
 严格按照 JSON 格式输出，不要输出任何其他内容。
 不要使用 Markdown 代码块，不要输出解释、前言或总结。
 
-请从以下文本中提取重要对象类型、属性、关系、行动、具体实例以及行动调用，输出 JSON 格式的本体结构。
+请从以下文本中提取重要对象类型、属性、关系、结构化业务规则、规则对应的行动、具体实例以及行动调用，输出 JSON 格式的本体结构。
 
 要求：
 1. entities 表示本体对象类型或概念类型（即「类」），例如 公司、人物、订单、事件、地点。**不要**把具体名称放进 entities。
@@ -16,27 +16,33 @@
 7. confidence 是 0 到 1 之间的小数。
 8. 只保留本段最重要的信息，最多输出 20 个 entities、30 个 triples、15 个 instances 和 10 个 action_invocations。
 9. aliases 最多 3 个，attributes 只保留短值，不要复制长句原文。
-10. actions 表示对象类型上发生的行动定义（类层），例如 创建订单、审批。
-11. instances 表示对象类型的**具体实例**，例如「Apple Inc.」是「公司」的实例。
+10. rules 表示文本明确表达的业务判定规则，不得猜测阈值。scope 引用 entity id；logic 只能是 AND/OR；conditions 中 operator 只能是为空、不为空、包含、不包含、=、!=、>、>=、<、<=。
+11. actions 表示对象类型上发生的行动定义（类层），例如 创建订单、审批。trigger_rules 引用 rules 中的 id，targets 引用 entity id。
+12. instances 表示对象类型的**具体实例**，例如「Apple Inc.」是「公司」的实例。
     - 每个 instance 必须有 class 字段指向所属对象类型的 entity id。
     - attribute_values 列出该实例的具体属性值，每项 {name, value}；value 使用 string/integer/number/boolean。
     - link_values 列出该实例和其他实例之间的具体关系，每项 {predicate, target}；target 使用本 chunk 内其他 instance 的 id 或 name。
-12. action_invocations 表示具体的一次行动调用，引用某个 action 名称，并把 inputs/outputs 指向具体 instance 的 id 或 name。
-13. 如果文本没有可抽取的本体信息，输出 {"entities": [], "triples": [], "actions": [], "instances": [], "action_invocations": []}。
+13. action_invocations 表示具体的一次行动调用，引用某个 action 名称，并把 inputs/outputs 指向具体 instance 的 id 或 name。
+14. 如果文本没有可抽取的本体信息，输出 {"entities": [], "triples": [], "rules": [], "actions": [], "instances": [], "action_invocations": []}。
 
 输出格式：
 {
   "entities": [
     {"id": "e1", "name": "公司", "type": "Organization", "primary_key": "公司名称", "aliases": [], "attributes": {"说明": "营利性法人组织"}},
-    {"id": "e2", "name": "人物", "type": "Person", "primary_key": "姓名", "aliases": [], "attributes": {}}
+    {"id": "e2", "name": "人物", "type": "Person", "primary_key": "姓名", "aliases": [], "attributes": {}},
+    {"id": "e3", "name": "设备", "type": "Asset", "primary_key": "设备编号", "aliases": [], "attributes": {}}
   ],
   "triples": [
     {"subject": "e1", "predicate": "公司名称", "object": "名称", "object_type": "literal", "confidence": 0.9},
     {"subject": "e1", "predicate": "成立年份", "object": 1976, "object_type": "literal", "confidence": 0.9},
-    {"subject": "e1", "predicate": "雇佣", "object": "e2", "object_type": "entity", "cardinality": "ONE_TO_MANY", "confidence": 0.9}
+    {"subject": "e1", "predicate": "雇佣", "object": "e2", "object_type": "entity", "cardinality": "ONE_TO_MANY", "confidence": 0.9},
+    {"subject": "e3", "predicate": "温度", "object": "摄氏度", "object_type": "literal", "confidence": 0.9}
+  ],
+  "rules": [
+    {"id": "r1", "name": "高温冷却规则", "scope": "e3", "logic": "AND", "conditions": [{"id": "c1", "field": "温度", "operator": ">", "value": 30, "value_type": "number"}], "confidence": 0.95}
   ],
   "actions": [
-    {"id": "a1", "name": "任命", "description": "公司任命某人担任职务", "inputs": ["e1"], "outputs": ["e2"]}
+    {"id": "a1", "name": "启动水冷", "description": "高温时启动水冷", "inputs": ["e3"], "outputs": [], "targets": ["e3"], "trigger_rules": ["r1"], "action_type": "control", "action_plan": "启动水冷"}
   ],
   "instances": [
     {

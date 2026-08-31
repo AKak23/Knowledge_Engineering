@@ -4,6 +4,8 @@ from typing import Any
 
 from pydantic import BaseModel, Field, field_validator
 
+from ontology_construct.models import DataType, RuleLogic, RuleOperator
+
 
 class ConceptCandidate(BaseModel):
     name: str = Field(min_length=1)
@@ -46,11 +48,57 @@ class ConceptInstanceCandidate(BaseModel):
         return list(dict.fromkeys(str(value).strip() for value in values if value))
 
 
+class RuleConditionCandidate(BaseModel):
+    id: str = Field(min_length=1)
+    field: str = Field(min_length=1)
+    operator: RuleOperator
+    value: str | int | float | bool | None = None
+    value_type: DataType = "string"
+
+
+class ConceptRuleCandidate(BaseModel):
+    id: str = Field(min_length=1)
+    name: str = Field(min_length=1)
+    description: str = ""
+    scope: str = Field(min_length=1)
+    logic: RuleLogic = "AND"
+    conditions: list[RuleConditionCandidate] = Field(default_factory=list)
+    evidence: list[str] = Field(default_factory=list)
+    confidence: float = Field(default=1.0, ge=0, le=1)
+
+    @field_validator("evidence")
+    @classmethod
+    def dedupe_evidence(cls, values: list[str]) -> list[str]:
+        return list(dict.fromkeys(str(value).strip() for value in values if value))
+
+
+class ConceptActionCandidate(BaseModel):
+    id: str = Field(min_length=1)
+    name: str = Field(min_length=1)
+    description: str = ""
+    inputs: list[str] = Field(default_factory=list)
+    outputs: list[str] = Field(default_factory=list)
+    targets: list[str] = Field(default_factory=list)
+    trigger_rules: list[str] = Field(default_factory=list)
+    action_type: str = "ontology"
+    executor: str = ""
+    action_plan: str = ""
+    feedback: str = ""
+    evidence: list[str] = Field(default_factory=list)
+
+    @field_validator("inputs", "outputs", "targets", "trigger_rules", "evidence")
+    @classmethod
+    def dedupe_strings(cls, values: list[str]) -> list[str]:
+        return list(dict.fromkeys(str(value).strip() for value in values if value))
+
+
 class ChunkConceptCandidates(BaseModel):
     chunk_id: str
     concepts: list[ConceptCandidate] = Field(default_factory=list)
     relations: list[RelationCandidate] = Field(default_factory=list)
     instances: list[ConceptInstanceCandidate] = Field(default_factory=list)
+    rules: list[ConceptRuleCandidate] = Field(default_factory=list)
+    actions: list[ConceptActionCandidate] = Field(default_factory=list)
     raw_response: str | None = None
 
 

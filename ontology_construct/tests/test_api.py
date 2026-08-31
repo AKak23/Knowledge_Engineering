@@ -493,6 +493,33 @@ def test_api_imports_formatted_ontology_jsonl(tmp_path, monkeypatch) -> None:
     monkeypatch.setattr(api_module, "API_OUTPUT_ROOT", tmp_path / "api_jobs")
     client = TestClient(api_module.create_app())
     payload = _formatted_ontology_payload()
+    rule = {
+        "ruleId": 1,
+        "ruleName": "大额订单规则",
+        "ruleCode": "large_order",
+        "scopeObjectId": 2,
+        "scopeObjectName": "订单",
+        "logic": "AND",
+        "conditions": [
+            {
+                "conditionId": "c1",
+                "field": "金额",
+                "operator": ">",
+                "value": 10000,
+                "valueType": "number",
+            }
+        ],
+        "actionIds": [1],
+        "actionNames": ["人工复核"],
+    }
+    action = {
+        "actionId": 1,
+        "actionName": "人工复核",
+        "actionCode": "manual_review",
+        "triggerRuleIds": [1],
+        "triggerRules": ["大额订单规则"],
+        "targetObjects": ["订单"],
+    }
     jsonl = "\n".join(
         json.dumps(record, ensure_ascii=False)
         for record in [
@@ -500,6 +527,8 @@ def test_api_imports_formatted_ontology_jsonl(tmp_path, monkeypatch) -> None:
             {"type": "object", "data": payload["objects"][0]},
             {"type": "object", "data": payload["objects"][1]},
             {"links": payload["links"]},
+            {"type": "rule", "data": rule},
+            {"type": "action", "data": action},
             {"instances": payload["instances"]},
             {"actionInvocations": payload["actionInvocations"]},
         ]
@@ -515,10 +544,21 @@ def test_api_imports_formatted_ontology_jsonl(tmp_path, monkeypatch) -> None:
     graph = client.get(f"/ontology/jobs/{job_id}/graph?view=schema")
 
     assert graph.status_code == 200
-    assert [node["label"] for node in graph.json()["nodes"]] == ["用户", "订单"]
+    assert [node["label"] for node in graph.json()["nodes"]] == [
+        "用户",
+        "订单",
+        "大额订单规则",
+        "人工复核",
+    ]
+    assert {edge["rel"] for edge in graph.json()["edges"]} >= {
+        "适用规则",
+        "触发",
+        "作用于",
+    }
     jobs = client.get("/ontology/jobs").json()["jobs"]
     summary = next(job for job in jobs if job["jobId"] == job_id)
     assert summary["inputNames"] == ["ontology_formatted_ontology.jsonl"]
+    assert summary["ruleCount"] == 1
 
 
 def test_api_accepts_structured_config_yaml(tmp_path, monkeypatch) -> None:

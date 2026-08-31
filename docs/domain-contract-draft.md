@@ -1,6 +1,6 @@
 # 本体编辑领域数据契约草案
 
-最后更新：2026-08-28
+最后更新：2026-08-31
 
 > 状态：**草案，未冻结**。本文用于与团队接口文档逐字段对齐，不是现有 API 的承诺。接口文档到位后应记录差异、确定迁移方案并发布带版本号的正式契约。
 
@@ -13,6 +13,77 @@
 1. **构建结果**：继续使用现有 `FormattedOntology`，保持旧任务和问答兼容。
 2. **本体编辑聚合**：对象、关系、规则、行动、数据挂载、状态和修订号，是阶段 2 的公共契约。
 3. **用户视图状态**：节点坐标、面板折叠等，单独保存，可失败而不损坏本体。
+
+## 已实现的构建结果扩展（2026-08-31）
+
+> 这一节是已落地的 `FormattedOntology` 构建结果，不等于下文尚待冻结的工作区修订/发布契约。
+
+构建结果现在为：
+
+```json
+{
+  "ontology": {},
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "设备",
+      "instanceIds": [1, 2],
+      "instanceCount": 2
+    }
+  ],
+  "links": [],
+  "rules": [
+    {
+      "ruleId": 1,
+      "ruleName": "高温冷却规则",
+      "ruleCode": "object_1",
+      "scopeObjectId": 1,
+      "scopeObjectName": "设备",
+      "logic": "AND",
+      "conditions": [
+        {
+          "conditionId": "c1",
+          "field": "温度",
+          "operator": ">",
+          "value": 30,
+          "valueType": "number"
+        }
+      ],
+      "actionIds": [1],
+      "actionNames": ["启动水冷"],
+      "confidence": 0.95,
+      "sourceChunks": ["chunk_0001"]
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "启动水冷",
+      "triggerRuleIds": [1],
+      "triggerRules": ["高温冷却规则"],
+      "targetObjectIds": [1],
+      "targetObjects": ["设备"],
+      "actionType": "control",
+      "executor": "plc.start_water_cooling",
+      "actionPlan": "启动水冷",
+      "feedback": ""
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceName": "设备01",
+      "objectId": 1,
+      "objectName": "设备"
+    }
+  ],
+  "actionInvocations": []
+}
+```
+
+- `instances[].objectId` 是实例归属的真值；`objects[].instanceIds` 是为画布导航提供的反向索引。
+- 规则只存储单层 `AND | OR` 与结构化条件；当前还未执行规则或自动调用 executor。
+- 旧 JSON 不含 `rules`、`instanceIds` 或新行动字段时按默认空值加载，无需重写历史 job。
 
 ## 建议的编辑聚合 v1
 

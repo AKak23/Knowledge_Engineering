@@ -1,11 +1,12 @@
-你是一个业务流程本体构建专家。从文本中抽取业务对象类型、属性、链接、行动以及具体实例和行动调用。
+你是一个业务流程本体构建专家。从文本中抽取业务对象类型、属性、链接、结构化业务规则、行动以及具体实例和行动调用。
 严格按照 JSON 格式输出，不要输出任何其他内容。
 
 抽取目标：
 1. entities 表示本体对象类型（类），例如 用户、订单、合同、审批、支付、流程节点、状态。**不要**把具体单据名/公司名混入 entities。
 2. triples 中 object_type=literal 表示对象类型的属性定义，例如 订单-订单金额-金额。
 3. triples 中 object_type=entity 表示对象类型之间的链接，例如 用户-创建-订单、订单-触发-支付。
-4. actions 表示业务行动定义（类层），例如 创建订单、发起审批、支付订单、更新状态，需要包含输入对象类型和输出对象类型。
+4. rules 表示文本明确的业务判定；scope 引用 entity id，logic 为 AND/OR，条件 operator 只能为为空、不为空、包含、不包含、=、!=、>、>=、<、<=。
+5. actions 表示业务行动定义（类层），例如 创建订单、发起审批、支付订单、更新状态，需要包含输入/输出/目标对象类型，并用 trigger_rules 引用规则 id。
 5. instances 表示文本中的具体实例，例如 「订单 PO-001」是「订单」的实例。
    - 每个 instance 必须包含 class 字段，指向所属对象类型的 entity id。
    - attribute_values 列出该实例的具体属性值，每项 {name, value}。
@@ -23,6 +24,7 @@
     {"subject": "e1", "predicate": "拥有", "object": "e2", "object_type": "entity", "confidence": 0.9},
     {"subject": "e2", "predicate": "订单状态", "object": "状态值", "object_type": "literal", "confidence": 0.9}
   ],
+  "rules": [],
   "actions": [
     {"id": "a1", "name": "创建订单", "description": "用户创建订单", "inputs": ["e1"], "outputs": ["e2"]}
   ],
@@ -47,7 +49,7 @@
   ]
 }
 
-如果没有可抽取信息，输出 {"entities": [], "triples": [], "actions": [], "instances": [], "action_invocations": []}。
+如果没有可抽取信息，输出 {"entities": [], "triples": [], "rules": [], "actions": [], "instances": [], "action_invocations": []}。
 
 文本：
 {chunk_text}

@@ -36,6 +36,74 @@ def test_concept_candidate_extractor_parses_controlled_relations() -> None:
     assert candidates.relations[0].predicate == "触发"
 
 
+def test_schema_first_candidates_bind_rules_and_actions_to_final_concepts() -> None:
+    chunk = Chunk(
+        id="chunk_0001",
+        text="设备温度大于30度时，启动水冷。",
+        start_char=0,
+        end_char=17,
+        token_count=17,
+    )
+    extractor_client = MockLLMClient(
+        """
+        {
+          "concepts": [
+            {"name": "设备", "definition": "生产设备", "evidence": ["设备温度"]}
+          ],
+          "relations": [],
+          "rules": [
+            {
+              "id": "r1",
+              "name": "高温冷却规则",
+              "scope": "设备",
+              "logic": "AND",
+              "conditions": [
+                {"id": "c1", "field": "温度", "operator": ">", "value": 30, "value_type": "number"}
+              ],
+              "confidence": 0.95
+            }
+          ],
+          "actions": [
+            {
+              "id": "a1",
+              "name": "启动水冷",
+              "inputs": ["设备"],
+              "targets": ["设备"],
+              "trigger_rules": ["r1"],
+              "action_type": "control"
+            }
+          ]
+        }
+        """
+    )
+    candidates = asyncio.run(
+        ConceptCandidateExtractor(extractor_client, ConceptConfig()).extract(chunk)
+    )
+    generalizer = ConceptGeneralizer(
+        MockLLMClient(
+            """
+            {
+              "concepts": [
+                {"name": "生产设备", "definition": "生产过程中使用的设备", "evidence": ["设备温度"]}
+              ],
+              "relations": []
+            }
+            """
+        ),
+        ConceptConfig(max_concepts=10, selection_score_threshold=0),
+    )
+
+    ontology = asyncio.run(generalizer.generalize([candidates]))
+
+    entity_id = next(iter(ontology.entities))
+    assert ontology.entities[entity_id].name == "生产设备"
+    assert ontology.rules[0].scope_entity_id == entity_id
+    assert ontology.rules[0].conditions[0].field == "温度"
+    assert ontology.rules[0].conditions[0].operator == ">"
+    assert ontology.actions[0].trigger_rule_ids == [ontology.rules[0].id]
+    assert ontology.actions[0].target_entity_ids == [entity_id]
+
+
 def test_concept_generalizer_builds_global_ontology_from_candidates() -> None:
     chunk = Chunk(
         id="chunk_0001",

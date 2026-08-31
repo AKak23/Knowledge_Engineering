@@ -8,6 +8,8 @@ from ontology_construct.models import (
     InstanceLinkValue,
     OntologyAction,
     OntologyInstance,
+    OntologyRule,
+    RuleCondition,
     Triple,
 )
 from ontology_construct.output import format_global_ontology
@@ -105,6 +107,9 @@ def test_format_global_ontology_emits_instance_attribute_values_and_links() -> N
     assert formatted.ontology.ontologyName == "用户行为本体"
     assert [item.objectName for item in formatted.objects] == ["用户", "订单"]
     assert formatted.objects[0].attributes[0].attributeName == "用户名"
+    assert formatted.objects[0].instanceIds == [1]
+    assert formatted.objects[0].instanceCount == 1
+    assert formatted.objects[1].instanceIds == [2]
     # The 金额 attribute is auto-promoted from instance attribute_values.
     assert "金额" in [attribute.attributeName for attribute in formatted.objects[1].attributes]
 
@@ -134,6 +139,68 @@ def test_format_global_ontology_emits_instance_attribute_values_and_links() -> N
     assert invocation.outputInstances == [2]
     assert invocation.inputInstanceNames == ["张三"]
     assert invocation.outputInstanceNames == ["订单A"]
+
+
+def test_format_global_ontology_emits_rule_action_binding() -> None:
+    ontology = GlobalOntology.from_entities_and_triples(
+        [Entity(id="g1", name="设备")],
+        triples=[],
+        rules=[
+            OntologyRule(
+                id="r1",
+                name="高温冷却规则",
+                description="温度超过阈值",
+                scope_entity_id="g1",
+                conditions=[
+                    RuleCondition(
+                        id="c1",
+                        field="温度",
+                        operator=">",
+                        value=30,
+                        value_type="number",
+                    )
+                ],
+            )
+        ],
+        actions=[
+            OntologyAction(
+                id="a1",
+                name="启动水冷",
+                input_entity_ids=["g1"],
+                target_entity_ids=["g1"],
+                trigger_rule_ids=["r1"],
+                action_type="control",
+                executor="plc.start_water_cooling",
+                action_plan="启动水冷",
+            )
+        ],
+    )
+
+    formatted = format_global_ontology(
+        ontology,
+        ontology_name="设备控制本体",
+        ontology_desc="",
+        timestamp=datetime(2024, 1, 1, 10, 0, 0),
+    )
+
+    rule = formatted.rules[0]
+    action = formatted.actions[0]
+    assert rule.scopeObjectId == formatted.objects[0].objectId
+    assert rule.conditions[0].model_dump(mode="json") == {
+        "conditionId": "c1",
+        "field": "温度",
+        "operator": ">",
+        "value": 30,
+        "valueType": "number",
+    }
+    assert rule.actionIds == [action.actionId]
+    assert rule.actionNames == ["启动水冷"]
+    assert action.triggerRuleIds == [rule.ruleId]
+    assert action.triggerRules == ["高温冷却规则"]
+    assert action.inputObjectIds == [formatted.objects[0].objectId]
+    assert action.targetObjectIds == [formatted.objects[0].objectId]
+    assert action.targetObjects == ["设备"]
+    assert action.executor == "plc.start_water_cooling"
 
 
 def test_format_global_ontology_promotes_instance_links_to_class_schema() -> None:
