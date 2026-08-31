@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from ontology_construct.cli import (
     _apply_action_builder,
+    _apply_build_quality,
     _apply_llm_overrides,
     _apply_profile_overrides,
     _apply_instance_builder,
@@ -35,6 +36,7 @@ from ontology_construct.cli import (
     _run_schema_first_build,
     _save_build_outputs,
     _schema_identity,
+    _ensure_complete_chunk_extraction,
 )
 from ontology_construct.config import QAConfig, load_config, project_root
 from ontology_construct.embedding import create_embedding_client
@@ -160,6 +162,11 @@ def _event_state(state: dict[str, object]) -> dict[str, object]:
         "instancePostprocessDropped",
         "actionBuildActions",
         "actionBuildEvents",
+        "qualityStatus",
+        "qualityWarnings",
+        "qualityCoveredEntities",
+        "qualityUncoveredEntities",
+        "qualityQuarantinedEntities",
     }
     return {key: value for key, value in state.items() if key in allowed_keys}
 
@@ -544,6 +551,17 @@ def create_app():
             }
         )
 
+    @app.get("/ontology/jobs/{job_id}/quality")
+    def job_quality(job_id: str):
+        try:
+            store.read(job_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(status_code=404, detail="Job not found") from exc
+        quality_path = store.job_dir(job_id) / "build_quality.json"
+        if not quality_path.exists():
+            raise HTTPException(status_code=404, detail="Build quality report not found")
+        return JSONResponse(json.loads(quality_path.read_text(encoding="utf-8")))
+
     @app.get("/ontology/jobs/{job_id}/graph")
     def job_graph(job_id: str, view: Literal["auto", "schema", "instance"] = "auto"):
         formatted = _read_formatted_ontology(store, job_id)
@@ -692,6 +710,7 @@ def _run_job(
         )
         instance_build_report = None
         action_build_stats = None
+        quality_report = None
         update_stage("文本清洗与分块")
         chunks = _prepare_chunks_for_inputs(input_paths, config)
         if construction_mode == "schema-first":
@@ -714,6 +733,7 @@ def _run_job(
             global_ontology, instance_build_report = _apply_instance_builder(
                 global_ontology=global_ontology,
                 input_paths=input_paths,
+                source_chunks=chunks,
                 config=config,
                 backend=backend,
                 output_dir=output_dir,
@@ -734,6 +754,15 @@ def _run_job(
                 output_dir=output_dir,
                 stage_callback=update_stage,
             )
+            update_stage("构建质量校验")
+            global_ontology, quality_report = _apply_build_quality(
+                global_ontology=global_ontology,
+                config=config,
+                output_dir=output_dir,
+                total_chunk_count=len(chunks),
+                failed_chunk_count=failure_count,
+                instance_build_report=instance_build_report,
+            )
             update_stage("格式化输出")
             _save_build_outputs(
                 global_ontology=global_ontology,
@@ -752,6 +781,13 @@ def _run_job(
                 prompt_path=profile_config.prompt,
                 supplemental_prompt=effective_supplemental,
             )
+            _ensure_complete_chunk_extraction(
+                output_dir=output_dir,
+                total_chunk_count=len(chunks),
+                failure_count=failure_count,
+                config=config,
+                phase="ontology extraction",
+            )
             local_files = _json_model_files(output_dir / "local")
             if not local_files and failure_count:
                 raise RuntimeError(
@@ -767,12 +803,47 @@ def _run_job(
                 global_ontology,
                 max_extracted_instances,
             )
+            if config.build_quality.complete_standard_instances:
+                store.update(
+                    job_id,
+                    _instance_build_runtime_status(input_paths, config),
+                )
+                global_ontology, instance_build_report = _apply_instance_builder(
+                    global_ontology=global_ontology,
+                    input_paths=input_paths,
+                    source_chunks=chunks,
+                    config=config,
+                    backend=backend,
+                    output_dir=output_dir,
+                    supplemental_prompt=effective_supplemental,
+                    stage_callback=update_stage,
+                )
+                global_ontology = _limit_extracted_instances(
+                    global_ontology,
+                    max_extracted_instances,
+                )
             global_ontology, postprocess_stats = _apply_instance_postprocess(
                 global_ontology=global_ontology,
                 config=config,
                 backend=backend,
                 output_dir=output_dir,
                 stage_callback=update_stage,
+            )
+            global_ontology, action_build_stats = _apply_action_builder(
+                global_ontology=global_ontology,
+                config=config,
+                profile_config=profile_config,
+                output_dir=output_dir,
+                stage_callback=update_stage,
+            )
+            update_stage("构建质量校验")
+            global_ontology, quality_report = _apply_build_quality(
+                global_ontology=global_ontology,
+                config=config,
+                output_dir=output_dir,
+                total_chunk_count=len(chunks),
+                failed_chunk_count=failure_count,
+                instance_build_report=instance_build_report,
             )
             save_json_model(global_ontology, output_dir / "global.json")
             update_stage("格式化输出")
@@ -797,21 +868,28 @@ def _run_job(
             save_json_model(export.graph, output_dir / "graph.json")
         store.update(
             job_id,
-            _with_action_build_status(
-                _with_instance_build_status(
-                    _with_instance_postprocess_status(
-                        {
-                            "status": "completed",
-                            **_stage_status("已完成"),
-                            "extracted": success_count,
-                            "skipped": skipped_count,
-                            "failed": failure_count,
-                        },
-                        postprocess_stats,
+            _with_build_quality_status(
+                _with_action_build_status(
+                    _with_instance_build_status(
+                        _with_instance_postprocess_status(
+                            {
+                                "status": "completed",
+                                **_stage_status(
+                                    "已完成（有质量告警）"
+                                    if quality_report and quality_report.warnings
+                                    else "已完成"
+                                ),
+                                "extracted": success_count,
+                                "skipped": skipped_count,
+                                "failed": failure_count,
+                            },
+                            postprocess_stats,
+                        ),
+                        instance_build_report,
                     ),
-                    instance_build_report,
+                    action_build_stats,
                 ),
-                action_build_stats,
+                quality_report,
             ),
         )
     except Exception as exc:  # noqa: BLE001 - background job must persist failures.
@@ -955,10 +1033,12 @@ def _run_instance_rebuild_job(
         profile_config = config.get_profile(profile)
         _apply_profile_overrides(config, profile_config)
         ontology = load_json_model(GlobalOntology, output_dir / "concept_global.json")
+        source_chunks = _prepare_chunks_for_inputs(input_paths, config)
         store.update(job_id, _instance_build_runtime_status(input_paths, config))
         ontology, instance_build_report = _apply_instance_builder(
             global_ontology=ontology,
             input_paths=input_paths,
+            source_chunks=source_chunks,
             config=config,
             backend=backend,
             output_dir=output_dir,
@@ -979,6 +1059,15 @@ def _run_instance_rebuild_job(
             output_dir=output_dir,
             stage_callback=update_stage,
         )
+        update_stage("构建质量校验")
+        ontology, quality_report = _apply_build_quality(
+            global_ontology=ontology,
+            config=config,
+            output_dir=output_dir,
+            total_chunk_count=len(source_chunks),
+            failed_chunk_count=0,
+            instance_build_report=instance_build_report,
+        )
         update_stage("格式化输出")
         _save_build_outputs(
             global_ontology=ontology,
@@ -989,15 +1078,25 @@ def _run_instance_rebuild_job(
         )
         store.update(
             job_id,
-            _with_action_build_status(
-                _with_instance_build_status(
-                    _with_instance_postprocess_status(
-                        {"status": "completed", **_stage_status("已完成")},
-                        postprocess_stats,
+            _with_build_quality_status(
+                _with_action_build_status(
+                    _with_instance_build_status(
+                        _with_instance_postprocess_status(
+                            {
+                                "status": "completed",
+                                **_stage_status(
+                                    "已完成（有质量告警）"
+                                    if quality_report.warnings
+                                    else "已完成"
+                                ),
+                            },
+                            postprocess_stats,
+                        ),
+                        instance_build_report,
                     ),
-                    instance_build_report,
+                    action_build_stats,
                 ),
-                action_build_stats,
+                quality_report,
             ),
         )
     except Exception as exc:  # noqa: BLE001 - background job must persist failures.
@@ -1128,6 +1227,27 @@ def _with_instance_build_status(
     return updates
 
 
+def _with_build_quality_status(
+    updates: dict[str, object],
+    report: Any,
+) -> dict[str, object]:
+    if report is None:
+        return updates
+    payload = report.as_dict() if hasattr(report, "as_dict") else {}
+    updates.update(
+        {
+            "qualityStatus": payload.get("status", ""),
+            "qualityWarnings": payload.get("warnings", []),
+            "qualityCoveredEntities": payload.get("coveredEntityCount", 0),
+            "qualityUncoveredEntities": payload.get("uncoveredEntityCount", 0),
+            "qualityQuarantinedEntities": payload.get(
+                "quarantinedEntityCount", 0
+            ),
+        }
+    )
+    return updates
+
+
 def _instance_build_runtime_status(
     input_paths: list[Path],
     config: Any,
@@ -1173,6 +1293,8 @@ def _stage_hint(stage: str) -> str:
         return "正在补齐实例图连接关系并减少孤立实例。"
     if "动作" in stage:
         return "正在根据事件类实例派生动作层。"
+    if "质量" in stage:
+        return "正在检查 chunk 完整性、类—实例覆盖率并隔离无实例无关系的孤立类。"
     if "格式化" in stage:
         return "正在生成前端图谱、问答和导出使用的标准结果文件。"
     return ""
@@ -1466,6 +1588,10 @@ def _job_summary(job_dir: Path) -> dict[str, object] | None:
         "ruleCount": len(result.get("rules") or []),
         "instanceCount": len(instances),
         "instanceLinkCount": instance_links,
+        "qualityStatus": state.get("qualityStatus") or "",
+        "qualityWarnings": state.get("qualityWarnings") or [],
+        "qualityUncoveredEntities": state.get("qualityUncoveredEntities") or 0,
+        "qualityQuarantinedEntities": state.get("qualityQuarantinedEntities") or 0,
         "hasCanonical": (job_dir / "schema.json").exists() and (job_dir / "graph.json").exists(),
         "hasReplay": (job_dir / "job_events.jsonl").exists(),
     }

@@ -36,6 +36,11 @@ from ontology_construct.instance_postprocess import (
     repair_instance_connectivity,
 )
 from ontology_construct.action_builder import ActionBuildStats, build_actions_from_instances
+from ontology_construct.build_quality import (
+    BuildQualityReport,
+    reconcile_build_quality,
+    save_build_quality_report,
+)
 from ontology_construct.instance_builder import InstanceBuildReport, InstanceBuilder
 from ontology_construct.llm import aclose_llm_client, create_llm_client
 from ontology_construct.merger import EntityDeduplicator, OntologyMerger
@@ -529,6 +534,7 @@ def build_command(
             global_ontology, _instance_report = _apply_instance_builder(
                 global_ontology=global_ontology,
                 input_paths=[input_path],
+                source_chunks=chunks,
                 config=config,
                 backend=backend,
                 output_dir=output_dir,
@@ -545,6 +551,14 @@ def build_command(
                 profile_config=profile_config,
                 output_dir=output_dir,
             )
+            global_ontology, quality_report = _apply_build_quality(
+                global_ontology=global_ontology,
+                config=config,
+                output_dir=output_dir,
+                total_chunk_count=len(chunks),
+                failed_chunk_count=failure_count,
+                instance_build_report=_instance_report,
+            )
             _save_build_outputs(
                 global_ontology=global_ontology,
                 output_dir=output_dir,
@@ -557,6 +571,7 @@ def build_command(
                 f"skipped={skipped_count} failed={failure_count} "
                 f"concepts={len(global_ontology.entities)} "
                 f"relations={len(global_ontology.triples)} "
+                f"quality={quality_report.status} "
                 f"output={output_dir / 'ontology.json'} "
                 f"formatted_output={output_dir / 'formatted_ontology.json'} "
                 f"schema_output={output_dir / 'schema.json'} "
@@ -570,6 +585,13 @@ def build_command(
             backend=backend,
             prompt_path=profile_config.prompt,
             supplemental_prompt=supplemental,
+        )
+        _ensure_complete_chunk_extraction(
+            output_dir=output_dir,
+            total_chunk_count=len(chunks),
+            failure_count=failure_count,
+            config=config,
+            phase="ontology extraction",
         )
         local_files = _json_model_files(output_dir / "local")
         if not local_files and failure_count:
@@ -585,11 +607,40 @@ def build_command(
             global_ontology,
             max_extracted_instances,
         )
+        instance_report = None
+        if config.build_quality.complete_standard_instances:
+            global_ontology, instance_report = _apply_instance_builder(
+                global_ontology=global_ontology,
+                input_paths=[input_path],
+                source_chunks=chunks,
+                config=config,
+                backend=backend,
+                output_dir=output_dir,
+                supplemental_prompt=supplemental,
+            )
+            global_ontology = _limit_extracted_instances(
+                global_ontology,
+                max_extracted_instances,
+            )
         global_ontology, _postprocess_stats = _apply_instance_postprocess(
             global_ontology=global_ontology,
             config=config,
             backend=backend,
             output_dir=output_dir,
+        )
+        global_ontology, _action_stats = _apply_action_builder(
+            global_ontology=global_ontology,
+            config=config,
+            profile_config=profile_config,
+            output_dir=output_dir,
+        )
+        global_ontology, quality_report = _apply_build_quality(
+            global_ontology=global_ontology,
+            config=config,
+            output_dir=output_dir,
+            total_chunk_count=len(chunks),
+            failed_chunk_count=failure_count,
+            instance_build_report=instance_report,
         )
     except (RuntimeError, ValueError) as exc:
         raise click.ClickException(str(exc)) from exc
@@ -625,6 +676,7 @@ def build_command(
     click.echo(
         f"Build complete: extracted={success_count} skipped={skipped_count} "
         f"failed={failure_count} entities={len(global_ontology.entities)} "
+        f"quality={quality_report.status} "
         f"triples={len(global_ontology.triples)} output={final_path} "
         f"formatted_output={formatted_path} schema_output={schema_path} "
         f"graph_output={graph_path}"
@@ -709,6 +761,7 @@ def _apply_instance_builder(
     *,
     global_ontology: GlobalOntology,
     input_paths: list[Path],
+    source_chunks: list[Chunk] | None = None,
     config: AppConfig,
     backend: str | None,
     output_dir: Path | None = None,
@@ -734,12 +787,39 @@ def _apply_instance_builder(
                 config,
                 llm_client=llm_client,
                 supplemental_prompt=supplemental_prompt,
-            ).build(global_ontology, input_paths, output_dir)
+            ).build(
+                global_ontology,
+                input_paths,
+                output_dir,
+                source_chunks=source_chunks,
+            )
         finally:
             if llm_client is not None:
                 await aclose_llm_client(llm_client)
 
     return asyncio.run(run())
+
+
+def _apply_build_quality(
+    *,
+    global_ontology: GlobalOntology,
+    config: AppConfig,
+    output_dir: Path,
+    total_chunk_count: int,
+    failed_chunk_count: int,
+    instance_build_report: InstanceBuildReport | None,
+) -> tuple[GlobalOntology, BuildQualityReport]:
+    reconciled, report = reconcile_build_quality(
+        global_ontology,
+        config=config.build_quality,
+        total_chunk_count=total_chunk_count,
+        failed_chunk_count=failed_chunk_count,
+        instance_build_report=instance_build_report,
+    )
+    save_build_quality_report(report, output_dir)
+    if not report.publishable:
+        raise RuntimeError("; ".join(report.warnings) or "Ontology build is incomplete")
+    return reconciled, report
 
 
 def _apply_action_builder(
@@ -929,6 +1009,7 @@ def _run_extract(
             if tracker.is_done(chunk.id):
                 return "skipped", chunk.id
             try:
+                tracker.mark_attempt(chunk.id)
                 async with semaphore:
                     running_count += 1
                     progress.update(task_id, status=status_text())
@@ -958,19 +1039,43 @@ def _run_extract(
                 status=status_text(),
             )
             tasks = [asyncio.create_task(extract_one(chunk)) for chunk in chunks]
+            failed_ids: set[str] = set()
             for completed in asyncio.as_completed(tasks):
-                status, _chunk_id = await completed
+                status, chunk_id = await completed
                 if status == "success":
                     success_count += 1
                 elif status == "skipped":
                     skipped_count += 1
                 elif status == "failed":
                     failure_count += 1
+                    failed_ids.add(chunk_id)
                 progress.update(
                     task_id,
                     advance=1,
                     status=status_text(),
                 )
+            chunk_by_id = {chunk.id: chunk for chunk in chunks}
+            for retry_round in range(config.build_quality.chunk_retry_rounds):
+                if not failed_ids:
+                    break
+                retry_chunks = [chunk_by_id[chunk_id] for chunk_id in sorted(failed_ids)]
+                failed_ids = set()
+                progress.update(
+                    task_id,
+                    total=(progress.tasks[task_id].total or 0) + len(retry_chunks),
+                    description=f"Retrying failed chunks ({retry_round + 1})",
+                )
+                retry_tasks = [
+                    asyncio.create_task(extract_one(chunk)) for chunk in retry_chunks
+                ]
+                for completed in asyncio.as_completed(retry_tasks):
+                    status, chunk_id = await completed
+                    if status == "success":
+                        success_count += 1
+                        failure_count -= 1
+                    elif status == "failed":
+                        failed_ids.add(chunk_id)
+                    progress.update(task_id, advance=1, status=status_text())
         return success_count, failure_count, skipped_count
 
     async def run_with_cleanup() -> tuple[int, int, int]:
@@ -1006,6 +1111,13 @@ def _run_schema_first_build(
             backend=backend,
             supplemental_prompt=supplemental_prompt,
         )
+    )
+    _ensure_complete_chunk_extraction(
+        output_dir=output_dir,
+        total_chunk_count=len(chunks),
+        failure_count=failure_count,
+        config=config,
+        phase="concept candidate extraction",
     )
     if not candidates and failure_count:
         raise ValueError(
@@ -1085,15 +1197,19 @@ def _run_concept_candidate_extract(
                 f"skipped={skipped_count} failed={failure_count}"
             )
 
-        async def extract_one(chunk: Chunk) -> tuple[str, ChunkConceptCandidates | None]:
+        async def extract_one(
+            chunk: Chunk,
+        ) -> tuple[str, str, ChunkConceptCandidates | None]:
             nonlocal running_count
             candidate_path = candidate_dir / f"{chunk.id}.json"
             if tracker.is_done(chunk.id) and candidate_path.exists():
                 return (
                     "skipped",
+                    chunk.id,
                     load_json_model(ChunkConceptCandidates, candidate_path),
                 )
             try:
+                tracker.mark_attempt(chunk.id)
                 async with semaphore:
                     running_count += 1
                     progress.update(task_id, status=status_text())
@@ -1104,10 +1220,10 @@ def _run_concept_candidate_extract(
                         progress.update(task_id, status=status_text())
                 save_json_model(candidates, candidate_path)
                 tracker.mark_done(chunk.id, LocalOntology(chunk_id=chunk.id))
-                return "success", candidates
+                return "success", chunk.id, candidates
             except Exception as exc:  # noqa: BLE001 - keep chunk failures isolated.
                 tracker.mark_failed(chunk.id, _format_chunk_error(exc))
-                return "failed", None
+                return "failed", chunk.id, None
 
         with Progress(
             SpinnerColumn(),
@@ -1123,14 +1239,16 @@ def _run_concept_candidate_extract(
                 status=status_text(),
             )
             tasks = [asyncio.create_task(extract_one(chunk)) for chunk in chunks]
+            failed_ids: set[str] = set()
             for completed in asyncio.as_completed(tasks):
-                status, candidates = await completed
+                status, chunk_id, candidates = await completed
                 if status == "success":
                     success_count += 1
                 elif status == "skipped":
                     skipped_count += 1
                 elif status == "failed":
                     failure_count += 1
+                    failed_ids.add(chunk_id)
                 if candidates is not None:
                     results.append(candidates)
                 progress.update(
@@ -1138,6 +1256,30 @@ def _run_concept_candidate_extract(
                     advance=1,
                     status=status_text(),
                 )
+            chunk_by_id = {chunk.id: chunk for chunk in chunks}
+            for retry_round in range(config.build_quality.chunk_retry_rounds):
+                if not failed_ids:
+                    break
+                retry_chunks = [chunk_by_id[chunk_id] for chunk_id in sorted(failed_ids)]
+                failed_ids = set()
+                progress.update(
+                    task_id,
+                    total=(progress.tasks[task_id].total or 0) + len(retry_chunks),
+                    description=f"Retrying failed concept chunks ({retry_round + 1})",
+                )
+                retry_tasks = [
+                    asyncio.create_task(extract_one(chunk)) for chunk in retry_chunks
+                ]
+                for completed in asyncio.as_completed(retry_tasks):
+                    status, chunk_id, candidates = await completed
+                    if status == "success":
+                        success_count += 1
+                        failure_count -= 1
+                    elif status == "failed":
+                        failed_ids.add(chunk_id)
+                    if candidates is not None:
+                        results.append(candidates)
+                    progress.update(task_id, advance=1, status=status_text())
         results.sort(key=lambda item: item.chunk_id)
         return results, success_count, failure_count, skipped_count
 
@@ -1209,6 +1351,34 @@ def _missing_local_ontologies_message(
         f"{item['chunk_id']}: {item['error_message']}" for item in errors
     )
     return f"{message} First errors: {examples}"
+
+
+def _ensure_complete_chunk_extraction(
+    *,
+    output_dir: Path,
+    total_chunk_count: int,
+    failure_count: int,
+    config: AppConfig,
+    phase: str,
+) -> None:
+    if failure_count <= 0 or not config.build_quality.require_all_chunks:
+        return
+    details = ""
+    db_path = output_dir / "progress.sqlite"
+    if db_path.exists():
+        tracker = ProgressTracker(db_path)
+        try:
+            errors = tracker.failed_errors(limit=3)
+        finally:
+            tracker.close()
+        if errors:
+            details = " First errors: " + "; ".join(
+                f"{item['chunk_id']}: {item['error_message']}" for item in errors
+            )
+    raise RuntimeError(
+        f"Incomplete {phase}: {failure_count}/{total_chunk_count} chunks failed "
+        f"after workflow retries.{details}"
+    )
 
 
 def _limit_extracted_instances(

@@ -130,7 +130,7 @@ uv run ontology-construct-api --host 0.0.0.0 --port 8000
 ontology_construct/tests/fixtures/phase2_cooling_system.txt
 ```
 
-默认 chunk 配置会把它拆成两个分块。先运行完整回归并启动服务：
+默认 chunk 配置会把当前纯业务样例拆成一个 1,338 token 的分块；测试/验收说明已经从业务原文中移除，避免模型把 UI 要求误抽成概念。先运行完整回归并启动服务：
 
 ```bash
 cd ontology_construct
@@ -148,7 +148,7 @@ curl -X POST http://127.0.0.1:8000/ontology/jobs \
   -F profile=industrial_process \
   -F backend=kimi \
   -F construction_mode=standard \
-  -F instance_count=1 \
+  -F instance_count=0 \
   -F use_embedding=false
 ```
 
@@ -156,11 +156,12 @@ curl -X POST http://127.0.0.1:8000/ontology/jobs \
 
 ```bash
 curl http://127.0.0.1:8000/ontology/jobs/<jobId>/status
+curl http://127.0.0.1:8000/ontology/jobs/<jobId>/quality
 curl 'http://127.0.0.1:8000/ontology/jobs/<jobId>/graph?view=schema'
 curl 'http://127.0.0.1:8000/ontology/jobs/<jobId>/graph?view=instance'
 ```
 
-验收时在“新建本体”的历史结果中加载该任务：本体画布应同时出现对象、规则和行动；点击对象应看到 `关联实例` 与 `来源分块`；切换“本体实例 3D”应看到独立实例节点和实例关系。
+状态中的 `qualityStatus` 应为 `passed`；若存在 `qualityWarnings`，先检查对应缺实例类或已隔离孤立类。任务目录的 `build_quality.json` 会给出逐类覆盖明细。验收时在“新建本体”的历史结果中加载该任务：本体画布应同时出现对象、规则和行动；点击对象应看到 `关联实例` 与 `来源分块`；切换“本体实例 3D”应看到独立实例节点和实例关系。
 
 ## API 接口
 
@@ -176,6 +177,7 @@ curl 'http://127.0.0.1:8000/ontology/jobs/<jobId>/graph?view=instance'
 | `POST` | `/ontology/jobs/import` | 导入已有 formatted ontology JSON/JSONL |
 | `POST` | `/ontology/structured-configs` | 上传结构化数据 YAML 配置 |
 | `GET` | `/ontology/jobs/{jobId}/status` | 查询任务状态和 chunk 进度 |
+| `GET` | `/ontology/jobs/{jobId}/quality` | 查询类—实例覆盖、孤立类和构建质量报告 |
 | `GET` | `/ontology/jobs/{jobId}/result` | 获取 formatted ontology |
 | `GET` | `/ontology/jobs/{jobId}/canonical` | 获取 schema/graph 标准输出 |
 | `GET` | `/ontology/jobs/{jobId}/graph?view=schema` | 获取前端图谱数据，`view` 可为 `schema`、`instance`、`auto` |
@@ -281,6 +283,7 @@ ontology_construct/outputs/api_jobs/{jobId}/
 | `formatted_ontology.json` | 前端、导入和问答使用的格式化本体 |
 | `schema.json` | canonical schema/type layer |
 | `graph.json` | canonical graph/instance layer |
+| `build_quality.json` | chunk 完整性、逐类真实实例覆盖、孤立类隔离和质量告警 |
 
 `formatted_ontology.json` 顶层结构：
 
@@ -289,6 +292,7 @@ ontology_construct/outputs/api_jobs/{jobId}/
 | `ontology` | 本体元数据 |
 | `objects` | 对象类型和属性 schema |
 | `links` | 对象类型之间的关系 schema |
+| `rules` | 结构化规则定义及其作用对象、触发行动 |
 | `actions` | 行动定义 |
 | `instances` | 具体实例、属性值和实例间关系 |
 | `actionInvocations` | 行动调用实例 |
@@ -304,7 +308,11 @@ ontology_construct/outputs/api_jobs/{jobId}/
   -> 文本清洗
   -> 按段落和长度切分 chunk
   -> LLM 抽取局部本体
+  -> 对失败 chunk 做工作流级补偿重试（仍失败则任务失败）
   -> 合并实体、属性、关系、行动和实例
+  -> 按合并后的 schema 再读原文补全真实实例，并与首轮实例去重合并
+  -> 实例连通性与行动派生
+  -> 质量门禁：类—实例覆盖检查、孤立类隔离
   -> 输出 formatted/canonical JSON
   -> 前端轮询状态并加载图谱
   -> 用户围绕当前本体问答
@@ -319,6 +327,8 @@ ontology_construct/outputs/api_jobs/{jobId}/
 - `extractor/parser.py`：解析 LLM 返回，容忍 fenced JSON，并校验为内部模型。
 - `merger/ontology_merger.py`：归并重复实体、属性和三元组。
 - `concept/`：概念优先模式，先抽候选概念、泛化 schema，再补实例和实例关系。
+- `instance_builder.py`：标准模式与概念优先模式共用的受 schema 约束实例补全；保留首轮真实实例和行动调用。
+- `build_quality.py`：构建完整性、逐类实例覆盖和孤立类隔离报告。
 - `output/formatted_ontology.py`：生成前端和问答使用的对象/关系/实例结构。
 - `output/canonical_ontology.py`：生成 schema 与 graph 两层标准输出。
 - `qa.py`：把本体压缩成问答上下文，调用 LLM 返回答案和高亮信息。
@@ -339,8 +349,9 @@ ontology_construct/outputs/api_jobs/{jobId}/
 - `concept.*`：概念优先模式的候选概念、关系词表、实例抽取参数。
 - `concept.instance_llm_concurrency`：实例抽取和实例关系构建的独立并发；候选概念抽取仍使用 `llm.concurrency`。
 - `concept.instance_relation_source_char_limit` / `concept.max_instance_relation_pairs` / `concept.min_relation_pairs_per_instance`：控制实例关系判断上下文长度、候选关系对总预算，以及每个实例至少保留的候选关系对数量，用于减少实例孤立节点。
-- `instance_builder.*`：schema-first 完成后独立重建最终实例层；日志/JSON 优先规则抽取，普通文本可用 LLM 小批补充。
+- `instance_builder.*`：schema 合并后独立补全最终实例层；标准与 schema-first 均启用，日志/JSON 优先规则抽取，普通文本可用 LLM 小批补充。
 - `instance_postprocess.*`：实例图后处理；可用 LLM 处理离散点、补实例关系，并带确定性兜底补边。
+- `build_quality.*`：失败 chunk/实例批次补偿重试、完整构建要求、标准模式实例补全和孤立类隔离策略。
 - `replay.enabled`：是否记录构建过程回放日志；关闭后新任务不再写 `job_events.jsonl`，可节省存储。
 - `qa_logging.enabled`：是否记录问答/推理日志；开启后写入 `qa_events.jsonl`，包含 question、prompt、rawAnswer、parsedAnswer 和推理元信息。
 - `frontend_build.*`：前端简化模式下隐藏的构建默认参数，例如默认模型、本体类型、构建模式、最大概念数、实例策略、LLM 超时和并发。

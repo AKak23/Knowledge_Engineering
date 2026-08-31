@@ -109,6 +109,9 @@ def test_format_global_ontology_emits_instance_attribute_values_and_links() -> N
     assert formatted.objects[0].attributes[0].attributeName == "用户名"
     assert formatted.objects[0].instanceIds == [1]
     assert formatted.objects[0].instanceCount == 1
+    assert formatted.objects[0].realInstanceCount == 1
+    assert formatted.objects[0].generatedInstanceCount == 0
+    assert formatted.objects[0].instanceCoverage == "grounded"
     assert formatted.objects[1].instanceIds == [2]
     # The 金额 attribute is auto-promoted from instance attribute_values.
     assert "金额" in [attribute.attributeName for attribute in formatted.objects[1].attributes]

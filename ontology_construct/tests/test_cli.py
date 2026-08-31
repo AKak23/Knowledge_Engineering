@@ -2,9 +2,12 @@ import json
 
 from click.testing import CliRunner
 
+import ontology_construct.cli as cli_module
 from ontology_construct.cli import cli
+from ontology_construct.config import AppConfig, BuildQualityConfig
 from ontology_construct.models import (
     ActionInvocation,
+    Chunk,
     Entity,
     InstanceLinkValue,
     LocalOntology,
@@ -13,6 +16,43 @@ from ontology_construct.models import (
     Triple,
 )
 from ontology_construct.storage import save_json_model
+
+
+def test_run_extract_retries_failed_chunk_at_workflow_level(tmp_path, monkeypatch) -> None:
+    class FlakyClient:
+        def __init__(self) -> None:
+            self.calls = 0
+
+        async def complete(self, prompt: str, *, system_prompt: str | None = None) -> str:
+            self.calls += 1
+            if self.calls == 1:
+                raise RuntimeError("timeout")
+            return '{"entities": [], "triples": []}'
+
+    client = FlakyClient()
+    monkeypatch.setattr(cli_module, "create_llm_client", lambda *_args: client)
+    config = AppConfig(
+        build_quality=BuildQualityConfig(chunk_retry_rounds=1),
+        llm={"concurrency": 1},
+    )
+    chunk = Chunk(
+        id="chunk_0001",
+        text="测试文本",
+        start_char=0,
+        end_char=4,
+        token_count=4,
+    )
+
+    success, failed, skipped = cli_module._run_extract(
+        [chunk],
+        tmp_path,
+        config,
+        "mock",
+    )
+
+    assert (success, failed, skipped) == (1, 0, 0)
+    assert client.calls == 2
+    assert (tmp_path / "local" / "chunk_0001.json").exists()
 
 
 def test_chunk_command_writes_jsonl(tmp_path) -> None:

@@ -126,7 +126,9 @@ class FrontendBuildConfig(BaseModel):
     max_concepts: int = Field(default=50, gt=0)
     semantic_clustering: bool = False
     instance_mode: str = "both"
-    instance_count: int = Field(default=1, ge=0)
+    # Generated placeholder instances are for explicit demo scenarios only.
+    # Production document builds should rely on source-grounded instances.
+    instance_count: int = Field(default=0, ge=0)
     qa_context_mode: str = "graph_rag"
     qa_fallback_enabled: bool = True
     llm_timeout: int | None = Field(default=None, gt=0)
@@ -240,6 +242,22 @@ class ActionBuilderConfig(BaseModel):
     source_tag: str = "action_builder"
 
 
+class BuildQualityConfig(BaseModel):
+    """Workflow-level completeness and publication policy.
+
+    Provider clients already retry individual HTTP requests. These retries are
+    an additional workflow pass over failed chunks/batches, which is useful for
+    long structured extraction responses that occasionally time out.
+    """
+
+    chunk_retry_rounds: int = Field(default=1, ge=0, le=3)
+    instance_retry_rounds: int = Field(default=1, ge=0, le=3)
+    require_all_chunks: bool = True
+    complete_standard_instances: bool = True
+    quarantine_orphan_entities: bool = True
+    warn_on_uncovered_entities: bool = True
+
+
 class OntologyProfileConfig(BaseModel):
     ontology_name: str = "通用本体"
     ontology_desc: str = "从长文本中抽取的通用本体结构"
@@ -277,6 +295,7 @@ class AppConfig(BaseModel):
     action_builder: ActionBuilderConfig = Field(
         default_factory=ActionBuilderConfig
     )
+    build_quality: BuildQualityConfig = Field(default_factory=BuildQualityConfig)
     ontology_profiles: dict[str, OntologyProfileConfig] = Field(
         default_factory=lambda: {
             "default": OntologyProfileConfig(),

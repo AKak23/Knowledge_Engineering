@@ -43,6 +43,9 @@ class FormattedObject(BaseModel):
     attributes: list[FormattedAttribute] = Field(default_factory=list)
     instanceIds: list[int] = Field(default_factory=list)
     instanceCount: int = 0
+    realInstanceCount: int = 0
+    generatedInstanceCount: int = 0
+    instanceCoverage: str = "uncovered"
     sourceChunks: list[str] = Field(default_factory=list)
 
 
@@ -589,8 +592,15 @@ def _attach_instances_to_objects(
         if item is None:
             continue
         item.instanceIds.append(instance.instanceId)
+        if instance.generated:
+            item.generatedInstanceCount += 1
+        else:
+            item.realInstanceCount += 1
     for item in objects:
         item.instanceCount = len(item.instanceIds)
+        item.instanceCoverage = (
+            "grounded" if item.realInstanceCount > 0 else "uncovered"
+        )
 
 
 def _format_instances(

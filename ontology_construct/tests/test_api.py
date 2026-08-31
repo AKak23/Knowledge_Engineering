@@ -131,6 +131,11 @@ def test_api_builds_mock_job_and_serves_graph(tmp_path, monkeypatch) -> None:
     assert canonical.json()["schema"]["object_types"] == []
     assert canonical.json()["graph"]["objects"] == []
 
+    quality = client.get(f"/ontology/jobs/{job_id}/quality")
+    assert quality.status_code == 200
+    assert quality.json()["status"] == "passed"
+    assert quality.json()["failedChunkCount"] == 0
+
 
 def test_api_profiles_include_frontend_build_defaults(tmp_path, monkeypatch) -> None:
     monkeypatch.setattr(api_module, "API_OUTPUT_ROOT", tmp_path / "api_jobs")
@@ -147,7 +152,7 @@ def test_api_profiles_include_frontend_build_defaults(tmp_path, monkeypatch) -> 
     assert defaults["maxConcepts"] == 50
     assert defaults["semanticClustering"] is True
     assert defaults["instanceMode"] == "real"
-    assert defaults["instanceCount"] == 1
+    assert defaults["instanceCount"] == 0
     assert defaults["qaContextMode"] == "graph_rag"
     profile_names = {profile["name"] for profile in response.json()["profiles"]}
     assert "industrial_process" in profile_names
@@ -740,5 +745,6 @@ def test_api_reports_extraction_failure_before_merge(tmp_path, monkeypatch) -> N
     assert status.status_code == 200
     payload = status.json()
     assert payload["status"] == "failed"
-    assert "Extraction produced no successful chunk results" in payload["error"]
+    assert "Incomplete ontology extraction" in payload["error"]
+    assert "1/1 chunks failed after workflow retries" in payload["error"]
     assert "RuntimeError: LLM unavailable" in payload["error"]

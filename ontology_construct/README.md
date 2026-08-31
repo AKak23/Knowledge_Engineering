@@ -167,14 +167,14 @@ QWEN_EMBEDDING_API_KEY=...
   --instance-count 3
 ```
 
-`extract` 和 `build` 会在处理 chunk 时显示进度条，并实时更新 running / done / skipped / failed 数量。
+`extract` 和 `build` 会在处理 chunk 时显示进度条，并实时更新 running / done / skipped / failed 数量。HTTP 客户端重试结束后，流水线还会按 `build_quality.chunk_retry_rounds` 对最终失败的 chunk 做补偿重试；`require_all_chunks=true` 时仍有失败会终止构建，不再发布局部本体。
 `--profile` 可选择 `default`、`people_relation`、`business_process` 等配置化本体类型；不传时使用 `default`。
 `build` 会额外输出 `formatted_ontology.json`，详见下文「输出结构」。
 
 实例数量相关参数：
 
 - `--max-extracted-instances N`：限制 LLM 从原文真实抽取后保留的实例数量；会同步清理被裁掉实例相关的实例链接和行动调用引用。
-- `--instance-count N`：在 `formatted_ontology.json` 中额外生成 N 个示例实例，字段 `generated=true`；它不限制真实抽取实例数量。
+- `--instance-count N`：在 `formatted_ontology.json` 中额外生成 N 个演示实例，字段 `generated=true`；生产构建默认是 `0`，不得用占位节点掩盖真实实例缺失。
 
 长文档抽取常见耗时较长。若进度条显示 `running>0` 但 `done=0`，通常表示正在等待 LLM 返回；可通过 `--llm-timeout`、`--llm-retries`、`--llm-concurrency` 临时调整请求超时、重试次数和并发数。
 
@@ -185,7 +185,7 @@ QWEN_EMBEDDING_API_KEY=...
 | 顶层字段 | 说明 |
 |---|---|
 | `ontology` | 元数据（名称、描述、profile、时间戳） |
-| `objects` | 对象类型表，每项含 `attributes`（类的属性 schema）以及反向实例索引 `instanceIds`/`instanceCount` |
+| `objects` | 对象类型表，每项含 `attributes`、反向实例索引，以及 `realInstanceCount`/`generatedInstanceCount`/`instanceCoverage` |
 | `links` | 对象类型之间的链接 schema |
 | `rules` | 结构化业务规则，含作用对象、AND/OR 条件、来源与对应行动 ID |
 | `actions` | 行动定义（类层），含 `triggerRuleIds`、目标对象和 executor/计划/反馈字段 |
@@ -199,6 +199,7 @@ QWEN_EMBEDDING_API_KEY=...
 - `instances[*].objectId` 是实例所属类的真值，`objects[*].instanceIds` 是用于画布点开对象时快速查询的反向索引。
 - `links` 描述「类之间存在某种关系」，`instances[*].linkValues` 描述「这个实例与那个实例有这条关系」，并通过 `linkId` 回指 schema。如果实例间出现了类层未声明的关系，formatter 会自动反推一条 `FormattedLink` 补齐 schema。
 - `rules` 与普通三元组分开；`actions[*].triggerRuleIds` 回指触发规则，`actionInvocations` 描述「Alice 在 ... 执行了 ... 作用于 ...」并回指类层行动。
+- 构建会额外写出 `build_quality.json`。无真实实例但仍有 schema/规则/行动引用的类保留并告警；无实例、无类关系、无规则/行动引用的真正孤立类默认隔离，不进入正式画布。
 
 DeepSeek 小样本 smoke test：
 

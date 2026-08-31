@@ -46,7 +46,7 @@ def test_load_default_config() -> None:
     assert config.frontend_build.max_concepts == 50
     assert config.frontend_build.semantic_clustering is True
     assert config.frontend_build.instance_mode == "real"
-    assert config.frontend_build.instance_count == 1
+    assert config.frontend_build.instance_count == 0
     assert config.frontend_build.qa_context_mode == "graph_rag"
     assert config.frontend_build.qa_fallback_enabled is True
     assert config.qa.max_prompt_chars == 24000
@@ -66,6 +66,10 @@ def test_load_default_config() -> None:
     assert config.instance_builder.max_instances_per_type == 200
     assert config.instance_builder.max_log_records_per_file == 2000
     assert config.instance_builder.llm_chunk_batch_size == 2
+    assert config.build_quality.chunk_retry_rounds == 1
+    assert config.build_quality.instance_retry_rounds == 1
+    assert config.build_quality.require_all_chunks is True
+    assert config.build_quality.complete_standard_instances is True
     assert "导致" in config.concept.relation_vocab
     assert config.refine.enabled is False
     assert config.get_profile("business_process").ontology_name == "业务流程本体"

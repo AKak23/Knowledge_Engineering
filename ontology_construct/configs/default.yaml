@@ -96,7 +96,8 @@ frontend_build:
   max_concepts: 50
   semantic_clustering: true
   instance_mode: real
-  instance_count: 1
+  # 生产构建不生成“类型示例1”占位节点；演示场景可在请求中显式传入数量。
+  instance_count: 0
   qa_context_mode: graph_rag
   qa_fallback_enabled: true
   # 留空表示使用 llm 下的默认值；需要临时调优时可改为整数。
@@ -179,6 +180,18 @@ action_builder:
     - 冲压件
   name_strip_suffixes:
     - 事件
+
+build_quality:
+  # HTTP 客户端内部重试结束后，再对失败 chunk/实例批次做一次工作流级补偿。
+  chunk_retry_rounds: 1
+  instance_retry_rounds: 1
+  # 任一文档 chunk 最终失败时，任务整体失败，不发布静默缺页的本体。
+  require_all_chunks: true
+  # 标准模式也执行受 schema 约束的独立实例补全，并与第一遍实例合并。
+  complete_standard_instances: true
+  # 无实例、无关系、无规则/行动引用的类进入质量报告，不进入正式画布。
+  quarantine_orphan_entities: true
+  warn_on_uncovered_entities: true
 
 ontology_profiles:
   default:

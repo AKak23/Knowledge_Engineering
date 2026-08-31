@@ -20,10 +20,13 @@
 11. actions 表示对象类型上发生的行动定义（类层），例如 创建订单、审批。trigger_rules 引用 rules 中的 id，targets 引用 entity id。
 12. instances 表示对象类型的**具体实例**，例如「Apple Inc.」是「公司」的实例。
     - 每个 instance 必须有 class 字段指向所属对象类型的 entity id。
+    - 文本中凡是明确出现名称、编号或其他可区分标识的具体对象，都必须输出为 instance；不能只输出它所属的 entity。
     - attribute_values 列出该实例的具体属性值，每项 {name, value}；value 使用 string/integer/number/boolean。
     - link_values 列出该实例和其他实例之间的具体关系，每项 {predicate, target}；target 使用本 chunk 内其他 instance 的 id 或 name。
 13. action_invocations 表示具体的一次行动调用，引用某个 action 名称，并把 inputs/outputs 指向具体 instance 的 id 或 name。
 14. 如果文本没有可抽取的本体信息，输出 {"entities": [], "triples": [], "rules": [], "actions": [], "instances": [], "action_invocations": []}。
+15. 只抽取业务事实。忽略关于“画布、节点显示、chunk、测试、验收、构建结果应该如何展示”的元指令；不得因为这类清单式说明而创建 entity。
+16. 不得虚构“某类型示例1”等占位实例。没有明确具体对象时保持该类型无实例，交由后续质量校验处理。
 
 输出格式：
 {

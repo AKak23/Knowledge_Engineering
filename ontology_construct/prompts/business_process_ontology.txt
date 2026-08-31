@@ -9,10 +9,12 @@
 5. actions 表示业务行动定义（类层），例如 创建订单、发起审批、支付订单、更新状态，需要包含输入/输出/目标对象类型，并用 trigger_rules 引用规则 id。
 5. instances 表示文本中的具体实例，例如 「订单 PO-001」是「订单」的实例。
    - 每个 instance 必须包含 class 字段，指向所属对象类型的 entity id。
+   - 凡是明确出现名称、编号或其他可区分标识的具体业务对象，都必须输出为 instance，不能只输出类型。
    - attribute_values 列出该实例的具体属性值，每项 {name, value}。
    - link_values 列出该实例与其他实例之间的具体关联，每项 {predicate, target}，target 使用其他 instance 的 id 或 name。
 6. action_invocations 表示具体的一次业务行动发生，inputs/outputs 引用具体 instance。
 7. 保留复杂多跳链路，例如 用户 -> 订单 -> 支付 -> 发票 -> 对账，不要整理成单中心结构。
+8. 只抽取业务事实，忽略关于画布、节点显示、chunk、测试、验收或期望输出的元指令；不得虚构占位实例。
 
 输出格式：
 {

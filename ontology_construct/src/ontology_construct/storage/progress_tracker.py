@@ -75,6 +75,18 @@ class ProgressTracker:
                 ),
             )
 
+    def mark_attempt(self, chunk_id: str) -> None:
+        with self.connection:
+            self.connection.execute(
+                """
+                UPDATE chunk_progress
+                SET attempt_count = attempt_count + 1,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE chunk_id = ?
+                """,
+                (chunk_id,),
+            )
+
     def mark_failed(self, chunk_id: str, error_message: str) -> None:
         with self.connection:
             self.connection.execute(
@@ -123,8 +135,20 @@ class ProgressTracker:
                     chunk_json TEXT NOT NULL,
                     result_json TEXT,
                     error_message TEXT,
+                    attempt_count INTEGER NOT NULL DEFAULT 0,
                     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
                     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
                 )
                 """
             )
+            columns = {
+                row["name"]
+                for row in self.connection.execute(
+                    "PRAGMA table_info(chunk_progress)"
+                ).fetchall()
+            }
+            if "attempt_count" not in columns:
+                self.connection.execute(
+                    "ALTER TABLE chunk_progress "
+                    "ADD COLUMN attempt_count INTEGER NOT NULL DEFAULT 0"
+                )

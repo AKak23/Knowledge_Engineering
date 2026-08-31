@@ -20,7 +20,7 @@ const DEFAULT_BUILD_OPTIONS = {
   maxConcepts: 50,
   semanticClustering: true,
   instanceMode: 'real',
-  instanceCount: 1,
+  instanceCount: 0,
   qaContextMode: 'graph_rag',
   qaFallbackEnabled: true,
   llmTimeout: null,
@@ -1290,7 +1290,8 @@ function historyJobLabel(job){
   const schema = `${job.objectCount || 0}类/${job.linkCount || 0}关系`;
   const instance = `${job.instanceCount || 0}实例/${job.instanceLinkCount || 0}边`;
   const prefix = job.mock ? '内置演示 · ' : '';
-  return `${prefix}${time ? `${time} · ` : ''}${name} · ${schema} · ${instance}`;
+  const quality = job.qualityStatus === 'warning' ? ' · 质量告警' : '';
+  return `${prefix}${time ? `${time} · ` : ''}${name} · ${schema} · ${instance}${quality}`;
 }
 
 function isMockJob(jobId){
@@ -1845,7 +1846,11 @@ async function pollJob(jobId, fileName){
       setBuildOptionsDisabled(false);
       els.send.disabled = false;
       els.q.placeholder = `围绕当前${graphViewLabel()}提问，例如：概括关键对象、追溯某个节点的关系链路`;
-      setStatus('本体已构建 · 可提问');
+      const hasQualityWarnings = Array.isArray(state.qualityWarnings) && state.qualityWarnings.length > 0;
+      setStatus(
+        hasQualityWarnings ? '本体已构建 · 存在质量告警' : '本体已构建 · 可提问',
+        hasQualityWarnings ? 'warn' : undefined
+      );
       setBuildPanelOpen(false);
       loadHistoryJobs(jobId);
       return;
@@ -1873,6 +1878,9 @@ function buildProgressText(fileName, state, progress){
     `进度：${formatChunkProgress(progress)}`
   ];
   if (state.stage) lines.push(`阶段：${state.stage}`);
+  if (Array.isArray(state.qualityWarnings) && state.qualityWarnings.length){
+    lines.push(`质量：${state.qualityWarnings.join('；')}`);
+  }
   const task = stageTaskLabel(state.stage);
   if (task) lines.push(`任务：${task}`);
   const instanceParams = formatInstanceParams(state);
