@@ -182,7 +182,7 @@ ontology_construct/configs/default.yaml
 | `timeout_seconds` | 单次请求超时时间。实例抽取超时多时可适当调大。 |
 | `max_retries` | 失败重试次数。 |
 | `concurrency` | schema 候选抽取等主 LLM 调用并发。过大可能导致 503/限流。 |
-| `enable_thinking` | 是否向支持的模型发送 thinking 参数。结构化 JSON 抽取通常关闭。 |
+| `enable_thinking` | 是否向支持的模型发送 `enable_thinking` 参数（主要用于 DashScope/Qwen）。结构化 JSON 抽取通常关闭。DeepSeek V4 使用新版 `thinking` 对象，由后端适配器自动关闭，并在 JSON 类请求中自动启用 `response_format=json_object`。 |
 
 ### `merge`
 
@@ -203,7 +203,7 @@ ontology_construct/configs/default.yaml
 | `max_concepts` | 最终 schema 概念数量上限。 |
 | `min_evidence` | 保留概念所需的最小证据数。 |
 | `selection_score_threshold` | 概念选择的基础分数阈值。 |
-| `selection_score_ratio` | 动态阈值比例，用于压低长尾弱概念。 |
+| `selection_score_ratio` | 相对最高分的动态阈值比例。默认 `0`（关闭），避免短文档中因关系中心度差异误删有明确证据的概念；需要强制裁剪长尾时可显式调高。 |
 | `abstraction_level` | 期望概念抽象层级，常用 `high`、`medium`、`low`。 |
 | `use_embedding_clustering` | 是否用 embedding 做候选概念语义聚类。 |
 | `embedding_similarity_threshold` | 概念 embedding 聚类阈值。 |

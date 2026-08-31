@@ -381,7 +381,7 @@ def _select_clusters(self, clusters_by_key):
     # 2. 动态阈值：max(配置阈值, 最高分 × ratio)
     dynamic_threshold = max(
         self.config.selection_score_threshold,  # 默认 8.0
-        round(top_score * self.config.selection_score_ratio, 3),  # 默认 0.8
+        round(top_score * self.config.selection_score_ratio, 3),  # 默认 0（关闭）
     )
 
     # 3. 逐个筛选
@@ -734,7 +734,7 @@ concept:
   max_concepts: 50
   min_evidence: 1
   selection_score_threshold: 8.0
-  selection_score_ratio: 0.8
+  selection_score_ratio: 0.0
   abstraction_level: "high"
 
   # ── 语义聚类 ──
@@ -781,7 +781,7 @@ ontology_profiles:
 | `max_concepts` | 50 | 最终概念数量的硬上限 |
 | `max_candidates_per_chunk` | 10 | 每个 chunk 抽取的最大候选概念数 |
 | `selection_score_threshold` | 8.0 | 概念评分硬阈值 |
-| `selection_score_ratio` | 0.8 | 动态阈值 = max(8.0, 最高分 × 0.8) |
+| `selection_score_ratio` | 0.0 | 相对最高分的动态阈值比例；默认关闭，避免短文档中过度裁剪有证据的概念 |
 | `min_evidence` | 1 | 低连通度概念的最小证据数 |
 | `abstraction_level` | "high" | 偏好的概念抽象程度 |
 | `controlled_relation_build` | true | 是否启用 LLM 受控关系构建 |

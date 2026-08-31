@@ -88,6 +88,10 @@ class LLMClient(Protocol):
         """Return a raw LLM text completion."""
 
 
+class EmptyLLMResponseError(Exception):
+    """A successful provider response that contains no final answer text."""
+
+
 class MockLLMClient:
     def __init__(self, response: str | None = None):
         self.response = response
@@ -145,7 +149,13 @@ class OpenAICompatibleChatClient:
                 if attempt >= self.config.max_retries:
                     break
                 await asyncio.sleep(min(2**attempt, 8))
-            except (httpx.HTTPError, KeyError, IndexError, OSError) as exc:
+            except (
+                httpx.HTTPError,
+                EmptyLLMResponseError,
+                KeyError,
+                IndexError,
+                OSError,
+            ) as exc:
                 last_error = exc
                 if attempt >= self.config.max_retries:
                     break
@@ -155,12 +165,13 @@ class OpenAICompatibleChatClient:
         ) from last_error
 
     async def _complete_once(self, prompt: str, *, system_prompt: str | None = None) -> str:
+        effective_system_prompt = system_prompt or EXTRACTION_SYSTEM_PROMPT
         payload = {
             "model": self.config.model,
             "messages": [
                 {
                     "role": "system",
-                    "content": system_prompt or EXTRACTION_SYSTEM_PROMPT,
+                    "content": effective_system_prompt,
                 },
                 {"role": "user", "content": prompt},
             ],
@@ -171,6 +182,15 @@ class OpenAICompatibleChatClient:
             # DashScope/Qwen hybrid-thinking models accept this top-level flag in
             # OpenAI-compatible mode; disabling it skips chain-of-thought output.
             payload["enable_thinking"] = self.config.enable_thinking
+        if (
+            self.config.backend == "deepseek"
+            and "json" in effective_system_prompt.casefold()
+        ):
+            # DeepSeek's JSON Output contract requires response_format in
+            # addition to a prompt that explicitly asks for JSON.  Restrict the
+            # flag to JSON-oriented calls so direct QA can keep its tagged text
+            # response contract.
+            payload["response_format"] = {"type": "json_object"}
         if self.config.extra_body:
             payload.update(self.config.extra_body)
         client = self._http_client()
@@ -184,7 +204,25 @@ class OpenAICompatibleChatClient:
         )
         response.raise_for_status()
         data = response.json()
-        return data["choices"][0]["message"]["content"]
+        choice = data["choices"][0]
+        message = choice["message"]
+        content = message.get("content")
+        if not isinstance(content, str) or not content.strip():
+            reasoning_content = message.get("reasoning_content")
+            reasoning_chars = (
+                len(reasoning_content) if isinstance(reasoning_content, str) else 0
+            )
+            usage = data.get("usage") if isinstance(data, dict) else None
+            completion_tokens = (
+                usage.get("completion_tokens") if isinstance(usage, dict) else None
+            )
+            raise EmptyLLMResponseError(
+                "provider returned empty message.content "
+                f"(finish_reason={choice.get('finish_reason')!r}, "
+                f"reasoning_chars={reasoning_chars}, "
+                f"completion_tokens={completion_tokens!r})"
+            )
+        return content
 
 
 class FailoverLLMClient:
@@ -458,6 +496,11 @@ def _create_deepseek_client(config: LLMConfig) -> LLMClient:
         raise RuntimeError(
             f"Missing DeepSeek API key environment variable. Tried: {available}"
         )
+    # DeepSeek V4 enables thinking by default.  Its current OpenAI-compatible
+    # API uses the `thinking` object; the older `enable_thinking` boolean is a
+    # DashScope/Qwen parameter and does not disable DeepSeek reasoning.
+    deepseek_extra_body = dict(config.extra_body or {})
+    deepseek_extra_body["thinking"] = {"type": "disabled"}
     clients = [
         OpenAICompatibleChatClient(
             config.model_copy(
@@ -469,7 +512,8 @@ def _create_deepseek_client(config: LLMConfig) -> LLMClient:
                     "model": os.environ.get("DEEPSEEK_MODEL", DEEPSEEK_DEFAULT_MODEL),
                     "api_key_env": api_key_env,
                     # Disable thinking for fast structured extraction.
-                    "enable_thinking": False,
+                    "enable_thinking": None,
+                    "extra_body": deepseek_extra_body,
                 }
             ),
             api_key,

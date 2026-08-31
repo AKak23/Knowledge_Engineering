@@ -44,7 +44,11 @@ class ConceptConfig(BaseModel):
     max_concepts: int = Field(default=50, gt=0)
     min_evidence: int = Field(default=1, ge=0)
     selection_score_threshold: float = Field(default=8.0, ge=0)
-    selection_score_ratio: float = Field(default=0.8, ge=0, le=1)
+    # Relative-to-top pruning is disabled by default.  In short documents the
+    # score is dominated by relation centrality, so a high ratio can discard
+    # valid but less-connected source concepts (for example 值班人员/检修工单).
+    # The absolute threshold and max_concepts cap still reject weak candidates.
+    selection_score_ratio: float = Field(default=0.0, ge=0, le=1)
     abstraction_level: str = "high"
     use_embedding_clustering: bool = False
     embedding_similarity_threshold: float = Field(default=0.9, ge=0, le=1)

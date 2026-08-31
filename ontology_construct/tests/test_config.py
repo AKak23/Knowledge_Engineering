@@ -19,7 +19,7 @@ def test_load_default_config() -> None:
     assert config.concept.max_candidates_per_chunk == 10
     assert config.concept.max_concepts == 50
     assert config.concept.selection_score_threshold == 8.0
-    assert config.concept.selection_score_ratio == 0.8
+    assert config.concept.selection_score_ratio == 0.0
     assert config.concept.abstraction_level == "high"
     assert config.concept.controlled_relation_build is True
     assert config.concept.relation_prompt == "prompts/build_concept_relations.txt"

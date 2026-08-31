@@ -97,11 +97,14 @@ def test_schema_first_candidates_bind_rules_and_actions_to_final_concepts() -> N
 
     entity_id = next(iter(ontology.entities))
     assert ontology.entities[entity_id].name == "生产设备"
+    assert ontology.entities[entity_id].source_chunks == ["chunk_0001"]
     assert ontology.rules[0].scope_entity_id == entity_id
+    assert ontology.rules[0].source_chunks == ["chunk_0001"]
     assert ontology.rules[0].conditions[0].field == "温度"
     assert ontology.rules[0].conditions[0].operator == ">"
     assert ontology.actions[0].trigger_rule_ids == [ontology.rules[0].id]
     assert ontology.actions[0].target_entity_ids == [entity_id]
+    assert ontology.actions[0].source_chunks == ["chunk_0001"]
 
 
 def test_concept_generalizer_builds_global_ontology_from_candidates() -> None:
@@ -137,6 +140,10 @@ def test_concept_generalizer_builds_global_ontology_from_candidates() -> None:
         "维护工单",
     ]
     assert ontology.triples[0].predicate == "触发"
+    assert all(
+        entity.source_chunks == ["chunk_0001"]
+        for entity in ontology.entities.values()
+    )
 
     artifacts = asyncio.run(generalizer.generalize_with_artifacts([candidates]))
     assert artifacts.relation_report.mode == "candidate_fallback"
@@ -316,7 +323,11 @@ def test_concept_generalizer_stops_before_max_when_tail_scores_drop() -> None:
     )
     generalizer = ConceptGeneralizer(
         MockLLMClient(),
-        ConceptConfig(max_concepts=30, selection_score_threshold=8.0),
+        ConceptConfig(
+            max_concepts=30,
+            selection_score_threshold=0,
+            selection_score_ratio=0.8,
+        ),
     )
 
     artifacts = asyncio.run(generalizer.generalize_with_artifacts([candidates]))

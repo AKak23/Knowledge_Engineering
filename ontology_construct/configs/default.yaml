@@ -27,7 +27,9 @@ concept:
   max_concepts: 50
   min_evidence: 1
   selection_score_threshold: 8.0
-  selection_score_ratio: 0.8
+  # Keep all source-grounded concepts that pass the absolute score threshold.
+  # A top-score ratio over-prunes short, relation-centred documents.
+  selection_score_ratio: 0.0
   abstraction_level: high
   use_embedding_clustering: false
   embedding_similarity_threshold: 0.9

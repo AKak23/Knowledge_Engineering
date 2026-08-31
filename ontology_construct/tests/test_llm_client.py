@@ -1,3 +1,5 @@
+import json
+
 import httpx
 import pytest
 
@@ -53,6 +55,136 @@ def test_deepseek_client_fails_over_to_backup_key(monkeypatch) -> None:
     assert attempts == ["Bearer expired-key", "Bearer working-key"]
     assert asyncio.run(client.complete("hello again")) == "{}"
     assert attempts[-1] == "Bearer working-key"
+
+
+def test_deepseek_client_uses_current_thinking_toggle_and_json_mode(monkeypatch) -> None:
+    import asyncio
+
+    monkeypatch.setattr("ontology_construct.llm.client.load_project_env", lambda: None)
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "deepseek-key")
+    for index in range(2, 6):
+        monkeypatch.delenv(f"DEEPSEEK_API_KEY_{index}", raising=False)
+
+    client = create_llm_client(LLMConfig(max_retries=0), "deepseek")
+    assert isinstance(client, OpenAICompatibleChatClient)
+
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured.update(json.loads(request.read()))
+        return httpx.Response(
+            200,
+            json={"choices": [{"message": {"content": "{}"}}]},
+        )
+
+    client.transport = httpx.MockTransport(handler)
+    assert asyncio.run(client.complete("请输出 JSON")) == "{}"
+
+    assert captured["thinking"] == {"type": "disabled"}
+    assert captured["response_format"] == {"type": "json_object"}
+    assert "enable_thinking" not in captured
+
+
+def test_deepseek_direct_qa_does_not_force_json_mode(monkeypatch) -> None:
+    import asyncio
+
+    monkeypatch.setattr("ontology_construct.llm.client.load_project_env", lambda: None)
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "deepseek-key")
+    for index in range(2, 6):
+        monkeypatch.delenv(f"DEEPSEEK_API_KEY_{index}", raising=False)
+
+    client = create_llm_client(LLMConfig(max_retries=0), "deepseek")
+    assert isinstance(client, OpenAICompatibleChatClient)
+
+    captured: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured.update(json.loads(request.read()))
+        return httpx.Response(
+            200,
+            json={"choices": [{"message": {"content": "<answer>正常</answer>"}}]},
+        )
+
+    client.transport = httpx.MockTransport(handler)
+    result = asyncio.run(
+        client.complete("回答问题", system_prompt="请用 <answer> 标签回答。")
+    )
+
+    assert result == "<answer>正常</answer>"
+    assert "response_format" not in captured
+
+
+def test_openai_compatible_client_retries_empty_content(monkeypatch) -> None:
+    import asyncio
+
+    async def no_sleep(_seconds: float) -> None:
+        return None
+
+    monkeypatch.setattr("ontology_construct.llm.client.asyncio.sleep", no_sleep)
+    attempts = 0
+
+    def handler(_request: httpx.Request) -> httpx.Response:
+        nonlocal attempts
+        attempts += 1
+        if attempts == 1:
+            return httpx.Response(
+                200,
+                json={
+                    "choices": [
+                        {
+                            "finish_reason": "length",
+                            "message": {
+                                "content": "",
+                                "reasoning_content": "内部推理",
+                            },
+                        }
+                    ],
+                    "usage": {"completion_tokens": 6000},
+                },
+            )
+        return httpx.Response(
+            200,
+            json={"choices": [{"message": {"content": "{}"}}]},
+        )
+
+    client = OpenAICompatibleChatClient(
+        LLMConfig(max_retries=1),
+        "test-key",
+        transport=httpx.MockTransport(handler),
+    )
+
+    assert asyncio.run(client.complete("hello")) == "{}"
+    assert attempts == 2
+
+
+def test_openai_compatible_client_reports_empty_content_metadata() -> None:
+    import asyncio
+
+    def handler(_request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            200,
+            json={
+                "choices": [
+                    {
+                        "finish_reason": "length",
+                        "message": {"content": "", "reasoning_content": "abc"},
+                    }
+                ],
+                "usage": {"completion_tokens": 6000},
+            },
+        )
+
+    client = OpenAICompatibleChatClient(
+        LLMConfig(max_retries=0),
+        "test-key",
+        transport=httpx.MockTransport(handler),
+    )
+
+    with pytest.raises(
+        RuntimeError,
+        match=r"empty message\.content .*finish_reason='length'.*reasoning_chars=3",
+    ):
+        asyncio.run(client.complete("hello"))
 
 
 def test_create_kimi_client_uses_openai_compatible_config(monkeypatch) -> None:

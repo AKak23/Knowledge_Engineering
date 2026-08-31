@@ -164,6 +164,7 @@ class ConceptGeneralizer:
             artifacts.ontology,
             chunks,
         )
+        self._restore_global_source_provenance(artifacts, chunks)
         return artifacts
 
     async def _deterministic_artifacts(
@@ -1630,6 +1631,140 @@ class ConceptGeneralizer:
         if artifacts.ontology.entities:
             return artifacts
         return ConceptBuildArtifacts(ontology=GlobalOntology())
+
+    def _restore_global_source_provenance(
+        self,
+        artifacts: ConceptBuildArtifacts,
+        source_chunks: list[ChunkConceptCandidates],
+    ) -> None:
+        """Replace the synthetic ``concept_global`` marker with real chunk ids.
+
+        The global-generalization response is parsed as one synthetic candidate
+        batch, which otherwise makes every schema node appear to originate from
+        ``concept_global``.  Reconcile global concepts against their original
+        names/aliases/evidence so the canvas can show the source document chunks.
+        """
+        valid_chunk_ids = {chunk.chunk_id for chunk in source_chunks}
+        selected_clusters = artifacts.selection.selected
+
+        for cluster in [*selected_clusters, *artifacts.selection.rejected]:
+            cluster_names = {
+                normalize_name(name)
+                for name in [
+                    cluster.canonical_name,
+                    *cluster.aliases,
+                    *cluster.merged_names,
+                ]
+                if normalize_name(name)
+            }
+            cluster_evidence = {
+                normalize_name(item) for item in cluster.evidence if normalize_name(item)
+            }
+            matched_chunks: list[str] = []
+            for source_chunk in source_chunks:
+                matched = False
+                for concept in source_chunk.concepts:
+                    concept_names = {
+                        normalize_name(name)
+                        for name in [concept.name, *concept.aliases]
+                        if normalize_name(name)
+                    }
+                    name_match = bool(cluster_names & concept_names) or any(
+                        _is_near_name(left, right)
+                        for left in cluster_names
+                        for right in concept_names
+                    )
+                    concept_evidence = {
+                        normalize_name(item)
+                        for item in concept.evidence
+                        if normalize_name(item)
+                    }
+                    if name_match or bool(cluster_evidence & concept_evidence):
+                        matched = True
+                        break
+                if matched:
+                    matched_chunks.append(source_chunk.chunk_id)
+            if matched_chunks:
+                cluster.source_chunks = _dedupe(matched_chunks)
+
+        entity_clusters: dict[str, ConceptCluster] = {}
+        for cluster in selected_clusters:
+            for name in [
+                cluster.canonical_name,
+                *cluster.aliases,
+                *cluster.merged_names,
+            ]:
+                if normalized := normalize_name(name):
+                    entity_clusters.setdefault(normalized, cluster)
+
+        entities = list(artifacts.ontology.entities.values())
+        for index, entity in enumerate(entities):
+            cluster = next(
+                (
+                    entity_clusters[normalized]
+                    for name in [entity.name, *entity.aliases]
+                    if (normalized := normalize_name(name)) in entity_clusters
+                ),
+                None,
+            )
+            if cluster is None and index < len(selected_clusters):
+                # Entity construction preserves selected-cluster order.  This
+                # fallback covers a genuinely renamed global concept.
+                cluster = selected_clusters[index]
+            if cluster is not None and cluster.source_chunks:
+                entity.source_chunks = list(cluster.source_chunks)
+
+        for triple in artifacts.ontology.triples:
+            subject = artifacts.ontology.entities.get(triple.subject_id)
+            target = artifacts.ontology.entities.get(triple.object_id or "")
+            resolved = _dedupe(
+                [
+                    *(subject.source_chunks if subject is not None else []),
+                    *(target.source_chunks if target is not None else []),
+                ]
+            )
+            if resolved:
+                triple.source_chunks = resolved
+
+        for rule in artifacts.ontology.rules:
+            resolved = [
+                chunk_id
+                for chunk_id in rule.source_chunks
+                if chunk_id in valid_chunk_ids
+            ]
+            scope = artifacts.ontology.entities.get(rule.scope_entity_id)
+            if not resolved and scope is not None:
+                resolved = list(scope.source_chunks)
+            rule.source_chunks = _dedupe(resolved)
+
+        for action in artifacts.ontology.actions:
+            resolved = [
+                chunk_id
+                for chunk_id in action.source_chunks
+                if chunk_id in valid_chunk_ids
+            ]
+            if not resolved:
+                for entity_id in [
+                    *action.input_entity_ids,
+                    *action.output_entity_ids,
+                    *action.target_entity_ids,
+                ]:
+                    entity = artifacts.ontology.entities.get(entity_id)
+                    if entity is not None:
+                        resolved.extend(entity.source_chunks)
+            action.source_chunks = _dedupe(resolved)
+
+        for instance in artifacts.ontology.instances:
+            resolved = [
+                chunk_id
+                for chunk_id in instance.source_chunks
+                if chunk_id in valid_chunk_ids
+            ]
+            if not resolved:
+                entity = artifacts.ontology.entities.get(instance.class_id)
+                if entity is not None:
+                    resolved = list(entity.source_chunks)
+            instance.source_chunks = _dedupe(resolved)
 
     def _quality_report(
         self,
