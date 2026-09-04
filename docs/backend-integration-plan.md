@@ -1,8 +1,8 @@
 # 本体工作台后端接入方案
 
-最后更新：2026-08-31
+最后更新：2026-09-04
 
-状态：阶段 2 进行中；规则/行动、对象—实例绑定、对象—chunk 索引和构建质量门禁已实施，工作区持久化与规则求值待实施。
+状态：阶段 2 进行中；规则/行动、对象—实例绑定、对象—chunk 索引、构建质量门禁和 completed job 的追加文档更新已实施，通用工作区持久化与规则求值待实施。
 
 ## 当前后端事实
 
@@ -16,6 +16,20 @@
 - 构建结果已有对象/规则/行动到 `sourceChunks` 的稳定索引，画布可以展示 chunk ID；尚没有按 ID 查询原文、页码/段落、高亮证据以及人工编辑数据挂载的公共 API。
 - 标准模式与 schema-first 现在都在 schema 合并后执行独立实例补全；失败 chunk 会补偿重试，仍失败则不发布局部结果。`build_quality.json` 记录逐类真实实例覆盖和孤立类隔离结果。
 - 没有本体草稿修订、发布版本和多人冲突处理。
+
+## 已实现的 job 增量更新边界
+
+追加文档更新继续以不可变构建 job 为基线，而不是把 job 改造成长期工作区。补充文档复用现有非结构化构建流水线生成候选本体，再由 `ontology_update.py` 生成变更方案并执行受选择约束的非破坏性合并。分析 job 不进入普通历史；确认后创建新的 completed job，并保留父 job、来源文档、范围和应用变更 ID。
+
+| 方法 | 路径 | 用途 |
+|---|---|---|
+| `GET` | `/ontology/jobs/{jobId}/sources` | 读取当前本体、原业务文档和内置补充文档 |
+| `POST` | `/ontology/jobs/{jobId}/updates` | 上传/选择补充文档和四类范围，异步执行拆分与候选分析 |
+| `GET` | `/ontology/jobs/{jobId}/updates/{updateId}/plan` | 读取节点级新增/修改、来源和依赖方案 |
+| `POST` | `/ontology/jobs/{jobId}/updates/{updateId}/preview` | 校验选择与依赖闭包并返回临时 schema 图 |
+| `POST` | `/ontology/jobs/{jobId}/updates/{updateId}/confirm` | 幂等生成新的 completed job/version |
+
+当前合并不删除已有资源、不覆盖已有非空值；未选类型在抽取提示与方案层双重约束。该版本不等同于正式 ontology release，尚不提供人工冲突解决、删除/替换语义、多人 revision 或 canonical 产物重建。
 
 ## 推荐边界
 

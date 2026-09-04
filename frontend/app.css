@@ -28,8 +28,9 @@ html,body{
     #04060f;
 }
 button,input,select{font:inherit}
-.app{display:grid;grid-template-columns:minmax(0,1fr) 480px;height:100vh;min-height:0}
-.app[data-page="compare"]{grid-template-columns:minmax(0,1fr) 620px}
+.app{display:grid;grid-template-columns:minmax(0,1fr) 540px;height:100vh;min-height:0;transition:grid-template-columns .22s ease}
+.app[data-page="compare"]{grid-template-columns:minmax(0,1fr) 680px}
+.app.chat-collapsed,.app.chat-collapsed[data-page="compare"]{grid-template-columns:minmax(0,1fr) 48px}
 .left{position:relative;overflow:hidden;border-right:1px solid var(--line)}
 #graph{position:absolute;inset:0}
 #graph canvas{display:block}
@@ -129,7 +130,7 @@ button,input,select{font:inherit}
   white-space:nowrap;
 }
 .hint:empty{display:none}
-.toolbar{position:absolute;left:18px;bottom:14px;z-index:4;display:flex;align-items:center;gap:8px;max-width:calc(100% - 36px);flex-wrap:wrap}
+.toolbar{position:absolute;left:18px;bottom:14px;z-index:4;display:flex;align-items:center;gap:5px;max-width:calc(100% - 36px);flex-wrap:wrap}
 .viewSwitch{
   display:flex;
   align-items:center;
@@ -155,6 +156,11 @@ button,input,select{font:inherit}
 .viewOption:hover{color:#fff}
 .viewOption.active{color:#041022;background:linear-gradient(135deg,var(--acc),var(--acc2));font-weight:600}
 .viewOption:disabled{opacity:.35;cursor:not-allowed}
+.dimensionSwitch .viewOption{min-width:42px;padding:0 9px}
+.toolbar .viewSwitch:not(.dimensionSwitch) .viewOption{min-width:70px;padding-left:8px;padding-right:8px}
+.ontologyAgentBottom{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.ontologyAgentBottom>span{color:var(--acc2)}
+.toolbar>.tool{padding-left:9px;padding-right:9px}
 .tool{
   cursor:pointer;
   background:rgba(10,14,32,.55);
@@ -206,13 +212,15 @@ button,input,select{font:inherit}
   display:flex;
   flex-direction:column;
   min-height:0;
+  overflow:hidden;
   background:linear-gradient(180deg,#080c1c 0%, #060913 100%);
   border-left:1px solid var(--line);
 }
 .rhead{padding:14px 18px 10px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:10px}
+.rhead>div:first-child{min-width:0;flex:1}
 .rhead .t{font-weight:600}
-.rhead .sub{color:var(--mute);font-size:12px;margin-top:3px;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rhead .s{color:var(--mute);font-size:12px;margin-left:auto;padding-top:2px}
+.rhead .sub{color:var(--mute);font-size:12px;margin-top:3px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rhead .s{color:var(--mute);font-size:12px;padding-top:2px}
 .pageSwitch{
   display:flex;
   align-items:center;
@@ -237,6 +245,8 @@ button,input,select{font:inherit}
 .pageOption:hover{color:#fff}
 .pageOption.active{color:#041022;background:linear-gradient(135deg,var(--acc),var(--acc2));font-weight:600}
 .panelToggle{
+  flex:0 0 auto;
+  min-width:82px;
   height:30px;
   border-radius:8px;
   border:1px solid var(--line);
@@ -245,10 +255,31 @@ button,input,select{font:inherit}
   cursor:pointer;
   font-size:12px;
   padding:0 10px;
+  white-space:nowrap;
   transition:.15s;
 }
 .panelToggle:hover,.panelToggle.active{border-color:var(--acc);color:#fff;background:rgba(90,176,255,.1)}
 .panelToggle + .s{margin-left:0}
+.chatPanelToggle{
+  flex:0 0 30px;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:9px;
+  color:var(--acc);
+  background:rgba(90,176,255,.06);
+  cursor:pointer;
+  font-size:20px;
+  line-height:1;
+  transition:.15s;
+}
+.chatPanelToggle:hover{border-color:var(--acc);color:#fff;background:rgba(90,176,255,.13)}
+.app.chat-collapsed .right>.rhead{height:100%;align-items:flex-start;justify-content:center;padding:14px 8px;border-bottom:0}
+.app.chat-collapsed .right>.rhead>*:not(.chatPanelToggle),
+.app.chat-collapsed .right>*:not(.rhead){display:none!important}
 .status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--acc2);white-space:nowrap}
 .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc2);box-shadow:0 0 8px var(--acc2);animation:pulse 1.6s infinite}
 .status.warn{color:var(--warn)}
@@ -1082,12 +1113,43 @@ button,input,select{font:inherit}
   font-size:12px;
 }
 .workbenchToast.show{opacity:1;transform:translate(-50%,0)}
+.ontologySaveReceipt[hidden]{display:none!important}
+.ontologySaveReceipt{
+  position:fixed;
+  top:78px;
+  left:50%;
+  z-index:65;
+  width:min(410px,calc(100vw - 36px));
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) 28px;
+  align-items:center;
+  gap:11px;
+  padding:12px 13px;
+  border:1px solid rgba(142,240,197,.42);
+  border-radius:13px;
+  color:#eafff5;
+  background:linear-gradient(120deg,rgba(11,29,35,.97),rgba(10,17,34,.97));
+  box-shadow:0 18px 48px rgba(0,0,0,.5),0 0 24px rgba(142,240,197,.1);
+  opacity:0;
+  transform:translate(-50%,-10px);
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+}
+.ontologySaveReceipt.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.ontologySaveReceiptMark{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;color:#06231a;background:linear-gradient(135deg,var(--acc2),#5ab0ff);font-size:19px;font-weight:700;box-shadow:0 8px 20px rgba(90,176,255,.22)}
+.ontologySaveReceipt div{min-width:0}
+.ontologySaveReceipt small{display:block;color:#8faeaa;font-size:10px;letter-spacing:.4px}
+.ontologySaveReceipt strong{display:block;margin-top:4px;overflow:hidden;color:#f2fff9;font-size:14px;text-overflow:ellipsis;white-space:nowrap}
+.ontologySaveReceipt button{width:28px;height:28px;padding:0;border:0;border-radius:8px;color:#7f9b9a;background:transparent;cursor:pointer;font-size:18px}
+.ontologySaveReceipt button:hover{color:#fff;background:rgba(255,255,255,.07)}
 @media (max-width:1200px){
   .ontologyWorkbenchToolbar{max-width:calc(100% - 36px);overflow-x:auto}
   .ontologyWorkbenchToolbar button{padding:0 4px}
   .ontologyWorkbenchToolbar button b{display:none}
 }
 @media (max-width:900px){
+  .app.chat-collapsed,.app.chat-collapsed[data-page="compare"]{grid-template-columns:1fr;grid-template-rows:minmax(360px,calc(100vh - 48px)) 48px}
+  .app.chat-collapsed .right>.rhead{align-items:center}
   .ontologyWorkbenchToolbar{top:58px}
   .workbenchModal{padding:12px}
   .workbenchDialog{width:98vw;max-height:94vh}

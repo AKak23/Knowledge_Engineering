@@ -1,8 +1,11 @@
 # imported_ontologies
 
-从 `ontology_model/evaluations/qwen_eval/eval_in_dist.jsonl` 提取的 **24 个可直接上传的本体 JSON**。
+本目录包含可直接上传的 `FormattedOntology` JSON：
 
-每个文件对应一个 `schema_id`,符合本项目的 `FormattedOntology` 结构,可经
+- 从 `ontology_model/evaluations/qwen_eval/eval_in_dist.jsonl` 提取的 24 个评测本体；
+- 手工构造并与业务文档对齐的农业样例 `agriculture_A1_greenhouse_tomato.json`。
+
+其中每个评测文件对应一个 `schema_id`；全部文件都符合本项目的 `FormattedOntology` 结构,可经
 **前端「上传已有本体」** 或 **`POST /ontology/jobs/import`** 直接导入,导入后
 本体层(objects/links)和实例层(instances/linkValues)都能在 3D 图谱中渲染。
 
@@ -43,6 +46,10 @@ python3 _convert_from_eval.py   # 仅用标准库;翻译词典见同目录 _zh.p
 
 ## 校验状态
 
-24 个文件已全部通过 `FormattedOntology` 模型校验,经导入端点
+24 个评测文件已全部通过 `FormattedOntology` 模型校验,经导入端点
 (`_load_imported_ontology`)解析与图谱端点(`formatted_ontology_to_graph`)渲染:
 **本体层 + 实例层均非空(24/24)**,且展示字段无英文残留(标准缩写除外)。
+
+农业样例额外通过了对象/实例/规则/行动引用完整性检查和真实
+`POST /ontology/jobs/import` 导入验证；其配套原始文档位于
+`ontology_construct/tests/fixtures/phase2_greenhouse_tomato.txt`。

@@ -55,6 +55,8 @@ const els = {
   graphHint: document.getElementById('graphHint'),
   serverStatus: document.getElementById('serverStatus'),
   ontologyName: document.getElementById('ontologyName'),
+  chatPanel: document.getElementById('chatPanel'),
+  chatPanelToggle: document.getElementById('chatPanelToggle'),
   buildPanel: document.querySelector('.buildPanel'),
   buildPanelToggle: document.getElementById('buildPanelToggle'),
   buildPanelClose: document.getElementById('buildPanelClose'),
@@ -112,6 +114,7 @@ const els = {
 
 let Graph = null;
 let activePage = 'main';
+let chatPanelCollapsed = false;
 let currentJobId = null;
 let currentGraph = {ontology: {}, nodes: [], edges: []};
 let graphReady = false;
@@ -161,6 +164,19 @@ function setBuildPanelOpen(open){
   els.buildPanel.classList.toggle('is-collapsed', !open);
   els.buildPanelToggle.classList.toggle('active', open);
   els.buildPanelToggle.setAttribute('aria-expanded', String(open));
+}
+function setChatPanelCollapsed(collapsed){
+  chatPanelCollapsed = Boolean(collapsed);
+  els.appRoot.classList.toggle('chat-collapsed', chatPanelCollapsed);
+  if (els.chatPanelToggle){
+    const label = chatPanelCollapsed ? '展开右侧对话栏' : '收起右侧对话栏';
+    els.chatPanelToggle.textContent = chatPanelCollapsed ? '‹' : '›';
+    els.chatPanelToggle.title = label;
+    els.chatPanelToggle.setAttribute('aria-label', label);
+    els.chatPanelToggle.setAttribute('aria-expanded', String(!chatPanelCollapsed));
+  }
+  window.requestAnimationFrame(resizeGraphs);
+  window.setTimeout(() => window.dispatchEvent(new Event('resize')), 240);
 }
 function nodeId(value){return value && typeof value === 'object' ? value.id : value;}
 function edgeKey(source, target){return `${source}->${target}`;}
@@ -2329,6 +2345,9 @@ function wireEvents(){
     setBuildPanelOpen(els.buildPanel.classList.contains('is-collapsed'));
   };
   els.buildPanelClose.onclick = () => setBuildPanelOpen(false);
+  if (els.chatPanelToggle){
+    els.chatPanelToggle.onclick = () => setChatPanelCollapsed(!chatPanelCollapsed);
+  }
   els.uploadBtn.onclick = () => {
     els.fileInput.value = '';
     els.fileInput.click();

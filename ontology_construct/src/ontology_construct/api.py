@@ -56,6 +56,12 @@ from ontology_construct.ontology_agent import (
     public_agent_payload,
     public_catalog_payload,
 )
+from ontology_construct.ontology_update import (
+    UPDATE_SCOPES,
+    build_update_plan,
+    merge_update_selection,
+    normalize_update_scopes,
+)
 from ontology_construct.output.formatted_ontology import FormattedOntology
 from ontology_construct.output import build_canonical_ontology, format_global_ontology
 from ontology_construct.qa import (
@@ -74,6 +80,18 @@ from ontology_construct.structured_builder import (
 API_OUTPUT_ROOT = project_root() / "outputs" / "api_jobs"
 ONTOLOGY_IMPORT_SUFFIXES = {".json", ".jsonl"}
 STRUCTURED_CONFIG_SUFFIXES = {".yaml", ".yml"}
+BUILTIN_UPDATE_DOCUMENTS = {
+    "cooling-system": {
+        "name": "冷却系统运行规程",
+        "description": "工业冷却设备、传感器、工单、判定规则与联动行动。",
+        "path": project_root() / "tests" / "fixtures" / "phase2_cooling_system.txt",
+    },
+    "greenhouse-tomato": {
+        "name": "设施番茄水肥一体化规程",
+        "description": "种植区、作物、环境传感器、水肥设备与农事行动。",
+        "path": project_root() / "tests" / "fixtures" / "phase2_greenhouse_tomato.txt",
+    },
+}
 
 
 @dataclass(frozen=True)
@@ -134,6 +152,12 @@ class QuestionRequest(BaseModel):
     fallback_enabled: bool = Field(default=True, alias="fallbackEnabled")
 
 
+class UpdateSelectionRequest(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
+    change_ids: list[str] = Field(alias="changeIds", min_length=1)
+
+
 def _event_state(state: dict[str, object]) -> dict[str, object]:
     allowed_keys = {
         "jobId",
@@ -185,6 +209,12 @@ def _event_state(state: dict[str, object]) -> dict[str, object]:
         "embeddingBackend",
         "embeddingModel",
         "embeddingWarning",
+        "baseJobId",
+        "updateScopes",
+        "planReady",
+        "changeCount",
+        "addedChangeCount",
+        "modifiedChangeCount",
     }
     return {key: value for key, value in state.items() if key in allowed_keys}
 
@@ -333,6 +363,288 @@ def create_app():
     @app.get("/ontology/jobs")
     def list_jobs():
         return {"jobs": _list_job_summaries(store)}
+
+    @app.get("/ontology/jobs/{job_id}/sources")
+    def ontology_job_sources(job_id: str):
+        formatted = _read_formatted_ontology(store, job_id)
+        try:
+            state = store.read(job_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(status_code=404, detail="Job not found") from exc
+        return {
+            "jobId": job_id,
+            "ontology": formatted.ontology.model_dump(mode="json"),
+            "documents": _source_documents_for_state(state),
+            "builtinDocuments": _builtin_update_document_payloads(),
+        }
+
+    @app.post("/ontology/jobs/{job_id}/updates", status_code=202)
+    async def create_ontology_update(
+        job_id: str,
+        background_tasks: BackgroundTasks,
+        files: list[UploadFile] | None = File(None),
+        builtin_document_ids: str = Form("[]"),
+        scopes: str = Form('["objects","relations","rules","actions"]'),
+        backend: str | None = Form(None),
+        supplemental_prompt: str = Form(""),
+        use_embedding: bool = Form(False),
+    ):
+        base = _read_formatted_ontology(store, job_id)
+        selected_scopes = normalize_update_scopes(_parse_json_string_list(scopes))
+        if not selected_scopes:
+            raise HTTPException(
+                status_code=400,
+                detail="Select at least one ontology update scope",
+            )
+        builtin_ids = _parse_json_string_list(builtin_document_ids)
+        unknown_builtin_ids = set(builtin_ids).difference(BUILTIN_UPDATE_DOCUMENTS)
+        if unknown_builtin_ids:
+            raise HTTPException(
+                status_code=400,
+                detail=(
+                    "Unknown builtin document ids: "
+                    + ", ".join(sorted(unknown_builtin_ids))
+                ),
+            )
+        upload_files = [item for item in (files or []) if item and item.filename]
+        _validate_upload_files(upload_files)
+        if not upload_files and not builtin_ids:
+            raise HTTPException(
+                status_code=400,
+                detail="Upload or select at least one supplemental document",
+            )
+
+        update_id = store.create()
+        update_dir = store.job_dir(update_id)
+        input_paths: list[Path] = []
+        source_documents: list[dict[str, Any]] = []
+        original_names: list[str] = []
+        for index, upload in enumerate(upload_files, start=1):
+            original_name = Path(upload.filename or f"upload_{index}.txt").name
+            suffix = Path(original_name).suffix.lower() or ".txt"
+            stem = _safe_input_stem(Path(original_name).stem)
+            input_path = update_dir / f"update_{index:03d}_{stem}{suffix}"
+            content = await upload.read()
+            input_path.write_bytes(content)
+            input_paths.append(input_path)
+            original_names.append(original_name)
+            source_documents.append(
+                {
+                    "documentId": f"upload:{index}",
+                    "name": original_name,
+                    "kind": "uploaded",
+                    "size": len(content),
+                }
+            )
+        for builtin_id in builtin_ids:
+            definition = BUILTIN_UPDATE_DOCUMENTS[builtin_id]
+            builtin_path = Path(definition["path"])
+            if not builtin_path.exists():
+                raise HTTPException(
+                    status_code=503,
+                    detail=f"Builtin document is unavailable: {builtin_id}",
+                )
+            index = len(input_paths) + 1
+            suffix = builtin_path.suffix.lower() or ".txt"
+            input_path = update_dir / f"update_{index:03d}_{builtin_id}{suffix}"
+            content = builtin_path.read_bytes()
+            input_path.write_bytes(content)
+            input_paths.append(input_path)
+            original_names.append(str(definition["name"]) + suffix)
+            source_documents.append(
+                {
+                    "documentId": f"builtin:{builtin_id}",
+                    "name": definition["name"],
+                    "kind": "builtin",
+                    "size": len(content),
+                    "description": definition["description"],
+                }
+            )
+
+        config = load_config()
+        requested_profile = base.ontology.profile
+        profile = (
+            requested_profile
+            if requested_profile in config.ontology_profiles
+            else config.frontend_build.default_profile
+        )
+        constraint_prompt = _ontology_update_scope_prompt(selected_scopes)
+        effective_prompt = "\n\n".join(
+            value
+            for value in (
+                _normalize_supplemental_prompt(supplemental_prompt),
+                constraint_prompt,
+            )
+            if value
+        )
+        store.update(
+            update_id,
+            {
+                "status": "queued",
+                "source": "ontology_update_analysis",
+                "hiddenFromHistory": True,
+                "baseJobId": job_id,
+                "profile": profile,
+                "inputPath": str(input_paths[0]),
+                "inputPaths": [str(path) for path in input_paths],
+                "inputNames": [path.name for path in input_paths],
+                "inputOriginalNames": original_names,
+                "sourceDocuments": source_documents,
+                "updateScopes": selected_scopes,
+                "supplementalPrompt": effective_prompt,
+                "constructionMode": "standard",
+                "useEmbedding": use_embedding,
+            },
+        )
+        background_tasks.add_task(
+            _run_update_job,
+            store,
+            update_id,
+            job_id,
+            input_paths,
+            profile,
+            backend,
+            use_embedding,
+            effective_prompt,
+            selected_scopes,
+            source_documents,
+        )
+        return {
+            "updateId": update_id,
+            "baseJobId": job_id,
+            "status": "queued",
+            "scopes": selected_scopes,
+            "sourceDocuments": source_documents,
+        }
+
+    @app.get("/ontology/jobs/{job_id}/updates/{update_id}/plan")
+    def ontology_update_plan(job_id: str, update_id: str):
+        state, plan = _read_update_plan(store, job_id, update_id)
+        return {
+            "updateId": update_id,
+            "baseJobId": job_id,
+            "status": state.get("status"),
+            "plan": plan,
+        }
+
+    @app.post("/ontology/jobs/{job_id}/updates/{update_id}/preview")
+    def preview_ontology_update(
+        job_id: str,
+        update_id: str,
+        payload: UpdateSelectionRequest,
+    ):
+        _state, plan = _read_update_plan(store, job_id, update_id)
+        base = _read_formatted_ontology(store, job_id)
+        candidate = _read_update_candidate(store, update_id)
+        try:
+            merged, applied_ids = merge_update_selection(
+                base,
+                candidate,
+                plan,
+                payload.change_ids,
+            )
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+        preview_path = store.job_dir(update_id) / "update_preview.json"
+        save_json_model(merged, preview_path)
+        store.update(
+            update_id,
+            {"previewChangeIds": applied_ids, **_stage_status("画布预览已生成")},
+        )
+        graph = formatted_ontology_to_graph(merged, view="schema")
+        return {
+            "updateId": update_id,
+            "baseJobId": job_id,
+            "appliedChangeIds": applied_ids,
+            "ontology": merged.ontology.model_dump(mode="json"),
+            "graph": graph.model_dump(mode="json"),
+        }
+
+    @app.post("/ontology/jobs/{job_id}/updates/{update_id}/confirm")
+    def confirm_ontology_update(
+        job_id: str,
+        update_id: str,
+        payload: UpdateSelectionRequest,
+    ):
+        update_state, plan = _read_update_plan(store, job_id, update_id)
+        existing_version_id = str(update_state.get("confirmedJobId") or "")
+        if existing_version_id:
+            formatted = _read_formatted_ontology(store, existing_version_id)
+            graph = formatted_ontology_to_graph(formatted, view="schema")
+            return {
+                "jobId": existing_version_id,
+                "baseJobId": job_id,
+                "updateId": update_id,
+                "status": "completed",
+                "graph": graph.model_dump(mode="json"),
+            }
+        base = _read_formatted_ontology(store, job_id)
+        candidate = _read_update_candidate(store, update_id)
+        try:
+            merged, applied_ids = merge_update_selection(
+                base,
+                candidate,
+                plan,
+                payload.change_ids,
+            )
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+        try:
+            base_state = store.read(job_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(status_code=404, detail="Base job not found") from exc
+        version_job_id = store.create()
+        version_dir = store.job_dir(version_job_id)
+        save_json_model(merged, version_dir / "formatted_ontology.json")
+        base_documents = _source_documents_for_state(base_state)
+        update_documents = list(update_state.get("sourceDocuments") or [])
+        all_documents = _deduplicate_source_documents(
+            [*base_documents, *update_documents]
+        )
+        input_paths = [
+            *[str(value) for value in base_state.get("inputPaths") or []],
+            *[str(value) for value in update_state.get("inputPaths") or []],
+        ]
+        original_names = [
+            str(item.get("name") or "") for item in all_documents if item.get("name")
+        ]
+        store.update(
+            version_job_id,
+            {
+                "status": "completed",
+                "source": "ontology_update",
+                "baseJobId": job_id,
+                "updateAnalysisId": update_id,
+                "appliedChangeIds": applied_ids,
+                "updateScopes": plan.get("scopes") or [],
+                "profile": merged.ontology.profile,
+                "inputPath": input_paths[0] if input_paths else "",
+                "inputPaths": input_paths,
+                "inputNames": original_names,
+                "inputOriginalNames": original_names,
+                "sourceDocuments": all_documents,
+                "constructionMode": "ontology-update",
+                **_stage_status("增量更新已确认"),
+            },
+        )
+        store.update(
+            update_id,
+            {
+                "confirmedJobId": version_job_id,
+                "confirmedChangeIds": applied_ids,
+                **_stage_status("已生成新本体版本"),
+            },
+        )
+        graph = formatted_ontology_to_graph(merged, view="schema")
+        return {
+            "jobId": version_job_id,
+            "baseJobId": job_id,
+            "updateId": update_id,
+            "status": "completed",
+            "appliedChangeIds": applied_ids,
+            "graph": graph.model_dump(mode="json"),
+        }
 
     @app.get("/ontology/agent-catalog")
     def ontology_agent_catalog():
@@ -563,6 +875,21 @@ def create_app():
                 "inputPath": str(input_paths[0]),
                 "inputPaths": [str(path) for path in input_paths],
                 "inputNames": [path.name for path in input_paths],
+                "inputOriginalNames": [
+                    Path(upload.filename or path.name).name
+                    for upload, path in zip(upload_files, input_paths, strict=True)
+                ],
+                "sourceDocuments": [
+                    {
+                        "documentId": f"current:{index}",
+                        "name": Path(upload.filename or path.name).name,
+                        "kind": "uploaded",
+                        "size": path.stat().st_size,
+                    }
+                    for index, (upload, path) in enumerate(
+                        zip(upload_files, input_paths, strict=True), start=1
+                    )
+                ],
                 "supplementalPrompt": _normalize_supplemental_prompt(
                     supplemental_prompt
                 ),
@@ -634,6 +961,15 @@ def create_app():
                 "inputPath": str(input_path),
                 "inputPaths": [str(input_path)],
                 "inputNames": [input_path.name],
+                "inputOriginalNames": [Path(file.filename).name],
+                "sourceDocuments": [
+                    {
+                        "documentId": "current:1",
+                        "name": Path(file.filename).name,
+                        "kind": "ontology-import",
+                        "size": len(content),
+                    }
+                ],
                 "source": "uploaded_ontology",
                 "extracted": 0,
                 "skipped": 0,
@@ -684,6 +1020,15 @@ def create_app():
                 "inputPath": str(input_path),
                 "inputPaths": [str(input_path)],
                 "inputNames": [input_path.name],
+                "inputOriginalNames": [Path(file.filename).name],
+                "sourceDocuments": [
+                    {
+                        "documentId": "current:1",
+                        "name": Path(file.filename).name,
+                        "kind": "structured-config",
+                        "size": len(content),
+                    }
+                ],
                 "source": "structured_config",
                 "constructionMode": "structured",
                 "configKeys": config_keys,
@@ -896,6 +1241,7 @@ def _run_job(
     abstraction_level: str | None,
     drop_instances: bool,
     extract_real_instances: bool,
+    finalize: bool = True,
 ) -> None:
     output_dir = store.job_dir(job_id)
     try:
@@ -1095,6 +1441,11 @@ def _run_job(
             )
             save_json_model(export.schema_def, output_dir / "schema.json")
             save_json_model(export.graph, output_dir / "graph.json")
+        completed_stage = (
+            "已完成（有质量告警）"
+            if quality_report and quality_report.warnings
+            else "已完成"
+        )
         store.update(
             job_id,
             _with_build_quality_status(
@@ -1102,11 +1453,9 @@ def _run_job(
                     _with_instance_build_status(
                         _with_instance_postprocess_status(
                             {
-                                "status": "completed",
+                                "status": "completed" if finalize else "running",
                                 **_stage_status(
-                                    "已完成（有质量告警）"
-                                    if quality_report and quality_report.warnings
-                                    else "已完成"
+                                    completed_stage if finalize else "生成变更方案"
                                 ),
                                 "extracted": success_count,
                                 "skipped": skipped_count,
@@ -1123,6 +1472,75 @@ def _run_job(
         )
     except Exception as exc:  # noqa: BLE001 - background job must persist failures.
         store.update(job_id, {"status": "failed", **_stage_status("构建失败"), "error": str(exc)})
+
+
+def _run_update_job(
+    store: JobStore,
+    update_id: str,
+    base_job_id: str,
+    input_paths: list[Path],
+    profile: str,
+    backend: str | None,
+    use_embedding: bool,
+    supplemental_prompt: str,
+    scopes: list[str],
+    source_documents: list[dict[str, Any]],
+) -> None:
+    _run_job(
+        store,
+        update_id,
+        input_paths,
+        profile,
+        backend,
+        0,
+        None,
+        use_embedding,
+        supplemental_prompt,
+        None,
+        None,
+        None,
+        "standard",
+        None,
+        None,
+        None,
+        False,
+        False,
+        False,
+    )
+    state = store.read(update_id, missing_ok=True)
+    if state.get("status") == "failed":
+        return
+    try:
+        base = _read_formatted_ontology(store, base_job_id)
+        candidate = _read_update_candidate(store, update_id)
+        plan = build_update_plan(
+            base,
+            candidate,
+            scopes=scopes,
+            source_documents=source_documents,
+        )
+        _save_json_payload(plan, store.job_dir(update_id) / "update_plan.json")
+        counts = plan["counts"]
+        store.update(
+            update_id,
+            {
+                "status": "completed",
+                "planReady": True,
+                "changeCount": len(plan["changes"]),
+                "addedChangeCount": counts["added"],
+                "modifiedChangeCount": counts["modified"],
+                **_stage_status("更新影响分析已完成"),
+            },
+        )
+    except Exception as exc:  # noqa: BLE001 - background analysis must persist failures.
+        store.update(
+            update_id,
+            {
+                "status": "failed",
+                **_stage_status("更新影响分析失败"),
+                "error": str(exc),
+            },
+        )
 
 
 def _run_structured_job(
@@ -1509,6 +1927,8 @@ def _stage_status(stage: str) -> dict[str, object]:
 
 
 def _stage_hint(stage: str) -> str:
+    if "变更方案" in stage or "更新影响" in stage:
+        return "正在将补充文档的抽取结果与当前本体比对，生成可逐项确认的新增和修改清单。"
     if "embedding" in stage.lower():
         if "跳过" in stage:
             return "未找到可用 embedding key，已降级为名称和证据驱动的确定性聚类。"
@@ -1612,6 +2032,8 @@ def _overall_build_percent(
         return 94.0
     if "格式化" in stage or "写出" in stage:
         return 98.0
+    if "变更" in stage or "更新影响" in stage:
+        return 99.0
     if "完成" in stage:
         return 100.0
     if status == "failed":
@@ -1875,6 +2297,8 @@ def _job_summary(job_dir: Path) -> dict[str, object] | None:
         result = json.loads(result_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return None
+    if state.get("hiddenFromHistory"):
+        return None
 
     ontology = result.get("ontology") or {}
     instances = result.get("instances") or []
@@ -1918,6 +2342,137 @@ def _job_summary(job_dir: Path) -> dict[str, object] | None:
 
 def _normalize_supplemental_prompt(value: str | None) -> str:
     return (value or "").strip()[:4000]
+
+
+def _parse_json_string_list(raw: str) -> list[str]:
+    try:
+        value = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise HTTPException(status_code=400, detail="Expected a JSON string list") from exc
+    if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
+        raise HTTPException(status_code=400, detail="Expected a JSON string list")
+    return list(dict.fromkeys(item.strip() for item in value if item.strip()))
+
+
+def _source_documents_for_state(state: dict[str, object]) -> list[dict[str, Any]]:
+    stored = state.get("sourceDocuments")
+    if isinstance(stored, list):
+        return _deduplicate_source_documents(
+            [dict(item) for item in stored if isinstance(item, dict)]
+        )
+    names = state.get("inputOriginalNames") or state.get("inputNames") or []
+    if not isinstance(names, list):
+        names = [str(names)] if names else []
+    return [
+        {
+            "documentId": f"current:{index}",
+            "name": _display_input_name(str(name)),
+            "kind": "current",
+            "size": None,
+        }
+        for index, name in enumerate(names, start=1)
+    ]
+
+
+def _display_input_name(value: str) -> str:
+    for prefix in ("input_", "update_"):
+        if not value.startswith(prefix):
+            continue
+        parts = value.split("_", 2)
+        if len(parts) == 3 and parts[1].isdigit():
+            return parts[2]
+    return value
+
+
+def _builtin_update_document_payloads() -> list[dict[str, Any]]:
+    payloads = []
+    for document_id, definition in BUILTIN_UPDATE_DOCUMENTS.items():
+        path = Path(definition["path"])
+        payloads.append(
+            {
+                "documentId": document_id,
+                "name": definition["name"],
+                "description": definition["description"],
+                "kind": "builtin",
+                "fileType": path.suffix.lstrip(".").upper() or "TXT",
+                "size": path.stat().st_size if path.exists() else None,
+                "available": path.exists(),
+            }
+        )
+    return payloads
+
+
+def _deduplicate_source_documents(
+    documents: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    for item in documents:
+        key = (str(item.get("kind") or ""), str(item.get("name") or ""))
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(dict(item))
+    return result
+
+
+def _ontology_update_scope_prompt(scopes: list[str]) -> str:
+    labels = {
+        "objects": "实体对象（含属性和实例）",
+        "relations": "对象关系",
+        "rules": "业务规则与指标",
+        "actions": "行动与下游影响",
+    }
+    selected = "、".join(labels[scope] for scope in scopes)
+    excluded = "、".join(
+        labels[scope] for scope in UPDATE_SCOPES if scope not in scopes
+    )
+    exclusion = (
+        f"不得产出或推断以下类型的新增内容：{excluded}。"
+        if excluded
+        else ""
+    )
+    return (
+        "当前任务是为一个已有本体分析追加文档，不是重建或删除已有本体。"
+        f"只允许提取以下更新范围：{selected}。{exclusion}"
+        "为解析关系或行动引用而识别的端点概念，只能用于引用校验，"
+        "未选实体对象时不得将其作为新对象更新。"
+    )
+
+
+def _read_update_plan(
+    store: JobStore, base_job_id: str, update_id: str
+) -> tuple[dict[str, object], dict[str, Any]]:
+    try:
+        state = store.read(update_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Ontology update not found") from exc
+    if str(state.get("baseJobId") or "") != base_job_id:
+        raise HTTPException(status_code=404, detail="Ontology update not found")
+    if state.get("status") != "completed":
+        raise HTTPException(status_code=409, detail="Ontology update analysis is not completed")
+    path = store.job_dir(update_id) / "update_plan.json"
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Ontology update plan not found")
+    try:
+        plan = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise HTTPException(status_code=500, detail="Ontology update plan is invalid") from exc
+    return state, plan
+
+
+def _read_update_candidate(store: JobStore, update_id: str) -> FormattedOntology:
+    path = store.job_dir(update_id) / "formatted_ontology.json"
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Ontology update candidate not found")
+    return FormattedOntology.model_validate_json(path.read_text(encoding="utf-8"))
+
+
+def _save_json_payload(payload: dict[str, Any], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
 
 
 def _validate_upload_files(files: list[UploadFile]) -> None:

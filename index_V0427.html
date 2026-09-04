@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1280,initial-scale=1">
 <title>OntoMind · 本体大模型</title>
-<link rel="stylesheet" href="frontend/app.css?v=20260902-ontology-agent-v19">
+<link rel="stylesheet" href="frontend/app.css?v=20260902-view-controls-v20">
+<link rel="stylesheet" href="frontend/ontology-update.css?v=20260904-ontology-update-v2">
 </head>
 <body>
 <div class="app" id="appRoot" data-page="main">
@@ -72,13 +73,13 @@
 
     <nav class="ontologyWorkbenchToolbar" id="ontologyWorkbenchToolbar" aria-label="本体画布工具栏">
       <button type="button" data-workbench-command="new-ontology"><span>＋</span>新建本体</button>
+      <button id="ontologySourcesButton" type="button" data-workbench-command="ontology-sources" disabled><span>◈</span>本体数据源</button>
       <i aria-hidden="true"></i>
       <button type="button" data-workbench-command="new-object"><span class="toolbarShape object"></span>新建对象</button>
       <button type="button" data-workbench-command="new-relation"><span class="toolbarRelation">↗</span>新建关系</button>
       <button type="button" data-workbench-command="new-rule"><span class="toolbarShape rule"></span>新建规则</button>
       <button type="button" data-workbench-command="new-action"><span class="toolbarShape action"></span>新建行动</button>
       <i aria-hidden="true"></i>
-      <button type="button" data-workbench-command="ontology-agents"><span>✦</span>本体智能体</button>
       <button class="primary" type="button" data-workbench-command="save"><span>▣</span><b>保存本体</b></button>
     </nav>
 
@@ -122,12 +123,15 @@
     </aside>
 
     <div class="toolbar">
-      <div class="viewSwitch" role="group" aria-label="图谱视图">
+      <div class="viewSwitch" role="group" aria-label="图谱层级">
         <button class="viewOption active" id="viewSchema" type="button">本体画布</button>
-        <button class="viewOption" id="viewCanvas3d" type="button">本体画布 3D</button>
-        <button class="viewOption" id="viewInstance" type="button">本体实例 2D</button>
-        <button class="viewOption" id="viewInstance3d" type="button">本体实例 3D</button>
+        <button class="viewOption" id="viewInstance" type="button">本体实例</button>
       </div>
+      <div class="viewSwitch dimensionSwitch" id="viewDimensionSwitch" role="group" aria-label="视图维度">
+        <button class="viewOption dimensionOption active" id="viewDimension2d" type="button">2D</button>
+        <button class="viewOption dimensionOption" id="viewDimension3d" type="button">3D</button>
+      </div>
+      <button class="tool ontologyAgentBottom" id="ontologyAgentButton" type="button" data-workbench-command="ontology-agents"><span aria-hidden="true">✦</span>本体智能体</button>
       <div class="canvasZoomControls" id="canvasZoomControls" role="group" aria-label="本体画布缩放" hidden>
         <button class="tool" id="canvasZoomOut" type="button" aria-label="缩小本体画布">−</button>
         <output id="canvasZoomValue" aria-live="polite">100%</output>
@@ -157,7 +161,7 @@
     </div>
   </section>
 
-  <section class="right">
+  <section class="right" id="chatPanel">
     <div class="rhead">
       <div>
         <div class="t" id="dialogTitle">对话</div>
@@ -169,6 +173,7 @@
       </div>
       <button class="panelToggle active" id="buildPanelToggle" type="button" aria-expanded="true">构建设置</button>
       <div class="s"><span class="status" id="serverStatus">连接后端中</span></div>
+      <button class="chatPanelToggle" id="chatPanelToggle" type="button" aria-controls="chatPanel" aria-expanded="true" title="收起右侧对话栏" aria-label="收起右侧对话栏">›</button>
     </div>
 
     <div class="buildPanel">
@@ -333,13 +338,51 @@
   </div>
 </div>
 
+<div class="ontologyUpdateModal" id="ontologyUpdateModal" role="dialog" aria-modal="true" aria-labelledby="ontologyUpdateTitle" hidden>
+  <section class="ontologyUpdateDialog">
+    <header class="ontologyUpdateHeader">
+      <div>
+        <span>KNOVA ONTOLOGY EVOLUTION</span>
+        <h2 id="ontologyUpdateTitle">补充文档更新本体</h2>
+        <p id="ontologyUpdateSubtitle">AI 先生成节点级变更方案，确认前不会修改当前画布。</p>
+      </div>
+      <button class="ontologyUpdateClose" id="ontologyUpdateClose" type="button" aria-label="关闭">×</button>
+    </header>
+    <nav class="ontologyUpdateSteps" id="ontologyUpdateSteps" aria-label="本体更新步骤"></nav>
+    <main class="ontologyUpdateBody" id="ontologyUpdateBody"></main>
+    <footer class="ontologyUpdateFooter">
+      <span id="ontologyUpdateFooterHint">请选择至少一份补充文档。</span>
+      <button id="ontologyUpdateSecondary" type="button" hidden>返回上一步</button>
+      <button class="primary" id="ontologyUpdatePrimary" type="button" disabled>分析更新影响</button>
+    </footer>
+  </section>
+</div>
+
+<aside class="ontologyUpdatePreviewBar" id="ontologyUpdatePreviewBar" aria-live="polite" hidden>
+  <div>
+    <span>更新预览 · 尚未确认</span>
+    <strong id="ontologyUpdatePreviewSummary">已将选中变更应用到画布预览</strong>
+  </div>
+  <button id="ontologyUpdatePreviewBack" type="button">返回变更方案</button>
+  <button class="primary" id="ontologyUpdateConfirm" type="button">确认更新本体</button>
+</aside>
+
 <div class="workbenchToast" id="workbenchToast" role="status" aria-live="polite"></div>
+<div class="ontologySaveReceipt" id="ontologySaveReceipt" role="status" aria-live="polite" hidden>
+  <span class="ontologySaveReceiptMark" aria-hidden="true">✓</span>
+  <div>
+    <small>当前本体已保存</small>
+    <strong id="ontologySaveReceiptName">未命名本体</strong>
+  </div>
+  <button id="ontologySaveReceiptClose" type="button" aria-label="关闭保存提示">×</button>
+</div>
 
 <script src="https://unpkg.com/three@0.152.0/build/three.min.js"></script>
 <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
 <script src="frontend/mock-ontology.js?v=20260827-industrial-v2"></script>
-<script src="frontend/app.js?v=20260831-canvas3d-layout-v18"></script>
-<script src="frontend/ontology-workbench.js?v=20260902-ontology-agent-v19"></script>
-<script src="frontend/ontology-agent.js?v=20260902-ontology-agent-v19"></script>
+<script src="frontend/app.js?v=20260902-view-controls-v20"></script>
+<script src="frontend/ontology-workbench.js?v=20260904-ontology-update-v1"></script>
+<script src="frontend/ontology-update.js?v=20260904-ontology-update-v2"></script>
+<script src="frontend/ontology-agent.js?v=20260902-view-controls-v20"></script>
 </body>
 </html>

@@ -49,9 +49,14 @@
     canvasZoomValue: document.getElementById('canvasZoomValue'),
     canvasZoomIn: document.getElementById('canvasZoomIn'),
     viewCanvas: document.getElementById('viewSchema'),
-    viewCanvas3d: document.getElementById('viewCanvas3d'),
     viewInstance2d: document.getElementById('viewInstance'),
-    viewInstance3d: document.getElementById('viewInstance3d')
+    viewDimensionSwitch: document.getElementById('viewDimensionSwitch'),
+    viewDimension2d: document.getElementById('viewDimension2d'),
+    viewDimension3d: document.getElementById('viewDimension3d'),
+    agentButton: document.getElementById('ontologyAgentButton'),
+    saveReceipt: document.getElementById('ontologySaveReceipt'),
+    saveReceiptName: document.getElementById('ontologySaveReceiptName'),
+    saveReceiptClose: document.getElementById('ontologySaveReceiptClose')
   };
 
   if (!workbenchDom.toolbar || !workbenchDom.canvas || !workbenchDom.modal) return;
@@ -72,6 +77,7 @@
   let matchedInstanceNodeIds = new Set();
   let highlightedInstanceEdgeKeys = new Set();
   let toastTimer = null;
+  let saveReceiptTimer = null;
   let actionHydrationJobId = null;
   let suppressCanvasClick = false;
   let suppressInstanceClick = false;
@@ -81,6 +87,8 @@
   let pendingBuildMeta = null;
   let canvasLayoutNeedsSpread = true;
   let canvasViewportNeedsFit = false;
+  let updatePreviewActive = false;
+  let updatePreviewSnapshot = null;
 
   const legacyResetHandler = els.btnReset.onclick;
   const legacyRotateHandler = els.btnRotate.onclick;
@@ -341,6 +349,7 @@
   }
 
   function persistWorkingCopy(){
+    if (updatePreviewActive) return;
     localStorage.setItem(WORKING_COPY_KEY, JSON.stringify(workbenchDraft));
   }
 
@@ -356,6 +365,22 @@
     workbenchDom.toast.textContent = message;
     workbenchDom.toast.classList.add('show');
     toastTimer = window.setTimeout(() => workbenchDom.toast.classList.remove('show'), 2600);
+  }
+
+  function hideSaveReceipt(){
+    if (!workbenchDom.saveReceipt) return;
+    window.clearTimeout(saveReceiptTimer);
+    workbenchDom.saveReceipt.classList.remove('show');
+    saveReceiptTimer = window.setTimeout(() => {workbenchDom.saveReceipt.hidden = true;}, 180);
+  }
+
+  function showSaveReceipt(){
+    if (!workbenchDom.saveReceipt || !workbenchDom.saveReceiptName) return;
+    window.clearTimeout(saveReceiptTimer);
+    workbenchDom.saveReceiptName.textContent = workbenchDraft.name || '未命名本体';
+    workbenchDom.saveReceipt.hidden = false;
+    window.requestAnimationFrame(() => workbenchDom.saveReceipt.classList.add('show'));
+    saveReceiptTimer = window.setTimeout(hideSaveReceipt, 4200);
   }
 
   function semanticKind(node){
@@ -576,6 +601,45 @@
     hydrateExistingActions(jobId);
   }
 
+  function showOntologyUpdatePreview(detail){
+    const data = detail?.data || {ontology:{},nodes:[],edges:[]};
+    if (!updatePreviewActive) updatePreviewSnapshot = JSON.parse(JSON.stringify(workbenchDraft));
+    updatePreviewActive = true;
+    workbenchDraft = draftFromSchemaGraph(data,`preview:${detail?.updateId || 'ontology-update'}`);
+    workbenchDraft.status = 'review';
+    workbenchDraft.dirty = false;
+    selectedDraftNodeId = null;
+    selectedDraftEdgeId = null;
+    relationMode = {active:false,sourceId:null};
+    canvasLayoutNeedsSpread = true;
+    canvasViewportNeedsFit = true;
+    canvasZoom = 1;
+    workbenchView = 'canvas';
+    renderCanvas();
+    syncWorkbenchControls();
+    window.requestAnimationFrame(() => centerCanvasViewport({behavior:'auto'}));
+  }
+
+  function cancelOntologyUpdatePreview(detail){
+    const snapshot = updatePreviewSnapshot;
+    updatePreviewActive = false;
+    updatePreviewSnapshot = null;
+    workbenchDraft = snapshot
+      ? normalizeDraft(snapshot)
+      : draftFromSchemaGraph(detail?.data || {ontology:{},nodes:[],edges:[]},detail?.jobId || currentJobId);
+    selectedDraftNodeId = null;
+    selectedDraftEdgeId = null;
+    relationMode = {active:false,sourceId:null};
+    canvasLayoutNeedsSpread = workbenchDraft.layoutVersion !== LABEL_LAYOUT_VERSION;
+    canvasViewportNeedsFit = true;
+    canvasZoom = 1;
+    workbenchView = 'canvas';
+    persistWorkingCopy();
+    renderCanvas();
+    syncWorkbenchControls();
+    window.requestAnimationFrame(() => centerCanvasViewport({behavior:'auto'}));
+  }
+
   function syncWorkbenchHeader(){
     if (isComparePage()) return;
     const canvasView = workbenchView === 'canvas' || workbenchView === 'canvas3d';
@@ -594,40 +658,48 @@
     if (compareMode){
       workbenchDom.viewCanvas.textContent = '本体层';
       workbenchDom.viewInstance2d.textContent = '实例层';
-      workbenchDom.viewCanvas3d.hidden = true;
-      workbenchDom.viewInstance3d.hidden = true;
+      if (workbenchDom.viewDimensionSwitch) workbenchDom.viewDimensionSwitch.hidden = true;
+      els.btnRotate.hidden = false;
       return;
     }
     workbenchDom.viewCanvas.textContent = '本体画布';
-    workbenchDom.viewCanvas3d.textContent = '本体画布 3D';
-    workbenchDom.viewInstance2d.textContent = '本体实例 2D';
-    workbenchDom.viewInstance3d.textContent = '本体实例 3D';
-    workbenchDom.viewCanvas3d.hidden = false;
-    workbenchDom.viewInstance3d.hidden = false;
+    workbenchDom.viewInstance2d.textContent = '本体实例';
+    if (workbenchDom.viewDimensionSwitch) workbenchDom.viewDimensionSwitch.hidden = false;
     workbenchDom.left.dataset.workbenchView = workbenchView;
     workbenchDom.left.classList.toggle('node-descriptions-on',showNodeDescriptions);
     workbenchDom.canvas.hidden = workbenchView !== 'canvas';
     workbenchDom.instance.hidden = workbenchView !== 'instance2d';
-    workbenchDom.viewCanvas.classList.toggle('active', workbenchView === 'canvas');
-    workbenchDom.viewCanvas3d.classList.toggle('active', workbenchView === 'canvas3d');
-    workbenchDom.viewInstance2d.classList.toggle('active', workbenchView === 'instance2d');
-    workbenchDom.viewInstance3d.classList.toggle('active', workbenchView === 'instance3d');
-    workbenchDom.viewCanvas3d.disabled = false;
-    workbenchDom.viewInstance2d.disabled = false;
-    workbenchDom.viewInstance3d.disabled = false;
+    const canvasLayer = workbenchView === 'canvas' || workbenchView === 'canvas3d';
+    const dimension3d = workbenchView === 'canvas3d' || workbenchView === 'instance3d';
+    workbenchDom.viewCanvas.classList.toggle('active', canvasLayer);
+    workbenchDom.viewInstance2d.classList.toggle('active', !canvasLayer);
+    workbenchDom.viewDimension2d?.classList.toggle('active', !dimension3d);
+    workbenchDom.viewDimension3d?.classList.toggle('active', dimension3d);
+    workbenchDom.viewInstance2d.disabled = updatePreviewActive;
+    workbenchDom.viewInstance2d.title = updatePreviewActive ? '更新预览仅展示待确认的本体画布' : '';
+    if (workbenchDom.viewDimension2d) workbenchDom.viewDimension2d.disabled = false;
+    if (workbenchDom.viewDimension3d){
+      workbenchDom.viewDimension3d.disabled = updatePreviewActive;
+      workbenchDom.viewDimension3d.title = updatePreviewActive ? '请先确认或退出更新预览' : '';
+    }
     workbenchDom.toolbar.querySelectorAll('[data-workbench-command="new-object"],[data-workbench-command="new-relation"],[data-workbench-command="new-rule"],[data-workbench-command="new-action"]').forEach(button => {
-      button.disabled = workbenchView !== 'canvas';
-      button.title = button.disabled ? '仅可在本体画布中编辑本体结构' : '';
+      button.disabled = workbenchView !== 'canvas' || updatePreviewActive;
+      button.title = updatePreviewActive ? '更新预览为只读，确认或返回变更方案后可继续编辑' : (button.disabled ? '仅可在本体画布中编辑本体结构' : '');
     });
     const relationButton = workbenchDom.toolbar.querySelector('[data-workbench-command="new-relation"]');
     relationButton?.classList.toggle('active', relationMode.active);
-    const agentButton = workbenchDom.toolbar.querySelector('[data-workbench-command="ontology-agents"]');
+    const agentButton = workbenchDom.agentButton;
     if (agentButton){
       agentButton.disabled = false;
       agentButton.title = '管理、配置和对话本体智能体';
     }
     const saveButton = workbenchDom.toolbar.querySelector('[data-workbench-command="save"]');
     saveButton?.classList.toggle('dirty', Boolean(workbenchDraft.dirty));
+    if (saveButton){
+      saveButton.disabled = updatePreviewActive;
+      saveButton.title = updatePreviewActive ? '更新预览不能直接保存，请使用底部“确认更新本体”' : '';
+    }
+    els.btnRotate.hidden = !dimension3d;
     els.btnRotate.disabled = workbenchView !== 'canvas3d' && workbenchView !== 'instance3d';
     els.btnLabels.disabled = false;
     els.btnLabels.textContent = `节点描述：${showNodeDescriptions ? '开' : '关'}`;
@@ -800,7 +872,9 @@
       element.style.transformOrigin = '0 0';
       const meta = nodeMetaText(node);
       const description = node.details?.description || meta;
-      element.title = `${node.label} · 拖动可自由移动；创建关系请先点击顶部“新建关系”`;
+      element.title = updatePreviewActive
+        ? `${node.label} · 更新预览只读`
+        : `${node.label} · 拖动可自由移动；创建关系请先点击顶部“新建关系”`;
       element.innerHTML = `<div class="ontologyNodeContent"><span class="ontologyNodeKind">${KIND_LABELS[node.kind] || '元素'}</span><strong class="ontologyNodeLabel">${escapeHtml(node.label)}</strong><small class="ontologyNodeMeta">${escapeHtml(description)}</small></div>`;
       bindDraftNodeInteractions(element, node);
       workbenchDom.canvasNodes.appendChild(element);
@@ -844,7 +918,7 @@
     let dragged = false;
     let clickTimer = null;
     element.addEventListener('pointerdown', event => {
-      if (event.button > 0 || relationMode.active) return;
+      if (event.button > 0 || relationMode.active || updatePreviewActive) return;
       dragState = {
         pointerId:event.pointerId,
         x:event.clientX,
@@ -904,7 +978,7 @@
     element.addEventListener('dblclick', event => {
       event.preventDefault();
       event.stopPropagation();
-      if (relationMode.active) return;
+      if (relationMode.active || updatePreviewActive) return;
       window.clearTimeout(clickTimer);
       openNodeModal(node.id);
     });
@@ -986,6 +1060,7 @@
         selectedDraftNodeId = null;
         syncCanvasSelectionClasses();
         showDraftEdgeInfo(edge);
+        if (updatePreviewActive) return;
         openRelationModal(edge.id);
       });
       workbenchDom.canvasEdges.appendChild(group);
@@ -2004,7 +2079,7 @@
     workbenchDraft.dirty = false;
     persistWorkingCopy();
     syncWorkbenchControls();
-    showWorkbenchToast(`“${workbenchDraft.name}”已保存到前端本体草稿`);
+    showSaveReceipt();
   }
 
   function parkBuildWorkflow(){
@@ -2496,10 +2571,16 @@
     if (!button || button.disabled) return;
     handleToolbarCommand(button.dataset.workbenchCommand);
   });
-  workbenchDom.viewCanvas.onclick = () => switchWorkbenchView('canvas');
-  workbenchDom.viewCanvas3d.onclick = () => switchWorkbenchView('canvas3d');
-  workbenchDom.viewInstance2d.onclick = () => switchWorkbenchView('instance2d');
-  workbenchDom.viewInstance3d.onclick = () => switchWorkbenchView('instance3d');
+  workbenchDom.viewCanvas.onclick = () => switchWorkbenchView(workbenchView === 'instance3d' ? 'canvas3d' : 'canvas');
+  workbenchDom.viewInstance2d.onclick = () => switchWorkbenchView(workbenchView === 'canvas3d' ? 'instance3d' : 'instance2d');
+  if (workbenchDom.viewDimension2d) workbenchDom.viewDimension2d.onclick = () => switchWorkbenchView(
+    workbenchView === 'canvas3d' ? 'canvas' : (workbenchView === 'instance3d' ? 'instance2d' : workbenchView)
+  );
+  if (workbenchDom.viewDimension3d) workbenchDom.viewDimension3d.onclick = () => switchWorkbenchView(
+    workbenchView === 'canvas' ? 'canvas3d' : (workbenchView === 'instance2d' ? 'instance3d' : workbenchView)
+  );
+  if (workbenchDom.agentButton) workbenchDom.agentButton.onclick = () => handleToolbarCommand('ontology-agents');
+  if (workbenchDom.saveReceiptClose) workbenchDom.saveReceiptClose.onclick = hideSaveReceipt;
   if (workbenchDom.canvasZoomOut) workbenchDom.canvasZoomOut.onclick = () => workbenchView === 'instance2d'
     ? setInstanceZoom(instanceZoom - CANVAS_ZOOM_STEP)
     : setCanvasZoom(canvasZoom - CANVAS_ZOOM_STEP);
@@ -2588,10 +2669,14 @@
     else if (relationMode.active) cancelRelationMode();
   });
   window.addEventListener('lom:graph-rendered', event => handleRenderedGraph(event.detail));
+  window.addEventListener('lom:ontology-update-preview', event => showOntologyUpdatePreview(event.detail));
+  window.addEventListener('lom:ontology-update-preview-cancel', event => cancelOntologyUpdatePreview(event.detail));
   window.addEventListener('lom:ontology-import-started', () => {
     if (modalContext?.type === 'new-ontology') closeModal();
   });
   window.addEventListener('lom:ontology-load-started', () => {
+    updatePreviewActive = false;
+    updatePreviewSnapshot = null;
     if (modalContext?.type === 'new-ontology') closeModal();
   });
   window.addEventListener('lom:ontology-replay-started', () => {

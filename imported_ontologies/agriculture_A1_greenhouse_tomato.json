@@ -1,0 +1,790 @@
+{
+  "ontology": {
+    "ontologyId": 1,
+    "ontologyName": "智慧农业·设施番茄水肥一体化",
+    "ontologyDesc": "面向设施番茄生产的农业本体，覆盖温室与种植区、作物批次、环境和墒情监测、水肥灌溉、病害防控、农事工单及采收追溯。",
+    "profile": "agriculture_greenhouse",
+    "createdAt": "2026-09-01 10:00:00",
+    "updatedAt": "2026-09-01 10:00:00"
+  },
+  "objects": [
+    {
+      "objectId": 1,
+      "objectName": "智能温室",
+      "objectCode": "smart_greenhouse",
+      "description": "具备环境监测、通风和水肥控制能力的设施农业生产单元。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "温室编号", "attributeCode": "greenhouse_code", "dataType": "string", "description": "温室唯一编号", "sampleValue": "GH-01"},
+        {"attributeId": 2, "attributeName": "面积", "attributeCode": "area_sqm", "dataType": "number", "description": "单位：平方米", "sampleValue": 2400},
+        {"attributeId": 3, "attributeName": "运行状态", "attributeCode": "operating_status", "dataType": "string", "description": "温室当前生产状态", "sampleValue": "生产中"},
+        {"attributeId": 4, "attributeName": "负责人", "attributeCode": "manager_name", "dataType": "string", "description": "生产负责人姓名", "sampleValue": "李晓禾"},
+        {"attributeId": 5, "attributeName": "通风状态", "attributeCode": "ventilation_status", "dataType": "string", "description": "通风设备状态", "sampleValue": "开启"},
+        {"attributeId": 6, "attributeName": "目标温度", "attributeCode": "target_temperature_c", "dataType": "number", "description": "单位：摄氏度", "sampleValue": 28}
+      ],
+      "instanceIds": [1],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 2,
+      "objectName": "种植区",
+      "objectCode": "planting_zone",
+      "description": "温室内按栽培管理划分的生产区域。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "区域编号", "attributeCode": "zone_code", "dataType": "string", "description": "种植区唯一编号", "sampleValue": "A01"},
+        {"attributeId": 2, "attributeName": "面积", "attributeCode": "zone_area_sqm", "dataType": "number", "description": "单位：平方米", "sampleValue": 1200},
+        {"attributeId": 3, "attributeName": "种植密度", "attributeCode": "planting_density", "dataType": "number", "description": "单位：株/平方米", "sampleValue": 2.8}
+      ],
+      "instanceIds": [2, 3],
+      "instanceCount": 2,
+      "realInstanceCount": 2,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 3,
+      "objectName": "番茄作物",
+      "objectCode": "tomato_crop",
+      "description": "按品种和定植时间管理的设施番茄作物批次。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "作物批次", "attributeCode": "crop_batch_code", "dataType": "string", "description": "作物生产批次号", "sampleValue": "T2026-01"},
+        {"attributeId": 2, "attributeName": "品种", "attributeCode": "cultivar", "dataType": "string", "description": "番茄品种", "sampleValue": "红宝石"},
+        {"attributeId": 3, "attributeName": "定植日期", "attributeCode": "planting_date", "dataType": "date", "description": "定植日期", "sampleValue": "2026-08-15"},
+        {"attributeId": 4, "attributeName": "生育期", "attributeCode": "growth_stage", "dataType": "string", "description": "当前生育阶段", "sampleValue": "开花坐果期"}
+      ],
+      "instanceIds": [4, 5],
+      "instanceCount": 2,
+      "realInstanceCount": 2,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 4,
+      "objectName": "环境传感器",
+      "objectCode": "environment_sensor",
+      "description": "采集温室空气温度、湿度、二氧化碳和光照的监测设备。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "传感器编号", "attributeCode": "environment_sensor_code", "dataType": "string", "description": "设备编号", "sampleValue": "ENV-01"},
+        {"attributeId": 2, "attributeName": "空气温度", "attributeCode": "air_temperature_c", "dataType": "number", "description": "单位：摄氏度", "sampleValue": 33.6},
+        {"attributeId": 3, "attributeName": "空气湿度", "attributeCode": "relative_humidity_pct", "dataType": "number", "description": "单位：%", "sampleValue": 78},
+        {"attributeId": 4, "attributeName": "二氧化碳浓度", "attributeCode": "co2_ppm", "dataType": "integer", "description": "单位：ppm", "sampleValue": 610},
+        {"attributeId": 5, "attributeName": "光照强度", "attributeCode": "illuminance_lux", "dataType": "number", "description": "单位：lux", "sampleValue": 42000},
+        {"attributeId": 6, "attributeName": "采集时间", "attributeCode": "sampled_at", "dataType": "datetime", "description": "数据采集时间", "sampleValue": "2026-09-01 10:00:00"}
+      ],
+      "instanceIds": [6],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 5,
+      "objectName": "土壤墒情传感器",
+      "objectCode": "soil_moisture_sensor",
+      "description": "采集种植区土壤含水率和土壤温度的监测设备。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "传感器编号", "attributeCode": "soil_sensor_code", "dataType": "string", "description": "设备编号", "sampleValue": "SM-01"},
+        {"attributeId": 2, "attributeName": "土壤含水率", "attributeCode": "soil_moisture_pct", "dataType": "number", "description": "单位：%", "sampleValue": 22.4},
+        {"attributeId": 3, "attributeName": "土壤温度", "attributeCode": "soil_temperature_c", "dataType": "number", "description": "单位：摄氏度", "sampleValue": 25.1},
+        {"attributeId": 4, "attributeName": "采集时间", "attributeCode": "soil_sampled_at", "dataType": "datetime", "description": "数据采集时间", "sampleValue": "2026-09-01 10:00:00"}
+      ],
+      "instanceIds": [7, 8],
+      "instanceCount": 2,
+      "realInstanceCount": 2,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 6,
+      "objectName": "水肥一体机",
+      "objectCode": "fertigation_controller",
+      "description": "按灌溉策略完成注肥、混配和分区供液的控制设备。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "设备编号", "attributeCode": "fertigation_code", "dataType": "string", "description": "设备编号", "sampleValue": "FERT-01"},
+        {"attributeId": 2, "attributeName": "运行模式", "attributeCode": "fertigation_mode", "dataType": "string", "description": "自动或手动模式", "sampleValue": "自动"},
+        {"attributeId": 3, "attributeName": "目标EC值", "attributeCode": "target_ec", "dataType": "number", "description": "单位：mS/cm", "sampleValue": 2.7},
+        {"attributeId": 4, "attributeName": "目标pH值", "attributeCode": "target_ph", "dataType": "number", "description": "目标酸碱度", "sampleValue": 6.0},
+        {"attributeId": 5, "attributeName": "累计灌溉量", "attributeCode": "cumulative_irrigation_l", "dataType": "number", "description": "单位：升", "sampleValue": 1860}
+      ],
+      "instanceIds": [9],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 7,
+      "objectName": "滴灌阀",
+      "objectCode": "drip_irrigation_valve",
+      "description": "控制种植区滴灌支路启停和流量的执行设备。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "阀门编号", "attributeCode": "valve_code", "dataType": "string", "description": "阀门编号", "sampleValue": "VLV-A01"},
+        {"attributeId": 2, "attributeName": "启停状态", "attributeCode": "valve_status", "dataType": "string", "description": "阀门当前状态", "sampleValue": "开启"},
+        {"attributeId": 3, "attributeName": "目标流量", "attributeCode": "target_flow_lpm", "dataType": "number", "description": "单位：升/分钟", "sampleValue": 12},
+        {"attributeId": 4, "attributeName": "所属区域", "attributeCode": "zone_code_ref", "dataType": "string", "description": "所服务的种植区编号", "sampleValue": "A01"}
+      ],
+      "instanceIds": [10, 11],
+      "instanceCount": 2,
+      "realInstanceCount": 2,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 8,
+      "objectName": "营养液罐",
+      "objectCode": "nutrient_solution_tank",
+      "description": "储存并向水肥一体机提供营养液的容器。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "储罐编号", "attributeCode": "tank_code", "dataType": "string", "description": "储罐编号", "sampleValue": "TANK-01"},
+        {"attributeId": 2, "attributeName": "当前液位", "attributeCode": "tank_level_pct", "dataType": "number", "description": "单位：%", "sampleValue": 68},
+        {"attributeId": 3, "attributeName": "EC值", "attributeCode": "nutrient_ec", "dataType": "number", "description": "单位：mS/cm", "sampleValue": 3.2},
+        {"attributeId": 4, "attributeName": "pH值", "attributeCode": "nutrient_ph", "dataType": "number", "description": "营养液酸碱度", "sampleValue": 6.1},
+        {"attributeId": 5, "attributeName": "配方编号", "attributeCode": "formula_code", "dataType": "string", "description": "营养液配方编号", "sampleValue": "NF-TOM-03"}
+      ],
+      "instanceIds": [12],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 9,
+      "objectName": "病害监测记录",
+      "objectCode": "disease_observation",
+      "description": "巡检或监测形成的作物病害风险记录。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "记录编号", "attributeCode": "disease_record_code", "dataType": "string", "description": "病害记录编号", "sampleValue": "DIS-20260901-01"},
+        {"attributeId": 2, "attributeName": "叶片病斑比例", "attributeCode": "lesion_ratio_pct", "dataType": "number", "description": "单位：%", "sampleValue": 8},
+        {"attributeId": 3, "attributeName": "风险等级", "attributeCode": "risk_level", "dataType": "integer", "description": "1 至 5 级", "sampleValue": 3},
+        {"attributeId": 4, "attributeName": "空气湿度", "attributeCode": "disease_relative_humidity_pct", "dataType": "number", "description": "单位：%", "sampleValue": 88},
+        {"attributeId": 5, "attributeName": "叶面湿润持续时间", "attributeCode": "leaf_wetness_minutes", "dataType": "integer", "description": "单位：分钟", "sampleValue": 150},
+        {"attributeId": 6, "attributeName": "疑似病害", "attributeCode": "suspected_disease", "dataType": "string", "description": "识别出的疑似病害", "sampleValue": "番茄晚疫病"},
+        {"attributeId": 7, "attributeName": "巡检时间", "attributeCode": "inspected_at", "dataType": "datetime", "description": "巡检记录时间", "sampleValue": "2026-09-01 09:20:00"}
+      ],
+      "instanceIds": [13],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 10,
+      "objectName": "农事工单",
+      "objectCode": "farm_work_order",
+      "description": "对灌溉、植保、巡检等农业任务进行闭环管理的工单。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "工单编号", "attributeCode": "work_order_code", "dataType": "string", "description": "工单唯一编号", "sampleValue": "WO-20260901-01"},
+        {"attributeId": 2, "attributeName": "工单类型", "attributeCode": "work_order_type", "dataType": "string", "description": "农事任务类型", "sampleValue": "植保"},
+        {"attributeId": 3, "attributeName": "优先级", "attributeCode": "priority", "dataType": "string", "description": "任务优先级", "sampleValue": "高"},
+        {"attributeId": 4, "attributeName": "处理状态", "attributeCode": "work_order_status", "dataType": "string", "description": "工单当前状态", "sampleValue": "待处理"},
+        {"attributeId": 5, "attributeName": "计划完成时间", "attributeCode": "planned_finish_at", "dataType": "datetime", "description": "要求完成时间", "sampleValue": "2026-09-01 18:00:00"},
+        {"attributeId": 6, "attributeName": "负责人", "attributeCode": "assignee_name", "dataType": "string", "description": "工单处理人", "sampleValue": "李晓禾"}
+      ],
+      "instanceIds": [14],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 11,
+      "objectName": "农艺师",
+      "objectCode": "agronomist",
+      "description": "负责设施农业生产计划、巡检和处置决策的专业人员。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "人员编号", "attributeCode": "agronomist_code", "dataType": "string", "description": "人员编号", "sampleValue": "AGRO-01"},
+        {"attributeId": 2, "attributeName": "姓名", "attributeCode": "agronomist_name", "dataType": "string", "description": "姓名", "sampleValue": "李晓禾"},
+        {"attributeId": 3, "attributeName": "联系电话", "attributeCode": "phone", "dataType": "string", "description": "联系电话", "sampleValue": "13800001001"}
+      ],
+      "instanceIds": [15],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "objectId": 12,
+      "objectName": "采收批次",
+      "objectCode": "harvest_batch",
+      "description": "用于产量、质量和来源追溯的番茄采收批次。",
+      "attributes": [
+        {"attributeId": 1, "attributeName": "采收批次号", "attributeCode": "harvest_batch_code", "dataType": "string", "description": "采收批次编号", "sampleValue": "HAR-20260910-A01"},
+        {"attributeId": 2, "attributeName": "计划采收日期", "attributeCode": "planned_harvest_date", "dataType": "date", "description": "计划采收日期", "sampleValue": "2026-09-10"},
+        {"attributeId": 3, "attributeName": "预计产量", "attributeCode": "expected_yield_kg", "dataType": "number", "description": "单位：千克", "sampleValue": 3200},
+        {"attributeId": 4, "attributeName": "质量等级目标", "attributeCode": "target_quality_grade", "dataType": "string", "description": "目标商品等级", "sampleValue": "一级"},
+        {"attributeId": 5, "attributeName": "负责人", "attributeCode": "harvest_manager", "dataType": "string", "description": "采收负责人", "sampleValue": "李晓禾"}
+      ],
+      "instanceIds": [16],
+      "instanceCount": 1,
+      "realInstanceCount": 1,
+      "generatedInstanceCount": 0,
+      "instanceCoverage": "grounded",
+      "sourceChunks": ["file_001_chunk_0002"]
+    }
+  ],
+  "links": [
+    {"linkId": 1, "sourceObjectId": 1, "sourceObjectName": "智能温室", "targetObjectId": 2, "targetObjectName": "种植区", "linkInfo": "包含", "linkType": "1:N", "description": "温室包含种植区", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 2, "sourceObjectId": 2, "sourceObjectName": "种植区", "targetObjectId": 3, "targetObjectName": "番茄作物", "linkInfo": "种植", "linkType": "1:N", "description": "种植区种植番茄作物批次", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 3, "sourceObjectId": 1, "sourceObjectName": "智能温室", "targetObjectId": 4, "targetObjectName": "环境传感器", "linkInfo": "部署", "linkType": "1:N", "description": "温室部署环境传感器", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 4, "sourceObjectId": 2, "sourceObjectName": "种植区", "targetObjectId": 5, "targetObjectName": "土壤墒情传感器", "linkInfo": "部署", "linkType": "1:N", "description": "种植区部署墒情传感器", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 5, "sourceObjectId": 6, "sourceObjectName": "水肥一体机", "targetObjectId": 2, "targetObjectName": "种植区", "linkInfo": "供给水肥", "linkType": "N:N", "description": "水肥一体机向种植区供液", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 6, "sourceObjectId": 6, "sourceObjectName": "水肥一体机", "targetObjectId": 7, "targetObjectName": "滴灌阀", "linkInfo": "控制", "linkType": "1:N", "description": "水肥一体机控制分区滴灌阀", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 7, "sourceObjectId": 8, "sourceObjectName": "营养液罐", "targetObjectId": 6, "targetObjectName": "水肥一体机", "linkInfo": "供液", "linkType": "N:1", "description": "营养液罐向水肥一体机供液", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 8, "sourceObjectId": 5, "sourceObjectName": "土壤墒情传感器", "targetObjectId": 2, "targetObjectName": "种植区", "linkInfo": "监测", "linkType": "N:1", "description": "墒情传感器监测所属种植区", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 9, "sourceObjectId": 4, "sourceObjectName": "环境传感器", "targetObjectId": 1, "targetObjectName": "智能温室", "linkInfo": "监测", "linkType": "N:1", "description": "环境传感器监测温室环境", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 10, "sourceObjectId": 9, "sourceObjectName": "病害监测记录", "targetObjectId": 3, "targetObjectName": "番茄作物", "linkInfo": "记录病害", "linkType": "N:1", "description": "病害记录对应作物批次", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 11, "sourceObjectId": 10, "sourceObjectName": "农事工单", "targetObjectId": 9, "targetObjectName": "病害监测记录", "linkInfo": "处置", "linkType": "N:1", "description": "农事工单处置病害风险", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 12, "sourceObjectId": 10, "sourceObjectName": "农事工单", "targetObjectId": 3, "targetObjectName": "番茄作物", "linkInfo": "作用于", "linkType": "N:1", "description": "农事工单作用于作物批次", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 13, "sourceObjectId": 11, "sourceObjectName": "农艺师", "targetObjectId": 1, "targetObjectName": "智能温室", "linkInfo": "负责", "linkType": "N:1", "description": "农艺师负责温室生产", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 14, "sourceObjectId": 11, "sourceObjectName": "农艺师", "targetObjectId": 10, "targetObjectName": "农事工单", "linkInfo": "处理", "linkType": "1:N", "description": "农艺师处理农事工单", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0001"]},
+    {"linkId": 15, "sourceObjectId": 3, "sourceObjectName": "番茄作物", "targetObjectId": 12, "targetObjectName": "采收批次", "linkInfo": "形成", "linkType": "1:N", "description": "作物形成采收批次", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0002"]},
+    {"linkId": 16, "sourceObjectId": 12, "sourceObjectName": "采收批次", "targetObjectId": 2, "targetObjectName": "种植区", "linkInfo": "来源于", "linkType": "N:1", "description": "采收批次来源于种植区", "confidence": 1.0, "sourceChunks": ["file_001_chunk_0002"]}
+  ],
+  "rules": [
+    {
+      "ruleId": 1,
+      "ruleName": "低墒灌溉规则",
+      "ruleCode": "rule_low_soil_moisture",
+      "description": "土壤含水率低于 25% 时启动对应种植区滴灌。",
+      "scopeObjectId": 5,
+      "scopeObjectName": "土壤墒情传感器",
+      "logic": "AND",
+      "conditions": [
+        {"conditionId": "low_soil_moisture_c1", "field": "土壤含水率", "operator": "<", "value": 25, "valueType": "number"}
+      ],
+      "actionIds": [1],
+      "actionNames": ["启动滴灌"],
+      "confidence": 1.0,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "ruleId": 2,
+      "ruleName": "墒情恢复停灌规则",
+      "ruleCode": "rule_soil_moisture_recovered",
+      "description": "土壤含水率达到 35% 时停止对应种植区滴灌。",
+      "scopeObjectId": 5,
+      "scopeObjectName": "土壤墒情传感器",
+      "logic": "AND",
+      "conditions": [
+        {"conditionId": "soil_moisture_recovered_c1", "field": "土壤含水率", "operator": ">=", "value": 35, "valueType": "number"}
+      ],
+      "actionIds": [2],
+      "actionNames": ["停止滴灌"],
+      "confidence": 1.0,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "ruleId": 3,
+      "ruleName": "高温通风规则",
+      "ruleCode": "rule_high_air_temperature",
+      "description": "空气温度高于 32 摄氏度时开启温室通风降温。",
+      "scopeObjectId": 4,
+      "scopeObjectName": "环境传感器",
+      "logic": "AND",
+      "conditions": [
+        {"conditionId": "high_air_temperature_c1", "field": "空气温度", "operator": ">", "value": 32, "valueType": "number"}
+      ],
+      "actionIds": [3],
+      "actionNames": ["开启通风降温"],
+      "confidence": 1.0,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "ruleId": 4,
+      "ruleName": "营养液EC偏高规则",
+      "ruleCode": "rule_high_nutrient_ec",
+      "description": "营养液 EC 值高于 3.0 mS/cm 时暂停注肥并稀释。",
+      "scopeObjectId": 8,
+      "scopeObjectName": "营养液罐",
+      "logic": "AND",
+      "conditions": [
+        {"conditionId": "high_nutrient_ec_c1", "field": "EC值", "operator": ">", "value": 3.0, "valueType": "number"}
+      ],
+      "actionIds": [4],
+      "actionNames": ["降低营养液浓度"],
+      "confidence": 1.0,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "ruleId": 5,
+      "ruleName": "晚疫病防控规则",
+      "ruleCode": "rule_late_blight_risk",
+      "description": "风险等级不低于 3 且空气湿度不低于 85% 时创建高优先级植保工单。",
+      "scopeObjectId": 9,
+      "scopeObjectName": "病害监测记录",
+      "logic": "AND",
+      "conditions": [
+        {"conditionId": "late_blight_risk_c1", "field": "风险等级", "operator": ">=", "value": 3, "valueType": "integer"},
+        {"conditionId": "late_blight_risk_c2", "field": "空气湿度", "operator": ">=", "value": 85, "valueType": "number"}
+      ],
+      "actionIds": [5],
+      "actionNames": ["创建植保工单"],
+      "confidence": 1.0,
+      "sourceChunks": ["file_001_chunk_0001"]
+    }
+  ],
+  "actions": [
+    {
+      "actionId": 1,
+      "actionName": "启动滴灌",
+      "actionCode": "start_drip_irrigation",
+      "description": "打开低墒区域的滴灌阀并设置目标流量。",
+      "inputObjectIds": [5],
+      "inputObjects": ["土壤墒情传感器"],
+      "outputObjectIds": [7],
+      "outputObjects": ["滴灌阀"],
+      "triggerRuleIds": [1],
+      "triggerRules": ["低墒灌溉规则"],
+      "targetObjectIds": [7],
+      "targetObjects": ["滴灌阀"],
+      "actionType": "control",
+      "executor": "水肥一体机",
+      "actionPlan": "按传感器所属种植区定位滴灌阀，打开阀门并将目标流量设置为 12 升/分钟。",
+      "feedback": "记录开始时间、阀门状态和目标流量。",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "actionId": 2,
+      "actionName": "停止滴灌",
+      "actionCode": "stop_drip_irrigation",
+      "description": "关闭墒情已恢复区域的滴灌阀。",
+      "inputObjectIds": [5],
+      "inputObjects": ["土壤墒情传感器"],
+      "outputObjectIds": [7],
+      "outputObjects": ["滴灌阀"],
+      "triggerRuleIds": [2],
+      "triggerRules": ["墒情恢复停灌规则"],
+      "targetObjectIds": [7],
+      "targetObjects": ["滴灌阀"],
+      "actionType": "control",
+      "executor": "水肥一体机",
+      "actionPlan": "按传感器所属种植区定位并关闭滴灌阀。",
+      "feedback": "记录停止时间和累计灌溉量。",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "actionId": 3,
+      "actionName": "开启通风降温",
+      "actionCode": "start_greenhouse_ventilation",
+      "description": "开启温室通风并将目标温度设置为 28 摄氏度。",
+      "inputObjectIds": [4],
+      "inputObjects": ["环境传感器"],
+      "outputObjectIds": [1],
+      "outputObjects": ["智能温室"],
+      "triggerRuleIds": [3],
+      "triggerRules": ["高温通风规则"],
+      "targetObjectIds": [1, 11],
+      "targetObjects": ["智能温室", "农艺师"],
+      "actionType": "control_and_notify",
+      "executor": "温室环境控制系统",
+      "actionPlan": "开启通风，将目标温度设置为 28 摄氏度，并通知负责人。",
+      "feedback": "记录通风状态、目标温度和通知结果。",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "actionId": 4,
+      "actionName": "降低营养液浓度",
+      "actionCode": "reduce_nutrient_concentration",
+      "description": "暂停注肥并用清水将营养液 EC 值稀释到目标区间。",
+      "inputObjectIds": [8],
+      "inputObjects": ["营养液罐"],
+      "outputObjectIds": [8],
+      "outputObjects": ["营养液罐"],
+      "triggerRuleIds": [4],
+      "triggerRules": ["营养液EC偏高规则"],
+      "targetObjectIds": [8],
+      "targetObjects": ["营养液罐"],
+      "actionType": "control",
+      "executor": "水肥一体机",
+      "actionPlan": "暂停注肥、切换清水稀释，持续检测直至 EC 值达到 2.6 至 2.8 mS/cm。",
+      "feedback": "将调整前后 EC 值写入水肥运行记录。",
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "actionId": 5,
+      "actionName": "创建植保工单",
+      "actionCode": "create_crop_protection_work_order",
+      "description": "根据高风险病害记录生成高优先级植保工单。",
+      "inputObjectIds": [9, 3],
+      "inputObjects": ["病害监测记录", "番茄作物"],
+      "outputObjectIds": [10],
+      "outputObjects": ["农事工单"],
+      "triggerRuleIds": [5],
+      "triggerRules": ["晚疫病防控规则"],
+      "targetObjectIds": [10, 11],
+      "targetObjects": ["农事工单", "农艺师"],
+      "actionType": "workflow",
+      "executor": "农事管理系统",
+      "actionPlan": "生成植保工单，设置高优先级、完成时限和负责人，并关联病害记录与作物批次。",
+      "feedback": "已生成高优先级植保工单。",
+      "sourceChunks": ["file_001_chunk_0001"]
+    }
+  ],
+  "instances": [
+    {
+      "instanceId": 1,
+      "instanceCode": "GH-01",
+      "instanceName": "一号智能温室",
+      "objectId": 1,
+      "objectName": "智能温室",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "温室编号", "attributeCode": "greenhouse_code", "dataType": "string", "value": "GH-01"},
+        {"attributeId": 2, "attributeName": "面积", "attributeCode": "area_sqm", "dataType": "number", "value": 2400},
+        {"attributeId": 3, "attributeName": "运行状态", "attributeCode": "operating_status", "dataType": "string", "value": "生产中"},
+        {"attributeId": 4, "attributeName": "负责人", "attributeCode": "manager_name", "dataType": "string", "value": "李晓禾"},
+        {"attributeId": 5, "attributeName": "通风状态", "attributeCode": "ventilation_status", "dataType": "string", "value": "开启"},
+        {"attributeId": 6, "attributeName": "目标温度", "attributeCode": "target_temperature_c", "dataType": "number", "value": 28}
+      ],
+      "linkValues": [
+        {"linkId": 1, "linkInfo": "包含", "targetInstanceId": 2, "targetInstanceName": "A01种植区", "targetObjectId": 2, "targetObjectName": "种植区"},
+        {"linkId": 1, "linkInfo": "包含", "targetInstanceId": 3, "targetInstanceName": "A02种植区", "targetObjectId": 2, "targetObjectName": "种植区"},
+        {"linkId": 3, "linkInfo": "部署", "targetInstanceId": 6, "targetInstanceName": "环境传感器ENV-01", "targetObjectId": 4, "targetObjectName": "环境传感器"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 2,
+      "instanceCode": "ZONE-A01",
+      "instanceName": "A01种植区",
+      "objectId": 2,
+      "objectName": "种植区",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "区域编号", "attributeCode": "zone_code", "dataType": "string", "value": "A01"},
+        {"attributeId": 2, "attributeName": "面积", "attributeCode": "zone_area_sqm", "dataType": "number", "value": 1200},
+        {"attributeId": 3, "attributeName": "种植密度", "attributeCode": "planting_density", "dataType": "number", "value": 2.8}
+      ],
+      "linkValues": [
+        {"linkId": 2, "linkInfo": "种植", "targetInstanceId": 4, "targetInstanceName": "番茄批次T2026-01", "targetObjectId": 3, "targetObjectName": "番茄作物"},
+        {"linkId": 4, "linkInfo": "部署", "targetInstanceId": 7, "targetInstanceName": "墒情传感器SM-01", "targetObjectId": 5, "targetObjectName": "土壤墒情传感器"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 3,
+      "instanceCode": "ZONE-A02",
+      "instanceName": "A02种植区",
+      "objectId": 2,
+      "objectName": "种植区",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "区域编号", "attributeCode": "zone_code", "dataType": "string", "value": "A02"},
+        {"attributeId": 2, "attributeName": "面积", "attributeCode": "zone_area_sqm", "dataType": "number", "value": 1200},
+        {"attributeId": 3, "attributeName": "种植密度", "attributeCode": "planting_density", "dataType": "number", "value": 2.6}
+      ],
+      "linkValues": [
+        {"linkId": 2, "linkInfo": "种植", "targetInstanceId": 5, "targetInstanceName": "番茄批次T2026-02", "targetObjectId": 3, "targetObjectName": "番茄作物"},
+        {"linkId": 4, "linkInfo": "部署", "targetInstanceId": 8, "targetInstanceName": "墒情传感器SM-02", "targetObjectId": 5, "targetObjectName": "土壤墒情传感器"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 4,
+      "instanceCode": "T2026-01",
+      "instanceName": "番茄批次T2026-01",
+      "objectId": 3,
+      "objectName": "番茄作物",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "作物批次", "attributeCode": "crop_batch_code", "dataType": "string", "value": "T2026-01"},
+        {"attributeId": 2, "attributeName": "品种", "attributeCode": "cultivar", "dataType": "string", "value": "红宝石"},
+        {"attributeId": 3, "attributeName": "定植日期", "attributeCode": "planting_date", "dataType": "date", "value": "2026-08-15"},
+        {"attributeId": 4, "attributeName": "生育期", "attributeCode": "growth_stage", "dataType": "string", "value": "开花坐果期"}
+      ],
+      "linkValues": [
+        {"linkId": 15, "linkInfo": "形成", "targetInstanceId": 16, "targetInstanceName": "采收批次HAR-20260910-A01", "targetObjectId": 12, "targetObjectName": "采收批次"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 5,
+      "instanceCode": "T2026-02",
+      "instanceName": "番茄批次T2026-02",
+      "objectId": 3,
+      "objectName": "番茄作物",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "作物批次", "attributeCode": "crop_batch_code", "dataType": "string", "value": "T2026-02"},
+        {"attributeId": 2, "attributeName": "品种", "attributeCode": "cultivar", "dataType": "string", "value": "粉冠"},
+        {"attributeId": 3, "attributeName": "定植日期", "attributeCode": "planting_date", "dataType": "date", "value": "2026-08-20"},
+        {"attributeId": 4, "attributeName": "生育期", "attributeCode": "growth_stage", "dataType": "string", "value": "开花期"}
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 6,
+      "instanceCode": "ENV-01",
+      "instanceName": "环境传感器ENV-01",
+      "objectId": 4,
+      "objectName": "环境传感器",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "传感器编号", "attributeCode": "environment_sensor_code", "dataType": "string", "value": "ENV-01"},
+        {"attributeId": 2, "attributeName": "空气温度", "attributeCode": "air_temperature_c", "dataType": "number", "value": 33.6},
+        {"attributeId": 3, "attributeName": "空气湿度", "attributeCode": "relative_humidity_pct", "dataType": "number", "value": 78},
+        {"attributeId": 4, "attributeName": "二氧化碳浓度", "attributeCode": "co2_ppm", "dataType": "integer", "value": 610},
+        {"attributeId": 5, "attributeName": "光照强度", "attributeCode": "illuminance_lux", "dataType": "number", "value": 42000},
+        {"attributeId": 6, "attributeName": "采集时间", "attributeCode": "sampled_at", "dataType": "datetime", "value": "2026-09-01 10:00:00"}
+      ],
+      "linkValues": [
+        {"linkId": 9, "linkInfo": "监测", "targetInstanceId": 1, "targetInstanceName": "一号智能温室", "targetObjectId": 1, "targetObjectName": "智能温室"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 7,
+      "instanceCode": "SM-01",
+      "instanceName": "墒情传感器SM-01",
+      "objectId": 5,
+      "objectName": "土壤墒情传感器",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "传感器编号", "attributeCode": "soil_sensor_code", "dataType": "string", "value": "SM-01"},
+        {"attributeId": 2, "attributeName": "土壤含水率", "attributeCode": "soil_moisture_pct", "dataType": "number", "value": 22.4},
+        {"attributeId": 3, "attributeName": "土壤温度", "attributeCode": "soil_temperature_c", "dataType": "number", "value": 25.1},
+        {"attributeId": 4, "attributeName": "采集时间", "attributeCode": "soil_sampled_at", "dataType": "datetime", "value": "2026-09-01 10:00:00"}
+      ],
+      "linkValues": [
+        {"linkId": 8, "linkInfo": "监测", "targetInstanceId": 2, "targetInstanceName": "A01种植区", "targetObjectId": 2, "targetObjectName": "种植区"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 8,
+      "instanceCode": "SM-02",
+      "instanceName": "墒情传感器SM-02",
+      "objectId": 5,
+      "objectName": "土壤墒情传感器",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "传感器编号", "attributeCode": "soil_sensor_code", "dataType": "string", "value": "SM-02"},
+        {"attributeId": 2, "attributeName": "土壤含水率", "attributeCode": "soil_moisture_pct", "dataType": "number", "value": 37.6},
+        {"attributeId": 3, "attributeName": "土壤温度", "attributeCode": "soil_temperature_c", "dataType": "number", "value": 24.7},
+        {"attributeId": 4, "attributeName": "采集时间", "attributeCode": "soil_sampled_at", "dataType": "datetime", "value": "2026-09-01 10:00:00"}
+      ],
+      "linkValues": [
+        {"linkId": 8, "linkInfo": "监测", "targetInstanceId": 3, "targetInstanceName": "A02种植区", "targetObjectId": 2, "targetObjectName": "种植区"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 9,
+      "instanceCode": "FERT-01",
+      "instanceName": "水肥一体机FERT-01",
+      "objectId": 6,
+      "objectName": "水肥一体机",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "设备编号", "attributeCode": "fertigation_code", "dataType": "string", "value": "FERT-01"},
+        {"attributeId": 2, "attributeName": "运行模式", "attributeCode": "fertigation_mode", "dataType": "string", "value": "自动"},
+        {"attributeId": 3, "attributeName": "目标EC值", "attributeCode": "target_ec", "dataType": "number", "value": 2.7},
+        {"attributeId": 4, "attributeName": "目标pH值", "attributeCode": "target_ph", "dataType": "number", "value": 6.0},
+        {"attributeId": 5, "attributeName": "累计灌溉量", "attributeCode": "cumulative_irrigation_l", "dataType": "number", "value": 1860}
+      ],
+      "linkValues": [
+        {"linkId": 5, "linkInfo": "供给水肥", "targetInstanceId": 2, "targetInstanceName": "A01种植区", "targetObjectId": 2, "targetObjectName": "种植区"},
+        {"linkId": 5, "linkInfo": "供给水肥", "targetInstanceId": 3, "targetInstanceName": "A02种植区", "targetObjectId": 2, "targetObjectName": "种植区"},
+        {"linkId": 6, "linkInfo": "控制", "targetInstanceId": 10, "targetInstanceName": "A01滴灌阀VLV-A01", "targetObjectId": 7, "targetObjectName": "滴灌阀"},
+        {"linkId": 6, "linkInfo": "控制", "targetInstanceId": 11, "targetInstanceName": "A02滴灌阀VLV-A02", "targetObjectId": 7, "targetObjectName": "滴灌阀"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 10,
+      "instanceCode": "VLV-A01",
+      "instanceName": "A01滴灌阀VLV-A01",
+      "objectId": 7,
+      "objectName": "滴灌阀",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "阀门编号", "attributeCode": "valve_code", "dataType": "string", "value": "VLV-A01"},
+        {"attributeId": 2, "attributeName": "启停状态", "attributeCode": "valve_status", "dataType": "string", "value": "开启"},
+        {"attributeId": 3, "attributeName": "目标流量", "attributeCode": "target_flow_lpm", "dataType": "number", "value": 12},
+        {"attributeId": 4, "attributeName": "所属区域", "attributeCode": "zone_code_ref", "dataType": "string", "value": "A01"}
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 11,
+      "instanceCode": "VLV-A02",
+      "instanceName": "A02滴灌阀VLV-A02",
+      "objectId": 7,
+      "objectName": "滴灌阀",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "阀门编号", "attributeCode": "valve_code", "dataType": "string", "value": "VLV-A02"},
+        {"attributeId": 2, "attributeName": "启停状态", "attributeCode": "valve_status", "dataType": "string", "value": "关闭"},
+        {"attributeId": 3, "attributeName": "目标流量", "attributeCode": "target_flow_lpm", "dataType": "number", "value": 0},
+        {"attributeId": 4, "attributeName": "所属区域", "attributeCode": "zone_code_ref", "dataType": "string", "value": "A02"}
+      ],
+      "linkValues": [],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 12,
+      "instanceCode": "TANK-01",
+      "instanceName": "营养液罐TANK-01",
+      "objectId": 8,
+      "objectName": "营养液罐",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "储罐编号", "attributeCode": "tank_code", "dataType": "string", "value": "TANK-01"},
+        {"attributeId": 2, "attributeName": "当前液位", "attributeCode": "tank_level_pct", "dataType": "number", "value": 68},
+        {"attributeId": 3, "attributeName": "EC值", "attributeCode": "nutrient_ec", "dataType": "number", "value": 3.2},
+        {"attributeId": 4, "attributeName": "pH值", "attributeCode": "nutrient_ph", "dataType": "number", "value": 6.1},
+        {"attributeId": 5, "attributeName": "配方编号", "attributeCode": "formula_code", "dataType": "string", "value": "NF-TOM-03"}
+      ],
+      "linkValues": [
+        {"linkId": 7, "linkInfo": "供液", "targetInstanceId": 9, "targetInstanceName": "水肥一体机FERT-01", "targetObjectId": 6, "targetObjectName": "水肥一体机"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 13,
+      "instanceCode": "DIS-20260901-01",
+      "instanceName": "病害监测记录DIS-20260901-01",
+      "objectId": 9,
+      "objectName": "病害监测记录",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "记录编号", "attributeCode": "disease_record_code", "dataType": "string", "value": "DIS-20260901-01"},
+        {"attributeId": 2, "attributeName": "叶片病斑比例", "attributeCode": "lesion_ratio_pct", "dataType": "number", "value": 8},
+        {"attributeId": 3, "attributeName": "风险等级", "attributeCode": "risk_level", "dataType": "integer", "value": 3},
+        {"attributeId": 4, "attributeName": "空气湿度", "attributeCode": "disease_relative_humidity_pct", "dataType": "number", "value": 88},
+        {"attributeId": 5, "attributeName": "叶面湿润持续时间", "attributeCode": "leaf_wetness_minutes", "dataType": "integer", "value": 150},
+        {"attributeId": 6, "attributeName": "疑似病害", "attributeCode": "suspected_disease", "dataType": "string", "value": "番茄晚疫病"},
+        {"attributeId": 7, "attributeName": "巡检时间", "attributeCode": "inspected_at", "dataType": "datetime", "value": "2026-09-01 09:20:00"}
+      ],
+      "linkValues": [
+        {"linkId": 10, "linkInfo": "记录病害", "targetInstanceId": 4, "targetInstanceName": "番茄批次T2026-01", "targetObjectId": 3, "targetObjectName": "番茄作物"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 14,
+      "instanceCode": "WO-20260901-01",
+      "instanceName": "植保工单WO-20260901-01",
+      "objectId": 10,
+      "objectName": "农事工单",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "工单编号", "attributeCode": "work_order_code", "dataType": "string", "value": "WO-20260901-01"},
+        {"attributeId": 2, "attributeName": "工单类型", "attributeCode": "work_order_type", "dataType": "string", "value": "植保"},
+        {"attributeId": 3, "attributeName": "优先级", "attributeCode": "priority", "dataType": "string", "value": "高"},
+        {"attributeId": 4, "attributeName": "处理状态", "attributeCode": "work_order_status", "dataType": "string", "value": "待处理"},
+        {"attributeId": 5, "attributeName": "计划完成时间", "attributeCode": "planned_finish_at", "dataType": "datetime", "value": "2026-09-01 18:00:00"},
+        {"attributeId": 6, "attributeName": "负责人", "attributeCode": "assignee_name", "dataType": "string", "value": "李晓禾"}
+      ],
+      "linkValues": [
+        {"linkId": 11, "linkInfo": "处置", "targetInstanceId": 13, "targetInstanceName": "病害监测记录DIS-20260901-01", "targetObjectId": 9, "targetObjectName": "病害监测记录"},
+        {"linkId": 12, "linkInfo": "作用于", "targetInstanceId": 4, "targetInstanceName": "番茄批次T2026-01", "targetObjectId": 3, "targetObjectName": "番茄作物"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 15,
+      "instanceCode": "AGRO-01",
+      "instanceName": "农艺师李晓禾",
+      "objectId": 11,
+      "objectName": "农艺师",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "人员编号", "attributeCode": "agronomist_code", "dataType": "string", "value": "AGRO-01"},
+        {"attributeId": 2, "attributeName": "姓名", "attributeCode": "agronomist_name", "dataType": "string", "value": "李晓禾"},
+        {"attributeId": 3, "attributeName": "联系电话", "attributeCode": "phone", "dataType": "string", "value": "13800001001"}
+      ],
+      "linkValues": [
+        {"linkId": 13, "linkInfo": "负责", "targetInstanceId": 1, "targetInstanceName": "一号智能温室", "targetObjectId": 1, "targetObjectName": "智能温室"},
+        {"linkId": 14, "linkInfo": "处理", "targetInstanceId": 14, "targetInstanceName": "植保工单WO-20260901-01", "targetObjectId": 10, "targetObjectName": "农事工单"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "instanceId": 16,
+      "instanceCode": "HAR-20260910-A01",
+      "instanceName": "采收批次HAR-20260910-A01",
+      "objectId": 12,
+      "objectName": "采收批次",
+      "attributeValues": [
+        {"attributeId": 1, "attributeName": "采收批次号", "attributeCode": "harvest_batch_code", "dataType": "string", "value": "HAR-20260910-A01"},
+        {"attributeId": 2, "attributeName": "计划采收日期", "attributeCode": "planned_harvest_date", "dataType": "date", "value": "2026-09-10"},
+        {"attributeId": 3, "attributeName": "预计产量", "attributeCode": "expected_yield_kg", "dataType": "number", "value": 3200},
+        {"attributeId": 4, "attributeName": "质量等级目标", "attributeCode": "target_quality_grade", "dataType": "string", "value": "一级"},
+        {"attributeId": 5, "attributeName": "负责人", "attributeCode": "harvest_manager", "dataType": "string", "value": "李晓禾"}
+      ],
+      "linkValues": [
+        {"linkId": 16, "linkInfo": "来源于", "targetInstanceId": 2, "targetInstanceName": "A01种植区", "targetObjectId": 2, "targetObjectName": "种植区"}
+      ],
+      "generated": false,
+      "sourceChunks": ["file_001_chunk_0002"]
+    }
+  ],
+  "actionInvocations": [
+    {
+      "invocationId": 1,
+      "actionId": 1,
+      "actionName": "启动滴灌",
+      "inputInstances": [7],
+      "outputInstances": [10],
+      "inputInstanceNames": ["墒情传感器SM-01"],
+      "outputInstanceNames": ["A01滴灌阀VLV-A01"],
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "invocationId": 2,
+      "actionId": 2,
+      "actionName": "停止滴灌",
+      "inputInstances": [8],
+      "outputInstances": [11],
+      "inputInstanceNames": ["墒情传感器SM-02"],
+      "outputInstanceNames": ["A02滴灌阀VLV-A02"],
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "invocationId": 3,
+      "actionId": 3,
+      "actionName": "开启通风降温",
+      "inputInstances": [6],
+      "outputInstances": [1],
+      "inputInstanceNames": ["环境传感器ENV-01"],
+      "outputInstanceNames": ["一号智能温室"],
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "invocationId": 4,
+      "actionId": 4,
+      "actionName": "降低营养液浓度",
+      "inputInstances": [12],
+      "outputInstances": [12],
+      "inputInstanceNames": ["营养液罐TANK-01"],
+      "outputInstanceNames": ["营养液罐TANK-01"],
+      "sourceChunks": ["file_001_chunk_0001"]
+    },
+    {
+      "invocationId": 5,
+      "actionId": 5,
+      "actionName": "创建植保工单",
+      "inputInstances": [13, 4],
+      "outputInstances": [14],
+      "inputInstanceNames": ["病害监测记录DIS-20260901-01", "番茄批次T2026-01"],
+      "outputInstanceNames": ["植保工单WO-20260901-01"],
+      "sourceChunks": ["file_001_chunk_0001"]
+    }
+  ]
+}
