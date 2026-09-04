@@ -621,10 +621,10 @@
     });
     const relationButton = workbenchDom.toolbar.querySelector('[data-workbench-command="new-relation"]');
     relationButton?.classList.toggle('active', relationMode.active);
-    const agentButton = workbenchDom.toolbar.querySelector('[data-workbench-command="new-agent"]');
+    const agentButton = workbenchDom.toolbar.querySelector('[data-workbench-command="ontology-agents"]');
     if (agentButton){
-      agentButton.disabled = !workbenchDraft.id || !workbenchDraft.savedAt;
-      agentButton.title = agentButton.disabled ? '请先保存当前本体，再创建本体智能体' : '';
+      agentButton.disabled = false;
+      agentButton.title = '管理、配置和对话本体智能体';
     }
     const saveButton = workbenchDom.toolbar.querySelector('[data-workbench-command="save"]');
     saveButton?.classList.toggle('dirty', Boolean(workbenchDraft.dirty));
@@ -2483,7 +2483,11 @@
     if (command === 'new-relation') toggleRelationMode();
     if (command === 'new-rule') addDraftNode('rule');
     if (command === 'new-action') addDraftNode('action');
-    if (command === 'new-agent') openAgentModal();
+    if (command === 'ontology-agents'){
+      window.dispatchEvent(new CustomEvent('lom:open-agent-manager',{
+        detail:{ontologyJobId:workbenchDraft.sourceJobId || null}
+      }));
+    }
     if (command === 'save') saveDraft();
   }
 

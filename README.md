@@ -17,6 +17,7 @@ LOM 是一个面向长文档和业务材料的本体构建演示系统。前端�
 - 已有本体导入：支持上传 `formatted_ontology.json/jsonl`，直接加载图谱和问答。
 - 图谱浏览：支持本体层和实例层切换，展示节点、关系、属性和邻域。
 - 本体问答：基于当前构建/导入的本体进行问答，并返回可高亮节点与边。
+- 本体智能体：绑定已完成本体版本，组合官方原子 Agent，支持 Pi Agent 协同对话、配置修改、发布和受凭证保护的外部调用。
 - 历史任务：后端保存 API 构建结果，前端可加载历史构建结果。
 - CLI：后端包同时提供分块、抽取、合并、导出、完整构建等命令。
 
@@ -184,6 +185,13 @@ curl 'http://127.0.0.1:8000/ontology/jobs/<jobId>/graph?view=instance'
 | `GET` | `/ontology/jobs/{jobId}/canonical` | 获取 schema/graph 标准输出 |
 | `GET` | `/ontology/jobs/{jobId}/graph?view=schema` | 获取前端图谱数据，`view` 可为 `schema`、`instance`、`auto` |
 | `POST` | `/ontology/jobs/{jobId}/question` | 基于当前本体问答 |
+| `GET` | `/ontology/agent-catalog` | 获取官方原子 Agent 目录 |
+| `GET/POST` | `/ontology/agents` | 列出或创建本体智能体 |
+| `GET/PUT` | `/ontology/agents/{agentId}` | 读取或按 revision 修改智能体 |
+| `POST` | `/ontology/agents/{agentId}/publish` | 发布/重新发布智能体 |
+| `GET/POST` | `/ontology/agents/{agentId}/sessions` | 列出或新建智能体会话 |
+| `POST` | `/ontology/agents/{agentId}/sessions/{sessionId}/messages` | Pi Agent 平台内对话 |
+| `POST` | `/v1/ontology-agents/{invokeName}/invoke` | 携带 `X-Agent-Key` 外部调用已发布智能体 |
 
 `POST /ontology/jobs` 常用表单参数：
 

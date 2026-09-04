@@ -13,7 +13,7 @@ from uuid import uuid4
 
 import click
 import yaml
-from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import BackgroundTasks, FastAPI, File, Form, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -43,6 +43,19 @@ from ontology_construct.embedding import create_embedding_client
 from ontology_construct.input.text_reader import SUPPORTED_TEXT_SUFFIXES
 from ontology_construct.llm import aclose_llm_client, create_llm_client
 from ontology_construct.models import GlobalOntology
+from ontology_construct.ontology_agent import (
+    AgentInvocationRequest,
+    AgentStore,
+    OntologyAgentCreate,
+    OntologyAgentRecord,
+    OntologyAgentUpdate,
+    OntologyContextSnapshot,
+    OntologyPiAgentRuntime,
+    RevisionConflict,
+    new_message,
+    public_agent_payload,
+    public_catalog_payload,
+)
 from ontology_construct.output.formatted_ontology import FormattedOntology
 from ontology_construct.output import build_canonical_ontology, format_global_ontology
 from ontology_construct.qa import (
@@ -283,6 +296,8 @@ def create_app():
     )
     app_config = load_config()
     store = JobStore(replay_enabled=app_config.replay.enabled)
+    agent_store = AgentStore(API_OUTPUT_ROOT.parent / "ontology_agents")
+    agent_runtime = OntologyPiAgentRuntime()
     frontend_dir = _frontend_dir()
     index_path = frontend_dir.parent / "index_V0427.html"
 
@@ -318,6 +333,179 @@ def create_app():
     @app.get("/ontology/jobs")
     def list_jobs():
         return {"jobs": _list_job_summaries(store)}
+
+    @app.get("/ontology/agent-catalog")
+    def ontology_agent_catalog():
+        return {"agents": public_catalog_payload()}
+
+    @app.get("/ontology/agents")
+    def list_ontology_agents(ontology_job_id: str | None = None):
+        return {
+            "agents": [
+                public_agent_payload(record)
+                for record in agent_store.list(ontology_job_id)
+            ]
+        }
+
+    @app.post("/ontology/agents", status_code=201)
+    def create_ontology_agent(payload: OntologyAgentCreate):
+        context = _ontology_agent_context(store, payload.ontology_job_id)
+        record = agent_store.create(payload, context)
+        return public_agent_payload(record)
+
+    @app.get("/ontology/agents/{agent_id}")
+    def get_ontology_agent(agent_id: str):
+        return public_agent_payload(_read_agent_or_404(agent_store, agent_id))
+
+    @app.put("/ontology/agents/{agent_id}")
+    def update_ontology_agent(agent_id: str, payload: OntologyAgentUpdate):
+        _read_agent_or_404(agent_store, agent_id)
+        context = _ontology_agent_context(store, payload.ontology_job_id)
+        try:
+            record = agent_store.update(agent_id, payload, context)
+        except RevisionConflict as exc:
+            raise HTTPException(
+                status_code=409,
+                detail={
+                    "message": "Agent configuration has changed; reload before saving",
+                    "currentRevision": exc.current_revision,
+                },
+            ) from exc
+        return public_agent_payload(record)
+
+    @app.post("/ontology/agents/{agent_id}/publish")
+    def publish_ontology_agent(agent_id: str):
+        record = _read_agent_or_404(agent_store, agent_id)
+        _ontology_agent_context(store, record.ontology_context.job_id)
+        result = agent_store.publish(agent_id)
+        return {
+            "agent": public_agent_payload(result.agent),
+            "accessKey": result.access_key,
+            "invokePath": result.invoke_path,
+        }
+
+    @app.get("/ontology/agents/{agent_id}/sessions")
+    def list_ontology_agent_sessions(agent_id: str):
+        _read_agent_or_404(agent_store, agent_id)
+        return {
+            "sessions": [
+                session.model_dump(mode="json", by_alias=True)
+                for session in agent_store.list_sessions(agent_id)
+            ]
+        }
+
+    @app.post("/ontology/agents/{agent_id}/sessions", status_code=201)
+    def create_ontology_agent_session(agent_id: str):
+        _read_agent_or_404(agent_store, agent_id)
+        session = agent_store.create_session(agent_id)
+        return session.model_dump(mode="json", by_alias=True)
+
+    @app.get("/ontology/agents/{agent_id}/sessions/{session_id}")
+    def get_ontology_agent_session(agent_id: str, session_id: str):
+        _read_agent_or_404(agent_store, agent_id)
+        try:
+            session = agent_store.read_session(agent_id, session_id)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Agent session not found") from exc
+        return session.model_dump(mode="json", by_alias=True)
+
+    async def invoke_agent(
+        *,
+        record: OntologyAgentRecord,
+        payload: AgentInvocationRequest,
+        session_id: str | None,
+    ) -> dict[str, object]:
+        if record.status == "disabled":
+            raise HTTPException(status_code=409, detail="Agent is disabled")
+        formatted = _read_formatted_ontology(store, record.ontology_context.job_id)
+        if session_id:
+            try:
+                session = agent_store.read_session(record.agent_id, session_id)
+            except KeyError as exc:
+                raise HTTPException(status_code=404, detail="Agent session not found") from exc
+        else:
+            session = agent_store.create_session(record.agent_id)
+        history = list(session.messages)
+        user_message = new_message("user", payload.message.strip())
+        agent_store.append_message(record.agent_id, session.session_id, user_message)
+        config = load_config()
+        effective_backend = payload.backend or record.backend or config.llm.backend
+        qa_strategy = resolve_qa_strategy(
+            backend=effective_backend,
+            requested_context_mode="graph_rag",
+            qa_config=config.qa,
+        )
+        try:
+            llm_client = create_llm_client(config.llm, effective_backend)
+            try:
+                result = await agent_runtime.invoke(
+                    agent=record,
+                    ontology=formatted,
+                    question=payload.message.strip(),
+                    history=history,
+                    llm_client=llm_client,
+                    context_mode=qa_strategy.context_mode,
+                    qa_config=qa_strategy.qa_config,
+                    graph_view=payload.graph_view,
+                    fallback_enabled=True,
+                )
+            finally:
+                await aclose_llm_client(llm_client)
+        except (RuntimeError, ValueError) as exc:
+            raise HTTPException(status_code=500, detail=str(exc)) from exc
+        result.response.meta.pop("_qa_log", None)
+        result.response.meta.update(
+            {"qa_strategy": qa_strategy.name, "backend": effective_backend}
+        )
+        assistant_message = new_message(
+            "assistant",
+            result.response.answer.summary,
+            collaboration=result.collaboration,
+            evidence={
+                "highlight": result.response.highlight.model_dump(mode="json"),
+                "answer": result.response.answer.model_dump(mode="json"),
+            },
+        )
+        updated_session = agent_store.append_message(
+            record.agent_id,
+            session.session_id,
+            assistant_message,
+        )
+        return {
+            "session": updated_session.model_dump(mode="json", by_alias=True),
+            "message": assistant_message.model_dump(mode="json", by_alias=True),
+            "answer": result.response.model_dump(mode="json"),
+            "collaboration": result.collaboration,
+        }
+
+    @app.post("/ontology/agents/{agent_id}/sessions/{session_id}/messages")
+    async def send_ontology_agent_message(
+        agent_id: str,
+        session_id: str,
+        payload: AgentInvocationRequest,
+    ):
+        record = _read_agent_or_404(agent_store, agent_id)
+        return await invoke_agent(record=record, payload=payload, session_id=session_id)
+
+    @app.post("/v1/ontology-agents/{invoke_name}/invoke")
+    async def invoke_published_ontology_agent(
+        invoke_name: str,
+        payload: AgentInvocationRequest,
+        x_agent_key: str | None = Header(default=None, alias="X-Agent-Key"),
+    ):
+        try:
+            record = agent_store.find_by_invoke_name(invoke_name)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Published agent not found") from exc
+        if record.status != "published" or not record.external_call_enabled:
+            raise HTTPException(status_code=409, detail="External invocation is not enabled")
+        if not agent_store.verify_access_key(record, x_agent_key):
+            raise HTTPException(status_code=401, detail="Invalid agent access key")
+        return await invoke_agent(
+            record=record,
+            payload=payload,
+            session_id=payload.session_id,
+        )
 
     @app.post("/ontology/jobs")
     async def create_job(
@@ -1753,6 +1941,34 @@ def _validate_upload_files(files: list[UploadFile]) -> None:
 def _safe_input_stem(value: str) -> str:
     safe = "".join(ch if ch.isalnum() or ch in {"-", "_"} else "_" for ch in value)
     return safe[:48].strip("_") or "input"
+
+
+def _read_agent_or_404(agent_store: AgentStore, agent_id: str) -> OntologyAgentRecord:
+    try:
+        return agent_store.read(agent_id)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail="Ontology agent not found") from exc
+
+
+def _ontology_agent_context(
+    store: JobStore,
+    job_id: str,
+) -> OntologyContextSnapshot:
+    formatted = _read_formatted_ontology(store, job_id)
+    payload = formatted.model_dump(mode="json", by_alias=True)
+    metadata = payload.get("ontology") or {}
+    ontology_id = metadata.get("ontologyId")
+    return OntologyContextSnapshot(
+        jobId=job_id,
+        ontologyId=str(ontology_id if ontology_id is not None else job_id),
+        ontologyName=str(metadata.get("ontologyName") or job_id),
+        profile=str(metadata.get("profile") or "default"),
+        version=job_id,
+        objectCount=len(payload.get("objects") or []),
+        ruleCount=len(payload.get("rules") or []),
+        actionCount=len(payload.get("actions") or []),
+        instanceCount=len(payload.get("instances") or []),
+    )
 
 
 def _read_formatted_ontology(store: JobStore, job_id: str) -> FormattedOntology:

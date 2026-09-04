@@ -38,7 +38,7 @@
 - `workbench_service.py`：导入构建结果、校验、保存、发布。
 - `workbench_adapter.py`：`FormattedOntology` 与编辑模型之间的转换。
 - `rule_engine.py`：结构化条件求值和命中解释。
-- `agent_service.py`：第三阶段再加入，不与阶段 2 强耦合。
+- `ontology_agent.py`：第三阶段已以独立领域模型、文件存储和 Pi Agent Loop 加入，仍不与阶段 2 工作区草稿强耦合。
 
 早期可沿用当前文件型 job store 做单机验证，但公共接口一旦支持多人编辑，应使用具备事务和唯一约束的持久化存储。
 

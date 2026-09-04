@@ -9,7 +9,7 @@
 5. `frontend-ontology-workbench.md`：现有前端交互、状态和文件边界。
 6. `domain-contract-draft.md`：等待接口文档确认的领域数据契约草案。
 7. `backend-integration-plan.md`：阶段 2 的后端接入方案。
-8. `ontology-agent-plan.md`：阶段 3 的本体智能体方案。
+8. `ontology-agent-plan.md`：阶段 3 的本体智能体设计、Pi Agent 运行层与已实现 API。
 
 `ontology_construct/docs/` 继续保存构建流水线、结构化数据和 Graph RAG 的专项技术文档；根级 `docs/` 只负责本次产品融合，不重复拷贝那些内容。
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1280,initial-scale=1">
 <title>OntoMind · 本体大模型</title>
-<link rel="stylesheet" href="frontend/app.css?v=20260831-canvas3d-layout-v18">
+<link rel="stylesheet" href="frontend/app.css?v=20260902-ontology-agent-v19">
 </head>
 <body>
 <div class="app" id="appRoot" data-page="main">
@@ -78,7 +78,7 @@
       <button type="button" data-workbench-command="new-rule"><span class="toolbarShape rule"></span>新建规则</button>
       <button type="button" data-workbench-command="new-action"><span class="toolbarShape action"></span>新建行动</button>
       <i aria-hidden="true"></i>
-      <button type="button" data-workbench-command="new-agent"><span>✦</span>新建智能体</button>
+      <button type="button" data-workbench-command="ontology-agents"><span>✦</span>本体智能体</button>
       <button class="primary" type="button" data-workbench-command="save"><span>▣</span><b>保存本体</b></button>
     </nav>
 
@@ -295,6 +295,22 @@
   </section>
 </div>
 
+<div class="ontologyAgentModal" id="ontologyAgentModal" role="dialog" aria-modal="true" aria-labelledby="ontologyAgentTitle" hidden>
+  <section class="ontologyAgentDialog">
+    <header class="ontologyAgentHeader">
+      <div class="ontologyAgentHeaderMark" aria-hidden="true">✦</div>
+      <div>
+        <span>KNoVa ONTOLOGY AGENT</span>
+        <h2 id="ontologyAgentTitle">本体智能体</h2>
+        <p id="ontologyAgentSubtitle">管理基于已构建本体的协同智能体</p>
+      </div>
+      <button class="ontologyAgentClose" id="ontologyAgentClose" type="button" aria-label="关闭">×</button>
+    </header>
+    <main class="ontologyAgentBody" id="ontologyAgentBody"></main>
+    <footer class="ontologyAgentFooter" id="ontologyAgentFooter"></footer>
+  </section>
+</div>
+
 <div class="workbenchModal" id="workbenchModal" role="dialog" aria-modal="true" aria-labelledby="workbenchModalTitle" hidden>
   <div class="workbenchDialog">
     <form id="workbenchForm">
@@ -323,6 +339,7 @@
 <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
 <script src="frontend/mock-ontology.js?v=20260827-industrial-v2"></script>
 <script src="frontend/app.js?v=20260831-canvas3d-layout-v18"></script>
-<script src="frontend/ontology-workbench.js?v=20260831-canvas3d-layout-v18"></script>
+<script src="frontend/ontology-workbench.js?v=20260902-ontology-agent-v19"></script>
+<script src="frontend/ontology-agent.js?v=20260902-ontology-agent-v19"></script>
 </body>
 </html>

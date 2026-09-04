@@ -1097,3 +1097,173 @@ button,input,select{font:inherit}
   .workbenchRow button{grid-column:2;justify-self:end}
   .ontologyBuildWorkflowGrid{grid-template-columns:1fr}
 }
+
+/* Phase 3: ontology agent management, configuration and Pi Agent collaboration chat. */
+.ontologyAgentModal[hidden]{display:none!important}
+.ontologyAgentModal{
+  position:fixed;
+  inset:0;
+  z-index:80;
+  display:grid;
+  place-items:center;
+  padding:22px;
+  background:rgba(2,4,12,.7);
+  backdrop-filter:blur(10px);
+}
+.ontologyAgentDialog{
+  width:min(1120px,96vw);
+  height:min(850px,94vh);
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  overflow:hidden;
+  border:1px solid #293566;
+  border-radius:20px;
+  background:
+    radial-gradient(700px 320px at 16% 0,rgba(58,120,255,.12),transparent 62%),
+    linear-gradient(180deg,rgba(13,20,46,.995),rgba(6,10,24,.995));
+  box-shadow:0 34px 100px rgba(0,0,0,.74),0 0 50px rgba(58,120,255,.1);
+}
+.ontologyAgentHeader{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-height:86px;
+  padding:16px 20px;
+  border-bottom:1px solid var(--line);
+}
+.ontologyAgentHeaderMark,.ontologyAgentCardIcon,.ontologyAgentMemberIcon{
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  color:#e9f8ff;
+  background:linear-gradient(145deg,#347cff,#5ab0ff 58%,#8ef0c5);
+  box-shadow:0 8px 22px rgba(58,120,255,.28),inset 0 1px rgba(255,255,255,.3);
+}
+.ontologyAgentHeaderMark{width:38px;height:38px;border-radius:12px;font-size:18px}
+.ontologyAgentHeader>div:nth-child(2){min-width:0}
+.ontologyAgentHeader span{color:var(--acc2);font-size:10px;letter-spacing:1.4px}
+.ontologyAgentHeader h2{margin:3px 0 0;color:#f4f7ff;font-size:20px;font-weight:650}
+.ontologyAgentHeader p{margin:5px 0 0;color:var(--mute);font-size:12px}
+.ontologyAgentClose{
+  margin-left:auto;
+  width:34px;
+  height:34px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  color:#9aa6c8;
+  background:rgba(255,255,255,.035);
+  cursor:pointer;
+  font-size:21px;
+}
+.ontologyAgentClose:hover{border-color:var(--acc);color:#fff}
+.ontologyAgentBody{min-height:0;padding:18px 20px 22px;overflow:auto}
+.ontologyAgentFooter{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-height:62px;
+  padding:12px 20px;
+  border-top:1px solid var(--line);
+  background:rgba(0,0,0,.18);
+}
+.ontologyAgentFooter>span{margin-right:auto;color:var(--mute);font-size:11px}
+.ontologyAgentFooter button,.ontologyAgentBody button{
+  min-height:34px;
+  padding:0 13px;
+  border:1px solid #2c3968;
+  border-radius:9px;
+  color:#dce6ff;
+  background:rgba(255,255,255,.035);
+  cursor:pointer;
+}
+.ontologyAgentFooter button:hover:not(:disabled),.ontologyAgentBody button:hover:not(:disabled){border-color:var(--acc);color:#fff;background:rgba(90,176,255,.08)}
+.ontologyAgentFooter button.primary,.ontologyAgentBody button.primary{border-color:transparent;color:#031124;background:linear-gradient(135deg,#4c8cff,#6cbfff 52%,#8ef0c5);font-weight:650;box-shadow:0 8px 20px rgba(58,120,255,.18)}
+.ontologyAgentFooter button:disabled,.ontologyAgentBody button:disabled{opacity:.35;cursor:not-allowed}
+.ontologyAgentStats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.ontologyAgentStats>div{display:flex;align-items:center;min-height:58px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)}
+.ontologyAgentStats span{color:var(--mute);font-size:11px}
+.ontologyAgentStats strong{margin-left:auto;color:#eef5ff;font-size:20px;font-variant-numeric:tabular-nums}
+.ontologyAgentList{display:flex;flex-direction:column;gap:10px}
+.ontologyAgentCard{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:13px;
+  padding:14px;
+  border:1px solid #202b55;
+  border-radius:14px;
+  background:linear-gradient(120deg,rgba(255,255,255,.027),rgba(90,176,255,.018));
+  transition:border-color .18s,transform .18s,background .18s;
+}
+.ontologyAgentCard:hover{border-color:#34477c;background:linear-gradient(120deg,rgba(255,255,255,.04),rgba(90,176,255,.035));transform:translateY(-1px)}
+.ontologyAgentCardIcon{width:38px;height:38px;border-radius:11px;font-size:16px}
+.ontologyAgentCardContent{min-width:0}
+.ontologyAgentCardTitle{display:flex;align-items:flex-start;gap:10px}
+.ontologyAgentCardTitle>div{min-width:0}
+.ontologyAgentCardTitle strong{display:block;color:#f1f5ff;font-size:14px;font-weight:650}
+.ontologyAgentCardTitle code{display:block;margin-top:3px;color:#6f80aa;font:10px ui-monospace,SFMono-Regular,Menlo,monospace}
+.agentStatus{margin-left:auto;padding:4px 8px;border-radius:999px;font-size:10px;white-space:nowrap}
+.agentStatus.draft{color:#ffd49a;background:rgba(255,184,107,.1);border:1px solid rgba(255,184,107,.2)}
+.agentStatus.published{color:#9ef5c8;background:rgba(78,211,139,.1);border:1px solid rgba(78,211,139,.2)}
+.agentStatus.disabled{color:#b4bdd6;background:rgba(180,189,214,.08);border:1px solid rgba(180,189,214,.15)}
+.ontologyAgentCardContent>p{margin:9px 0;color:#aeb9d3;font-size:11px;line-height:1.55}
+.ontologyAgentContextLine{display:flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid rgba(39,52,95,.7);border-radius:8px;background:rgba(0,0,0,.13);font-size:10px}
+.ontologyAgentContextLine span{color:var(--dim)}
+.ontologyAgentContextLine b{color:#bdcae6;font-weight:550}
+.ontologyAgentContextLine code{margin-left:auto;max-width:220px;overflow:hidden;color:#6f80aa;text-overflow:ellipsis;white-space:nowrap}
+.ontologyAgentMemberPills{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ontologyAgentMemberPills span{padding:4px 7px;border:1px solid rgba(90,176,255,.18);border-radius:999px;color:#9fcaef;background:rgba(90,176,255,.055);font-size:9px}
+.ontologyAgentCardMeta{display:flex;flex-wrap:wrap;gap:13px;margin-top:9px;color:#68779f;font-size:9px}
+.ontologyAgentCardActions{display:flex;align-self:end;gap:7px}
+.ontologyAgentCardActions button{min-height:31px;padding:0 11px;font-size:11px}
+.ontologyAgentEmpty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px;padding:28px;border:1px dashed #2a3766;border-radius:14px;color:var(--mute);text-align:center}
+.ontologyAgentEmpty>span{display:grid;place-items:center;width:45px;height:45px;margin-bottom:10px;border:1px solid rgba(90,176,255,.25);border-radius:14px;color:var(--acc);background:rgba(90,176,255,.07);font-size:20px}
+.ontologyAgentEmpty strong{color:#dce6ff;font-size:14px}
+.ontologyAgentEmpty p{max-width:540px;margin:8px 0 14px;font-size:11px;line-height:1.6}
+.ontologyAgentEmpty.error>span{color:var(--bad);border-color:rgba(255,107,125,.28);background:rgba(255,107,125,.07)}
+.ontologyAgentLoading{display:flex;align-items:center;justify-content:center;gap:12px;height:100%;color:#b8c5df;font-size:12px}
+.ontologyAgentLoading>span{width:20px;height:20px;border:2px solid rgba(90,176,255,.18);border-top-color:var(--acc);border-radius:50%;animation:ontologyAgentSpin .8s linear infinite}
+@keyframes ontologyAgentSpin{to{transform:rotate(360deg)}}
+.ontologyAgentCredential{margin-bottom:14px;padding:13px 14px;border:1px solid rgba(142,240,197,.26);border-radius:13px;background:linear-gradient(120deg,rgba(142,240,197,.07),rgba(58,120,255,.05))}
+.ontologyAgentCredential>div{display:flex;align-items:center;margin-bottom:9px}.ontologyAgentCredential>div span{color:var(--acc2);font-size:10px}.ontologyAgentCredential>div strong{margin-left:auto;color:#dffff0;font-size:12px}
+.ontologyAgentCredential label{display:grid;grid-template-columns:100px minmax(0,1fr) auto;align-items:center;gap:8px;margin-top:6px}.ontologyAgentCredential label>span{color:#8493b7;font-size:10px}.ontologyAgentCredential code{min-width:0;overflow:hidden;padding:7px 9px;border:1px solid #26335f;border-radius:7px;color:#c8d6f3;background:rgba(0,0,0,.2);font:10px ui-monospace,SFMono-Regular,Menlo,monospace;text-overflow:ellipsis;white-space:nowrap}.ontologyAgentCredential button{min-height:29px}.ontologyAgentCredential small,.ontologyAgentCredential p{display:block;margin:7px 0 0;color:#7180a5;font-size:9px}
+.ontologyAgentConfig{display:flex;flex-direction:column;gap:12px}
+.ontologyAgentConfigSection{padding:15px;border:1px solid #202b55;border-radius:14px;background:rgba(255,255,255,.018)}
+.ontologyAgentSectionHeading{display:flex;align-items:flex-start;gap:12px}.ontologyAgentSectionHeading>.ontologyAgentSectionTitle{flex:1}.ontologyAgentSectionHeading>button{min-height:30px;color:var(--acc);font-size:10px}
+.ontologyAgentSectionTitle{display:flex;align-items:flex-start;gap:10px;margin-bottom:13px}
+.ontologyAgentSectionTitle>span{display:grid;place-items:center;flex:0 0 25px;height:25px;border-radius:50%;color:#8fc8ff;background:rgba(90,176,255,.1);font-size:10px;font-weight:650}
+.ontologyAgentSectionTitle strong{display:block;color:#dce6fb;font-size:13px}.ontologyAgentSectionTitle p{margin:4px 0 0;color:#7180a5;font-size:10px;line-height:1.5}
+.ontologyAgentFieldGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.ontologyAgentField{display:flex;flex-direction:column;gap:6px;min-width:0}.ontologyAgentField.full{grid-column:1/-1}.ontologyAgentField>span,.ontologyAgentMemberRow label>span{color:#aeb9d3;font-size:10px;font-weight:550}
+.ontologyAgentField input,.ontologyAgentField select,.ontologyAgentField textarea,.ontologyAgentMemberRow input,.ontologyAgentMemberRow select{
+  width:100%;min-width:0;border:1px solid #2a3868;border-radius:9px;outline:0;color:#e8eeff;background:rgba(0,0,0,.16);padding:9px 10px;font-size:11px
+}
+.ontologyAgentField textarea{min-height:68px;resize:vertical;line-height:1.55}.ontologyAgentField.tall textarea{min-height:88px}
+.ontologyAgentField input:focus,.ontologyAgentField select:focus,.ontologyAgentField textarea:focus,.ontologyAgentMemberRow input:focus,.ontologyAgentMemberRow select:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(90,176,255,.08)}
+.ontologyAgentContextPreview{display:grid;grid-template-columns:.8fr 1.2fr 1.2fr;margin-top:10px;border:1px solid #293866;border-radius:10px;overflow:hidden;background:rgba(58,120,255,.045)}
+.ontologyAgentContextPreview>div{min-width:0;padding:10px 12px;border-right:1px solid #293866}.ontologyAgentContextPreview>div:last-child{border-right:0}.ontologyAgentContextPreview span{display:block;color:#7180a5;font-size:9px}.ontologyAgentContextPreview strong,.ontologyAgentContextPreview code{display:block;overflow:hidden;margin-top:5px;color:#c9d7f1;font-size:10px;text-overflow:ellipsis;white-space:nowrap}
+.ontologyAgentMembers{display:flex;flex-direction:column;gap:8px}
+.ontologyAgentMemberRow{display:grid;grid-template-columns:auto minmax(210px,.85fr) minmax(260px,1.3fr) auto;align-items:start;gap:9px;padding:10px;border:1px solid #25325f;border-radius:11px;background:rgba(0,0,0,.13)}
+.ontologyAgentMemberIcon{width:28px;height:28px;margin-top:18px;border-radius:8px;font-size:11px}.ontologyAgentMemberRow label{display:flex;flex-direction:column;gap:5px;min-width:0}.ontologyAgentMemberRow small{overflow:hidden;color:#68779e;font-size:9px;text-overflow:ellipsis;white-space:nowrap}.ontologyAgentMemberRow>button{width:31px;min-height:31px;margin-top:17px;padding:0;border-color:rgba(255,107,125,.22);color:#ff92a2;background:rgba(255,107,125,.055)}
+.ontologyAgentInlineEmpty{padding:14px;border:1px dashed #293662;border-radius:10px;color:#7180a5;font-size:10px;text-align:center}
+.ontologyAgentConfigSection.external{display:flex;align-items:center;gap:15px}.ontologyAgentConfigSection.external>div:first-child{flex:1}.ontologyAgentConfigSection.external .ontologyAgentSectionTitle{margin-bottom:0}
+.ontologyAgentSwitch{display:flex;align-items:center;gap:8px;cursor:pointer}.ontologyAgentSwitch input{position:absolute;opacity:0;pointer-events:none}.ontologyAgentSwitch>span{position:relative;width:39px;height:22px;border:1px solid #3b4b78;border-radius:999px;background:#1b2745;transition:.2s}.ontologyAgentSwitch>span::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#93a1c0;transition:.2s}.ontologyAgentSwitch input:checked+span{border-color:rgba(142,240,197,.5);background:rgba(142,240,197,.16)}.ontologyAgentSwitch input:checked+span::after{left:20px;background:var(--acc2);box-shadow:0 0 10px rgba(142,240,197,.45)}.ontologyAgentSwitch b{min-width:45px;color:#8795b8;font-size:10px}
+.ontologyAgentConfigError,.ontologyAgentListNotice,.ontologyAgentChatError{margin-bottom:10px;padding:9px 11px;border:1px solid rgba(255,107,125,.3);border-radius:9px;color:#ffadba;background:rgba(255,107,125,.07);font-size:10px}.ontologyAgentListNotice.info{border-color:rgba(90,176,255,.3);color:#afd8ff;background:rgba(90,176,255,.07)}
+.ontologyAgentChatLayout{display:grid;grid-template-columns:210px minmax(0,1fr);height:100%;min-height:470px;border:1px solid #202b55;border-radius:14px;overflow:hidden;background:rgba(0,0,0,.1)}
+.ontologyAgentSessions{padding:10px;border-right:1px solid #202b55;background:rgba(0,0,0,.13);overflow:auto}.ontologyAgentSessions>div{display:flex;align-items:center;margin-bottom:9px;padding:0 3px}.ontologyAgentSessions>div span{color:#8997b9;font-size:10px}.ontologyAgentSessions>div button{margin-left:auto;width:28px;min-height:27px;padding:0;color:var(--acc)}.ontologyAgentSessions>button{display:block;width:100%;min-height:0;margin-bottom:5px;padding:9px;text-align:left}.ontologyAgentSessions>button.active{border-color:rgba(90,176,255,.42);background:rgba(90,176,255,.09)}.ontologyAgentSessions strong{display:block;overflow:hidden;color:#bac6df;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.ontologyAgentSessions small{display:block;margin-top:4px;color:#5e6b90;font-size:8px}
+.ontologyAgentConversation{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0}.ontologyAgentMessages{min-height:0;padding:18px;overflow:auto}
+.ontologyAgentChatEmpty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:330px;color:#7381a5;text-align:center}.ontologyAgentChatEmpty>span{display:grid;place-items:center;width:45px;height:45px;margin-bottom:10px;border:1px solid rgba(90,176,255,.22);border-radius:14px;color:var(--acc);background:rgba(90,176,255,.065);font-size:19px}.ontologyAgentChatEmpty strong{color:#c8d4eb;font-size:12px}.ontologyAgentChatEmpty p{max-width:440px;margin:7px 0;font-size:10px;line-height:1.6}
+.ontologyAgentMessage{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;margin-bottom:14px}.ontologyAgentMessage>div{display:grid;place-items:center;width:27px;height:27px;border:1px solid #2b3968;border-radius:8px;color:#a9b6d1;background:rgba(255,255,255,.03);font-size:10px}.ontologyAgentMessage.assistant>div{border-color:rgba(90,176,255,.25);color:var(--acc);background:rgba(90,176,255,.07)}.ontologyAgentMessage section{min-width:0}.ontologyAgentMessage section>span{color:#68779d;font-size:9px}.ontologyAgentMessage p{display:inline-block;max-width:90%;margin:5px 0 0;padding:9px 11px;border:1px solid #26335e;border-radius:3px 11px 11px 11px;color:#ccd7ed;background:rgba(255,255,255,.025);font-size:11px;line-height:1.65}.ontologyAgentMessage.user p{border-color:rgba(90,176,255,.22);background:rgba(90,176,255,.065)}
+.ontologyAgentTrace{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:7px}.ontologyAgentTrace>span{color:#657499;font-size:8px}.ontologyAgentTrace b{padding:3px 6px;border:1px solid rgba(142,240,197,.17);border-radius:999px;color:#8bd8b5;background:rgba(142,240,197,.045);font-size:8px;font-weight:500}.ontologyAgentTrace b.degraded{border-color:rgba(255,184,107,.2);color:#e7b378;background:rgba(255,184,107,.05)}
+.ontologyAgentChatForm{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:8px;padding:11px;border-top:1px solid #202b55;background:rgba(0,0,0,.14)}.ontologyAgentChatForm textarea{width:100%;min-height:44px;max-height:120px;resize:vertical;border:1px solid #2a3868;border-radius:10px;outline:0;color:#e8eeff;background:rgba(0,0,0,.18);padding:10px;font-size:11px;line-height:1.45}.ontologyAgentChatForm textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(90,176,255,.08)}.ontologyAgentChatForm button{height:44px}.ontologyAgentChatError{position:absolute;z-index:2;top:10px;left:12px;right:12px}
+
+@media (max-width:1000px){
+  .ontologyAgentModal{padding:10px}.ontologyAgentDialog{width:99vw;height:97vh}.ontologyAgentBody{padding:13px}
+  .ontologyAgentCard{grid-template-columns:auto minmax(0,1fr)}.ontologyAgentCardActions{grid-column:2;justify-content:flex-end}
+  .ontologyAgentMemberRow{grid-template-columns:auto minmax(0,1fr) auto}.ontologyAgentMemberRow label:nth-of-type(2){grid-column:2}.ontologyAgentMemberRow>button{grid-column:3;grid-row:1;margin-top:17px}
+}
+@media (max-width:720px){
+  .ontologyAgentStats,.ontologyAgentFieldGrid{grid-template-columns:1fr}.ontologyAgentField.full{grid-column:auto}.ontologyAgentStats{gap:6px}
+  .ontologyAgentContextPreview{grid-template-columns:1fr}.ontologyAgentContextPreview>div{border-right:0;border-bottom:1px solid #293866}.ontologyAgentContextPreview>div:last-child{border-bottom:0}
+  .ontologyAgentChatLayout{grid-template-columns:1fr}.ontologyAgentSessions{display:flex;gap:5px;border-right:0;border-bottom:1px solid #202b55}.ontologyAgentSessions>div{display:none}.ontologyAgentSessions>button{width:150px;flex:0 0 150px}
+  .ontologyAgentFooter>span{display:none}.ontologyAgentCard{grid-template-columns:1fr}.ontologyAgentCardIcon{display:none}.ontologyAgentCardActions{grid-column:1}.ontologyAgentHeader p{display:none}
+}
