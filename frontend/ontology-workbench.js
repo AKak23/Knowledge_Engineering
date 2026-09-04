@@ -16,6 +16,8 @@
   const workbenchDom = {
     left: document.querySelector('.left'),
     toolbar: document.getElementById('ontologyWorkbenchToolbar'),
+    addElementButton: document.getElementById('ontologyAddElementButton'),
+    addElementMenu: document.getElementById('ontologyAddElementMenu'),
     canvas: document.getElementById('ontologyCanvas2d'),
     canvasStage: document.getElementById('ontologyCanvasStage'),
     canvasEdges: document.getElementById('ontologyCanvasEdges'),
@@ -43,7 +45,11 @@
     ruleList: document.getElementById('ontologyRuleList'),
     ruleCount: document.getElementById('ontologyRuleCount'),
     rulePanelToggle: document.getElementById('ontologyRulePanelToggle'),
-    canvasLegendPanel: document.getElementById('ontologyCanvasLegendPanel'),
+    legendPanel: document.getElementById('legend'),
+    legendToggle: document.getElementById('ontologyLegendToggle'),
+    versionAddedLegend: document.getElementById('versionAddedLegend'),
+    versionAddedCount: document.getElementById('versionAddedCount'),
+    globalOntologyName: document.getElementById('globalOntologyName'),
     canvasZoomControls: document.getElementById('canvasZoomControls'),
     canvasZoomOut: document.getElementById('canvasZoomOut'),
     canvasZoomValue: document.getElementById('canvasZoomValue'),
@@ -89,6 +95,7 @@
   let canvasViewportNeedsFit = false;
   let updatePreviewActive = false;
   let updatePreviewSnapshot = null;
+  let versionHighlightedNodeIds = new Set();
 
   const legacyResetHandler = els.btnReset.onclick;
   const legacyRotateHandler = els.btnRotate.onclick;
@@ -574,6 +581,7 @@
     }
     const graphHasNodes = Boolean((data.nodes || []).length);
     if (graphHasNodes && (workbenchDraft.sourceJobId !== jobId || !workbenchDraft.nodes.length)){
+      versionHighlightedNodeIds = new Set();
       const storedMatchesJob = restorableWorkingCopy?.sourceJobId === jobId;
       workbenchDraft = storedMatchesJob ? normalizeDraft(restorableWorkingCopy) : draftFromSchemaGraph(data, jobId);
       canvasLayoutNeedsSpread = workbenchDraft.layoutVersion !== LABEL_LAYOUT_VERSION;
@@ -611,6 +619,7 @@
     selectedDraftNodeId = null;
     selectedDraftEdgeId = null;
     relationMode = {active:false,sourceId:null};
+    versionHighlightedNodeIds = new Set();
     canvasLayoutNeedsSpread = true;
     canvasViewportNeedsFit = true;
     canvasZoom = 1;
@@ -651,6 +660,17 @@
     const hasOntology = Boolean(workbenchDraft.id || workbenchDraft.sourceJobId || workbenchDraft.nodes.length || workbenchDraft.dirty);
     const ontologyLabel = hasOntology ? (workbenchDraft.name || '未命名本体') : '尚未加载本体';
     els.ontologyName.textContent = `${ontologyLabel} · ${viewLabel}（${count} 节点 / ${edgeCount} 关系）`;
+    if (workbenchDom.globalOntologyName) workbenchDom.globalOntologyName.textContent = ontologyLabel;
+    window.dispatchEvent(new CustomEvent('lom:ontology-context-changed',{
+      detail:{
+        jobId:workbenchDraft.sourceJobId || null,
+        ontologyName:ontologyLabel,
+        hasOntology,
+        dirty:Boolean(workbenchDraft.dirty),
+        savedAt:workbenchDraft.savedAt || null,
+        preview:updatePreviewActive
+      }
+    }));
   }
 
   function syncWorkbenchControls(){
@@ -686,8 +706,14 @@
       button.disabled = workbenchView !== 'canvas' || updatePreviewActive;
       button.title = updatePreviewActive ? '更新预览为只读，确认或返回变更方案后可继续编辑' : (button.disabled ? '仅可在本体画布中编辑本体结构' : '');
     });
+    if (workbenchDom.addElementButton){
+      workbenchDom.addElementButton.disabled = workbenchView !== 'canvas' || updatePreviewActive;
+      workbenchDom.addElementButton.title = updatePreviewActive ? '更新预览为只读' : (workbenchView !== 'canvas' ? '仅可在本体画布中添加元素' : '添加对象、规则、行动或流程关系');
+      if (workbenchDom.addElementButton.disabled) setAddElementMenu(false);
+    }
     const relationButton = workbenchDom.toolbar.querySelector('[data-workbench-command="new-relation"]');
     relationButton?.classList.toggle('active', relationMode.active);
+    workbenchDom.addElementButton?.classList.toggle('active',!workbenchDom.addElementMenu?.hidden || relationMode.active);
     const agentButton = workbenchDom.agentButton;
     if (agentButton){
       agentButton.disabled = false;
@@ -705,7 +731,8 @@
     els.btnLabels.textContent = `节点描述：${showNodeDescriptions ? '开' : '关'}`;
     els.btnLabels.classList.toggle('active',showNodeDescriptions);
     if (workbenchDom.rulePanel) workbenchDom.rulePanel.hidden = workbenchView === 'canvas' || workbenchView === 'canvas3d';
-    if (workbenchDom.canvasLegendPanel) workbenchDom.canvasLegendPanel.hidden = workbenchView !== 'canvas';
+    if (workbenchDom.versionAddedLegend) workbenchDom.versionAddedLegend.hidden = workbenchView !== 'canvas' || !versionHighlightedNodeIds.size;
+    if (workbenchDom.versionAddedCount) workbenchDom.versionAddedCount.textContent = String(versionHighlightedNodeIds.size);
     const active2dZoom = workbenchView === 'instance2d' ? instanceZoom : canvasZoom;
     const has2dZoom = workbenchView === 'canvas' || workbenchView === 'instance2d';
     if (workbenchDom.canvasZoomControls){
@@ -863,7 +890,8 @@
       const element = document.createElement('article');
       const ruleRelated = false;
       const ruleDimmed = false;
-      element.className = `ontologyNode ${node.kind}${selectedDraftNodeId === node.id ? ' selected' : ''}${relationMode.sourceId === node.id ? ' relation-source' : ''}${ruleRelated ? ' rule-related' : ''}${ruleDimmed ? ' dimmed' : ''}`;
+      const versionAdded = versionHighlightedNodeIds.has(node.id);
+      element.className = `ontologyNode ${node.kind}${selectedDraftNodeId === node.id ? ' selected' : ''}${relationMode.sourceId === node.id ? ' relation-source' : ''}${ruleRelated ? ' rule-related' : ''}${ruleDimmed ? ' dimmed' : ''}${versionAdded ? ' version-added' : ''}`;
       element.dataset.nodeId = node.id;
       const stagePosition = canvasStagePoint({x:Number(node.position?.x || 0),y:Number(node.position?.y || 0)},metrics);
       element.style.left = `${stagePosition.x}px`;
@@ -874,7 +902,7 @@
       const description = node.details?.description || meta;
       element.title = updatePreviewActive
         ? `${node.label} · 更新预览只读`
-        : `${node.label} · 拖动可自由移动；创建关系请先点击顶部“新建关系”`;
+        : `${node.label}${versionAdded ? ' · 本版本新增' : ''} · 拖动可自由移动；创建关系请打开“添加元素 > 流程 / 关系”`;
       element.innerHTML = `<div class="ontologyNodeContent"><span class="ontologyNodeKind">${KIND_LABELS[node.kind] || '元素'}</span><strong class="ontologyNodeLabel">${escapeHtml(node.label)}</strong><small class="ontologyNodeMeta">${escapeHtml(description)}</small></div>`;
       bindDraftNodeInteractions(element, node);
       workbenchDom.canvasNodes.appendChild(element);
@@ -1112,7 +1140,7 @@
     const rules = workbenchDraft.nodes.filter(node => node.kind === 'rule');
     workbenchDom.ruleCount.textContent = String(rules.length);
     if (!rules.length){
-      workbenchDom.ruleList.innerHTML = '<div class="ontologyRuleEmpty">当前本体尚未配置规则<br>可从顶部“新建规则”开始。</div>';
+      workbenchDom.ruleList.innerHTML = '<div class="ontologyRuleEmpty">当前本体尚未配置规则<br>可从“添加元素 &gt; 规则”开始。</div>';
       return;
     }
     workbenchDom.ruleList.innerHTML = '';
@@ -2552,7 +2580,21 @@
     }
   }
 
+  function setAddElementMenu(open){
+    if (!workbenchDom.addElementMenu || !workbenchDom.addElementButton) return;
+    const nextOpen = Boolean(open) && !workbenchDom.addElementButton.disabled;
+    workbenchDom.addElementMenu.hidden = !nextOpen;
+    workbenchDom.addElementButton.setAttribute('aria-expanded',String(nextOpen));
+    workbenchDom.addElementButton.classList.toggle('active',nextOpen || relationMode.active);
+    if (nextOpen) window.requestAnimationFrame(() => workbenchDom.addElementMenu.querySelector('button:not(:disabled)')?.focus());
+  }
+
   function handleToolbarCommand(command){
+    if (command === 'add-element'){
+      setAddElementMenu(workbenchDom.addElementMenu?.hidden);
+      return;
+    }
+    setAddElementMenu(false);
     if (command === 'new-ontology') openNewOntologyModal();
     if (command === 'new-object') addDraftNode('object');
     if (command === 'new-relation') toggleRelationMode();
@@ -2570,6 +2612,9 @@
     const button = event.target.closest('[data-workbench-command]');
     if (!button || button.disabled) return;
     handleToolbarCommand(button.dataset.workbenchCommand);
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('#ontologyAddElement')) setAddElementMenu(false);
   });
   workbenchDom.viewCanvas.onclick = () => switchWorkbenchView(workbenchView === 'instance3d' ? 'canvas3d' : 'canvas');
   workbenchDom.viewInstance2d.onclick = () => switchWorkbenchView(workbenchView === 'canvas3d' ? 'instance3d' : 'instance2d');
@@ -2600,9 +2645,19 @@
   if (workbenchDom.rulePanelToggle){
     workbenchDom.rulePanelToggle.onclick = () => {
       const collapsed = workbenchDom.rulePanel.classList.toggle('collapsed');
-      workbenchDom.rulePanelToggle.textContent = collapsed ? '›' : '‹';
-      workbenchDom.rulePanelToggle.title = collapsed ? '展开规则列表' : '收起规则列表';
-      workbenchDom.rulePanelToggle.setAttribute('aria-label',collapsed ? '展开规则列表' : '收起规则列表');
+      workbenchDom.rulePanelToggle.textContent = collapsed ? '⌄' : '⌃';
+      workbenchDom.rulePanelToggle.title = collapsed ? '展开规则内容' : '收起规则内容';
+      workbenchDom.rulePanelToggle.setAttribute('aria-label',collapsed ? '展开规则内容' : '收起规则内容');
+      workbenchDom.rulePanelToggle.setAttribute('aria-expanded',String(!collapsed));
+    };
+  }
+  if (workbenchDom.legendToggle){
+    workbenchDom.legendToggle.onclick = () => {
+      const collapsed = workbenchDom.legendPanel.classList.toggle('collapsed');
+      workbenchDom.legendToggle.textContent = collapsed ? '⌄' : '⌃';
+      workbenchDom.legendToggle.title = collapsed ? '展开本体图例' : '收起本体图例';
+      workbenchDom.legendToggle.setAttribute('aria-label',collapsed ? '展开本体图例' : '收起本体图例');
+      workbenchDom.legendToggle.setAttribute('aria-expanded',String(!collapsed));
     };
   }
   workbenchDom.canvas.addEventListener('click', event => {
@@ -2665,12 +2720,21 @@
   });
   window.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
-    if (!workbenchDom.modal.hidden) closeModal();
+    if (!workbenchDom.addElementMenu?.hidden) setAddElementMenu(false);
+    else if (!workbenchDom.modal.hidden) closeModal();
     else if (relationMode.active) cancelRelationMode();
   });
   window.addEventListener('lom:graph-rendered', event => handleRenderedGraph(event.detail));
   window.addEventListener('lom:ontology-update-preview', event => showOntologyUpdatePreview(event.detail));
   window.addEventListener('lom:ontology-update-preview-cancel', event => cancelOntologyUpdatePreview(event.detail));
+  window.addEventListener('lom:ontology-version-highlight', event => {
+    const detail = event.detail || {};
+    const activeJobId = workbenchDraft.sourceJobId || currentJobId || null;
+    if (String(detail.jobId || '') !== String(activeJobId || '')) return;
+    versionHighlightedNodeIds = new Set(Array.isArray(detail.nodeIds) ? detail.nodeIds : []);
+    if (workbenchView === 'canvas') renderCanvas();
+    syncWorkbenchControls();
+  });
   window.addEventListener('lom:ontology-import-started', () => {
     if (modalContext?.type === 'new-ontology') closeModal();
   });

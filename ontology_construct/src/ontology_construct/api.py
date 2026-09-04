@@ -378,6 +378,10 @@ def create_app():
             "builtinDocuments": _builtin_update_document_payloads(),
         }
 
+    @app.get("/ontology/jobs/{job_id}/versions")
+    def ontology_job_versions(job_id: str):
+        return _ontology_version_history(store, job_id)
+
     @app.post("/ontology/jobs/{job_id}/updates", status_code=202)
     async def create_ontology_update(
         job_id: str,
@@ -2338,6 +2342,202 @@ def _job_summary(job_dir: Path) -> dict[str, object] | None:
         "hasCanonical": (job_dir / "schema.json").exists() and (job_dir / "graph.json").exists(),
         "hasReplay": (job_dir / "job_events.jsonl").exists(),
     }
+
+
+def _ontology_version_history(store: JobStore, current_job_id: str) -> dict[str, Any]:
+    records: dict[str, dict[str, Any]] = {}
+    if store.root.exists():
+        for job_dir in store.root.iterdir():
+            state_path = job_dir / "job.json"
+            result_path = job_dir / "formatted_ontology.json"
+            if not job_dir.is_dir() or not state_path.exists() or not result_path.exists():
+                continue
+            try:
+                state = json.loads(state_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            if state.get("hiddenFromHistory") or state.get("status") != "completed":
+                continue
+            job_id = str(state.get("jobId") or job_dir.name)
+            records[job_id] = {
+                "state": state,
+                "resultPath": result_path,
+                "modifiedAt": job_dir.stat().st_mtime,
+            }
+
+    if current_job_id not in records:
+        raise HTTPException(status_code=404, detail="Completed ontology version not found")
+
+    root_job_id = current_job_id
+    seen = {root_job_id}
+    while True:
+        parent_id = str(records[root_job_id]["state"].get("baseJobId") or "")
+        if not parent_id or parent_id not in records or parent_id in seen:
+            break
+        root_job_id = parent_id
+        seen.add(parent_id)
+
+    children: dict[str, list[str]] = {}
+    for job_id, record in records.items():
+        parent_id = str(record["state"].get("baseJobId") or "")
+        if parent_id in records:
+            children.setdefault(parent_id, []).append(job_id)
+    for values in children.values():
+        values.sort(key=lambda value: _version_sort_key(records[value]))
+
+    family_ids: list[str] = []
+
+    def append_family(job_id: str) -> None:
+        if job_id in family_ids:
+            return
+        family_ids.append(job_id)
+        for child_id in children.get(job_id, []):
+            append_family(child_id)
+
+    append_family(root_job_id)
+    for job_id in family_ids:
+        try:
+            records[job_id]["result"] = json.loads(
+                records[job_id]["resultPath"].read_text(encoding="utf-8")
+            )
+        except (OSError, json.JSONDecodeError) as exc:
+            raise HTTPException(
+                status_code=500, detail=f"Ontology version {job_id} is unreadable"
+            ) from exc
+    versions = []
+    for version_number, job_id in enumerate(family_ids, start=1):
+        record = records[job_id]
+        state = record["state"]
+        result = record["result"]
+        parent_id = str(state.get("baseJobId") or "")
+        parent = records.get(parent_id)
+        change_counts, change_titles = _version_change_summary(store, state)
+        current_documents = _source_documents_for_state(state)
+        parent_documents = (
+            _source_documents_for_state(parent["state"]) if parent else []
+        )
+        parent_document_keys = {
+            (str(item.get("kind") or ""), str(item.get("name") or ""))
+            for item in parent_documents
+        }
+        added_documents = [
+            item
+            for item in current_documents
+            if (str(item.get("kind") or ""), str(item.get("name") or ""))
+            not in parent_document_keys
+        ]
+        ontology = result.get("ontology") or {}
+        schema_graph = formatted_ontology_to_graph(result, view="schema")
+        versions.append(
+            {
+                "jobId": job_id,
+                "parentJobId": parent_id or None,
+                "version": version_number,
+                "versionLabel": f"V{version_number}",
+                "changeType": "document-update" if parent else "initial",
+                "ontologyName": ontology.get("ontologyName") or job_id,
+                "updatedAt": ontology.get("updatedAt") or "",
+                "modifiedAt": record["modifiedAt"],
+                "isCurrent": job_id == current_job_id,
+                "nodeCount": len(schema_graph.nodes),
+                "relationCount": len(schema_graph.edges),
+                "addedNodeIds": _added_schema_node_ids(
+                    parent["result"] if parent else None, result
+                ),
+                "appliedChangeCount": len(state.get("appliedChangeIds") or []),
+                "changeCounts": change_counts,
+                "changeTitles": change_titles,
+                "updateScopes": state.get("updateScopes") or [],
+                "addedDocuments": added_documents,
+                "documents": current_documents,
+            }
+        )
+    current_version = next(
+        item["version"] for item in versions if item["jobId"] == current_job_id
+    )
+    return {
+        "ontologyName": versions[0]["ontologyName"],
+        "rootJobId": root_job_id,
+        "currentJobId": current_job_id,
+        "currentVersion": current_version,
+        "versions": versions,
+    }
+
+
+def _version_sort_key(record: dict[str, Any]) -> tuple[str, float]:
+    ontology = (record.get("result") or {}).get("ontology") or {}
+    state = record.get("state") or {}
+    return (
+        str(
+            ontology.get("updatedAt")
+            or ontology.get("createdAt")
+            or state.get("updatedAt")
+            or state.get("createdAt")
+            or ""
+        ),
+        float(record.get("modifiedAt") or 0),
+    )
+
+
+def _version_change_summary(
+    store: JobStore, state: dict[str, Any]
+) -> tuple[dict[str, int], list[str]]:
+    counts = {"added": 0, "modified": 0, "objects": 0, "relations": 0, "rules": 0, "actions": 0}
+    update_id = str(state.get("updateAnalysisId") or "")
+    plan_path = store.job_dir(update_id) / "update_plan.json" if update_id else None
+    if plan_path is None or not plan_path.exists():
+        return counts, []
+    try:
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return counts, []
+    applied = {str(value) for value in state.get("appliedChangeIds") or []}
+    titles: list[str] = []
+    for change in plan.get("changes") or []:
+        if str(change.get("changeId") or "") not in applied:
+            continue
+        operation = str(change.get("operation") or "")
+        kind = str(change.get("kind") or "")
+        if operation in {"added", "modified"}:
+            counts[operation] += 1
+        plural = {
+            "object": "objects",
+            "relation": "relations",
+            "rule": "rules",
+            "action": "actions",
+        }.get(kind)
+        if plural:
+            counts[plural] += 1
+        title = str(change.get("title") or "").strip()
+        if title and title not in titles:
+            titles.append(title)
+    return counts, titles[:8]
+
+
+def _added_schema_node_ids(
+    parent: dict[str, Any] | None, current: dict[str, Any]
+) -> list[str]:
+    if parent is None:
+        return []
+
+    def ids(payload: dict[str, Any], section: str, field: str, prefix: str) -> set[str]:
+        return {
+            f"{prefix}:{item[field]}"
+            for item in payload.get(section) or []
+            if item.get(field) is not None
+        }
+
+    parent_ids = {
+        *ids(parent, "objects", "objectId", "obj"),
+        *ids(parent, "rules", "ruleId", "rule"),
+        *ids(parent, "actions", "actionId", "action"),
+    }
+    current_ids = {
+        *ids(current, "objects", "objectId", "obj"),
+        *ids(current, "rules", "ruleId", "rule"),
+        *ids(current, "actions", "actionId", "action"),
+    }
+    return sorted(current_ids.difference(parent_ids))
 
 
 def _normalize_supplemental_prompt(value: str | None) -> str:

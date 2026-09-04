@@ -19,6 +19,7 @@ LOM 是一个面向长文档和业务材料的本体构建演示系统。前端�
 - 本体问答：基于当前构建/导入的本体进行问答，并返回可高亮节点与边。
 - 本体智能体：绑定已完成本体版本，组合官方原子 Agent，支持 Pi Agent 协同对话、配置修改、发布和受凭证保护的外部调用。
 - 追加文档更新：从当前已完成本体选择内置或自定义业务文档，约束对象/关系/规则/行动范围，确认节点级变更并在只读预览后生成新版本。
+- 本体版本历史：左侧工具栏下方常驻当前本体名称与版本，可切换文档追加形成的历史版本，并统一高亮当前版本新增节点。
 - 历史任务：后端保存 API 构建结果，前端可加载历史构建结果。
 - CLI：后端包同时提供分块、抽取、合并、导出、完整构建等命令。
 
@@ -34,7 +35,9 @@ LOM 是一个面向长文档和业务材料的本体构建演示系统。前端�
 │   ├── app.css                   # 前端样式
 │   ├── ontology-workbench.js     # 可编辑本体画布与工作副本
 │   ├── ontology-update.js        # 追加文档更新流程
-│   └── ontology-update.css       # 更新弹窗与预览样式
+│   ├── ontology-update.css       # 更新弹窗与预览样式
+│   ├── ontology-history.js       # 本体版本历史、切换与新增节点高亮
+│   └── ontology-history.css      # 添加元素菜单与版本历史样式
 ├── imported_ontologies/          # 可导入/展示的本体示例 JSON
 └── ontology_construct/
     ├── pyproject.toml            # Python 项目与依赖
@@ -129,6 +132,7 @@ uv run ontology-construct-api --host 0.0.0.0 --port 8000
 7. 如已有 `formatted_ontology.json/jsonl`，可点击“上传已有本体”直接导入。
 8. 如需要登记结构化数据源配置，可点击“上传结构化配置”上传 YAML。当前只保存配置，暂不执行数据库连接和抽取。
 9. 加载已完成的后端本体后，可点击顶部“本体数据源”，选择补充文档和更新范围；分析变更、勾选候选并预览，最终确认会生成并加载一个新 job，原 job 保持不变。
+10. 左侧工具栏下方的“当前本体”持续显示名称和版本；点击后可查看/切换版本链，当前版本相对父版本新增的节点会以统一绿色描边高亮。
 
 ## 第二阶段联调测试
 
@@ -191,6 +195,7 @@ curl 'http://127.0.0.1:8000/ontology/jobs/<jobId>/graph?view=instance'
 | `GET` | `/ontology/jobs/{jobId}/graph?view=schema` | 获取前端图谱数据，`view` 可为 `schema`、`instance`、`auto` |
 | `POST` | `/ontology/jobs/{jobId}/question` | 基于当前本体问答 |
 | `GET` | `/ontology/jobs/{jobId}/sources` | 获取本体名称、已有业务文档和内置补充文档 |
+| `GET` | `/ontology/jobs/{jobId}/versions` | 获取 `baseJobId` 父子链形成的版本历史、变更摘要和新增节点 ID |
 | `POST` | `/ontology/jobs/{jobId}/updates` | 上传补充文档并按范围异步分析更新影响 |
 | `GET` | `/ontology/jobs/{jobId}/updates/{updateId}/plan` | 获取节点级变更方案 |
 | `POST` | `/ontology/jobs/{jobId}/updates/{updateId}/preview` | 根据所选变更生成只读预览图 |

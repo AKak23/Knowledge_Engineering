@@ -246,6 +246,30 @@ def test_update_api_lists_sources_previews_and_confirms_new_version(
     assert update_id not in {item["jobId"] for item in jobs}
     assert version_job_id in {item["jobId"] for item in jobs}
 
+    versions = client.get(f"/ontology/jobs/{version_job_id}/versions")
+    assert versions.status_code == 200
+    history = versions.json()
+    assert history["rootJobId"] == base_job_id
+    assert history["currentVersion"] == 2
+    assert [item["versionLabel"] for item in history["versions"]] == ["V1", "V2"]
+    assert history["versions"][1]["parentJobId"] == base_job_id
+    assert history["versions"][1]["nodeCount"] == 4
+    assert history["versions"][1]["relationCount"] == 4
+    assert history["versions"][1]["changeCounts"] == {
+        "added": 4,
+        "modified": 1,
+        "objects": 2,
+        "relations": 1,
+        "rules": 1,
+        "actions": 1,
+    }
+    assert history["versions"][1]["addedNodeIds"] == [
+        "action:1",
+        "obj:2",
+        "rule:1",
+    ]
+    assert history["versions"][1]["addedDocuments"][0]["name"] == "risk.txt"
+
 
 def test_update_api_runs_document_analysis_with_backend_scope_constraint(
     tmp_path, monkeypatch

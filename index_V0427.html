@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1280,initial-scale=1">
 <title>OntoMind · 本体大模型</title>
-<link rel="stylesheet" href="frontend/app.css?v=20260902-view-controls-v20">
+<link rel="stylesheet" href="frontend/app.css?v=20260904-panel-layout-v21">
 <link rel="stylesheet" href="frontend/ontology-update.css?v=20260904-ontology-update-v2">
+<link rel="stylesheet" href="frontend/ontology-history.css?v=20260904-panel-layout-v3">
 </head>
 <body>
 <div class="app" id="appRoot" data-page="main">
@@ -19,7 +20,7 @@
       <div class="ontologyCanvasEmpty" id="ontologyCanvasEmpty" hidden>
         <span aria-hidden="true">◇</span>
         <strong>当前本体画布为空</strong>
-        <small>可从顶部新建对象、规则或行动，随后使用“新建关系”连接它们。</small>
+        <small>可从顶部“添加元素”创建对象、规则或行动，并通过“流程 / 关系”连接它们。</small>
       </div>
     </section>
     <section class="ontologyInstance2d" id="ontologyInstance2d" aria-label="本体实例二维视图" hidden>
@@ -75,13 +76,36 @@
       <button type="button" data-workbench-command="new-ontology"><span>＋</span>新建本体</button>
       <button id="ontologySourcesButton" type="button" data-workbench-command="ontology-sources" disabled><span>◈</span>本体数据源</button>
       <i aria-hidden="true"></i>
-      <button type="button" data-workbench-command="new-object"><span class="toolbarShape object"></span>新建对象</button>
-      <button type="button" data-workbench-command="new-relation"><span class="toolbarRelation">↗</span>新建关系</button>
-      <button type="button" data-workbench-command="new-rule"><span class="toolbarShape rule"></span>新建规则</button>
-      <button type="button" data-workbench-command="new-action"><span class="toolbarShape action"></span>新建行动</button>
+      <div class="ontologyAddElement" id="ontologyAddElement">
+        <button id="ontologyAddElementButton" type="button" data-workbench-command="add-element" aria-expanded="false" aria-controls="ontologyAddElementMenu"><span>＋</span>添加元素<i aria-hidden="true">⌄</i></button>
+        <div class="ontologyAddElementMenu" id="ontologyAddElementMenu" role="menu" hidden>
+          <button type="button" role="menuitem" data-workbench-command="new-object"><span class="toolbarShape object"></span><span><strong>对象</strong><small>添加实体、属性与数据挂载</small></span></button>
+          <button type="button" role="menuitem" data-workbench-command="new-rule"><span class="toolbarShape rule"></span><span><strong>规则</strong><small>添加判定条件与指标逻辑</small></span></button>
+          <button type="button" role="menuitem" data-workbench-command="new-action"><span class="toolbarShape action"></span><span><strong>行动</strong><small>添加任务、API 或反馈动作</small></span></button>
+          <button type="button" role="menuitem" data-workbench-command="new-relation"><span class="toolbarRelation">↗</span><span><strong>流程 / 关系</strong><small>依次选择起点和终点建立连接</small></span></button>
+        </div>
+      </div>
       <i aria-hidden="true"></i>
       <button class="primary" type="button" data-workbench-command="save"><span>▣</span><b>保存本体</b></button>
     </nav>
+
+    <div class="ontologyIdentityWrap">
+      <button class="ontologyIdentity" id="ontologyIdentity" type="button" aria-expanded="false" aria-controls="ontologyVersionPanel">
+        <span>当前本体</span>
+        <strong id="globalOntologyName">尚未加载本体</strong>
+        <em id="globalOntologyVersion">未形成版本</em>
+        <i aria-hidden="true">⌄</i>
+      </button>
+      <aside class="ontologyVersionPanel" id="ontologyVersionPanel" aria-label="本体修改历史" hidden>
+        <header>
+          <div><span>ONTOLOGY VERSION HISTORY</span><strong>本体修改历史</strong></div>
+          <button id="ontologyVersionClose" type="button" aria-label="关闭本体修改历史">×</button>
+        </header>
+        <div class="ontologyVersionSummary" id="ontologyVersionSummary"></div>
+        <div class="ontologyVersionList" id="ontologyVersionList"></div>
+        <footer>文档追加会形成可切换的新版本；本地人工草稿将在服务端工作区版本接入后纳入历史。</footer>
+      </aside>
+    </div>
 
     <aside class="ontologyRulePanel" id="ontologyRulePanel" aria-label="本体规则列表">
       <header>
@@ -90,35 +114,35 @@
           <strong>本体规则列表</strong>
         </div>
         <b id="ontologyRuleCount">0</b>
-        <button id="ontologyRulePanelToggle" type="button" title="收起规则列表" aria-label="收起规则列表">‹</button>
+        <button id="ontologyRulePanelToggle" type="button" title="收起规则内容" aria-label="收起规则内容" aria-expanded="true">⌃</button>
       </header>
       <div class="ontologyRuleList" id="ontologyRuleList">
         <div class="ontologyRuleEmpty">当前本体尚未配置规则</div>
       </div>
     </aside>
 
-    <aside class="ontologyCanvasLegendPanel" id="ontologyCanvasLegendPanel" aria-label="本体画布图例" hidden>
-      <section>
-        <h4>本体元素图例</h4>
-        <div class="canvasLegendRow"><span class="canvasLegendShape object"></span><span>对象</span></div>
-        <div class="canvasLegendRow"><span class="canvasLegendShape rule"></span><span>规则</span></div>
-        <div class="canvasLegendRow"><span class="canvasLegendShape action"></span><span>行动</span></div>
-      </section>
-      <section>
-        <h4>元素连接图例</h4>
-        <div class="canvasLegendRow"><span class="canvasLegendRelation object-object"></span><span>对象 → 对象</span></div>
-        <div class="canvasLegendRow"><span class="canvasLegendRelation object-rule"></span><span>对象 → 规则</span></div>
-        <div class="canvasLegendRow"><span class="canvasLegendRelation rule-action"></span><span>规则 → 行动</span></div>
-        <div class="canvasLegendRow"><span class="canvasLegendRelation action-object"></span><span>行动 ↔ 对象</span></div>
-      </section>
-    </aside>
-
     <aside class="legend" id="legend">
-      <h4>节点类型</h4>
-      <div class="legendRows" id="legendRows"></div>
-      <div class="stats">
-        <div class="s"><div class="n" id="nCount">0</div><div class="l">节点</div></div>
-        <div class="s"><div class="n g" id="eCount">0</div><div class="l">关系</div></div>
+      <header class="ontologyLegendHeader">
+        <div><span>ONTOLOGY LEGEND</span><strong>本体图例</strong></div>
+        <button id="ontologyLegendToggle" type="button" title="收起本体图例" aria-label="收起本体图例" aria-expanded="true">⌃</button>
+      </header>
+      <div class="ontologyLegendContent" id="ontologyLegendContent">
+        <section>
+          <h4>节点类型</h4>
+          <div class="legendRows" id="legendRows"></div>
+          <div class="canvasLegendRow versionAddedLegend" id="versionAddedLegend" hidden><span class="canvasLegendVersionAdded"></span><span>本版本新增</span><em id="versionAddedCount">0</em></div>
+          <div class="stats">
+            <div class="s"><div class="n" id="nCount">0</div><div class="l">节点</div></div>
+            <div class="s"><div class="n g" id="eCount">0</div><div class="l">关系</div></div>
+          </div>
+        </section>
+        <section class="ontologyLegendRelations">
+          <h4>元素连接</h4>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation object-object"></span><span>对象 → 对象</span></div>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation object-rule"></span><span>对象 → 规则</span></div>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation rule-action"></span><span>规则 → 行动</span></div>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation action-object"></span><span>行动 ↔ 对象</span></div>
+        </section>
       </div>
     </aside>
 
@@ -381,8 +405,9 @@
 <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
 <script src="frontend/mock-ontology.js?v=20260827-industrial-v2"></script>
 <script src="frontend/app.js?v=20260902-view-controls-v20"></script>
-<script src="frontend/ontology-workbench.js?v=20260904-ontology-update-v1"></script>
+<script src="frontend/ontology-workbench.js?v=20260904-panel-layout-v2"></script>
 <script src="frontend/ontology-update.js?v=20260904-ontology-update-v2"></script>
 <script src="frontend/ontology-agent.js?v=20260902-view-controls-v20"></script>
+<script src="frontend/ontology-history.js?v=20260904-version-history-v2"></script>
 </body>
 </html>

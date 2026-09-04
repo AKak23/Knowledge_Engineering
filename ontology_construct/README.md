@@ -271,3 +271,4 @@ API 支持上传 `.txt`、`.md`、`.markdown`、`.pdf`、`.docx`、`.json`、`.j
 - `POST /ontology/jobs/import`: 上传已有本体 JSON / JSONL，直接创建可展示和问答的已完成本体任务
 - `GET /ontology/jobs/{jobId}/status`: 查询任务状态和 chunk 进度
 - `GET /ontology/jobs/{jobId}/result`: 获取 `formatted_ontology.json`
+- `GET /ontology/jobs/{jobId}/versions`: 获取追加文档更新形成的 job 版本链、变更摘要和新增节点 ID

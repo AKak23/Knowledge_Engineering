@@ -24,6 +24,7 @@
 | 方法 | 路径 | 用途 |
 |---|---|---|
 | `GET` | `/ontology/jobs/{jobId}/sources` | 读取当前本体、原业务文档和内置补充文档 |
+| `GET` | `/ontology/jobs/{jobId}/versions` | 沿 `baseJobId` 整理版本链、变更摘要与相对父版本新增节点 |
 | `POST` | `/ontology/jobs/{jobId}/updates` | 上传/选择补充文档和四类范围，异步执行拆分与候选分析 |
 | `GET` | `/ontology/jobs/{jobId}/updates/{updateId}/plan` | 读取节点级新增/修改、来源和依赖方案 |
 | `POST` | `/ontology/jobs/{jobId}/updates/{updateId}/preview` | 校验选择与依赖闭包并返回临时 schema 图 |
