@@ -60,7 +60,7 @@
 
 .ontologyAddElement{position:relative}
 .ontologyAddElementMenu[hidden]{display:none!important}
-.ontologyAddElementMenu{position:absolute;z-index:75;top:38px;left:0;width:270px;padding:7px;border:1px solid rgba(90,176,255,.28);border-radius:12px;background:rgba(8,19,42,.98);box-shadow:0 20px 55px rgba(0,7,25,.55);display:grid;gap:3px}
+.ontologyAddElementMenu{position:fixed;z-index:75;top:112px;left:286px;width:270px;padding:7px;border:1px solid rgba(90,176,255,.28);border-radius:12px;background:rgba(8,19,42,.98);box-shadow:0 20px 55px rgba(0,7,25,.55);display:grid;gap:3px}
 .ontologyWorkbenchToolbar .ontologyAddElementMenu button{width:100%;height:auto;min-height:51px;padding:8px 10px;border:0;border-radius:8px;background:transparent;display:grid;grid-template-columns:27px 1fr;gap:9px;align-items:center;text-align:left;color:#d6e3f7}
 .ontologyWorkbenchToolbar .ontologyAddElementMenu button:hover,.ontologyWorkbenchToolbar .ontologyAddElementMenu button:focus-visible{background:rgba(90,176,255,.11);outline:none}
 .ontologyWorkbenchToolbar .ontologyAddElementMenu button>span:last-child{display:flex;flex-direction:column;gap:2px}
@@ -85,4 +85,5 @@
 @media (max-width:1050px){
   .ontologyIdentityWrap,.ontologyIdentity,.ontologyRulePanel,.ontologyRulePanel.collapsed{width:238px}
   .ontologyIdentity>strong{max-width:185px}
+  .ontologyAddElementMenu{left:266px}
 }

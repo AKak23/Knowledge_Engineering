@@ -2462,7 +2462,7 @@ function welcome(){
   const body = addAiContainer();
   const wrap = document.createElement('div');
   wrap.className = 'ans';
-  wrap.innerHTML = '<div class="ans-head">欢迎使用 OntoMind</div><div class="ans-body"><p>请上传待分析文档构建本体，或上传已有本体 JSON / JSONL 直接加载图谱。</p><p style="color:var(--mute);margin-top:4px">本体加载后，所有问题都会基于当前本体发送到后端问答接口，并回传可高亮的节点与关系。</p></div>';
+  wrap.innerHTML = '<div class="ans-head">欢迎使用 KnoVa</div><div class="ans-body"><p>请上传待分析文档构建本体，或上传已有本体 JSON / JSONL 直接加载图谱。</p><p style="color:var(--mute);margin-top:4px">本体加载后，所有问题都会基于当前本体发送到后端问答接口，并回传可高亮的节点与关系。</p></div>';
   body.appendChild(wrap);
   refreshSuggestions();
 }
