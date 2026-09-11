@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KnoVa · 梧桐·本体智能平台</title>
+<link rel="stylesheet" href="assets/app.css?v=20260904-panel-layout-v21">
+<link rel="stylesheet" href="assets/ontology-update.css?v=20260904-ontology-update-v2">
+<link rel="stylesheet" href="assets/ontology-history.css?v=20260907-brand-menu-v4">
+<link rel="stylesheet" href="workspace.css?v=20260911-focused">
+</head>
+<body>
+<div class="app" id="appRoot" data-page="main">
+  <section class="left">
+    <div id="graph"></div>
+    <section class="ontologyCanvas2d" id="ontologyCanvas2d" aria-label="可编辑本体画布" hidden>
+      <div class="ontologyCanvasStage" id="ontologyCanvasStage">
+        <svg class="ontologyCanvasEdges" id="ontologyCanvasEdges" aria-hidden="true"></svg>
+        <div class="ontologyCanvasNodes" id="ontologyCanvasNodes"></div>
+      </div>
+      <div class="ontologyCanvasEmpty" id="ontologyCanvasEmpty" hidden>
+        <span aria-hidden="true">◇</span>
+        <strong>当前本体画布为空</strong>
+        <small>可从顶部“添加元素”创建对象、规则或行动，并通过“流程 / 关系”连接它们。</small>
+      </div>
+    </section>
+    <section class="ontologyInstance2d" id="ontologyInstance2d" aria-label="本体实例二维视图" hidden>
+      <div class="instance2dStage" id="instance2dStage">
+        <svg class="instance2dEdges" id="instance2dEdges" aria-hidden="true"></svg>
+        <div class="instance2dNodes" id="instance2dNodes"></div>
+      </div>
+      <div class="ontologyCanvasEmpty" id="instance2dEmpty" hidden>
+        <span aria-hidden="true">◎</span>
+        <strong>当前本体还没有可展示的实例</strong>
+        <small>完成实例抽取后，可在这里查看二维关系网络。</small>
+      </div>
+    </section>
+    <div class="compareGraphStack" id="compareGraphStack" aria-label="模型对比本体展示">
+      <div class="compareGraphPane" data-slot="0">
+        <div class="compareGraphHeader">
+          <span class="compareModelName" id="compareGraphName0">模型一</span>
+          <span class="compareGraphMeta" id="compareGraphMeta0">等待构建</span>
+        </div>
+        <div class="compareGraphCanvas" id="compareGraph0"></div>
+      </div>
+      <div class="compareGraphPane" data-slot="1">
+        <div class="compareGraphHeader">
+          <span class="compareModelName" id="compareGraphName1">模型二</span>
+          <span class="compareGraphMeta" id="compareGraphMeta1">等待构建</span>
+        </div>
+        <div class="compareGraphCanvas" id="compareGraph1"></div>
+      </div>
+      <div class="compareGraphPane" data-slot="2">
+        <div class="compareGraphHeader">
+          <span class="compareModelName" id="compareGraphName2">模型三</span>
+          <span class="compareGraphMeta" id="compareGraphMeta2">等待构建</span>
+        </div>
+        <div class="compareGraphCanvas" id="compareGraph2"></div>
+      </div>
+    </div>
+
+    <div class="topbar">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="url(#brandGradient)" stroke-width="1.6" stroke-linecap="round">
+          <defs><linearGradient id="brandGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5ab0ff"/><stop offset="1" stop-color="#8ef0c5"/>
+          </linearGradient></defs>
+          <circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="8" ry="3.2"/>
+          <ellipse cx="12" cy="12" rx="3.2" ry="8"/><circle cx="12" cy="12" r="1.6" fill="#8ef0c5" stroke="none"/>
+        </svg>
+        <div class="t">KnoVa</div>
+        <div class="s">梧桐·本体智能平台</div>
+      </div>
+    </div>
+
+    <nav class="ontologyWorkbenchToolbar" id="ontologyWorkbenchToolbar" aria-label="本体画布工具栏">
+      <button type="button" data-workbench-command="new-ontology"><span>＋</span>新建本体</button>
+      <button id="ontologySourcesButton" type="button" data-workbench-command="ontology-sources" disabled><span>◈</span>本体数据源</button>
+      <i aria-hidden="true"></i>
+      <div class="ontologyAddElement" id="ontologyAddElement">
+        <button id="ontologyAddElementButton" type="button" data-workbench-command="add-element" aria-expanded="false" aria-controls="ontologyAddElementMenu"><span>＋</span>添加元素<i aria-hidden="true">⌄</i></button>
+        <div class="ontologyAddElementMenu" id="ontologyAddElementMenu" role="menu" hidden>
+          <button type="button" role="menuitem" data-workbench-command="new-object"><span class="toolbarShape object"></span><span><strong>对象</strong><small>添加实体、属性与数据挂载</small></span></button>
+          <button type="button" role="menuitem" data-workbench-command="new-rule"><span class="toolbarShape rule"></span><span><strong>规则</strong><small>添加判定条件与指标逻辑</small></span></button>
+          <button type="button" role="menuitem" data-workbench-command="new-action"><span class="toolbarShape action"></span><span><strong>行动</strong><small>添加任务、API 或反馈动作</small></span></button>
+          <button type="button" role="menuitem" data-workbench-command="new-relation"><span class="toolbarRelation">↗</span><span><strong>流程 / 关系</strong><small>依次选择起点和终点建立连接</small></span></button>
+        </div>
+      </div>
+      <i aria-hidden="true"></i>
+      <button class="primary" type="button" data-workbench-command="save"><span>▣</span><b>保存本体</b></button>
+    </nav>
+
+    <div class="ontologyIdentityWrap">
+      <button class="ontologyIdentity" id="ontologyIdentity" type="button" aria-expanded="false" aria-controls="ontologyVersionPanel">
+        <span>当前本体</span>
+        <strong id="globalOntologyName">尚未加载本体</strong>
+        <em id="globalOntologyVersion">未形成版本</em>
+        <i aria-hidden="true">⌄</i>
+      </button>
+      <aside class="ontologyVersionPanel" id="ontologyVersionPanel" aria-label="本体修改历史" hidden>
+        <header>
+          <div><span>ONTOLOGY VERSION HISTORY</span><strong>本体修改历史</strong></div>
+          <button id="ontologyVersionClose" type="button" aria-label="关闭本体修改历史">×</button>
+        </header>
+        <div class="ontologyVersionSummary" id="ontologyVersionSummary"></div>
+        <div class="ontologyVersionList" id="ontologyVersionList"></div>
+        <footer>文档追加会形成可切换的新版本；本地人工草稿将在服务端工作区版本接入后纳入历史。</footer>
+      </aside>
+    </div>
+
+    <aside class="ontologyRulePanel" id="ontologyRulePanel" aria-label="本体规则列表">
+      <header>
+        <div>
+          <span>ONTOLOGY RULES</span>
+          <strong>本体规则列表</strong>
+        </div>
+        <b id="ontologyRuleCount">0</b>
+        <button id="ontologyRulePanelToggle" type="button" title="收起规则内容" aria-label="收起规则内容" aria-expanded="true">⌃</button>
+      </header>
+      <div class="ontologyRuleList" id="ontologyRuleList">
+        <div class="ontologyRuleEmpty">当前本体尚未配置规则</div>
+      </div>
+    </aside>
+
+    <aside class="legend" id="legend">
+      <header class="ontologyLegendHeader">
+        <div><span>ONTOLOGY LEGEND</span><strong>本体图例</strong></div>
+        <button id="ontologyLegendToggle" type="button" title="收起本体图例" aria-label="收起本体图例" aria-expanded="true">⌃</button>
+      </header>
+      <div class="ontologyLegendContent" id="ontologyLegendContent">
+        <section>
+          <h4>节点类型</h4>
+          <div class="legendRows" id="legendRows"></div>
+          <div class="canvasLegendRow versionAddedLegend" id="versionAddedLegend" hidden><span class="canvasLegendVersionAdded"></span><span>本版本新增</span><em id="versionAddedCount">0</em></div>
+          <div class="stats">
+            <div class="s"><div class="n" id="nCount">0</div><div class="l">节点</div></div>
+            <div class="s"><div class="n g" id="eCount">0</div><div class="l">关系</div></div>
+          </div>
+        </section>
+        <section class="ontologyLegendRelations">
+          <h4>元素连接</h4>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation object-object"></span><span>对象 → 对象</span></div>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation object-rule"></span><span>对象 → 规则</span></div>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation rule-action"></span><span>规则 → 行动</span></div>
+          <div class="canvasLegendRow"><span class="canvasLegendRelation action-object"></span><span>行动 ↔ 对象</span></div>
+        </section>
+      </div>
+    </aside>
+
+    <div class="toolbar">
+      <div class="viewSwitch" role="group" aria-label="图谱层级">
+        <button class="viewOption active" id="viewSchema" type="button">本体画布</button>
+        <button class="viewOption" id="viewInstance" type="button">本体实例</button>
+      </div>
+      <div class="viewSwitch dimensionSwitch" id="viewDimensionSwitch" role="group" aria-label="视图维度">
+        <button class="viewOption dimensionOption active" id="viewDimension2d" type="button">2D</button>
+        <button class="viewOption dimensionOption" id="viewDimension3d" type="button">3D</button>
+      </div>
+      <button class="tool ontologyAgentBottom" id="ontologyAgentButton" type="button" data-workbench-command="ontology-agents"><span aria-hidden="true">✦</span>本体智能体</button>
+      <div class="canvasZoomControls" id="canvasZoomControls" role="group" aria-label="本体画布缩放" hidden>
+        <button class="tool" id="canvasZoomOut" type="button" aria-label="缩小本体画布">−</button>
+        <output id="canvasZoomValue" aria-live="polite">100%</output>
+        <button class="tool" id="canvasZoomIn" type="button" aria-label="放大本体画布">＋</button>
+      </div>
+      <button class="tool" id="btnReset" type="button">重置视图</button>
+      <button class="tool active" id="btnRotate" type="button">自动旋转：开</button>
+      <button class="tool" id="btnLabels" type="button">节点标签：关</button>
+      <button class="tool" id="btnClear" type="button">清除高亮</button>
+    </div>
+
+    <div class="hint" id="graphHint"></div>
+
+    <div class="infocard" id="infoCard">
+      <div class="ic-head">
+        <span class="ic-badge" id="icBadge">-</span>
+        <div class="ic-title" id="icTitle">-</div>
+        <button class="ic-close" id="icClose" type="button">x</button>
+      </div>
+      <div class="ic-sub" id="icSub">点击图中节点查看详情</div>
+      <div class="ic-sec">属性</div>
+      <div class="ic-attrs" id="icAttrs"></div>
+      <div class="ic-sec">出向关系</div>
+      <div class="ic-edges" id="icOut"></div>
+      <div class="ic-sec">入向关系</div>
+      <div class="ic-edges" id="icIn"></div>
+    </div>
+  </section>
+
+  <section class="right" id="chatPanel">
+    <div class="rhead">
+      <div>
+        <div class="t" id="dialogTitle">对话</div>
+        <div class="sub" id="ontologyName">等待构建本体</div>
+      </div>
+      <div class="pageSwitch" role="group" aria-label="页面切换">
+        <button class="pageOption active" id="pageMainBtn" type="button">主界面</button>
+        <button class="pageOption" id="pageCompareBtn" type="button">模型对比</button>
+      </div>
+      <button class="panelToggle active" id="buildPanelToggle" type="button" aria-expanded="true">构建设置</button>
+      <div class="s"><span class="status" id="serverStatus">连接后端中</span></div>
+      <button class="chatPanelToggle" id="chatPanelToggle" type="button" aria-controls="chatPanel" aria-expanded="true" title="收起右侧对话栏" aria-label="收起右侧对话栏">›</button>
+    </div>
+
+    <div class="buildPanel">
+      <div class="buildPanelHead">
+        <span>模型设置</span>
+        <button class="panelClose" id="buildPanelClose" type="button" title="收起构建设置" aria-label="收起构建设置">x</button>
+      </div>
+      <div class="controls">
+        <label class="backendField">
+          <span>本体构建模型</span>
+          <select id="backendSelect">
+            <option value="qwen-plus">Qwen-Plus</option>
+            <option value="deepseek" selected>DeepSeek-V4</option>
+            <option value="kimi">Kimi K3</option>
+          </select>
+        </label>
+        <label class="qaBackendField">
+          <span>问答推理模型</span>
+          <select id="qaBackendSelect">
+            <option value="qwen-plus">Qwen-Plus</option>
+            <option value="deepseek" selected>DeepSeek-V4</option>
+            <option value="kimi">Kimi K3</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div id="ontologyBuildWorkflowParking" hidden>
+      <section class="ontologyBuildWorkflow" id="ontologyBuildWorkflow" hidden>
+        <select id="profileSelect" aria-label="本体构建配置" hidden>
+          <option value="default">通用本体</option>
+        </select>
+        <label class="promptField ontologyDescriptionField">
+          <span>本体描述</span>
+          <textarea id="supplementalPrompt" name="description" rows="3" maxlength="4000" placeholder="描述本体的业务范围、对象边界和构建目标"></textarea>
+        </label>
+        <div class="ontologyBuildWorkflowGrid">
+          <section>
+            <span class="ontologyBuildWorkflowTitle">从文档构建</span>
+            <button class="uploadMain" id="uploadBtn" type="button">
+              <span>选择构建文档</span>
+              <small>支持多选或拖拽上传</small>
+            </button>
+            <input id="fileInput" type="file" accept=".txt,.md,.markdown,.pdf,.docx,.log,.json,.jsonl" multiple hidden>
+            <details class="fileListWrap" id="fileListWrap">
+              <summary>
+                <span id="fileListSummary">尚未选择文档</span>
+                <button class="clearFilesBtn" id="clearFilesBtn" type="button">清空</button>
+              </summary>
+              <div class="fileList" id="fileList"></div>
+            </details>
+            <button class="startBuildBtn" id="startBuildBtn" type="button" disabled>开始构建本体</button>
+          </section>
+          <section>
+            <span class="ontologyBuildWorkflowTitle">从配置或本体导入</span>
+            <button class="uploadMain secondary" id="structuredConfigUploadBtn" type="button">
+              <span>上传结构化配置</span>
+              <small>支持 YAML / YML</small>
+            </button>
+            <input id="structuredConfigInput" type="file" accept=".yaml,.yml,application/x-yaml,text/yaml,text/x-yaml" hidden>
+            <button class="uploadMain secondary" id="ontologyUploadBtn" type="button">
+              <span>上传已有本体</span>
+              <small>支持 JSON / JSONL</small>
+            </button>
+            <input id="ontologyInput" type="file" accept=".json,.jsonl,application/json,application/jsonl" hidden>
+          </section>
+        </div>
+        <section class="ontologyHistoryWorkflow">
+          <span class="ontologyBuildWorkflowTitle">加载已有本体</span>
+          <div class="historyLoad">
+            <select id="historySelect" aria-label="历史构建结果">
+              <option value="">暂无历史构建结果</option>
+            </select>
+            <button class="historyBtn" id="historyLoadBtn" type="button" disabled>加载</button>
+            <button class="historyBtn" id="historyReplayBtn" type="button" disabled>回放</button>
+            <button class="historyBtn icon" id="historyRefreshBtn" type="button" title="刷新历史结果" aria-label="刷新历史结果">↻</button>
+          </div>
+        </section>
+        <div class="jobMeta" id="jobMeta"></div>
+        <div class="progress" id="progressWrap"><div id="progressBar"></div></div>
+        <div class="buildStageLog" id="buildStageLog" aria-live="polite" hidden></div>
+      </section>
+      <div class="compareModelSet" hidden aria-hidden="true">
+        <select id="compareBackend0"><option value="jiutian" selected>九天LOM</option></select>
+        <select id="compareBackend1"><option value="jiutian-35b" selected>九天大模型-35B</option></select>
+        <select id="compareBackend2"><option value="qwen-32b" selected>Qwen-32B</option></select>
+      </div>
+    </div>
+
+    <div class="suggestions" id="suggestions"></div>
+    <div class="msgs" id="msgs"></div>
+    <div class="compareChat" id="compareChat" aria-label="模型对话对比">
+      <section class="compareChatCol">
+        <div class="compareChatHead">
+          <span id="compareChatName0">模型一</span>
+          <small id="compareChatStatus0">等待构建</small>
+        </div>
+        <div class="compareMsgs" id="compareMsgs0"></div>
+      </section>
+      <section class="compareChatCol">
+        <div class="compareChatHead">
+          <span id="compareChatName1">模型二</span>
+          <small id="compareChatStatus1">等待构建</small>
+        </div>
+        <div class="compareMsgs" id="compareMsgs1"></div>
+      </section>
+      <section class="compareChatCol">
+        <div class="compareChatHead">
+          <span id="compareChatName2">模型三</span>
+          <small id="compareChatStatus2">等待构建</small>
+        </div>
+        <div class="compareMsgs" id="compareMsgs2"></div>
+      </section>
+    </div>
+
+    <div class="inputwrap">
+      <form class="inputbar" id="form">
+        <input id="q" autocomplete="off" placeholder="本体构建完成后，可围绕节点、关系或业务链路提问" />
+        <button class="send" id="send" type="submit" disabled>发送</button>
+        <button class="clearChatBtn" id="clearChatBtn" type="button" title="清除当前对话" aria-label="清除当前对话">清屏</button>
+      </form>
+      <div class="inputnote" id="inputNote">主界面使用当前本体问答；对比页会把同一个问题同步发送到三个模型</div>
+    </div>
+  </section>
+</div>
+
+<div class="ontologyAgentModal" id="ontologyAgentModal" role="dialog" aria-modal="true" aria-labelledby="ontologyAgentTitle" hidden>
+  <section class="ontologyAgentDialog">
+    <header class="ontologyAgentHeader">
+      <div class="ontologyAgentHeaderMark" aria-hidden="true">✦</div>
+      <div>
+        <span>KNoVa ONTOLOGY AGENT</span>
+        <h2 id="ontologyAgentTitle">本体智能体</h2>
+        <p id="ontologyAgentSubtitle">管理基于已构建本体的协同智能体</p>
+      </div>
+      <button class="ontologyAgentClose" id="ontologyAgentClose" type="button" aria-label="关闭">×</button>
+    </header>
+    <main class="ontologyAgentBody" id="ontologyAgentBody"></main>
+    <footer class="ontologyAgentFooter" id="ontologyAgentFooter"></footer>
+  </section>
+</div>
+
+<div class="workbenchModal" id="workbenchModal" role="dialog" aria-modal="true" aria-labelledby="workbenchModalTitle" hidden>
+  <div class="workbenchDialog">
+    <form id="workbenchForm">
+      <header>
+        <div>
+          <span class="workbenchDialogKicker" id="workbenchModalKicker">ONTOLOGY WORKBENCH</span>
+          <h2 id="workbenchModalTitle">本体配置</h2>
+          <p id="workbenchModalSubtitle">配置将先保存在当前浏览器的本体草稿中</p>
+        </div>
+        <button class="workbenchDialogClose" id="workbenchModalClose" type="button" aria-label="关闭">×</button>
+      </header>
+      <main id="workbenchModalBody"></main>
+      <footer>
+        <button class="workbenchDanger" id="workbenchModalDelete" type="button" hidden>删除</button>
+        <span id="workbenchModalHint">第一阶段仅保存前端草稿，不修改后端构建结果。</span>
+        <button id="workbenchModalCancel" type="button">取消</button>
+        <button class="workbenchPrimary" type="submit">保存配置</button>
+      </footer>
+    </form>
+  </div>
+</div>
+
+<div class="ontologyUpdateModal" id="ontologyUpdateModal" role="dialog" aria-modal="true" aria-labelledby="ontologyUpdateTitle" hidden>
+  <section class="ontologyUpdateDialog">
+    <header class="ontologyUpdateHeader">
+      <div>
+        <span>KNOVA ONTOLOGY EVOLUTION</span>
+        <h2 id="ontologyUpdateTitle">补充文档更新本体</h2>
+        <p id="ontologyUpdateSubtitle">AI 先生成节点级变更方案，确认前不会修改当前画布。</p>
+      </div>
+      <button class="ontologyUpdateClose" id="ontologyUpdateClose" type="button" aria-label="关闭">×</button>
+    </header>
+    <nav class="ontologyUpdateSteps" id="ontologyUpdateSteps" aria-label="本体更新步骤"></nav>
+    <main class="ontologyUpdateBody" id="ontologyUpdateBody"></main>
+    <footer class="ontologyUpdateFooter">
+      <span id="ontologyUpdateFooterHint">请选择至少一份补充文档。</span>
+      <button id="ontologyUpdateSecondary" type="button" hidden>返回上一步</button>
+      <button class="primary" id="ontologyUpdatePrimary" type="button" disabled>分析更新影响</button>
+    </footer>
+  </section>
+</div>
+
+<aside class="ontologyUpdatePreviewBar" id="ontologyUpdatePreviewBar" aria-live="polite" hidden>
+  <div>
+    <span>更新预览 · 尚未确认</span>
+    <strong id="ontologyUpdatePreviewSummary">已将选中变更应用到画布预览</strong>
+  </div>
+  <button id="ontologyUpdatePreviewBack" type="button">返回变更方案</button>
+  <button class="primary" id="ontologyUpdateConfirm" type="button">确认更新本体</button>
+</aside>
+
+<div class="workbenchToast" id="workbenchToast" role="status" aria-live="polite"></div>
+<div class="ontologySaveReceipt" id="ontologySaveReceipt" role="status" aria-live="polite" hidden>
+  <span class="ontologySaveReceiptMark" aria-hidden="true">✓</span>
+  <div>
+    <small>当前本体已保存</small>
+    <strong id="ontologySaveReceiptName">未命名本体</strong>
+  </div>
+  <button id="ontologySaveReceiptClose" type="button" aria-label="关闭保存提示">×</button>
+</div>
+
+<script src="https://unpkg.com/three@0.152.0/build/three.min.js"></script>
+<script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
+<script src="assets/mock-ontology.js?v=20260827-industrial-v2"></script>
+<script src="assets/app.js?v=20260907-brand-v21"></script>
+<script src="assets/ontology-workbench.js?v=20260904-panel-layout-v2"></script>
+<script src="assets/ontology-update.js?v=20260904-ontology-update-v2"></script>
+<script src="assets/ontology-agent.js?v=20260902-view-controls-v20"></script>
+<script src="assets/ontology-history.js?v=20260904-version-history-v2"></script>
+<script src="workspace.js?v=20260911-focused"></script>
+</body>
+</html>

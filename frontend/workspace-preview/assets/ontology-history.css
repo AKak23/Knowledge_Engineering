@@ -1,0 +1,89 @@
+.ontologyIdentityWrap{position:absolute;left:18px;top:112px;z-index:6;width:258px;pointer-events:auto}
+.ontologyIdentity{width:258px;height:48px;padding:7px 34px 7px 12px;border:1px solid rgba(90,176,255,.28);border-radius:12px;background:linear-gradient(135deg,rgba(18,36,72,.92),rgba(10,21,46,.92));color:#dce8ff;display:grid;grid-template-columns:auto 1fr;grid-template-rows:16px 18px;column-gap:9px;text-align:left;position:relative;box-shadow:0 10px 28px rgba(2,10,29,.28);cursor:pointer}
+.ontologyIdentity:hover,.ontologyIdentity[aria-expanded="true"]{border-color:rgba(90,176,255,.65);background:linear-gradient(135deg,rgba(25,51,98,.96),rgba(12,27,58,.96))}
+.ontologyIdentity>span{font-size:9px;color:#7894bd;letter-spacing:.08em;grid-row:1}
+.ontologyIdentity>strong{font-size:12px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;grid-row:2;grid-column:1/3;max-width:205px}
+.ontologyIdentity>em{font-style:normal;font-size:10px;color:#8ef0c5;align-self:center;justify-self:end;grid-row:1;grid-column:2;white-space:nowrap}
+.ontologyIdentity>i{position:absolute;right:11px;top:16px;font-style:normal;color:#7f9ac2;transition:transform .18s ease}
+.ontologyIdentity[aria-expanded="true"]>i{transform:rotate(180deg)}
+.ontologyVersionPanel[hidden]{display:none!important}
+.ontologyVersionPanel{position:absolute;z-index:80;top:56px;left:0;width:min(440px,calc(100vw - 40px));max-height:min(680px,calc(100vh - 188px));display:flex;flex-direction:column;border:1px solid rgba(90,176,255,.3);border-radius:15px;background:linear-gradient(180deg,rgba(10,22,48,.99),rgba(6,15,34,.99));box-shadow:0 25px 70px rgba(0,6,23,.6);overflow:hidden;color:#dce8ff}
+.ontologyVersionPanel>header{padding:16px 16px 12px;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:1px solid rgba(107,139,189,.15)}
+.ontologyVersionPanel>header div{display:flex;flex-direction:column;gap:3px}
+.ontologyVersionPanel>header span{font-size:9px;letter-spacing:.15em;color:#5ab0ff}
+.ontologyVersionPanel>header strong{font-size:16px}
+.ontologyVersionPanel>header button{width:30px;height:30px;border-radius:8px;border:1px solid rgba(118,147,190,.25);background:rgba(255,255,255,.03);color:#a9bad3;font-size:18px;cursor:pointer}
+.ontologyVersionSummary{margin:12px 14px 2px;padding:11px 12px;border-radius:10px;background:rgba(90,176,255,.07);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ontologyVersionSummary strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ontologyVersionSummary span{font-size:10px;color:#91a7c9;white-space:nowrap}
+.ontologyVersionList{padding:8px 14px 14px;overflow:auto;overscroll-behavior:contain}
+.ontologyVersionItem{display:grid;grid-template-columns:18px 1fr;position:relative}
+.ontologyVersionRail{display:flex;justify-content:center;position:relative}
+.ontologyVersionRail:before{content:"";position:absolute;top:0;bottom:0;width:1px;background:rgba(90,176,255,.2)}
+.ontologyVersionRail span{position:relative;z-index:1;width:8px;height:8px;margin-top:21px;border:2px solid #45658e;border-radius:50%;background:#0a1731}
+.ontologyVersionItem.active .ontologyVersionRail span{border-color:#8ef0c5;background:#3db583;box-shadow:0 0 0 5px rgba(142,240,197,.1)}
+.ontologyVersionCard{margin:5px 0 7px 6px;padding:11px 12px;border:1px solid rgba(107,139,189,.18);border-radius:11px;background:rgba(14,29,59,.65);position:relative}
+.ontologyVersionItem.active .ontologyVersionCard{border-color:rgba(142,240,197,.38);background:linear-gradient(135deg,rgba(21,59,72,.48),rgba(14,30,61,.8))}
+.ontologyVersionCard header{display:flex;align-items:center;justify-content:space-between}
+.ontologyVersionCard header div{display:flex;align-items:center;gap:8px}
+.ontologyVersionCard header b{padding:3px 7px;border-radius:6px;background:rgba(90,176,255,.12);color:#72bdff;font-size:10px}
+.ontologyVersionCard header strong{font-size:12px}
+.ontologyVersionCard header em{font-style:normal;font-size:9px;color:#8ef0c5;border:1px solid rgba(142,240,197,.25);border-radius:999px;padding:2px 7px}
+.ontologyVersionCard p{margin:8px 0 7px;color:#aebfda;font-size:10px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ontologyVersionMetrics{display:flex;gap:6px;flex-wrap:wrap}
+.ontologyVersionMetrics span{font-size:9px;color:#8fa5c8;padding:3px 6px;border-radius:5px;background:rgba(255,255,255,.035)}
+.ontologyVersionMetrics span.added{color:#8ef0c5;background:rgba(77,202,151,.09)}
+.ontologyVersionCard footer{margin-top:8px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:9px;color:#6f87ab}
+.ontologyVersionCard footer b{font-weight:500;color:#91a7c9;white-space:nowrap}
+.ontologyVersionCard>button{margin-top:9px;width:100%;height:28px;border:1px solid rgba(90,176,255,.28);border-radius:7px;background:rgba(90,176,255,.08);color:#92c8ff;font-size:10px;cursor:pointer}
+.ontologyVersionCard>button:hover{border-color:#5ab0ff;background:rgba(90,176,255,.15)}
+.ontologyVersionCard>button:disabled{opacity:.55;cursor:wait}
+.ontologyVersionEmpty{min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#7890b5}
+.ontologyVersionEmpty>span{font-size:26px;color:#4d6892;margin-bottom:8px}
+.ontologyVersionEmpty strong{font-size:12px;color:#aebfda}
+.ontologyVersionEmpty small{margin-top:6px;max-width:280px;font-size:10px;line-height:1.6}
+.ontologyVersionPanel>footer{padding:10px 14px;border-top:1px solid rgba(107,139,189,.14);font-size:9px;line-height:1.5;color:#7189ad;background:rgba(5,13,30,.72)}
+
+.legend{width:230px;min-width:230px;max-width:230px;max-height:min(540px,calc(100vh - 90px));padding:0;overflow:hidden}
+.ontologyLegendHeader{height:48px;padding:9px 10px 9px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+.ontologyLegendHeader>div{min-width:0;display:flex;flex-direction:column;gap:2px}
+.ontologyLegendHeader span{color:var(--acc);font-size:8px;letter-spacing:1.1px}
+.ontologyLegendHeader strong{font-size:13px;color:#edf2ff;white-space:nowrap}
+.ontologyLegendHeader button{margin-left:auto;width:26px;height:26px;padding:0;border:1px solid var(--line);border-radius:7px;color:var(--mute);background:rgba(255,255,255,.03);cursor:pointer;font-size:14px;line-height:1}
+.ontologyLegendHeader button:hover{color:#fff;border-color:var(--acc)}
+.ontologyLegendContent{max-height:calc(min(540px,100vh - 90px) - 48px);padding:10px 12px 11px;overflow:auto;scrollbar-color:#29345f transparent}
+.legend .ontologyLegendContent h4{margin:0 0 7px;color:#92a4c7;font-size:10px;font-weight:550;letter-spacing:.5px}
+.ontologyLegendRelations{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.legend.collapsed{max-height:48px}
+.legend.collapsed .ontologyLegendHeader{border-bottom:0}
+.legend.collapsed .ontologyLegendContent{display:none}
+
+.ontologyAddElement{position:relative}
+.ontologyAddElementMenu[hidden]{display:none!important}
+.ontologyAddElementMenu{position:fixed;z-index:75;top:112px;left:286px;width:270px;padding:7px;border:1px solid rgba(90,176,255,.28);border-radius:12px;background:rgba(8,19,42,.98);box-shadow:0 20px 55px rgba(0,7,25,.55);display:grid;gap:3px}
+.ontologyWorkbenchToolbar .ontologyAddElementMenu button{width:100%;height:auto;min-height:51px;padding:8px 10px;border:0;border-radius:8px;background:transparent;display:grid;grid-template-columns:27px 1fr;gap:9px;align-items:center;text-align:left;color:#d6e3f7}
+.ontologyWorkbenchToolbar .ontologyAddElementMenu button:hover,.ontologyWorkbenchToolbar .ontologyAddElementMenu button:focus-visible{background:rgba(90,176,255,.11);outline:none}
+.ontologyWorkbenchToolbar .ontologyAddElementMenu button>span:last-child{display:flex;flex-direction:column;gap:2px}
+.ontologyWorkbenchToolbar .ontologyAddElementMenu button strong{font-size:11px;font-weight:650}
+.ontologyWorkbenchToolbar .ontologyAddElementMenu button small{font-size:9px;color:#7089af;font-weight:400}
+.ontologyAddElementButton i,.ontologyAddElement>button i{font-style:normal;font-size:9px;margin-left:3px;transition:transform .18s ease}
+.ontologyAddElement>button[aria-expanded="true"] i{transform:rotate(180deg)}
+.toolbarShape{display:block;width:16px;height:16px;margin:auto;background:currentColor!important;box-shadow:0 0 10px currentColor}
+.toolbarShape.object{color:#5ab0ff;border-radius:50%}
+.toolbarShape.rule{color:#c792ea;transform:rotate(45deg);border-radius:2px}
+.toolbarShape.action{color:#ff7aa8;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.toolbarRelation{display:block;margin:auto;color:#8ef0c5!important;font-size:20px!important;text-shadow:0 0 12px rgba(142,240,197,.5)}
+
+.ontologyNode.version-added{z-index:4}
+.ontologyNode.version-added .ontologyNodeContent{border-color:#75f0b9!important;box-shadow:0 0 0 2px rgba(117,240,185,.22),0 0 26px rgba(80,223,161,.34)!important}
+.ontologyNode.version-added:after{content:"本版本新增";position:absolute;right:-10px;top:-14px;padding:3px 6px;border:1px solid rgba(142,240,197,.55);border-radius:999px;background:#0d3a34;color:#a9ffda;font-size:8px;font-weight:700;letter-spacing:.03em;white-space:nowrap;box-shadow:0 5px 14px rgba(0,20,17,.42);pointer-events:none}
+.canvasLegendVersionAdded{width:17px;height:12px;border:2px solid #75f0b9;border-radius:4px;box-shadow:0 0 9px rgba(117,240,185,.5)}
+.versionAddedLegend em{margin-left:auto;font-style:normal;color:#8ef0c5;font-size:9px}
+.versionAddedLegend[hidden]{display:none!important}
+.app[data-page="compare"] .ontologyIdentityWrap{display:none}
+
+@media (max-width:1050px){
+  .ontologyIdentityWrap,.ontologyIdentity,.ontologyRulePanel,.ontologyRulePanel.collapsed{width:238px}
+  .ontologyIdentity>strong{max-width:185px}
+  .ontologyAddElementMenu{left:266px}
+}

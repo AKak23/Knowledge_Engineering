@@ -15,7 +15,7 @@ import click
 import yaml
 from fastapi import BackgroundTasks, FastAPI, File, Form, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
@@ -335,6 +335,10 @@ def create_app():
         app.mount("/frontend", StaticFiles(directory=str(frontend_dir)), name="frontend")
 
     @app.get("/")
+    def workspace_index():
+        return RedirectResponse(url="/frontend/workspace-preview/index.html", status_code=307)
+
+    @app.get("/legacy")
     def frontend_index():
         if not index_path.exists():
             raise HTTPException(status_code=404, detail="Frontend index not found")
